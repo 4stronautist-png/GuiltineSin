@@ -185,7 +185,7 @@
 { id: 104031, className: "Hoplite36", name: "[Arts] Synchro Thrusting: Enhanced Upgrade", level: 1, passive: true, categories: ["Hoplite_SynchroThrusting"] },
 { id: 104032, className: "Hoplite37", name: "[Arts] Spear Throw: Enhanced Upgrade", level: 1, passive: true, categories: ["Hoplite_ThrouwingSpear"] },
 { id: 104033, className: "Hoplite38", name: "[Arts] Spear Lunge: Enhanced Upgrade", level: 1, passive: true, categories: ["Hoplite_SpearLunge"] },
-{ id: 104034, className: "Hoplite39", name: "Spear Expertise: Destroy Magic Circle", level: 1, passive: false },
+{ id: 104034, className: "Hoplite39", name: "[Pact of the Dragon]", level: 1, passive: false },
 { id: 104035, className: "Hoplite40", name: "[Arts] Synchro Thrusting: Repeated Hits", level: 1, passive: false, categories: ["Hoplite_SynchroThrusting"], modifiers: { "CoolDown": 15000 } },
 { id: 104036, className: "Hoplite41", name: "Hoplite: Accumulation", level: 1, passive: true },
 { id: 105001, className: "Barbarian17", name: "Embowel: Enhance", level: 1, passive: true, categories: ["Barbarian_Embowel"] },

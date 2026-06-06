@@ -148,7 +148,7 @@
 
 // Dragoon
 //---------------------------------------------------------------------------
-{ category: "Dragoon", classId: 1, abilityId: 104034, jobId: 1015, className: "Hoplite39", maxLevel: 1, priceTimeScript: 'ABIL_COMMON_PRICE_300LV', unlockScript: { name: "UNLOCK_BASE_LEVEL", argStr: "", argNum: 300 } },
+{ category: "Dragoon", classId: 1, abilityId: 104034, jobId: 1015, className: "Hoplite39", maxLevel: 1, priceTimeScript: 'ABIL_COMMON_PRICE_300LV', unlockScript: { name: "UNLOCK_DRAGON_PACT", argStr: "Requirement: Dragon Pact", argNum: 0 } },
 { category: "Dragoon", classId: 101, abilityId: 114001, jobId: 1015, className: "Dragoon1", maxLevel: 100, priceTimeScript: 'ABIL_REINFORCE_PRICE', unlockScript: { name: "UNLOCK_ABIL_SKILL", argStr: "Dragoon_Dragontooth", argNum: 1 } },
 { category: "Dragoon", classId: 201, abilityId: 114003, jobId: 1015, className: "Dragoon3", maxLevel: 100, priceTimeScript: 'ABIL_REINFORCE_PRICE', unlockScript: { name: "UNLOCK_ABIL_SKILL", argStr: "Dragoon_Serpentine", argNum: 1 } },
 { category: "Dragoon", classId: 301, abilityId: 114005, jobId: 1015, className: "Dragoon5", maxLevel: 100, priceTimeScript: 'ABIL_REINFORCE_PRICE', unlockScript: { name: "UNLOCK_ABIL_SKILL", argStr: "Dragoon_Gae_Bulg", argNum: 1 } },
