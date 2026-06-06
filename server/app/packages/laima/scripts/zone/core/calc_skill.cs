@@ -459,6 +459,24 @@ public class SkillCalculationsScript : GeneralScript
 		var sklSpdRate = skill.Properties.GetFloat(PropertyName.SklSpdRate, 1);
 		var baseValue = skill.Data.ShootTime.TotalMilliseconds;
 
+		if (skill.Owner.IsBuffActive(BuffId.Blitzkrieg_Buff))
+		{
+			switch (skill.Id)
+			{
+				case SkillId.BlitzHunter_VoltStrike_Archer:
+				case SkillId.BlitzHunter_VoltStrike_Scout:
+				case SkillId.BlitzHunter_VoltChain_Archer:
+				case SkillId.BlitzHunter_VoltChain_Scout:
+					baseValue = 500;
+					break;
+
+				case SkillId.BlitzHunter_TempestShot_Archer:
+				case SkillId.BlitzHunter_TempestShot_Scout:
+					baseValue = 1350;
+					break;
+			}
+		}
+
 		var result = (float)(baseValue / sklSpdRate);
 
 		if (skill.Owner is Mob mob && mob.Vars.TryGet<float>("Melia.ShootTimeMultiplier", out var mult))

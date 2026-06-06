@@ -73,7 +73,7 @@ namespace Melia.Zone.World.Actors.CombatEntities.Components
 		/// <returns>The started Cooldown instance.</returns>
 		public Cooldown Start(Skill skill)
 		{
-			var duration = skill.Data.CooldownTime;
+			var duration = skill.Properties.CoolDown;
 
 			// Apply any reductions specific to this skill.
 			if (_cooldownReductions.TryGetValue(skill.Id, out var reduction))
