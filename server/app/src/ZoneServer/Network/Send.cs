@@ -1786,7 +1786,7 @@ namespace Melia.Zone.Network
 				{
 					var first = (i == 0);
 					var minIndex = i * 5;
-					var maxIndex = (i + 1) * 5;
+					var maxIndex = Math.Min((i + 1) * 5, InventoryDefaults.EquipSlotCount);
 
 					// Seems like the byte is always 1 on the first packet and
 					// 0 on subsequent ones. Not quite sure what's up with the
