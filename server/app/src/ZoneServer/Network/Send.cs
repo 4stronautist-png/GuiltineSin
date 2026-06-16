@@ -779,6 +779,26 @@ namespace Melia.Zone.Network
 		}
 
 		/// <summary>
+		/// Sends interaction context used by certain client-side scripted skill
+		/// effects before their pad/effect packets arrive.
+		/// </summary>
+		/// <remarks>
+		/// The retail VoltChain capture uses a 12-byte payload with two leading
+		/// ushort values before the caster handle and distance float.
+		/// </remarks>
+		public static void ZC_InteractionInfo(IActor actor, ushort type, ushort unk, float distance)
+		{
+			using var packet = Packet.Rent(Op.ZC_InteractionInfo);
+
+			packet.PutShort((short)type);
+			packet.PutShort((short)unk);
+			packet.PutInt(actor.Handle);
+			packet.PutFloat(distance);
+
+			actor.Map.Broadcast(packet);
+		}
+
+		/// <summary>
 		/// Shows skill use for character, but allows substituting a different
 		/// skill id for the visual effects. Mainly intended for custom skills
 		/// and the like.
@@ -935,6 +955,44 @@ namespace Melia.Zone.Network
 			//if (targets != null && targetCount == 1)
 			//	packet.PutInt(targets.First().Handle);
 			//else
+			if (Versions.Protocol > 500)
+				packet.PutInt(0);
+
+			packet.PutPosition(targetPos);
+
+			packet.PutShort((short)(hits?.Count() ?? 0));
+			if (hits != null)
+			{
+				foreach (var hit in hits)
+					packet.AddSkillHitInfo(hit);
+			}
+
+			entity.Map.Broadcast(packet, entity);
+		}
+
+		public static void ZC_SKILL_MELEE_GROUND_VARIANT(ICombatEntity entity, Skill skill, Position targetPos, int variant, int forceId, IEnumerable<SkillHitInfo> hits)
+		{
+			var shootTime = skill.Properties.GetFloat(PropertyName.ShootTime);
+			var sklSpdRate = skill.Properties.GetFloatSafe(PropertyName.SklSpdRate);
+			var enableCastMove = skill.Properties.GetFloat(PropertyName.EnableShootMove) == 1f;
+
+			using var packet = Packet.Rent(Op.ZC_SKILL_MELEE_GROUND);
+
+			packet.PutInt((int)skill.Id);
+			packet.PutInt(entity.Handle);
+			packet.PutFloat(entity.Direction.Cos);
+			packet.PutFloat(entity.Direction.Sin);
+			packet.PutInt(variant);
+			packet.PutFloat(shootTime);
+			packet.PutFloat(1);
+
+			packet.PutByte(enableCastMove);
+			packet.PutByte(0);
+			packet.PutShort(0);
+
+			packet.PutInt(forceId);
+			packet.PutFloat(sklSpdRate);
+
 			if (Versions.Protocol > 500)
 				packet.PutInt(0);
 
@@ -3340,6 +3398,37 @@ namespace Melia.Zone.Network
 		}
 
 		/// <summary>
+		/// Plays the retail overload failure fullscreen cue used by Aether Blader's Arcane Collapse.
+		/// </summary>
+		/// <param name="actor"></param>
+		public static void ZC_PLAY_FULLSCREEN_EFFECT_AetherBladerArcaneCollapseFail(IActor actor)
+		{
+			using var packet = Packet.Rent(Op.ZC_PLAY_FULLSCREEN_EFFECT);
+
+			packet.PutInt(actor.Handle);
+			packet.PutBin(
+				0x43, 0x72, 0x61, 0x63, 0x6B, 0x45, 0x6C, 0x65, 0x63, 0x74, 0x72, 0x69, 0x63, 0x00, 0x01, 0x00,
+				0x00, 0x00, 0xF0, 0x45, 0xC1, 0xDB, 0x00, 0x00, 0x00, 0x00, 0x80, 0x90, 0xB6, 0xD2, 0x00, 0x00,
+				0x00, 0x00, 0xF0, 0x45, 0xC1, 0xDB, 0x00, 0x00, 0x00, 0x00, 0x31, 0x72, 0xBA, 0xA2, 0x2E, 0x95,
+				0x00, 0x00, 0x80, 0x90, 0xB6, 0xD2, 0x00, 0x00, 0x00, 0x00, 0xF0, 0x45, 0xC1, 0xDB, 0x00, 0x00,
+				0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x60, 0x06, 0x3D, 0x41, 0x01, 0x00,
+				0x00, 0x00, 0x60, 0xA8, 0xC4, 0xC7, 0x00, 0x00, 0x00, 0x00, 0x7C, 0xC5, 0x5F, 0x40, 0x01, 0x00,
+				0x00, 0x00, 0xB0, 0xD6, 0xA3, 0x00, 0x00, 0x00, 0x00, 0x00, 0xB0, 0xD6, 0xA3, 0x00, 0x00, 0x00,
+				0x00, 0x00, 0xF9, 0xD6, 0xA3, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+				0x00, 0x00, 0x00, 0xD7, 0xA3, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+				0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x29, 0x00, 0x00, 0x00, 0x00, 0x00,
+				0x00, 0x00, 0x80, 0x2F, 0x55, 0x36, 0x00, 0x00, 0x00, 0x00, 0x29, 0x00, 0x00, 0x00, 0x00, 0x00,
+				0x00, 0x00, 0x60, 0x06, 0x3D, 0x41, 0x01, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x01, 0x00,
+				0x00, 0x00, 0x9C, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0x90, 0xB6, 0xD2, 0x00, 0x00,
+				0x00, 0x00, 0x53, 0x65, 0x74, 0x4F, 0x76, 0x65, 0x72, 0x49, 0x6E, 0x69, 0x74, 0x00, 0x00, 0x00,
+				0x00, 0x00, 0x0B, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0F, 0x00, 0x00, 0x00, 0x00, 0x00,
+				0x00, 0x00, 0xD9, 0x0C, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+				0x00, 0x00, 0xFA, 0x43);
+
+			actor.Map.Broadcast(packet, actor);
+		}
+
+		/// <summary>
 		/// Stop playing a sound effect
 		/// </summary>
 		/// <param name="actor"></param>
@@ -3923,7 +4012,7 @@ namespace Melia.Zone.Network
 		/// <param name="position"></param>
 		/// <param name="targetPosition"></param>
 		/// <param name="width"></param>
-		public static void ZC_SKILL_RANGE_DBG(IActor caster, Position position, Direction direction, Position targetPosition, float f1, float f2, float f3 = 0, float f4 = -1, float f5 = 0, float f6 = 0)
+		public static void ZC_SKILL_RANGE_DBG(IActor caster, Position position, Direction direction, Position targetPosition, float f1, float f2, float f3 = 0, float f4 = -1, float f5 = 0, float f6 = 0, bool includeCaster = false)
 		{
 			using var packet = Packet.Rent(Op.ZC_SKILL_RANGE_DBG);
 
@@ -3939,7 +4028,7 @@ namespace Melia.Zone.Network
 			packet.PutFloat(f5); // 0 = not drawn
 			packet.PutFloat(f6);
 
-			caster.Map.Broadcast(packet, caster);
+			caster.Map.Broadcast(packet, caster, includeCaster);
 		}
 
 		/// <summary>
@@ -4056,11 +4145,16 @@ namespace Melia.Zone.Network
 		/// <param name="inAttackState"></param>
 		public static void ZC_PC_ATKSTATE(ICombatEntity entity, bool inAttackState)
 		{
+			ZC_PC_ATKSTATE(entity, inAttackState, false);
+		}
+
+		public static void ZC_PC_ATKSTATE(ICombatEntity entity, bool inAttackState, bool includeEntity)
+		{
 			using var packet = Packet.Rent(Op.ZC_PC_ATKSTATE);
 			packet.PutInt(entity.Handle);
 			packet.PutByte(inAttackState);
 
-			entity.Map.Broadcast(packet, entity);
+			entity.Map.Broadcast(packet, entity, includeEntity);
 		}
 
 		/// <summary>
@@ -7873,11 +7967,18 @@ if ok~=true then ui.SysMsg('SSMIV '..tostring(err)) end;");
 			float f2,
 			float f3,
 			Direction direction, byte b1 = 0)
+			=> ZC_UNITY_GROUND_EFFECT(actor, 0, packetStringId, scale, position, f1, f2, f3, direction, b1);
+
+		public static void ZC_UNITY_GROUND_EFFECT(IActor actor, int variant, int packetStringId, float scale, Position position,
+			float f1,
+			float f2,
+			float f3,
+			Direction direction, byte b1 = 0)
 		{
 			using var packet = Packet.Rent(Op.ZC_UNITY_GROUND_EFFECT);
 
 			packet.PutInt(actor.Handle);
-			packet.PutInt(0);
+			packet.PutInt(variant);
 			packet.PutInt(packetStringId);
 			packet.PutFloat(scale);
 			packet.PutPosition(position);

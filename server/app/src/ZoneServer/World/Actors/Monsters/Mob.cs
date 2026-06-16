@@ -660,8 +660,12 @@ namespace Melia.Zone.World.Actors.Monsters
 			if (Interlocked.Exchange(ref _killed, 1) != 0)
 				return;
 
-			Send.ZC_SKILL_CAST_CANCEL(this);
-			Send.ZC_SKILL_DISABLE(this);
+			var suppressDeathSkillCancel = this.CheckBoolTempVar("Melia.SuppressDeathSkillCancel");
+			if (!suppressDeathSkillCancel)
+			{
+				Send.ZC_SKILL_CAST_CANCEL(this);
+				Send.ZC_SKILL_DISABLE(this);
+			}
 			Send.ZC_DEAD(this);
 
 			this.Components.Get<BaseSkillComponent>()?.CancelCurrentSkill();

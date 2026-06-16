@@ -474,15 +474,15 @@ namespace Melia.Zone.Skills
 			this.OverheatTimeRemaining = this.Data.CooldownTime;
 
 			var overheated = false;
-			if (this.OverheatCounter >= overheatMaxCount)
-			{
-				this.OverheatCounter = 0;
-				this.OverheatTimeRemaining = TimeSpan.Zero;
-				overheated = true;
+				if (this.OverheatCounter >= overheatMaxCount)
+				{
+					this.OverheatCounter = 0;
+					this.OverheatTimeRemaining = TimeSpan.Zero;
+					overheated = true;
 
-				var cooldown = this.Owner.StartCooldown(this.Data.CooldownGroup, this.Properties.CoolDown);
-				cooldown.OnCooldownChanged += this.OnCooldownChanged;
-			}
+					var cooldown = this.Owner.Components.Get<CooldownComponent>().Start(this);
+					cooldown.OnCooldownChanged += this.OnCooldownChanged;
+				}
 
 			// Update the overheat after the max was checked so we reset it
 			// to 0 if we went into cooldown

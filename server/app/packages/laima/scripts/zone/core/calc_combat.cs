@@ -295,7 +295,9 @@ public class CombatCalculationsScript : GeneralScript
 		{
 			skillHitResult.Damage *= attrMultiplier;
 			var attribute = modifier.AttackAttribute == AttributeType.None ? skill.Data.Attribute : modifier.AttackAttribute;
-			if (attribute != AttributeType.None)
+			if (attribute != AttributeType.None &&
+				skill.Id != SkillId.BlitzHunter_ElectricSurge_Archer &&
+				skill.Id != SkillId.BlitzHunter_ElectricSurge_Scout)
 				Send.ZC_NORMAL.PlayTextEffect(target, attacker, "SHOW_SKILL_ATTRIBUTE", attrMultiplier * 100 - 100, $"{attribute}");
 		}
 

@@ -488,6 +488,27 @@ namespace Melia.Zone.Network
 				actor.Map.Broadcast(packet);
 			}
 
+			public static void UpdateAetherBladeLook(IActor actor, bool visible, int itemId = 121134, int effectStringId = 1826)
+			{
+				using var packet = Packet.Rent(Op.ZC_NORMAL);
+				packet.PutSubOp(NormalOpType.Zone, NormalOp.Zone.UpdateCharacterLook);
+
+				packet.PutInt(actor.Handle);
+				packet.PutByte(0);
+				packet.PutShort(0);
+				packet.PutInt(1);
+				packet.PutInt(visible ? itemId : 0);
+				packet.PutInt((int)EquipSlot.RightHand);
+				packet.PutInt(0);
+				packet.PutByte(0);
+				packet.PutInt(1);
+				packet.PutInt((int)EquipSlot.RightHand);
+				packet.PutInt(visible ? effectStringId : 16984);
+				packet.PutFloat(visible ? 1f : 0f);
+
+				actor.Map.Broadcast(packet);
+			}
+
 			/// <summary>
 			/// Sends character look update to a specific connection.
 			/// Used for pocket wigs, hair costumes, etc.
@@ -727,6 +748,54 @@ namespace Melia.Zone.Network
 				packet.PutLpString(str2);
 				packet.PutInt(0);
 				packet.PutInt(4);
+
+				actor.Map.Broadcast(packet);
+			}
+
+			/// <summary>
+			/// Sends the traced 0x52 attached visual effect packet used by some
+			/// retail skill effects before the ground impact starts.
+			/// </summary>
+			public static void Unknown_52_AttachedVisualEffect(IActor actor, string packetString, float scale, string nodeName, string str2 = "None", int durationMs = 1000)
+			{
+				using var packet = Packet.Rent(Op.ZC_NORMAL);
+				packet.PutSubOp(NormalOpType.Zone, 0x52);
+
+				packet.PutInt(459);
+				packet.PutInt(actor.Handle);
+				packet.AddStringId(packetString);
+				packet.PutFloat(scale);
+				packet.PutFloat(0f);
+				packet.PutFloat(0f);
+				packet.PutFloat(0f);
+				packet.PutLpString(nodeName);
+				packet.PutLpString(str2);
+				packet.PutInt(durationMs);
+				packet.PutInt(4);
+				packet.PutInt(0);
+				packet.PutInt(0);
+
+				actor.Map.Broadcast(packet);
+			}
+
+			public static void AttachedVisualEffect(IActor actor, string packetString, float scale, string nodeName, string str2 = "None", int durationMs = 1000)
+			{
+				using var packet = Packet.Rent(Op.ZC_NORMAL);
+				packet.PutSubOp(NormalOpType.Zone, 0x1CB);
+
+				packet.PutInt(actor.Handle);
+				packet.AddStringId(packetString);
+				packet.PutFloat(scale);
+				packet.PutFloat(0f);
+				packet.PutFloat(0f);
+				packet.PutFloat(0f);
+				packet.PutLpString(nodeName);
+				packet.PutLpString(str2);
+				packet.PutInt(durationMs);
+				packet.PutInt(4);
+				packet.PutInt(0);
+				packet.PutInt(0);
+				packet.PutInt(0);
 
 				actor.Map.Broadcast(packet);
 			}
@@ -1143,6 +1212,25 @@ namespace Melia.Zone.Network
 				packet.PutPosition(farPos);
 
 				entity.Map.Broadcast(packet, entity);
+			}
+
+			public static void UpdateSkillEffectIncludingEntity(ICombatEntity entity, int i1, int targetHandle, Position originPos, Direction direction, Position farPos)
+			{
+				using var packet = Packet.Rent(Op.ZC_NORMAL);
+				packet.PutSubOp(NormalOpType.Zone, NormalOp.Zone.UpdateSkillEffect);
+
+				packet.PutInt(entity.Handle);
+				if (Versions.Protocol > 500)
+					packet.PutInt(i1);
+				else
+					packet.PutByte((byte)i1);
+				packet.PutInt(0);
+				packet.PutInt(targetHandle);
+				packet.PutPosition(originPos);
+				packet.PutDirection(direction);
+				packet.PutPosition(farPos);
+
+				entity.Map.Broadcast(packet);
 			}
 
 			/// <summary>
@@ -2077,6 +2165,42 @@ namespace Melia.Zone.Network
 			}
 
 			/// <summary>
+			/// Sends the old pad-control packet seen in retail BlitzHunter traces
+			/// immediately before the VoltChain orb spawn.
+			/// </summary>
+			public static void OldPadMoveDestPosTime(IActor actor, int effectHandle, IActor target, float movementSpeed, float f1 = 0f)
+			{
+				using var packet = Packet.Rent(Op.ZC_NORMAL);
+				packet.PutSubOp(NormalOpType.Zone, NormalOp.Zone.OLD_PADSKILL_MOVE_DESTPOS_TIME);
+
+				packet.PutInt(effectHandle);
+				packet.PutInt(target.Handle);
+				packet.PutFloat(movementSpeed);
+				packet.PutFloat(f1);
+
+				actor.Map.Broadcast(packet);
+			}
+
+			/// <summary>
+			/// Moves a client-side skill effect or pad-like object by handle.
+			/// Useful for retail packets that reference a transient effect handle
+			/// without a full server-side Pad instance.
+			/// </summary>
+			public static void SkillEffectMovement(IActor actor, int effectHandle, Position dest, float movementSpeed, float f2 = 1f, bool b1 = true)
+			{
+				using var packet = Packet.Rent(Op.ZC_NORMAL);
+				packet.PutSubOp(NormalOpType.Zone, NormalOp.Zone.Skill_EffectMovement);
+
+				packet.PutInt(effectHandle);
+				packet.PutPosition(dest);
+				packet.PutByte(b1 ? (byte)1 : (byte)0);
+				packet.PutFloat(movementSpeed);
+				packet.PutFloat(f2);
+
+				actor.Map.Broadcast(packet);
+			}
+
+			/// <summary>
 			/// It seems to start an animation for a given effectId.
 			/// </summary>
 			/// <param name="actor"></param>
@@ -2313,7 +2437,7 @@ namespace Melia.Zone.Network
 				packet.PutInt(actor.Handle);
 				packet.PutInt((int)skillId);
 
-				actor.Map.Broadcast(packet, actor);
+				actor.Map.Broadcast(packet);
 			}
 
 			/// <summary>
@@ -4221,6 +4345,103 @@ namespace Melia.Zone.Network
 			}
 
 			/// <summary>
+			/// Sends a ZC_NORMAL packet with the observed 0x59 payload used by
+			/// several BlitzHunter effects on the retail server.
+			/// </summary>
+			/// <remarks>
+			/// The exact semantic meaning of this sub-op is still unknown. The
+			/// payload shape below is based on traced packets and intentionally
+			/// keeps the currently-unidentified binary sections configurable.
+			/// </remarks>
+			/// <param name="entity"></param>
+			/// <param name="packetString"></param>
+			/// <param name="skill"></param>
+			/// <param name="position"></param>
+			/// <param name="direction"></param>
+			/// <param name="numArg1"></param>
+			/// <param name="numArg2"></param>
+			/// <param name="effectHandle"></param>
+			/// <param name="numArg3"></param>
+			/// <param name="isVisible"></param>
+			/// <param name="bin1"></param>
+			/// <param name="bin2"></param>
+			public static void Unknown_59_SkillVisualEffect(IActor entity, string packetString, Skill skill, Position position, Direction direction,
+				float numArg1, float numArg2, int effectHandle, float numArg3, bool isVisible = true, byte[] bin1 = null, byte[] bin2 = null, int? visualSkillLevel = null)
+			{
+				bin1 ??= new byte[16];
+				bin2 ??= new byte[16];
+
+				if (bin1.Length != 16)
+					throw new ArgumentException("bin1 must be exactly 16 bytes long.", nameof(bin1));
+
+				if (bin2.Length != 16)
+					throw new ArgumentException("bin2 must be exactly 16 bytes long.", nameof(bin2));
+
+				using var packet = Packet.Rent(Op.ZC_NORMAL);
+				packet.PutSubOp(NormalOpType.Zone, 0x59);
+
+				packet.PutInt(entity.Handle);
+				packet.AddStringId(packetString);
+				packet.PutInt((int)skill.Id);
+				packet.PutInt(visualSkillLevel ?? skill.Level);
+				packet.PutPosition(position);
+				packet.PutDirection(direction);
+				packet.PutFloat(numArg1);
+				packet.PutFloat(numArg2);
+				packet.PutInt(effectHandle);
+				packet.PutByte(isVisible ? (byte)1 : (byte)0);
+				packet.PutBin(bin1);
+				packet.PutFloat(numArg3);
+				packet.PutBin(bin2);
+
+				entity.Map.Broadcast(packet);
+			}
+
+			public static void SkillMoveJump(IActor actor, Position destination)
+			{
+				using var packet = Packet.Rent(Op.ZC_NORMAL);
+				packet.PutSubOp(NormalOpType.Zone, NormalOp.Zone.Skill_MoveJump);
+
+				packet.PutInt(actor.Handle);
+				packet.PutPosition(destination);
+				packet.PutFloat(0f);
+				packet.PutFloat(1f);
+				packet.PutFloat(0.1f);
+				packet.PutFloat(1f);
+				packet.PutFloat(0.1f);
+				packet.PutFloat(1f);
+				packet.PutInt(0x9500);
+
+				actor.Map.Broadcast(packet);
+			}
+
+			/// <summary>
+			/// Sends the traced BlitzHunter retail 0x12 visual packet.
+			/// </summary>
+			public static void Unknown_12_BlitzEffect(IActor entity, string packetString, float effectSize, int i1, float f1, float f2, float f3, byte[] bin = null)
+			{
+				bin ??= [1, 1, 0x0D, 0xC5];
+
+				if (bin.Length != 4)
+					throw new ArgumentException("bin must be exactly 4 bytes long.", nameof(bin));
+
+				using var packet = Packet.Rent(Op.ZC_NORMAL);
+				packet.PutSubOp(NormalOpType.Zone, 0x12);
+
+				packet.PutInt(entity.Handle);
+				packet.AddStringId(packetString);
+				packet.PutFloat(effectSize);
+				packet.PutInt(i1);
+				packet.PutFloat(f1);
+				packet.PutFloat(f2);
+				packet.PutFloat(f3);
+				packet.PutBin(bin);
+				packet.PutEmptyBin(72);
+
+				entity.Map.Broadcast(packet);
+			}
+
+			/// <summary>
 			/// Used with Hunter's Coursing Skill
 			/// </summary>
 			/// <param name="actor"></param>
@@ -4663,6 +4884,22 @@ namespace Melia.Zone.Network
 				packet.PutByte((character.VisibleEquip & VisibleEquip.Wig) != 0);
 
 				conn.Send(packet);
+			}
+
+			/// <summary>
+			/// Sends the old retail 0x17C notice-style payload shape seen in
+			/// BlitzHunter traces.
+			/// </summary>
+			public static void Unknown_17C_BlitzNotice(IActor actor, byte[] payload)
+			{
+				if (payload == null || payload.Length != 13)
+					throw new ArgumentException("payload must be exactly 13 bytes long.", nameof(payload));
+
+				using var packet = Packet.Rent(Op.ZC_NORMAL);
+				packet.PutSubOp(NormalOpType.Zone, 0x17C);
+				packet.PutBin(payload);
+
+				actor.Map.Broadcast(packet);
 			}
 
 			/// <summary>
