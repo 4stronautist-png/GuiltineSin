@@ -21,3 +21,4 @@ client/release/
 *.bak
 *.pyc
 __pycache__/
+server/app/src/graphify-out/
