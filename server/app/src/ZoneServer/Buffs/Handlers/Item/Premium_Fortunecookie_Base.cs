@@ -1,7 +1,7 @@
 ﻿using System;
-using Melia.Zone.Buffs.Base;
+using GuiltineSin.Zone.Buffs.Base;
 
-namespace Melia.Zone.Buffs.Handlers
+namespace GuiltineSin.Zone.Buffs.Handlers
 {
 	/// <summary>
 	/// Base handler for Fortunecookie buffs which have a shared max duration.

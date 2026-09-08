@@ -1,20 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
 using Yggdrasil.Logging;
 using Yggdrasil.Util;
-using static Melia.Zone.Scripting.Shortcuts;
-using static Melia.Zone.Skills.Helpers.SkillUtilHelper;
-using static Melia.Zone.Skills.SkillUseFunctions;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
+using static GuiltineSin.Zone.Skills.Helpers.SkillUtilHelper;
+using static GuiltineSin.Zone.Skills.SkillUseFunctions;
 
-namespace Melia.Zone.Skills.Helpers
+namespace GuiltineSin.Zone.Skills.Helpers
 {
 	public static class SkillResultHelper
 	{
@@ -57,8 +57,8 @@ namespace Melia.Zone.Skills.Helpers
 
 			// Generate a key for tracking this specific CC type
 			var drKey = diminishCategory > 0
-				? $"Melia.DR.Category.{diminishCategory}"
-				: $"Melia.DR.Skill.{className}";
+				? $"GuiltineSin.DR.Category.{diminishCategory}"
+				: $"GuiltineSin.DR.Skill.{className}";
 
 			var drTimeKey = $"{drKey}.LastTime";
 			var drStackKey = $"{drKey}.Stacks";

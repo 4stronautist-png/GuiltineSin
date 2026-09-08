@@ -1,10 +1,10 @@
 ﻿using System;
-using Melia.Shared.Data.Database;
-using Melia.Shared.World;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.World;
 using Yggdrasil.Geometry;
 using Yggdrasil.Geometry.Shapes;
 
-namespace Melia.Zone.Skills.SplashAreas
+namespace GuiltineSin.Zone.Skills.SplashAreas
 {
 	/// <summary>
 	/// A rectangular splash area.

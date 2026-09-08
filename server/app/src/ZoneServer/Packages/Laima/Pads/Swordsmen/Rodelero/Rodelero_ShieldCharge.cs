@@ -1,18 +1,18 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Network;
-using Melia.Zone.Skills;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.Abilities.Handlers.Swordsmen.Rodelero;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Monsters;
-using static Melia.Zone.Pads.Helpers.PadHelper;
-using static Melia.Zone.Skills.SkillUseFunctions;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.Abilities.Handlers.Swordsmen.Rodelero;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using static GuiltineSin.Zone.Pads.Helpers.PadHelper;
+using static GuiltineSin.Zone.Skills.SkillUseFunctions;
 
-namespace Melia.Zone.Pads.Handlers
+namespace GuiltineSin.Zone.Pads.Handlers
 {
 	/// <summary>
 	/// Pad handler for Shield Charge.
@@ -22,7 +22,7 @@ namespace Melia.Zone.Pads.Handlers
 	[PadHandler(PadName.Rodelero_ShieldCharge)]
 	public class Rodelero_ShieldChargeOverride : ICreatePadHandler, IDestroyPadHandler, IEnterPadHandler, ILeavePadHandler, IUpdatePadHandler
 	{
-		private const string VarHitHandles = "Melia.ShieldCharge.HitHandles";
+		private const string VarHitHandles = "GuiltineSin.ShieldCharge.HitHandles";
 
 		/// <summary>
 		/// Called when the pad is created.

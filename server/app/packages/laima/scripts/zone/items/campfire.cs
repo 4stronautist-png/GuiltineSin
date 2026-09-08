@@ -1,4 +1,4 @@
-﻿//--- Melia Script ----------------------------------------------------------
+﻿//--- GuiltineSin Script ----------------------------------------------------------
 // Campfire (Bonfire)
 //--- Description -----------------------------------------------------------
 // Handles the creation of campfires and the buff they give.
@@ -8,15 +8,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Melia.Shared.L10N;
-using Melia.Shared.Game.Const;
-using Melia.Shared.World;
-using Melia.Zone.Scripting;
-using Melia.Zone.Skills.SplashAreas;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Maps;
-using Melia.Zone.World.Actors.Effects;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Skills.SplashAreas;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Maps;
+using GuiltineSin.Zone.World.Actors.Effects;
 
 public class CampfireActionScript : GeneralScript
 {

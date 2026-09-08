@@ -1,12 +1,12 @@
-//--- Melia Script ----------------------------------------------------------
+//--- GuiltineSin Script ----------------------------------------------------------
 // Give Item Scripts
 //--- Description -----------------------------------------------------------
 // Item scripts that give specific items when used (box items).
 //---------------------------------------------------------------------------
 
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Items;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Items;
 
 public class GiveItemScripts : GeneralScript
 {

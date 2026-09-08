@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Melia.Shared.World;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Monsters;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Monsters;
 
-namespace Melia.Zone.Scripting.AI
+namespace GuiltineSin.Zone.Scripting.AI
 {
 	public abstract partial class AiScript
 	{

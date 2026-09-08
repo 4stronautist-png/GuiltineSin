@@ -65,7 +65,7 @@ foreach ($listenAddress in $ListenAddresses) {
 }
 
 Write-Host "Configurando Windows Firewall..." -ForegroundColor Cyan
-$ruleName = "CloverTOS Melia TCP"
+$ruleName = "GuiltineSin GuiltineSin TCP"
 & netsh advfirewall firewall delete rule name="$ruleName" | Out-Null
 foreach ($port in $Ports) {
     & netsh advfirewall firewall add rule name="$ruleName" dir=in action=allow protocol=TCP localport=$port | Out-Null

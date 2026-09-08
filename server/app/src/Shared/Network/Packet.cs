@@ -3,12 +3,12 @@ using System.IO;
 using System.IO.Compression;
 using System.Runtime.InteropServices;
 using System.Text;
-using Melia.Shared.IES;
-using Melia.Shared.Versioning;
+using GuiltineSin.Shared.IES;
+using GuiltineSin.Shared.Versioning;
 using Microsoft.Extensions.ObjectPool;
 using Yggdrasil.Util;
 
-namespace Melia.Shared.Network
+namespace GuiltineSin.Shared.Network
 {
 	/// <summary>
 	/// A packet reader/writer for composing or reading data sent between

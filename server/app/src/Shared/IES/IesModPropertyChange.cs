@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Melia.Shared.IES
+namespace GuiltineSin.Shared.IES
 {
 	/// <summary>
 	/// Information about a change to a property.

@@ -1,9 +1,9 @@
 using System;
 using System.Threading.Tasks;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Characters;
 using Yggdrasil.Scheduling;
 
-namespace Melia.Zone.World.Actors.Characters.Components
+namespace GuiltineSin.Zone.World.Actors.Characters.Components
 {
 	/// <summary>
 	/// Stub: MiniGames system was removed during Laima merge.

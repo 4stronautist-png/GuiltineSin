@@ -1,12 +1,12 @@
 -- Override the draw equip function, in case we want custom grades.
-Melia.Override('DRAW_EQUIP_COMMON_TOOLTIP_SMALL_IMG', function (original, tooltipframe, invitem, mainframename, isForgery)
+GuiltineSin.Override('DRAW_EQUIP_COMMON_TOOLTIP_SMALL_IMG', function (original, tooltipframe, invitem, mainframename, isForgery)
     local result = original(tooltipframe, invitem, mainframename, isForgery)
 
     local gBox = GET_CHILD(tooltipframe, mainframename,'ui::CGroupBox')
-    --Melia.Log.Info('{0}', gBox)
+    --GuiltineSin.Log.Info('{0}', gBox)
 
     local equipCommonCSet = GET_CHILD_RECURSIVELY(tooltipframe, 'equip_common_cset', 'ui::CControlSet')
-    --Melia.Log.Info('{0}', equipCommonCSet)
+    --GuiltineSin.Log.Info('{0}', equipCommonCSet)
 	tolua.cast(equipCommonCSet, "ui::CControlSet");
 
 	local grade = GET_ITEM_GRADE(invitem)
@@ -15,7 +15,7 @@ Melia.Override('DRAW_EQUIP_COMMON_TOOLTIP_SMALL_IMG', function (original, toolti
 	if score > 0 then
 		score_text = ' (' .. score .. ')'
 	end
-	--Melia.Log.Info('Grade: {0} Score {1}', grade, score);
+	--GuiltineSin.Log.Info('Grade: {0} Score {1}', grade, score);
     local gradeText = equipCommonCSet:GetUserConfig("GRADE_TEXT_FONT")
 	if grade == 1 then
 		gradeText = gradeText .. equipCommonCSet:GetUserConfig("NORMAL_GRADE_TEXT")

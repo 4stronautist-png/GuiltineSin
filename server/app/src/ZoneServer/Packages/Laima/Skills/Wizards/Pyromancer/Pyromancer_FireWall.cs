@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Melia.Shared.Packages;
-using Melia.Shared.L10N;
-using Melia.Shared.Game.Const;
-using Melia.Shared.World;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting.Dialogues;
-using Melia.Zone.Skills.Handlers.Base;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.Skills.SplashAreas;
-using Melia.Zone.World.Actors.Pads;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting.Dialogues;
+using GuiltineSin.Zone.Skills.Handlers.Base;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.Skills.SplashAreas;
+using GuiltineSin.Zone.World.Actors.Pads;
 
-namespace Melia.Zone.Skills.Handlers.Pyromancer
+namespace GuiltineSin.Zone.Skills.Handlers.Pyromancer
 {
 	/// <summary>
 	/// Handler for the Pyromancer skill Fire Wall.
@@ -33,7 +33,7 @@ namespace Melia.Zone.Skills.Handlers.Pyromancer
 		/// </summary>
 		public void Handle(Skill skill, ICombatEntity caster, Position originPos, Position farPos, ICombatEntity target)
 		{
-			if (!skill.Vars.TryGet<Position>("Melia.ToolGroundPos", out var targetPos))
+			if (!skill.Vars.TryGet<Position>("GuiltineSin.ToolGroundPos", out var targetPos))
 			{
 				caster.ServerMessage(Localization.Get("No target location specified."));
 				return;

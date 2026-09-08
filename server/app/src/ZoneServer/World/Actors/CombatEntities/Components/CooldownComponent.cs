@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Network;
-using Melia.Zone.Skills;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.World.Actors.Characters;
 using Yggdrasil.Scheduling;
 using Yggdrasil.Util;
 
-namespace Melia.Zone.World.Actors.CombatEntities.Components
+namespace GuiltineSin.Zone.World.Actors.CombatEntities.Components
 {
 	/// <summary>
 	/// Cooldown manager component.
@@ -81,7 +81,7 @@ namespace Melia.Zone.World.Actors.CombatEntities.Components
 				duration = Math2.Max(TimeSpan.Zero, duration - reduction);
 			}
 
-			var cdrRate = this.Entity.GetTempVar("Melia.Skill.CooldownReduction");
+			var cdrRate = this.Entity.GetTempVar("GuiltineSin.Skill.CooldownReduction");
 			if (cdrRate > 0)
 			{
 				duration *= (1 - cdrRate);

@@ -2,20 +2,20 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Melia.Shared.Game.Const;
-using Melia.Shared.World;
-using Melia.Zone.Data.Spawning;
-using Melia.Zone.Scripting.Dialogues; // For DialogFunc definition
-using Melia.Zone.World.Maps;    // For Map class
-using Melia.Zone.World.Actors.Monsters; // For Npc class
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Data.Spawning;
+using GuiltineSin.Zone.Scripting.Dialogues; // For DialogFunc definition
+using GuiltineSin.Zone.World.Maps;    // For Map class
+using GuiltineSin.Zone.World.Actors.Monsters; // For Npc class
 using Newtonsoft.Json;
 using Yggdrasil.Logging;
 // using Yggdrasil.Util; // Not needed for Random if nodes always spawn
 
-using static Melia.Zone.Scripting.Shortcuts;
-using Melia.Zone.Data;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
+using GuiltineSin.Zone.Data;
 
-namespace Melia.Zone.Spawning
+namespace GuiltineSin.Zone.Spawning
 {
 	public static class ResourceNodeSpawnManager
 	{

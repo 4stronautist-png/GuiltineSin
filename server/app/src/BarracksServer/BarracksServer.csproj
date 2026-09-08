@@ -2,7 +2,7 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Melia.Barracks</RootNamespace>
+    <RootNamespace>GuiltineSin.Barracks</RootNamespace>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <AssemblyTitle>BarrackServer</AssemblyTitle>
     <Product>BarrackServer</Product>

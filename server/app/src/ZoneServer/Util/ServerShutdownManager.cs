@@ -2,18 +2,18 @@ using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Database;
-using Melia.Shared.Game.Const;
-using Melia.Shared.L10N;
-using Melia.Shared.Network;
-using Melia.Shared.Network.Inter.Messages;
-using Melia.Zone.Network;
-using Melia.Zone.Services;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Shared.Network;
+using GuiltineSin.Shared.Network.Inter.Messages;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Services;
+using GuiltineSin.Zone.World.Actors.Characters;
 using Yggdrasil.Logging;
 
-namespace Melia.Zone.Util
+namespace GuiltineSin.Zone.Util
 {
 	/// <summary>
 	/// Manages graceful server shutdown with countdown broadcasts.
@@ -416,7 +416,7 @@ namespace Melia.Zone.Util
 								ShutdownReason ?? "maintenance"
 							);
 
-							character.Variables.Temp.SetBool("Melia.NoSave", true);
+							character.Variables.Temp.SetBool("GuiltineSin.NoSave", true);
 							character.IsAutoTrading = false;
 							character.Connection?.Close();
 						}

@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Melia.Shared.Data.Database;
+using GuiltineSin.Shared.Data.Database;
 using Yggdrasil.Logging;
 
-namespace Melia.Shared.Network
+namespace GuiltineSin.Shared.Network
 {
 	/// <summary>
 	/// Packet op code enum

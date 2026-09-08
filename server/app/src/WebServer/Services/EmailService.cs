@@ -5,7 +5,7 @@ using System.Net.Sockets;
 using System.Threading.Tasks;
 using Yggdrasil.Logging;
 
-namespace Melia.Web.Services
+namespace GuiltineSin.Web.Services
 {
 	/// <summary>
 	/// Service for sending emails via SMTP.
@@ -139,7 +139,7 @@ This is an automated message. Please do not reply to this email.";
 				};
 				message.To.Add(new MailAddress(toEmail));
 
-				message.Headers.Add("X-Mailer", "MeliaWebServer");
+				message.Headers.Add("X-Mailer", "GuiltineSinWebServer");
 				message.Headers.Add("X-Priority", "3");
 
 				await client.SendMailAsync(message);
@@ -286,7 +286,7 @@ This is an automated message. Please do not reply to this email.";
 		public string SmtpPassword { get; set; } = "";
 		public bool UseSsl { get; set; } = true;
 		public string SenderEmail { get; set; } = "noreply@example.com";
-		public string SenderName { get; set; } = "Melia Server";
+		public string SenderName { get; set; } = "GuiltineSin Server";
 		public string BaseUrl { get; set; } = "http://localhost";
 
 		public static EmailSettings CreateDefault() => new EmailSettings();

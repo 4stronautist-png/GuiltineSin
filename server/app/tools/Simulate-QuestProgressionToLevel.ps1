@@ -100,6 +100,87 @@ function Add-SpawnSetValue {
     $Table[$key].Add($MonsterName) | Out-Null
 }
 
+function Add-ActorSetValue {
+    param(
+        [hashtable]$Table,
+        [string]$MapName,
+        [string]$ActorName
+    )
+
+    if ([string]::IsNullOrWhiteSpace($MapName) -or [string]::IsNullOrWhiteSpace($ActorName)) {
+        return
+    }
+
+    $key = $MapName.ToLowerInvariant()
+    if (-not $Table.ContainsKey($key)) {
+        $Table[$key] = New-Set
+    }
+    $Table[$key].Add($ActorName) | Out-Null
+}
+
+function Test-IsNumberToken {
+    param([string]$Token)
+    return -not [string]::IsNullOrWhiteSpace($Token) -and $Token -match '^-?[0-9]+(\.[0-9]+)?$'
+}
+
+function Read-StaticInteractableActors {
+    param([string]$Root)
+
+    $result = @{}
+
+    foreach ($relativeRoot in @(
+        'packages/laima/scripts/zone/content/laima/npcs',
+        'packages/laima/scripts/zone/content/laima/warps'
+    )) {
+        $sourceRoot = Join-Path $Root $relativeRoot
+        if (-not (Test-Path -LiteralPath $sourceRoot)) {
+            continue
+        }
+
+        foreach ($file in Get-ChildItem -LiteralPath $sourceRoot -Recurse -Filter '*.cs') {
+            $source = Remove-CSharpComments (Get-Content -LiteralPath $file.FullName -Raw)
+            foreach ($line in ($source -split "`r?`n")) {
+                if ($line -notmatch 'AddNpc\(' -and $line -notmatch 'AddWarp\(') {
+                    continue
+                }
+
+                $quoted = @([regex]::Matches($line, '"([^"]*)"') | ForEach-Object { $_.Groups[1].Value })
+                if ($quoted.Count -eq 0) {
+                    continue
+                }
+
+                if ($line -match 'AddWarp\(' -and $quoted.Count -ge 2) {
+                    $warpName = $quoted[0]
+                    $fromMap = $quoted[1]
+                    if ($script:Maps.Contains($fromMap)) {
+                        Add-ActorSetValue $result $fromMap $warpName
+                    }
+                    continue
+                }
+
+                $mapIndex = -1
+                for ($i = 0; $i -lt $quoted.Count; $i++) {
+                    if ($script:Maps.Contains($quoted[$i])) {
+                        $mapIndex = $i
+                        break
+                    }
+                }
+
+                if ($mapIndex -lt 0) {
+                    continue
+                }
+
+                $mapName = $quoted[$mapIndex]
+                for ($i = $mapIndex + 1; $i -lt $quoted.Count; $i++) {
+                    Add-ActorSetValue $result $mapName $quoted[$i]
+                }
+            }
+        }
+    }
+
+    return $result
+}
+
 function Read-ActiveMapSpawns {
     param([string]$Root)
 
@@ -495,6 +576,335 @@ function Validate-NativeSessionObjectiveCoverage {
     }
 }
 
+function Test-StaticActorExists {
+    param([string]$MapName, [string]$ActorName)
+
+    if ([string]::IsNullOrWhiteSpace($ActorName)) {
+        return $true
+    }
+
+    if ([string]::IsNullOrWhiteSpace($MapName)) {
+        foreach ($set in $script:StaticActorsByMap.Values) {
+            if ($set.Contains($ActorName)) {
+                return $true
+            }
+        }
+        return $false
+    }
+
+    $mapKey = $MapName.ToLowerInvariant()
+    return $script:StaticActorsByMap.ContainsKey($mapKey) -and $script:StaticActorsByMap[$mapKey].Contains($ActorName)
+}
+
+function Get-DialogFunctionBody {
+    param([string]$DialogName)
+
+    if ([string]::IsNullOrWhiteSpace($DialogName) -or [string]::IsNullOrWhiteSpace($script:NpcFunctionsSource)) {
+        return ""
+    }
+
+    $pattern = '(?s)\[DialogFunction\("' + [regex]::Escape($DialogName) + '"\)\]\s*public\s+static\s+async\s+Task\s+[A-Za-z0-9_]+\s*\([^)]*\)\s*\{(.*?)(?=\r?\n\s*\[DialogFunction\(|\r?\n\s*(?:private|public)\s+static|\z)'
+    $match = [regex]::Match($script:NpcFunctionsSource, $pattern)
+    if ($match.Success) {
+        return $match.Groups[1].Value
+    }
+
+    return ""
+}
+
+function Get-StaticMethodBody {
+    param([string]$MethodName)
+
+    if ([string]::IsNullOrWhiteSpace($MethodName) -or [string]::IsNullOrWhiteSpace($script:NpcFunctionsSource)) {
+        return ""
+    }
+
+    $pattern = '(?s)(?:private|public)\s+static\s+(?:async\s+Task(?:<[^>]+>)?|Task(?:<[^>]+>)?|bool|void)\s+' + [regex]::Escape($MethodName) + '\s*\([^)]*\)\s*\{(.*?)(?=\r?\n\s*(?:private|public)\s+static|\r?\n\s*\[DialogFunction\(|\z)'
+    $match = [regex]::Match($script:NpcFunctionsSource, $pattern)
+    if ($match.Success) {
+        return $match.Groups[1].Value
+    }
+
+    return ""
+}
+
+function Test-BodyGrantsCollectItem {
+    param([string]$Body, [string]$ItemClass)
+
+    if ([string]::IsNullOrWhiteSpace($Body) -or [string]::IsNullOrWhiteSpace($ItemClass)) {
+        return $false
+    }
+
+    if ($Body -match 'AddItem\s*\(' -and $Body -match [regex]::Escape($ItemClass)) {
+        return $true
+    }
+
+    $itemKey = $ItemClass.ToLowerInvariant()
+    if ($script:ItemIdsByClass.ContainsKey($itemKey)) {
+        $itemId = [string]$script:ItemIdsByClass[$itemKey]
+        if ($Body -match 'AddItem\s*\(' -and $Body -match "(?<![0-9])$([regex]::Escape($itemId))(?![0-9])") {
+            return $true
+        }
+    }
+
+    return $false
+}
+
+function Test-PapayaRuntimeCanGrantNoDropCollect {
+    return $script:PapayaRuntimeSource -match 'TryHandleObjectiveInteractionAsync' -and
+        $script:PapayaRuntimeSource -match 'CollectItemObjective' -and
+        $script:PapayaRuntimeSource -match 'AddItem\(objective\.ItemId' -and
+        $script:PapayaRuntimeSource -match 'MapPointGroupReferencesDialog'
+}
+
+function Test-PapayaRuntimeHasPlayerLikeNoDropCollectSurface {
+    return (Test-PapayaRuntimeCanGrantNoDropCollect) -and
+        $script:PapayaRuntimeSource -match 'RequiresPersonalClickSurface' -and
+        $script:QuestComponentSource -match 'forcePersonalClickSurface' -and
+        $script:QuestComponentSource -match '!forcePersonalClickSurface\s*&&\s*this\.TryArmExistingStaticQuestObjectiveActor' -and
+        $script:QuestComponentSource -match 'EnsurePersonalStaticQuestObjectiveActor' -and
+        $script:QuestComponentSource -match 'ActorVisibility\.Individual' -and
+        $script:CharacterDialogSource -match 'TryHandlePapayaObjectiveInteractionAsync' -and
+        $script:NpcFunctionsSource -match 'TryHandlePapayaObjectiveInteractionAsync'
+}
+
+function Test-DialogHandlerCanGrantCollectItem {
+    param([string]$DialogName, [string]$ItemClass)
+
+    $body = Get-DialogFunctionBody $DialogName
+    if ([string]::IsNullOrWhiteSpace($body)) {
+        return $false
+    }
+
+    if (Test-BodyGrantsCollectItem $body $ItemClass) {
+        return $true
+    }
+
+    foreach ($call in [regex]::Matches($body, '\b([A-Za-z_][A-Za-z0-9_]*)\s*\(')) {
+        $methodName = $call.Groups[1].Value
+        if ($methodName -in @('if', 'for', 'foreach', 'while', 'switch', 'await', 'return')) {
+            continue
+        }
+
+        $methodBody = Get-StaticMethodBody $methodName
+        if (Test-BodyGrantsCollectItem $methodBody $ItemClass) {
+            return $true
+        }
+    }
+
+    return $false
+}
+
+function Test-DialogHandlerCanAdvanceStaticQuest {
+    param($Quest, [string]$DialogName)
+
+    if ([string]::IsNullOrWhiteSpace($DialogName)) {
+        return $false
+    }
+
+    $body = Get-DialogFunctionBody $DialogName
+    if (-not [string]::IsNullOrWhiteSpace($body)) {
+        return $body -match 'COMMON_QUEST_HANDLER|HandleStaticNpcDialog|AdvanceStaticNpcDialogProgressOnly|Complete\('
+    }
+
+    return [string]::Equals($Quest.StartNpc, $DialogName, [System.StringComparison]::OrdinalIgnoreCase) -or
+        [string]::Equals($Quest.ProgressNpc, $DialogName, [System.StringComparison]::OrdinalIgnoreCase) -or
+        [string]::Equals($Quest.EndNpc, $DialogName, [System.StringComparison]::OrdinalIgnoreCase)
+}
+
+function Test-IsSyntheticQuestActorName {
+    param($Quest, [string]$ActorName)
+
+    if ([string]::IsNullOrWhiteSpace($ActorName)) {
+        return $true
+    }
+
+    if ($ActorName.EndsWith('_TRACK', [System.StringComparison]::OrdinalIgnoreCase) -or
+        $ActorName.EndsWith('_TRIGGER', [System.StringComparison]::OrdinalIgnoreCase) -or
+        $ActorName.EndsWith('_AUTO', [System.StringComparison]::OrdinalIgnoreCase)) {
+        return $true
+    }
+
+    if ($script:QuestAutoByName.ContainsKey($Quest.ClassName.ToLowerInvariant()) -and
+        $script:QuestAutoByName[$Quest.ClassName.ToLowerInvariant()].Track -match [regex]::Escape($ActorName)) {
+        return $true
+    }
+
+    return $false
+}
+
+function Get-NamedLocationReferences {
+    param([string]$Location)
+
+    $result = @()
+    if ([string]::IsNullOrWhiteSpace($Location)) {
+        return @($result)
+    }
+
+    $tokens = @($Location -split '\s+' | Where-Object { $_ })
+    for ($i = 0; $i -lt $tokens.Count - 1; $i++) {
+        $mapName = $tokens[$i]
+        if (-not $script:Maps.Contains($mapName)) {
+            continue
+        }
+
+        $nextToken = $tokens[$i + 1]
+        if (Test-IsNumberToken $nextToken) {
+            continue
+        }
+
+        $result += [pscustomobject]@{
+            Map = $mapName
+            Actor = $nextToken
+        }
+    }
+
+    return @($result)
+}
+
+function Validate-NamedActorReference {
+    param($Quest, [string]$MapName, [string]$ActorName, [string]$Reason, [switch]$AllowSynthetic)
+
+    if ([string]::IsNullOrWhiteSpace($ActorName)) {
+        return $true
+    }
+
+    if (Test-StaticActorExists $MapName $ActorName) {
+        return $true
+    }
+
+    if ($AllowSynthetic -and (Test-IsSyntheticQuestActorName $Quest $ActorName)) {
+        return $true
+    }
+
+    Add-Error "Quest $($Quest.ClassName) references $Reason '$ActorName' on map '$MapName', but no static NPC/warp actor with that dialog/name is spawned for a normal player."
+    return $false
+}
+
+function Validate-LocationNamedActors {
+    param($Quest, [string]$Location, [string]$Reason, [switch]$AllowSynthetic)
+
+    $validCount = 0
+    foreach ($reference in (Get-NamedLocationReferences $Location)) {
+        if (Validate-NamedActorReference $Quest $reference.Map $reference.Actor $Reason -AllowSynthetic:$AllowSynthetic) {
+            $validCount++
+        }
+    }
+    return $validCount
+}
+
+function Validate-QuestPlayableInteractions {
+    param($Quest)
+
+    if ([string]::Equals($Quest.StartMode, 'NPCDIALOG', [System.StringComparison]::OrdinalIgnoreCase)) {
+        $startOk = Test-StaticActorExists $Quest.StartMap $Quest.StartNpc
+        if (-not $startOk) {
+            $startOk = (Validate-LocationNamedActors $Quest $Quest.StartLocation 'startLocation') -gt 0
+        }
+        if (-not $startOk) {
+            Add-Error "Quest $($Quest.ClassName) NPCDIALOG startNPC '$($Quest.StartNpc)' on map '$($Quest.StartMap)' has no spawned static actor or valid named startLocation."
+        }
+    }
+
+    if (-not [string]::IsNullOrWhiteSpace($Quest.ProgressNpc)) {
+        Validate-NamedActorReference $Quest $Quest.ProgressMap $Quest.ProgressNpc 'progressNPC' -AllowSynthetic
+    }
+
+    if ([string]::Equals($Quest.EndMode, 'NPCDIALOG', [System.StringComparison]::OrdinalIgnoreCase)) {
+        $endOk = Test-StaticActorExists $Quest.EndMap $Quest.EndNpc
+        if (-not $endOk) {
+            $endOk = (Validate-LocationNamedActors $Quest $Quest.EndLocation 'endLocation') -gt 0
+        }
+        if (-not $endOk) {
+            Add-Error "Quest $($Quest.ClassName) NPCDIALOG endNPC '$($Quest.EndNpc)' on map '$($Quest.EndMap)' has no spawned static actor or valid named endLocation."
+        }
+    }
+
+    Validate-LocationNamedActors $Quest $Quest.StartLocation 'startLocation' | Out-Null
+    Validate-LocationNamedActors $Quest $Quest.ProgressLocation 'progressLocation' -AllowSynthetic | Out-Null
+    Validate-LocationNamedActors $Quest $Quest.EndLocation 'endLocation' | Out-Null
+
+    foreach ($objective in (Get-ObjectiveObjects $Quest.Raw)) {
+        $type = Get-Field $objective 'type'
+        if (-not [string]::Equals($type, 'Interact', [System.StringComparison]::OrdinalIgnoreCase)) {
+            continue
+        }
+
+        $target = Get-Field $objective 'target'
+        $maps = @($Quest.ProgressMap, $Quest.StartMap, $Quest.EndMap) |
+            Where-Object { -not [string]::IsNullOrWhiteSpace($_) } |
+            Select-Object -Unique
+
+        $found = $false
+        foreach ($mapName in $maps) {
+            if (Test-StaticActorExists $mapName $target) {
+                $found = $true
+                break
+            }
+        }
+
+        if (-not $found) {
+            Add-Error "Quest $($Quest.ClassName) Interact objective target '$target' has no visible static actor on its quest maps."
+        } elseif (-not (Test-DialogHandlerCanAdvanceStaticQuest $Quest $target)) {
+            Add-Error "Quest $($Quest.ClassName) Interact objective target '$target' is visible, but no client-reachable DialogFunction/fallback advances the quest for a normal player."
+        }
+    }
+}
+
+function Validate-NonCombatCollectHasPlayableSource {
+    param($Quest, [string]$ObjectiveText)
+
+    $dropTarget = Get-Field $ObjectiveText 'dropTarget'
+    if (-not [string]::IsNullOrWhiteSpace($dropTarget)) {
+        return
+    }
+
+    $item = Get-Field $ObjectiveText 'item'
+    if ([string]::IsNullOrWhiteSpace($item)) {
+        $item = Get-Field $ObjectiveText 'target'
+    }
+
+    $key = $Quest.ClassName.ToLowerInvariant()
+    if (-not $script:SessionQuestByName.ContainsKey($key)) {
+        Add-Error "Quest $($Quest.ClassName) collect objective has no dropTarget and no session mapPointGroup; simulator cannot prove a normal player has a clickable source."
+        return
+    }
+
+    $sessionQuest = $script:SessionQuestByName[$key]
+    $namedSources = 0
+    $grantingSources = 0
+    foreach ($location in $sessionQuest.MapPointGroups) {
+        foreach ($reference in (Get-NamedLocationReferences $location)) {
+            if (Test-StaticActorExists $reference.Map $reference.Actor) {
+                $namedSources++
+                if ((Test-DialogHandlerCanGrantCollectItem $reference.Actor $item) -or (Test-PapayaRuntimeCanGrantNoDropCollect)) {
+                    $grantingSources++
+                }
+            }
+            else {
+                Add-Error "Quest $($Quest.ClassName) session mapPointGroup source '$($reference.Actor)' on '$($reference.Map)' is not spawned as a static actor."
+            }
+        }
+    }
+
+    if ($namedSources -eq 0) {
+        Add-Error "Quest $($Quest.ClassName) collect objective has no dropTarget and no spawned named collection source in session mapPointGroup."
+    } elseif ($grantingSources -eq 0) {
+        Add-Error "Quest $($Quest.ClassName) collect objective has spawned markers but no client-reachable DialogFunction grants collect item '$item'; simulator would be state-only, not player-like."
+    } elseif ($grantingSources -lt [Math]::Min($namedSources, [Math]::Max(1, (Get-IntField $ObjectiveText 'count')))) {
+        Add-Error "Quest $($Quest.ClassName) collect objective needs $((Get-IntField $ObjectiveText 'count')) '$item' but only $grantingSources spawned collection source(s) grant it; simulator cannot prove a normal player can complete it."
+    }
+
+    if ($namedSources -gt 0 -and -not (Test-PapayaRuntimeHasPlayerLikeNoDropCollectSurface)) {
+        Add-Error "Quest $($Quest.ClassName) collect objective has named map markers, but PapayaQuestRuntime is not wired to force a personal click surface and handle the player's objective interaction."
+    }
+
+    if ($Quest.ClassName -eq 'HUEVILLAGE_58_2_MQ02' -and
+        $questComponentSource -match 'RequiresRealStaticObjectiveActor[\s\S]{0,900}HUEVILLAGE_58_2_MQ02_BUCKET') {
+        Add-Error "Quest HUEVILLAGE_58_2_MQ02 buckets must allow personal trigger click-surfaces; the visible bucket model alone is not reliably player-clickable."
+    }
+}
+
 function Validate-PapayaPlayableBossTrackCoverage {
     param($Quest)
 
@@ -564,6 +974,9 @@ function Validate-And-Apply-Objectives {
             }
         } elseif ([string]::Equals($type, 'Collect', [System.StringComparison]::OrdinalIgnoreCase)) {
             $item = Get-Field $objective 'item'
+            if ([string]::IsNullOrWhiteSpace($item)) {
+                $item = Get-Field $objective 'target'
+            }
             if (-not [string]::IsNullOrWhiteSpace($item) -and -not $script:Items.Contains($item)) {
                 Add-Error "Quest $($Quest.ClassName) collect objective references missing item '$item'."
             }
@@ -577,6 +990,7 @@ function Validate-And-Apply-Objectives {
                 Add-Experience (Scale-Amount ([int64]$monster.Exp * $count) $script:ExpRate) (Scale-Amount ([int64]$monster.JobExp * $count) $script:JobExpRate)
                 $script:ObjectiveKills += $count
             }
+            Validate-NonCombatCollectHasPlayableSource $Quest $objective
         } else {
             $item = Get-Field $objective 'item'
             if (-not [string]::IsNullOrWhiteSpace($item) -and -not $script:Items.Contains($item)) {
@@ -593,6 +1007,7 @@ function Complete-Quest {
     Validate-MapField $Quest 'progress' $Quest.ProgressMap
     Validate-MapField $Quest 'end' $Quest.EndMap
     Validate-MapPopulation $Quest
+    Validate-QuestPlayableInteractions $Quest
 
     Validate-PapayaPlayableBossTrackCoverage $Quest
     Validate-NativeSessionObjectiveCoverage $Quest $Phase
@@ -699,6 +1114,7 @@ function Read-SessionQuestRows {
             InfoNames = @(Get-ListField $questBlock 'infoName')
             InfoMaxCounts = @(Get-IntListField $questBlock 'infoMaxCount')
             MonsterGroups = @(Get-ListField $questBlock 'monsterNameGroup')
+            MapPointGroups = @(Get-ListField $questBlock 'mapPointGroup')
             Raw = $line
         }
     }
@@ -760,6 +1176,8 @@ $sessionObjectPath = Join-Path $Root 'system/db/sessionobjects.txt'
 $privateEncounterPath = Join-Path $Root 'system/db/private_encounters.txt'
 $questComponentPath = Join-Path $Root 'src/ZoneServer/World/Actors/Characters/Components/QuestComponent.cs'
 $npcFunctionsPath = Join-Path $Root 'src/ZoneServer/Scripting/Shared/NPCFunctions.cs'
+$characterDialogPath = Join-Path $Root 'src/ZoneServer/World/Actors/Characters/Character.Dialog.cs'
+$papayaRuntimePath = Join-Path $Root 'src/ZoneServer/World/Quests/Papaya/PapayaQuestRuntime.cs'
 $characterStatsPath = Join-Path $Root 'src/ZoneServer/World/Actors/Characters/Character.Stats.cs'
 $trackComponentPath = Join-Path $Root 'src/ZoneServer/World/Actors/Characters/Components/TrackComponent.cs'
 $sendPath = Join-Path $Root 'src/ZoneServer/Network/Send.cs'
@@ -776,7 +1194,7 @@ $tenetB1WarpsPath = Join-Path $Root 'packages/laima/scripts/zone/content/laima/w
 $packageExpConfPath = Join-Path $Root 'packages/laima/conf/world/exp.conf'
 $userExpConfPath = Join-Path $Root 'user/conf/world/exp.conf'
 
-foreach ($requiredPath in @($questPath, $questAutoPath, $expPath, $mapPath, $monsterPath, $itemPath, $sessionObjectPath, $questComponentPath, $npcFunctionsPath, $characterStatsPath, $trackComponentPath, $sendPath, $packetHandlerPath, $characterJobSkillsPath, $zoneDbCharacterPath, $zoneDbInternalPath, $buffComponentPath, $buffsPath, $packageBuffsPath, $version390044BuffsPath, $tenetB1NpcsPath, $tenetB1WarpsPath, $packageExpConfPath)) {
+foreach ($requiredPath in @($questPath, $questAutoPath, $expPath, $mapPath, $monsterPath, $itemPath, $sessionObjectPath, $questComponentPath, $npcFunctionsPath, $characterDialogPath, $papayaRuntimePath, $characterStatsPath, $trackComponentPath, $sendPath, $packetHandlerPath, $characterJobSkillsPath, $zoneDbCharacterPath, $zoneDbInternalPath, $buffComponentPath, $buffsPath, $packageBuffsPath, $version390044BuffsPath, $tenetB1NpcsPath, $tenetB1WarpsPath, $packageExpConfPath)) {
     if (-not (Test-Path -LiteralPath $requiredPath)) {
         throw "Missing required simulator input: $requiredPath"
     }
@@ -804,9 +1222,20 @@ foreach ($match in [regex]::Matches((Get-Content -LiteralPath $mapPath -Raw), 'c
 }
 
 $script:Items = New-Set
+$script:ItemIdsByClass = @{}
 foreach ($match in [regex]::Matches((Get-Content -LiteralPath $itemPath -Raw), 'className:\s*"([^"]+)"')) {
     $script:Items.Add($match.Groups[1].Value) | Out-Null
 }
+foreach ($line in Get-Content -LiteralPath $itemPath) {
+    if ($line -notmatch '^\s*\{') { continue }
+    $className = Get-Field $line 'className'
+    $itemId = Get-IntField $line 'itemId'
+    if (-not [string]::IsNullOrWhiteSpace($className) -and $itemId -gt 0) {
+        $script:ItemIdsByClass[$className.ToLowerInvariant()] = $itemId
+    }
+}
+
+$script:NpcFunctionsSource = Remove-CSharpComments (Get-Content -LiteralPath $npcFunctionsPath -Raw)
 
 $script:Monsters = @{}
 foreach ($line in Get-Content -LiteralPath $monsterPath) {
@@ -825,6 +1254,7 @@ foreach ($line in Get-Content -LiteralPath $monsterPath) {
 }
 
 $script:ActiveMapSpawns = Read-ActiveMapSpawns $Root
+$script:StaticActorsByMap = Read-StaticInteractableActors $Root
 $script:PrivateEncounterTargets = Read-PrivateEncounters $privateEncounterPath
 $script:QuestAutoByName = Read-QuestAutoRows $questAutoPath
 $script:SessionQuestByName = Read-SessionQuestRows $sessionObjectPath
@@ -872,7 +1302,13 @@ foreach ($requiredSpawn in @(
 }
 
 $questComponentSource = Get-Content -LiteralPath $questComponentPath -Raw
+$script:QuestComponentSource = $questComponentSource
 $npcFunctionsSource = Get-Content -LiteralPath $npcFunctionsPath -Raw
+$script:NpcFunctionsSource = $npcFunctionsSource
+$characterDialogSource = Get-Content -LiteralPath $characterDialogPath -Raw
+$script:CharacterDialogSource = $characterDialogSource
+$papayaRuntimeSource = Get-Content -LiteralPath $papayaRuntimePath -Raw
+$script:PapayaRuntimeSource = $papayaRuntimeSource
 $characterStatsSource = Get-Content -LiteralPath $characterStatsPath -Raw
 $trackComponentSource = Get-Content -LiteralPath $trackComponentPath -Raw
 $sendSource = Get-Content -LiteralPath $sendPath -Raw
@@ -1075,6 +1511,17 @@ if ($script:JobLevel -le 1 -and $script:JobRank -eq 1) {
 
 if ($script:SkillPoints -le 1) {
     Add-Error "Class/skill points did not grow during simulation."
+}
+
+if ($TargetLevel -ge 500 -and $script:JobRank -lt 4) {
+    Add-Error "Simulation reached target leveling without all 3 class advancements. Expected class rank 4, got $script:JobRank."
+}
+
+if ($characterJobSkillsSource -notmatch 'EnsureGuiltineSinLevelingJobProgression' -or
+    $characterJobSkillsSource -notmatch 'GuiltineSinDefaultAdvancedJobs' -or
+    $characterStatsSource -notmatch 'EnsureGuiltineSinLevelingJobProgression' -or
+    $packetHandlerSource -notmatch 'EnsureGuiltineSinLevelingJobProgression') {
+    Add-Error "Runtime leveling does not guarantee automatic 3-class progression on EXP gain and relog/load-complete."
 }
 
 if ($script:AbilityPoints -le 0) {

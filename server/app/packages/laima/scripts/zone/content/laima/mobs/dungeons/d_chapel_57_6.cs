@@ -1,14 +1,14 @@
-//--- Melia Script -----------------------------------------------------------
+//--- GuiltineSin Script -----------------------------------------------------------
 // Tenet Church 1F Spawns
 //--- Description -----------------------------------------------------------
 // Sets up monster spawners for 'd_chapel_57_6'.
 //---------------------------------------------------------------------------
 
 using System;
-using Melia.Zone.Scripting;
-using Melia.Shared.Game.Const;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Shared.Game.Const;
 using Yggdrasil.Util;
-using static Melia.Zone.Scripting.Shortcuts;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
 public class DChapel576MobScript : GeneralScript
 {
@@ -49,7 +49,9 @@ public class DChapel576MobScript : GeneralScript
 		AddSpawnPoint("d_chapel_57_6.Id1", "d_chapel_57_6", Rectangle(-537, 589, 30));
 
 		// 'Pawndel' GenType 13 Spawn Points
-		AddSpawnPoint("d_chapel_57_6.Id2", "d_chapel_57_6", Rectangle(-581, 1194, 9999));
+		AddSpawnPoint("d_chapel_57_6.Id2", "d_chapel_57_6", Rectangle(-581, 1194, 120));
+		AddSpawnPoint("d_chapel_57_6.Id2", "d_chapel_57_6", Rectangle(259, 427, 120));
+		AddSpawnPoint("d_chapel_57_6.Id2", "d_chapel_57_6", Rectangle(-507, 468, 120));
 
 		// 'Pawndel' GenType 19 Spawn Points
 		AddSpawnPoint("d_chapel_57_6.Id3", "d_chapel_57_6", Rectangle(-585, -286, 20));
@@ -102,7 +104,9 @@ public class DChapel576MobScript : GeneralScript
 		AddSpawnPoint("d_chapel_57_6.Id4", "d_chapel_57_6", Rectangle(-559, 867, 50));
 
 		// 'Pawnd' GenType 21 Spawn Points
-		AddSpawnPoint("d_chapel_57_6.Id5", "d_chapel_57_6", Rectangle(-375, 636, 9999));
+		AddSpawnPoint("d_chapel_57_6.Id5", "d_chapel_57_6", Rectangle(-375, 636, 120));
+		AddSpawnPoint("d_chapel_57_6.Id5", "d_chapel_57_6", Rectangle(259, 427, 120));
+		AddSpawnPoint("d_chapel_57_6.Id5", "d_chapel_57_6", Rectangle(-507, 468, 120));
 
 		// 'Pawnd' GenType 22 Spawn Points
 		AddSpawnPoint("d_chapel_57_6.Id6", "d_chapel_57_6", Rectangle(-509, 1938, 30));

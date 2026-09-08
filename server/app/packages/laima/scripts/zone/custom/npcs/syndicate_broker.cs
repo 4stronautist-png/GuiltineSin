@@ -1,15 +1,15 @@
-﻿//--- Melia Script ----------------------------------------------------------
+﻿//--- GuiltineSin Script ----------------------------------------------------------
 // Shadow Syndicate Broker
 //--- Description -----------------------------------------------------------
 // A shady NPC who acts as a gateway to the Shadow Syndicate faction.
 //---------------------------------------------------------------------------
 
 using System.Threading.Tasks;
-using Melia.Zone;
-using Melia.Zone.Scripting;
-using Melia.Zone.Scripting.Dialogues;
-using Melia.Zone.World;
-using static Melia.Zone.Scripting.Shortcuts;
+using GuiltineSin.Zone;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Scripting.Dialogues;
+using GuiltineSin.Zone.World;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
 public class CSyndicateBrokerNpcScript : GeneralScript
 {

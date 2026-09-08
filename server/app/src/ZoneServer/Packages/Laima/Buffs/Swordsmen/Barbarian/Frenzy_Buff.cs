@@ -1,17 +1,17 @@
 using System;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting;
-using Melia.Zone.Scripting.ScriptableEvents;
-using Melia.Zone.Skills;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Scripting.ScriptableEvents;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
 
-namespace Melia.Zone.Buffs.Handlers.Swordsman.Barbarian
+namespace GuiltineSin.Zone.Buffs.Handlers.Swordsman.Barbarian
 {
 	/// <summary>
 	/// Handler for the Frenzy Buff. As per the rework, this buff now:

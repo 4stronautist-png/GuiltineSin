@@ -1,13 +1,13 @@
 ﻿using System;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Actors.Components;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.Components;
 
-namespace Melia.Zone.Skills.Combat
+namespace GuiltineSin.Zone.Skills.Combat
 {
 	/// <summary>
 	/// Contains information about a hit from a skill.
@@ -147,7 +147,7 @@ namespace Melia.Zone.Skills.Combat
 			this.HitCount = result.HitCount;
 
 			if (skill.Data.HitType == SkillHitType.Force)
-				this.ForceId = Melia.Zone.Skills.Combat.ForceId.GetNew();
+				this.ForceId = GuiltineSin.Zone.Skills.Combat.ForceId.GetNew();
 
 			this.RunHitInfoCreatedHooks();
 		}

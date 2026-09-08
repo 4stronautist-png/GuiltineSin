@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Melia.Zone.Scripting;
-using Melia.Zone.Scripting.AI;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Quests.Objectives;
-using static Melia.Shared.Util.TaskHelper;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Scripting.AI;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Quests.Objectives;
+using static GuiltineSin.Shared.Util.TaskHelper;
 
-namespace Melia.Zone.World.Dungeons.Stages
+namespace GuiltineSin.Zone.World.Dungeons.Stages
 {
 	/// <summary>
 	/// A flexible, data-driven stage that executes a predefined timeline of

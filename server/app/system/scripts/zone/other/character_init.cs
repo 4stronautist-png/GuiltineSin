@@ -1,18 +1,18 @@
-﻿//--- Melia Script ----------------------------------------------------------
+﻿//--- GuiltineSin Script ----------------------------------------------------------
 // Character Initialization
 //--- Description -----------------------------------------------------------
 // Grants default items, skills, and abilities to newly created characters.
 //---------------------------------------------------------------------------
 
-using Melia.Shared.Game.Const;
-using Melia.Shared.Scripting;
-using Melia.Zone;
-using Melia.Zone.Events;
-using Melia.Zone.Events.Arguments;
-using Melia.Zone.Scripting;
-using Melia.Zone.Skills;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Items;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Scripting;
+using GuiltineSin.Zone;
+using GuiltineSin.Zone.Events;
+using GuiltineSin.Zone.Events.Arguments;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Items;
 
 public class CharacterInitializationScript : GeneralScript
 {
@@ -68,7 +68,7 @@ public class CharacterInitializationScript : GeneralScript
 
 	private static void InitCharacter(Character character)
 	{
-		if (!character.Variables.Perm.ActivateOnce("Melia.EverLoggedIn"))
+		if (!character.Variables.Perm.ActivateOnce("GuiltineSin.EverLoggedIn"))
 			return;
 
 		InitCommon(character);

@@ -1,8 +1,8 @@
-﻿using Melia.Shared.Network;
-using Melia.Shared.Network.Helpers;
-using Melia.Zone.Skills.Combat;
+﻿using GuiltineSin.Shared.Network;
+using GuiltineSin.Shared.Network.Helpers;
+using GuiltineSin.Zone.Skills.Combat;
 
-namespace Melia.Zone.Network.Helpers
+namespace GuiltineSin.Zone.Network.Helpers
 {
 	public static class KnockbackHelper
 	{

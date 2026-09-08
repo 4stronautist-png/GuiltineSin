@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Shared.L10N;
-using Melia.Shared.World;
-using Melia.Zone.Network;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.Skills.Handlers.Base;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.Skills.Handlers.Base;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
 
-namespace Melia.Zone.Skills.Handlers.Scouts.Corsair
+namespace GuiltineSin.Zone.Skills.Handlers.Scouts.Corsair
 {
 	/// <summary>
 	/// Handler for the Corsair skill Iron Hook.
@@ -27,7 +27,7 @@ namespace Melia.Zone.Skills.Handlers.Scouts.Corsair
 
 		public void Handle(Skill skill, ICombatEntity caster, Position originPos, Position farPos, ICombatEntity target)
 		{
-			if (!skill.Vars.TryGet<Position>("Melia.ToolGroundPos", out var targetPos))
+			if (!skill.Vars.TryGet<Position>("GuiltineSin.ToolGroundPos", out var targetPos))
 			{
 				caster.ServerMessage(Localization.Get("No target location specified."));
 				return;
@@ -108,16 +108,16 @@ namespace Melia.Zone.Skills.Handlers.Scouts.Corsair
 				target.InsertHate(caster, 150);
 				Send.ZC_NORMAL.MakeHookEffect(caster, target, "None", 1, "Warrior_Pull", "Dummy_R_HAND", "Bip01 Spine2", 500, 2);
 
-				target.SetTempVar("Melia.IronHook.Effect", "None");
-				target.SetTempVar("Melia.IronHook.Scale", 1f);
-				target.SetTempVar("Melia.IronHook.Node", "Bip01 Spine2");
+				target.SetTempVar("GuiltineSin.IronHook.Effect", "None");
+				target.SetTempVar("GuiltineSin.IronHook.Scale", 1f);
+				target.SetTempVar("GuiltineSin.IronHook.Node", "Bip01 Spine2");
 
 				var targetBuff = target.StartBuff(BuffId.IronHooked, skill.Level, 1, TimeSpan.FromMilliseconds(time), caster);
 				if (targetBuff != null)
 				{
-					targetBuff.Vars.Set("Melia.IronHook.Effect", "None");
-					targetBuff.Vars.Set("Melia.IronHook.Scale", 1f);
-					targetBuff.Vars.Set("Melia.IronHook.Node", "Bip01 Spine2");
+					targetBuff.Vars.Set("GuiltineSin.IronHook.Effect", "None");
+					targetBuff.Vars.Set("GuiltineSin.IronHook.Scale", 1f);
+					targetBuff.Vars.Set("GuiltineSin.IronHook.Node", "Bip01 Spine2");
 					hookedTargets.Add(target);
 				}
 			}
@@ -129,7 +129,7 @@ namespace Melia.Zone.Skills.Handlers.Scouts.Corsair
 				return;
 			}
 
-			buff.Vars.Set("Melia.IronHook.Targets", hookedTargets);
+			buff.Vars.Set("GuiltineSin.IronHook.Targets", hookedTargets);
 		}
 	}
 }

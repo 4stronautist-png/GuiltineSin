@@ -1,4 +1,4 @@
-﻿//--- Melia Script ----------------------------------------------------------
+﻿//--- GuiltineSin Script ----------------------------------------------------------
 // Refining Items (Moru - Anvil)
 //--- Description -----------------------------------------------------------
 // Item-related scripts that refine items.
@@ -8,20 +8,20 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Zone;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Items;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Items;
 using Yggdrasil.Logging;
 using Yggdrasil.Util;
-using static Melia.Zone.Scripting.Shortcuts;
-using static Melia.Zone.Skills.Helpers.MonsterSkillHelper;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
+using static GuiltineSin.Zone.Skills.Helpers.MonsterSkillHelper;
 
 public class RefiningItemScripts : GeneralScript
 {
@@ -73,7 +73,7 @@ public class RefiningItemScripts : GeneralScript
 			return DialogTxResult.Fail;
 		}
 
-		if (character.Variables.Temp.Get<Mob>("Melia.Anvil") != null)
+		if (character.Variables.Temp.Get<Mob>("GuiltineSin.Anvil") != null)
 		{
 			Log.Debug("SCR_ITEM_REINFORCE_131014: Blocked - Character '{0}' already has an active anvil.", character.Name);
 			character.SystemMessage("CannotCreateMoru");
@@ -174,7 +174,7 @@ public class RefiningItemScripts : GeneralScript
 		anvilMonster.Vars.Set("OWNERAID", character.AccountObjectId);
 		anvilMonster.Vars.Set("ITEM_GUID", fromItem.ObjectId);
 		anvilMonster.Vars.Set("MORU_GUID", anvilItem.ObjectId);
-		character.Variables.Temp.Set("Melia.Anvil", anvilMonster);
+		character.Variables.Temp.Set("GuiltineSin.Anvil", anvilMonster);
 		fromItem.Refinforcing = true;
 		anvilItem.Refinforcing = true;
 
@@ -545,7 +545,7 @@ public class RefiningItemScripts : GeneralScript
 
 	private static void ReinforceResult(Character character, Item invItem, bool refinforceSucceded, Mob monster, Item moruItem)
 	{
-		character.Variables.Temp.Remove("Melia.Anvil");
+		character.Variables.Temp.Remove("GuiltineSin.Anvil");
 
 		if (invItem == null || invItem.IsLocked || moruItem == null || moruItem.IsLocked)
 			return;

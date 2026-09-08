@@ -1,14 +1,14 @@
 using System;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Network;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.World.Actors;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.World.Actors;
 using Yggdrasil.Util;
-using static Melia.Zone.Skills.SkillUseFunctions;
+using static GuiltineSin.Zone.Skills.SkillUseFunctions;
 
-namespace Melia.Zone.Buffs.HandlersOverrides
+namespace GuiltineSin.Zone.Buffs.HandlersOverrides
 {
 	/// <summary>
 	/// Handle for the Magnetic Force, Receive damage after a while.

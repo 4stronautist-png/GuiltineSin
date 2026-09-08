@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using Melia.Shared.L10N;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Zone.World.Actors.Characters;
 
-namespace Melia.Zone.Scripting.Extensions.Keywords
+namespace GuiltineSin.Zone.Scripting.Extensions.Keywords
 {
 	/// <summary>
 	/// Keyword-related extension methods for characters.

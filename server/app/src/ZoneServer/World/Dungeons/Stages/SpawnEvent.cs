@@ -1,7 +1,7 @@
 ﻿using System;
-using Melia.Shared.World;
+using GuiltineSin.Shared.World;
 
-namespace Melia.Zone.World.Dungeons.Stages
+namespace GuiltineSin.Zone.World.Dungeons.Stages
 {
 	/// <summary>
 	/// A data structure that declaratively defines a single spawn action

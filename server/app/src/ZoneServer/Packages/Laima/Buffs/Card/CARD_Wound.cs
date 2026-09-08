@@ -1,9 +1,9 @@
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Network;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Network;
 
-namespace Melia.Zone.Buffs.Handlers.Card
+namespace GuiltineSin.Zone.Buffs.Handlers.Card
 {
 	/// <summary>
 	/// Handler for the CARD_Wound debuff from the Rajapearl card.

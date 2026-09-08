@@ -1,11 +1,11 @@
-//--- Melia Script ----------------------------------------------------------
+//--- GuiltineSin Script ----------------------------------------------------------
 // Warps
 //--- Description -----------------------------------------------------------
 // Sets up warps in Genar Field
 //---------------------------------------------------------------------------
 
-using Melia.Zone.Scripting;
-using static Melia.Zone.Scripting.Shortcuts;
+using GuiltineSin.Zone.Scripting;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
 public class GuildColony_f_pilgrimroad_49WarpsScript : GeneralScript
 {

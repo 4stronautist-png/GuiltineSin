@@ -1,15 +1,15 @@
 ﻿using System;
-using Melia.Shared.L10N;
-using Melia.Shared.Scripting;
-using Melia.Shared.Game.Const;
-using Melia.Shared.World;
-using Melia.Zone;
-using Melia.Zone.Events.Arguments;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Items;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Shared.Scripting;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone;
+using GuiltineSin.Zone.Events.Arguments;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Items;
 using Yggdrasil.Util;
 
 public class SummoningItemScripts : GeneralScript
@@ -34,7 +34,7 @@ public class SummoningItemScripts : GeneralScript
 		// it desummons it, otherwise we summon the new monster and desummon
 		// the old one. If the pet system is not enabled using an orb for a
 		// monster that's already out fails so you don't waste the orb.
-		if (character.Variables.Perm.TryGetInt("Melia.BlueOrbSummon.MonsterId", out var monsterClassId))
+		if (character.Variables.Perm.TryGetInt("GuiltineSin.BlueOrbSummon.MonsterId", out var monsterClassId))
 		{
 			if (monsterData.Id == monsterClassId)
 			{
@@ -56,12 +56,12 @@ public class SummoningItemScripts : GeneralScript
 		monster.Components.Get<AiComponent>()?.Script.SetMaster(character);
 		character.Map.AddMonster(monster);
 
-		character.Variables.Perm.SetInt("Melia.BlueOrbSummon.MonsterId", monsterData.Id);
+		character.Variables.Perm.SetInt("GuiltineSin.BlueOrbSummon.MonsterId", monsterData.Id);
 
 		if (ZoneServer.Instance.Conf.World.BlueOrbPetSystem)
 			return ItemUseResult.OkayNotConsumed;
 
-		character.Variables.Perm.Set("Melia.BlueOrbSummon.DisappearTime", monster.DisappearTime);
+		character.Variables.Perm.Set("GuiltineSin.BlueOrbSummon.DisappearTime", monster.DisappearTime);
 		return ItemUseResult.Okay;
 	}
 
@@ -95,7 +95,7 @@ public class SummoningItemScripts : GeneralScript
 	{
 		var character = args.Character;
 
-		if (!character.Variables.Perm.TryGetInt("Melia.BlueOrbSummon.MonsterId", out var monsterClassId))
+		if (!character.Variables.Perm.TryGetInt("GuiltineSin.BlueOrbSummon.MonsterId", out var monsterClassId))
 			return;
 
 		// If follow warp is not enabled, your monster is released from you
@@ -110,7 +110,7 @@ public class SummoningItemScripts : GeneralScript
 		// If follow warp is on, but the monster's disappear time passed
 		// during the warp, we don't resummon it and instead clean it up
 		// here.
-		if (character.Variables.Perm.TryGet<DateTime>("Melia.BlueOrbSummon.DisappearTime", out var disappearTime))
+		if (character.Variables.Perm.TryGet<DateTime>("GuiltineSin.BlueOrbSummon.DisappearTime", out var disappearTime))
 		{
 			if (DateTime.Now > disappearTime)
 			{
@@ -122,7 +122,7 @@ public class SummoningItemScripts : GeneralScript
 		var monster = CreateMonster(monsterClassId, RelationType.Neutral, "BasicMonster", character);
 		monster.Components.Get<AiComponent>()?.Script.SetMaster(character);
 
-		if (character.Variables.Perm.TryGet<DateTime>("Melia.BlueOrbSummon.DisappearTime", out disappearTime))
+		if (character.Variables.Perm.TryGet<DateTime>("GuiltineSin.BlueOrbSummon.DisappearTime", out disappearTime))
 			monster.DisappearTime = disappearTime;
 
 		character.Map.AddMonster(monster);
@@ -215,8 +215,8 @@ public class SummoningItemScripts : GeneralScript
 	/// <param name="character"></param>
 	private void ResetBlueOrbVariables(Character character)
 	{
-		character.Variables.Perm.Remove("Melia.BlueOrbSummon.MonsterId");
-		character.Variables.Perm.Remove("Melia.BlueOrbSummon.DisappearTime");
+		character.Variables.Perm.Remove("GuiltineSin.BlueOrbSummon.MonsterId");
+		character.Variables.Perm.Remove("GuiltineSin.BlueOrbSummon.DisappearTime");
 	}
 
 	/// <summary>

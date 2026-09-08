@@ -1,20 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Zone;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting;
-using Melia.Zone.Scripting.Dialogues;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Items;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Scripting.Dialogues;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Items;
 using Yggdrasil.Util;
-using static Melia.Shared.Util.TaskHelper;
-using static Melia.Zone.Scripting.Shortcuts;
+using static GuiltineSin.Shared.Util.TaskHelper;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
 public class ItemEtcScripts : GeneralScript
 {

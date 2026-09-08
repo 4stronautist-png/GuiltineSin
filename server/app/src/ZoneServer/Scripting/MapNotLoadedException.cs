@@ -1,6 +1,6 @@
 using System;
 
-namespace Melia.Zone.Scripting
+namespace GuiltineSin.Zone.Scripting
 {
 	/// <summary>
 	/// Thrown when a script references a map that doesn't exist in the

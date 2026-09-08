@@ -1,8 +1,8 @@
-Melia.Hook("GetClassByNameFromList", function(original, result, clsList, name)
+GuiltineSin.Hook("GetClassByNameFromList", function(original, result, clsList, name)
 
-	local idSpace = Melia.Ies.GetIdSpace(clsList)
+	local idSpace = GuiltineSin.Ies.GetIdSpace(clsList)
 	if idSpace then
-		local dbCls = Melia.Ies.GetClassByName(idSpace, name)
+		local dbCls = GuiltineSin.Ies.GetClassByName(idSpace, name)
 		if dbCls ~= nil then
 			return dbCls
 		end
@@ -12,9 +12,9 @@ Melia.Hook("GetClassByNameFromList", function(original, result, clsList, name)
 
 end)
 
-Melia.Hook("GetClass", function(original, result, clsListName, clsName)
+GuiltineSin.Hook("GetClass", function(original, result, clsListName, clsName)
 
-	local dbCls = Melia.Ies.GetClassByName(clsListName, clsName)
+	local dbCls = GuiltineSin.Ies.GetClassByName(clsListName, clsName)
 	if dbCls ~= nil then
 		return dbCls
 	end
@@ -23,9 +23,9 @@ Melia.Hook("GetClass", function(original, result, clsListName, clsName)
 
 end)
 
-Melia.Hook("GetClassByType", function(original, result, clsListName, clsId)
+GuiltineSin.Hook("GetClassByType", function(original, result, clsListName, clsId)
 
-	local dbCls = Melia.Ies.GetClassById(clsListName, clsId)
+	local dbCls = GuiltineSin.Ies.GetClassById(clsListName, clsId)
 	if dbCls ~= nil then
 		return dbCls
 	end

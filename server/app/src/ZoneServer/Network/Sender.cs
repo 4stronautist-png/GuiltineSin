@@ -1,10 +1,10 @@
-﻿using Melia.Shared.Network;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Maps;
+﻿using GuiltineSin.Shared.Network;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Maps;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
-namespace Melia.Zone.Network
+namespace GuiltineSin.Zone.Network
 {
 	/// <summary>
 	/// A class that is able to send packets to an arbitrary destination.

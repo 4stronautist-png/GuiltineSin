@@ -1,4 +1,4 @@
-// Melia
+// GuiltineSin
 // Database file
 // 
 // Values: skillId, className, name, [basicSp], [basicCast], [splashType], [splashRange], [splashHeight], [splashAngle], [splashRate], [maxRange], [factor], [factorByLevel], [atkAdd], [atkAddByLevel], [cooldownTime], [overheatCount], [overheatDelay], [overheatGroup], [enableCastMove], [enableCastRotate], [castInterruptible], [useType], [attackType], [activationType]

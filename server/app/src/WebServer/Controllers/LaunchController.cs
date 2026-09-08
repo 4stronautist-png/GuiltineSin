@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 using System.Xml;
 using EmbedIO;
 using EmbedIO.Routing;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Network.Crypto;
-using Melia.Web.Const;
-using Melia.Web.Util;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Network.Crypto;
+using GuiltineSin.Web.Const;
+using GuiltineSin.Web.Util;
 using Yggdrasil.Logging;
 
-namespace Melia.Web.Controllers
+namespace GuiltineSin.Web.Controllers
 {
 	/// <summary>
 	/// Controller for serving game launcher files, patch information, and server lists.
@@ -49,7 +49,7 @@ namespace Melia.Web.Controllers
 		/// </remarks>
 		/// <example>
 		///   <serverlist>
-		///       <server GROUP_ID="1001" TRAFFIC="0" ENTER_LIMIT="100" NAME="Melia" Server0_IP="127.0.0.1" Server0_Port="2000"/>
+		///       <server GROUP_ID="1001" TRAFFIC="0" ENTER_LIMIT="100" NAME="GuiltineSin" Server0_IP="127.0.0.1" Server0_Port="2000"/>
 		///   </serverlist>
 		/// </example>
 		[Route(HttpVerbs.Get, "/serverlist.xml")]

@@ -1,16 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Shared.World;
-using Melia.Zone.Skills.SplashAreas;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Maps;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Skills.SplashAreas;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Maps;
 using Yggdrasil.Extensions;
 using Yggdrasil.Logging;
 
-namespace Melia.Zone.Scripting
+namespace GuiltineSin.Zone.Scripting
 {
 	public static partial class Shortcuts
 	{

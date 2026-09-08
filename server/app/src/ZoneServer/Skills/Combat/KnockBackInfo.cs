@@ -1,14 +1,14 @@
 ﻿using System;
-using Melia.Shared.Game.Const;
-using Melia.Shared.World;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Maps;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Maps;
 using Yggdrasil.Logging;
 using Yggdrasil.Util;
 
-namespace Melia.Zone.Skills.Combat
+namespace GuiltineSin.Zone.Skills.Combat
 {
 	public enum KnockType
 	{
@@ -429,7 +429,7 @@ namespace Melia.Zone.Skills.Combat
 		}
 
 
-		/// UNUSED - Melia's Implementation
+		/// UNUSED - GuiltineSin's Implementation
 		/// <summary>
 		/// Creates new knock back info.
 		/// </summary>
@@ -526,7 +526,7 @@ namespace Melia.Zone.Skills.Combat
 		//	}
 		//}
 
-		/// UNUSED - Melia's Implementation
+		/// UNUSED - GuiltineSin's Implementation
 		/// <summary>
 		/// Returns the position a target would be knocked back to,
 		/// given the direction and velocity.

@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Versioning;
-using Melia.Zone.Network;
-using Melia.Zone.World.Actors.Monsters;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Versioning;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.World.Actors.Monsters;
 using Yggdrasil.Util;
 
-namespace Melia.Zone.World.Actors.Characters.Components
+namespace GuiltineSin.Zone.World.Actors.Characters.Components
 {
 	/// <summary>
 	/// Job collection.

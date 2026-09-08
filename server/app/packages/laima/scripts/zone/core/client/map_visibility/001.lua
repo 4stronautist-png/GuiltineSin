@@ -1,4 +1,4 @@
-Melia.Hook("SET_MONGEN_NPC_VISIBLE", function(original, result, picture, mapprop, MonProp)
+GuiltineSin.Hook("SET_MONGEN_NPC_VISIBLE", function(original, result, picture, mapprop, MonProp)
     local mapName = session.GetMapName()
     if mapName == "f_siauliai_west" and MonProp ~= nil then
         local genType = nil

@@ -1,9 +1,9 @@
 ﻿using System;
-using Melia.Shared.Versioning;
+using GuiltineSin.Shared.Versioning;
 using Yggdrasil.Logging;
 using Yggdrasil.Network.Framing;
 
-namespace Melia.Shared.Network
+namespace GuiltineSin.Shared.Network
 {
 	public class TosFramer : IMessageFramer
 	{

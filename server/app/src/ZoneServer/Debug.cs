@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Versioning;
-using Melia.Shared.World;
-using Melia.Zone.Network;
-using Melia.Zone.Skills;
-using Melia.Zone.Skills.SplashAreas;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Maps;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Versioning;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.Skills.SplashAreas;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Maps;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Drawing.Processing;
 using SixLabors.ImageSharp.Formats.Png;
@@ -20,7 +20,7 @@ using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
 using Yggdrasil.Geometry;
 
-namespace Melia.Zone
+namespace GuiltineSin.Zone
 {
 	public static class Debug
 	{

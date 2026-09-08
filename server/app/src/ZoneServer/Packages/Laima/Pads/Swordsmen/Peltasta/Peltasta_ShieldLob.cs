@@ -1,20 +1,20 @@
 using System;
 using System.Threading.Tasks;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Network;
-using Melia.Zone.Skills.Handlers.Common;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Actors.Effects;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Actors.Pads;
-using static Melia.Shared.Util.TaskHelper;
-using Melia.Zone.Pads;
-using Melia.Zone.Pads.Handlers;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Skills.Handlers.Common;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.Effects;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Actors.Pads;
+using static GuiltineSin.Shared.Util.TaskHelper;
+using GuiltineSin.Zone.Pads;
+using GuiltineSin.Zone.Pads.Handlers;
 
-namespace Melia.Zone.Packages.Laima.Pads.Swordsmen.Peltasta
+namespace GuiltineSin.Zone.Packages.Laima.Pads.Swordsmen.Peltasta
 {
 	/// <summary>
 	/// Handler for the Shield Lob pad, spawning a shield modeled after the

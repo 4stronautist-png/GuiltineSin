@@ -156,7 +156,7 @@ def patch_quests(quests_path: Path, qpc: dict[str, dict[str, str]], monster_name
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--app", required=True, type=Path, help="Melia/Clover server app directory")
+    parser.add_argument("--app", required=True, type=Path, help="GuiltineSin server app directory")
     parser.add_argument("--client-ies", required=True, type=Path, help="Extracted ies.ipf directory")
     parser.add_argument("--apply", action="store_true")
     args = parser.parse_args()

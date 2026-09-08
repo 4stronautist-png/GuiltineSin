@@ -1,5 +1,5 @@
 param(
-    [string]$OutputDir = "C:\CloverTOS-Captures",
+    [string]$OutputDir = "C:\GuiltineSin-Captures",
     [string]$Name = ""
 )
 

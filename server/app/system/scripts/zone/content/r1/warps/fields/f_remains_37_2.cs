@@ -1,11 +1,11 @@
-//--- Melia Script ----------------------------------------------------------
+//--- GuiltineSin Script ----------------------------------------------------------
 // Warps
 //--- Description -----------------------------------------------------------
 // Sets up warps in Namu Temple Ruins
 //---------------------------------------------------------------------------
 
-using Melia.Zone.Scripting;
-using static Melia.Zone.Scripting.Shortcuts;
+using GuiltineSin.Zone.Scripting;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
 public class f_remains_37_2WarpsScript : GeneralScript
 {

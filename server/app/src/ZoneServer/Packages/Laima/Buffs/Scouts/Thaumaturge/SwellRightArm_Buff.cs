@@ -1,18 +1,18 @@
 using System;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Items;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Items;
 
-namespace Melia.Zone.Buffs.Handlers.Scouts.Thaumaturge
+namespace GuiltineSin.Zone.Buffs.Handlers.Scouts.Thaumaturge
 {
 	[Package("laima")]
 	[BuffHandler(BuffId.SwellRightArm_Buff)]
 	public class SwellRightArm_BuffOverride : BuffHandler
 	{
-		private const string VarItemGuid = "Melia.SwellArm.ItemGuid";
+		private const string VarItemGuid = "GuiltineSin.SwellArm.ItemGuid";
 
 		private void ApplyOrUpdateEffects(Buff buff)
 		{

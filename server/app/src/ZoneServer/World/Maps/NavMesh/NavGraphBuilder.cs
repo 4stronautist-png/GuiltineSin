@@ -1,9 +1,9 @@
 ﻿using System.Linq;
 using g4;
-using Melia.Shared.Data.Database;
+using GuiltineSin.Shared.Data.Database;
 using Yggdrasil.Geometry;
 
-namespace Melia.Zone.World.Maps.NavMesh
+namespace GuiltineSin.Zone.World.Maps.NavMesh
 {
 	/// <summary>
 	/// A utility class for converting navigation graph data representations.

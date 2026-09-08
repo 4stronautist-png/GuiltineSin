@@ -6,45 +6,45 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Database;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Game.Properties;
-using Melia.Shared.L10N;
-using Melia.Shared.Network;
-using Melia.Shared.Network.Helpers;
-using Melia.Shared.Network.Inter.Messages;
-using Melia.Shared.ObjectProperties;
-using Melia.Shared.Versioning;
-using Melia.Shared.World;
-using Melia.Zone.Events.Arguments;
-using Melia.Zone.Items.Effects;
-using Melia.Zone.Network.Helpers;
-using Melia.Zone.Scripting;
-using Melia.Zone.Scripting.Dialogues;
-using Melia.Zone.Services;
-using Melia.Zone.Skills;
-using Melia.Zone.Skills.Handlers.Base;
-using Melia.Zone.Util;
-using Melia.Zone.World;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Characters.Components;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Actors.Components;
-using Melia.Zone.World.Actors.Effects;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Items;
-using Melia.Zone.World.Maps;
-using Melia.Zone.World.Storages;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Game.Properties;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Shared.Network;
+using GuiltineSin.Shared.Network.Helpers;
+using GuiltineSin.Shared.Network.Inter.Messages;
+using GuiltineSin.Shared.ObjectProperties;
+using GuiltineSin.Shared.Versioning;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Events.Arguments;
+using GuiltineSin.Zone.Items.Effects;
+using GuiltineSin.Zone.Network.Helpers;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Scripting.Dialogues;
+using GuiltineSin.Zone.Services;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.Skills.Handlers.Base;
+using GuiltineSin.Zone.Util;
+using GuiltineSin.Zone.World;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Characters.Components;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.Components;
+using GuiltineSin.Zone.World.Actors.Effects;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Items;
+using GuiltineSin.Zone.World.Maps;
+using GuiltineSin.Zone.World.Storages;
 using Microsoft.CodeAnalysis;
 using Yggdrasil.Extensions;
 using Yggdrasil.Logging;
 using Yggdrasil.Network.Communication;
-using static Melia.Shared.Util.TaskHelper;
-using static Melia.Zone.Database.ZoneDb;
+using static GuiltineSin.Shared.Util.TaskHelper;
+using static GuiltineSin.Zone.Database.ZoneDb;
 
-namespace Melia.Zone.Network
+namespace GuiltineSin.Zone.Network
 {
 	public partial class PacketHandler : PacketHandler<IZoneConnection>
 	{
@@ -132,8 +132,8 @@ namespace Melia.Zone.Network
 					return;
 				}
 
-				if (conn.Account.Variables.Perm.Has("Melia.SelectedLanguage"))
-					conn.SelectedLanguage = conn.Account.Variables.Perm.GetString("Melia.SelectedLanguage");
+				if (conn.Account.Variables.Perm.Has("GuiltineSin.SelectedLanguage"))
+					conn.SelectedLanguage = conn.Account.Variables.Perm.GetString("GuiltineSin.SelectedLanguage");
 
 				if (!ZoneServer.Instance.Database.CheckSessionKey(conn.Account.Id, sessionKey))
 				{
@@ -376,7 +376,7 @@ namespace Melia.Zone.Network
 				Send.ZC_UPDATE_SP(character, character.Sp, false);
 				Send.ZC_RES_DAMAGEFONT_SKIN(conn, character);
 				Send.ZC_RES_DAMAGEEFFECT_SKIN(conn, character);
-				Send.ZC_LOGIN_TIME(conn, Melia.Zone.GameTime.Now);
+				Send.ZC_LOGIN_TIME(conn, GuiltineSin.Zone.GameTime.Now);
 				Send.ZC_MYPC_ENTER(character);
 
 				character.ActivateCompanions();
@@ -416,7 +416,7 @@ namespace Melia.Zone.Network
 				}
 				Send.ZC_ADDITIONAL_SKILL_POINT(character);
 				Send.ZC_SET_DAYLIGHT_INFO(character);
-				Send.ZC_SYNC_MINIMAP_GAME_TIME(character, Melia.Zone.GameTime.Now);
+				Send.ZC_SYNC_MINIMAP_GAME_TIME(character, GuiltineSin.Zone.GameTime.Now);
 				//Send.ZC_DAYLIGHT_FIXED(character);
 				Send.ZC_SEND_APPLY_HUD_SKIN_MYSELF(conn, character);
 
@@ -540,9 +540,9 @@ namespace Melia.Zone.Network
 				}
 				Send.ZC_START_GAME(conn);
 				Send.ZC_OBJECT_PROPERTY(character);
-				Send.ZC_LOGIN_TIME(conn, Melia.Zone.GameTime.Now);
+				Send.ZC_LOGIN_TIME(conn, GuiltineSin.Zone.GameTime.Now);
 				Send.ZC_MYPC_ENTER(character);
-				Send.ZC_SYNC_MINIMAP_GAME_TIME(character, Melia.Zone.GameTime.Now);
+				Send.ZC_SYNC_MINIMAP_GAME_TIME(character, GuiltineSin.Zone.GameTime.Now);
 				// ZC_NORMAL...
 				// ZC_OBJECT_PROPERTY...
 				// ZC_SKILL_ADD...
@@ -985,7 +985,7 @@ namespace Melia.Zone.Network
 		[PacketHandler(Op.CZ_ITEM_DROP)]
 		public void CZ_ITEM_DROP(IZoneConnection conn, Packet packet)
 		{
-			// This method does not exist in Melia and in Laima
+			// This method does not exist in GuiltineSin and in Laima
 			// we detected it only happens on very specific scenarios such as
 			// a player trying to drag and drop an equipment item from
 			// a NPC shop after their inventory has been modified once whilst
@@ -1297,8 +1297,8 @@ namespace Melia.Zone.Network
 			// any of this! It's perfect! Perfect, I tell you!
 
 			var character = conn.SelectedCharacter;
-			character.Variables.Perm.SetByte("Melia.QuickSlotRows", Math.Clamp(rows, (byte)20, (byte)40));
-			character.Variables.Perm.SetString("Melia.QuickSlotList", serialized.ToString());
+			character.Variables.Perm.SetByte("GuiltineSin.QuickSlotRows", Math.Clamp(rows, (byte)20, (byte)40));
+			character.Variables.Perm.SetString("GuiltineSin.QuickSlotList", serialized.ToString());
 		}
 
 		/// <summary>
@@ -1730,7 +1730,7 @@ namespace Melia.Zone.Network
 			// Check state
 			if (conn.CurrentDialog == null)
 			{
-				// Handle MeliaCustomShop dialog close - buyer has ActiveShop but no CurrentDialog
+				// Handle GuiltineSinCustomShop dialog close - buyer has ActiveShop but no CurrentDialog
 				if (conn.ActiveShop != null)
 				{
 					conn.ActiveShop = null;
@@ -2289,7 +2289,7 @@ namespace Melia.Zone.Network
 
 			character.SetCastingState(true, skill);
 			Send.ZC_NORMAL.Skill_DynamicCastStart(character, skill.Id);
-			character.Variables.Temp.Set("Melia.Cast.Skill", skill);
+			character.Variables.Temp.Set("GuiltineSin.Cast.Skill", skill);
 
 			if (ZoneServer.Instance.SkillHandlers.TryGetHandler<IDynamicCasted>(skillId, out var handler))
 				handler.StartDynamicCast(skill, character, maxCastTime);
@@ -2318,7 +2318,7 @@ namespace Melia.Zone.Network
 
 			character.SetCastingState(false, skill);
 			Send.ZC_NORMAL.Skill_DynamicCastEnd(character, skill.Id, castTime);
-			character.Variables.Temp.Remove("Melia.Cast.Skill");
+			character.Variables.Temp.Remove("GuiltineSin.Cast.Skill");
 
 			if (ZoneServer.Instance.SkillHandlers.TryGetHandler<IDynamicCasted>(skillId, out var handler))
 				handler.EndDynamicCast(skill, character, castTime);
@@ -2404,7 +2404,7 @@ namespace Melia.Zone.Network
 				return;
 			}
 
-			skill.Vars.Set("Melia.ToolGroundPos", pos);
+			skill.Vars.Set("GuiltineSin.ToolGroundPos", pos);
 		}
 
 		/// <summary>
@@ -2996,8 +2996,8 @@ namespace Melia.Zone.Network
 					// Update buyer's shop UI
 					if (shopData.IsCustom)
 					{
-						// For custom shops, resend the MeliaCustomShop data
-						Send.ZC_EXEC_CLIENT_SCP(conn, "Melia.Comm.BeginRecv('CustomShop')");
+						// For custom shops, resend the GuiltineSinCustomShop data
+						Send.ZC_EXEC_CLIENT_SCP(conn, "GuiltineSin.Comm.BeginRecv('CustomShop')");
 
 						var sb = new StringBuilder();
 						foreach (var productData in shopData.Products.Values)
@@ -3006,21 +3006,21 @@ namespace Melia.Zone.Network
 
 							if (sb.Length > ClientScript.ScriptMaxLength * 0.8)
 							{
-								Send.ZC_EXEC_CLIENT_SCP(conn, $"Melia.Comm.Recv('CustomShop', {{ {sb} }})");
+								Send.ZC_EXEC_CLIENT_SCP(conn, $"GuiltineSin.Comm.Recv('CustomShop', {{ {sb} }})");
 								sb.Clear();
 							}
 						}
 
 						if (sb.Length > 0)
 						{
-							Send.ZC_EXEC_CLIENT_SCP(conn, $"Melia.Comm.Recv('CustomShop', {{ {sb} }})");
+							Send.ZC_EXEC_CLIENT_SCP(conn, $"GuiltineSin.Comm.Recv('CustomShop', {{ {sb} }})");
 							sb.Clear();
 						}
 
-						Send.ZC_EXEC_CLIENT_SCP(conn, "Melia.Comm.ExecData('CustomShop', M_SET_CUSTOM_SHOP)");
-						Send.ZC_EXEC_CLIENT_SCP(conn, "Melia.Comm.EndRecv('CustomShop')");
+						Send.ZC_EXEC_CLIENT_SCP(conn, "GuiltineSin.Comm.ExecData('CustomShop', M_SET_CUSTOM_SHOP)");
+						Send.ZC_EXEC_CLIENT_SCP(conn, "GuiltineSin.Comm.EndRecv('CustomShop')");
 						Send.ZC_DIALOG_CLOSE(conn);
-						Send.ZC_DIALOG_TRADE(conn, "MeliaCustomShop");
+						Send.ZC_DIALOG_TRADE(conn, "GuiltineSinCustomShop");
 					}
 					else
 					{
@@ -3995,6 +3995,7 @@ namespace Melia.Zone.Network
 				character.Quests.RepairPapayaMainQuestFlow();
 				character.Quests.SyncStaticQuestNpcStates();
 				character.Quests.UpdateClient();
+				character.EnsureCloverLevelingJobProgression();
 				character.RestoreCoreHudState(true, true);
 
 				ZoneServer.Instance.ServerEvents.PlayerLoadComplete.Raise(new PlayerEventArgs(character));
@@ -5108,7 +5109,7 @@ namespace Melia.Zone.Network
 			// information from the relation server, as there's a request
 			// op for it. This is not sent currently though.
 
-			var showEquipment = character.Connection?.Account?.Authority >= 99 || targetCharacter.Variables.Perm.GetBool("SoulSociety.MemberInfo.ShowEquipment", false);
+			var showEquipment = character.Connection?.Account?.Authority >= 99 || targetCharacter.Variables.Perm.GetBool("GuiltineSin.MemberInfo.ShowEquipment", false);
 			if (!showEquipment)
 			{
 				var language = conn.SelectedLanguage ?? "";
@@ -5393,7 +5394,7 @@ namespace Melia.Zone.Network
 
 		/// <summary>
 		/// Request to interact with a player shop (buy/sell items).
-		/// NOTE: Sellshops also use CZ_ITEM_BUY for the MeliaCustomShop dialog purchases.
+		/// NOTE: Sellshops also use CZ_ITEM_BUY for the GuiltineSinCustomShop dialog purchases.
 		/// </summary>
 		/// <param name="conn"></param>
 		/// <param name="packet"></param>
@@ -5480,7 +5481,7 @@ namespace Melia.Zone.Network
 
 			// ============================================================
 			// SELLSHOP (IsCustom=true) - Visitor wants to BUY items FROM shop owner
-			// Uses MeliaCustomShop dialog system
+			// Uses GuiltineSinCustomShop dialog system
 			// ============================================================
 
 			// Owner clicking their own sellshop - show management UI
@@ -5492,8 +5493,8 @@ namespace Melia.Zone.Network
 				return;
 			}
 
-			// Visitor opening a sellshop - send custom shop data via Melia.Comm and open dialog
-			Send.ZC_EXEC_CLIENT_SCP(conn, "Melia.Comm.BeginRecv('CustomShop')");
+			// Visitor opening a sellshop - send custom shop data via GuiltineSin.Comm and open dialog
+			Send.ZC_EXEC_CLIENT_SCP(conn, "GuiltineSin.Comm.BeginRecv('CustomShop')");
 
 			var sb = new StringBuilder();
 			foreach (var productData in shop.Products.Values)
@@ -5522,20 +5523,20 @@ namespace Melia.Zone.Network
 
 				if (sb.Length > ClientScript.ScriptMaxLength * 0.8)
 				{
-					Send.ZC_EXEC_CLIENT_SCP(conn, $"Melia.Comm.Recv('CustomShop', {{ {sb} }})");
+					Send.ZC_EXEC_CLIENT_SCP(conn, $"GuiltineSin.Comm.Recv('CustomShop', {{ {sb} }})");
 					sb.Clear();
 				}
 			}
 
 			if (sb.Length > 0)
 			{
-				Send.ZC_EXEC_CLIENT_SCP(conn, $"Melia.Comm.Recv('CustomShop', {{ {sb} }})");
+				Send.ZC_EXEC_CLIENT_SCP(conn, $"GuiltineSin.Comm.Recv('CustomShop', {{ {sb} }})");
 				sb.Clear();
 			}
 
-			Send.ZC_EXEC_CLIENT_SCP(conn, "Melia.Comm.ExecData('CustomShop', M_SET_CUSTOM_SHOP)");
-			Send.ZC_EXEC_CLIENT_SCP(conn, "Melia.Comm.EndRecv('CustomShop')");
-			Send.ZC_DIALOG_TRADE(conn, "MeliaCustomShop");
+			Send.ZC_EXEC_CLIENT_SCP(conn, "GuiltineSin.Comm.ExecData('CustomShop', M_SET_CUSTOM_SHOP)");
+			Send.ZC_EXEC_CLIENT_SCP(conn, "GuiltineSin.Comm.EndRecv('CustomShop')");
+			Send.ZC_DIALOG_TRADE(conn, "GuiltineSinCustomShop");
 		}
 
 		/// <summary>
@@ -6492,16 +6493,16 @@ namespace Melia.Zone.Network
 				return;
 			}
 
-			var skill = character.Variables.Temp.Get<Skill>("Melia.Cast.Skill");
+			var skill = character.Variables.Temp.Get<Skill>("GuiltineSin.Cast.Skill");
 			if (skill == null)
 			{
 				Log.Warning("CZ_SKILL_CELL_LIST: Account '{0}' tried to use skill cell list without a skill.", conn.Account.Name);
 				return;
 			}
 
-			skill.Vars.Set("Melia.Skill.CellCastPosition", castPosition);
-			skill.Vars.Set("Melia.Skill.CellCastDirection", castDirection);
-			skill.Vars.SetInt("Melia.Skill.CellCount", cellCount);
+			skill.Vars.Set("GuiltineSin.Skill.CellCastPosition", castPosition);
+			skill.Vars.Set("GuiltineSin.Skill.CellCastDirection", castDirection);
+			skill.Vars.SetInt("GuiltineSin.Skill.CellCount", cellCount);
 			var cells = new List<SkillCellPosition>();
 			for (var index = 0; index < cellCount; ++index)
 			{
@@ -6509,7 +6510,7 @@ namespace Melia.Zone.Network
 				var cellX = packet.GetInt();
 				cells.Add(new SkillCellPosition(cellX, cellZ));
 			}
-			skill.Vars.Set("Melia.Skill.CellList", cells);
+			skill.Vars.Set("GuiltineSin.Skill.CellList", cells);
 		}
 
 		/// <summary>
@@ -6690,7 +6691,7 @@ namespace Melia.Zone.Network
 				return;
 			}
 
-			if (!character.Variables.Perm.TryGetInt("Melia.ResurrectOptions", out var options))
+			if (!character.Variables.Perm.TryGetInt("GuiltineSin.ResurrectOptions", out var options))
 			{
 				Log.Warning("CZ_RESURRECT: User '{0}' tried to revive their character while no options were set.", conn.Account.Name);
 				return;
@@ -6725,7 +6726,7 @@ namespace Melia.Zone.Network
 			}
 
 			// TODO: Check if player owns the HUD skin?
-			character.Variables.Perm.SetInt("Melia.HudSkin", skinId);
+			character.Variables.Perm.SetInt("GuiltineSin.HudSkin", skinId);
 
 			Send.ZC_SEND_APPLY_HUD_SKIN_MYSELF(conn, character);
 			if (conn.Party != null)

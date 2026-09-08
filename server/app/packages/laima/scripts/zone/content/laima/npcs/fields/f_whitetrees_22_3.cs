@@ -1,12 +1,12 @@
-//--- Melia Script ----------------------------------------------------------
+//--- GuiltineSin Script ----------------------------------------------------------
 // Izoliacjia Plateau
 //--- Description -----------------------------------------------------------
 // NPCs found in and around Izoliacjia Plateau.
 //---------------------------------------------------------------------------
 
-using Melia.Shared.Game.Const;
-using Melia.Zone.Scripting;
-using static Melia.Zone.Scripting.Shortcuts;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Scripting;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
 public class FWhitetrees223NpcScript : GeneralScript
 {

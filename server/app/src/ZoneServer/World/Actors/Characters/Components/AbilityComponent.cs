@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Shared.ObjectProperties;
-using Melia.Zone.Network;
-using Melia.Zone.Skills;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.ObjectProperties;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Skills;
 
-namespace Melia.Zone.World.Actors.Characters.Components
+namespace GuiltineSin.Zone.World.Actors.Characters.Components
 {
 	/// <summary>
 	/// A character's abilities.

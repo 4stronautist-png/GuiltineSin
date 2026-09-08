@@ -1,13 +1,13 @@
-//--- Melia Script -----------------------------------------------------------
+//--- GuiltineSin Script -----------------------------------------------------------
 // 2nd Demon Prison Spawns
 //--- Description -----------------------------------------------------------
 // Sets up monster spawners for 'd_velniasprison_54_1'.
 //---------------------------------------------------------------------------
 
 using System;
-using Melia.Zone.Scripting;
-using Melia.Shared.Game.Const;
-using static Melia.Zone.Scripting.Shortcuts;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Shared.Game.Const;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
 public class DVelniasprison541MobScript : GeneralScript
 {

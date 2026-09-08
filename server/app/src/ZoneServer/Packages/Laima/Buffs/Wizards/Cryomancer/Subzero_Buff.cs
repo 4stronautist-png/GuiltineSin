@@ -1,17 +1,17 @@
 using System;
-using Melia.Shared.Packages;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting.ScriptableEvents;
-using Melia.Zone.Skills;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.World.Actors;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting.ScriptableEvents;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.World.Actors;
 using Yggdrasil.Util;
-using static Melia.Zone.Skills.SkillUseFunctions;
+using static GuiltineSin.Zone.Skills.SkillUseFunctions;
 
-namespace Melia.Zone.Buffs.HandlersOverrides.Wizard.Cryomancer
+namespace GuiltineSin.Zone.Buffs.HandlersOverrides.Wizard.Cryomancer
 {
 	/// <summary>
 	/// Handler for the Subzero buff, which changes the target's attribute to

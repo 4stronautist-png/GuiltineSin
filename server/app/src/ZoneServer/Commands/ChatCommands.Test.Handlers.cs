@@ -4,16 +4,16 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Melia.Shared.Game.Const;
-using Melia.Shared.World;
-using Melia.Zone.Network;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Monsters;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Monsters;
 using Yggdrasil.Util;
 using Yggdrasil.Util.Commands;
 
-namespace Melia.Zone.Commands
+namespace GuiltineSin.Zone.Commands
 {
 	public partial class ChatCommands : CommandManager<ChatCommand, ChatCommandFunc>
 	{

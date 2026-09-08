@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Melia.Shared.World;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Dungeons;
-using Melia.Zone.World.Dungeons.Stages;
-using Melia.Zone.World.Quests.Objectives;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Dungeons;
+using GuiltineSin.Zone.World.Dungeons.Stages;
+using GuiltineSin.Zone.World.Quests.Objectives;
 
-namespace Melia.Zone.World.Dungeons.Stages
+namespace GuiltineSin.Zone.World.Dungeons.Stages
 {
 	/// <summary>
 	/// A stage that presents players with choices that affect the dungeon path.

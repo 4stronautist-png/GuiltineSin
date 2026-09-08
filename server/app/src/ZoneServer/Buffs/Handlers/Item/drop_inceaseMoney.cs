@@ -1,7 +1,7 @@
-﻿using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
+﻿using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
 
-namespace Melia.Zone.Buffs.Handlers
+namespace GuiltineSin.Zone.Buffs.Handlers
 {
 	/// <summary>
 	/// Handle for drop_inceaseMoney, which stores values for loot calculation.
@@ -9,8 +9,8 @@ namespace Melia.Zone.Buffs.Handlers
 	[BuffHandler(BuffId.drop_inceaseMoney)]
 	public class drop_inceaseMoney : BuffHandler
 	{
-		private const string VarMoneyCount = "Melia.Drop.MoneyCount";
-		private const string VarMoneyRatio = "Melia.Drop.MoneyRatio";
+		private const string VarMoneyCount = "GuiltineSin.Drop.MoneyCount";
+		private const string VarMoneyRatio = "GuiltineSin.Drop.MoneyRatio";
 
 		public override void OnActivate(Buff buff, ActivationType activationType)
 		{

@@ -1,11 +1,11 @@
 using System;
-using Melia.Zone.Events.Arguments;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.Events.Arguments;
+using GuiltineSin.Zone.World.Actors.Characters;
 using Yggdrasil.Logging;
 using Yggdrasil.Scheduling;
-using static Melia.Zone.Scripting.Shortcuts;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
-namespace Melia.Zone.World
+namespace GuiltineSin.Zone.World
 {
 	/// <summary>
 	/// Defines known faction identifiers used for reputation tracking.

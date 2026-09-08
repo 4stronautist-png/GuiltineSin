@@ -1,4 +1,4 @@
-﻿namespace Melia.Zone.World.Gacha
+﻿namespace GuiltineSin.Zone.World.Gacha
 {
 	/// <summary>
 	/// Defines a gacha machine's type, affecting the look of the

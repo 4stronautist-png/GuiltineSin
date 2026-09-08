@@ -1,8 +1,8 @@
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Network;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Network;
 
-namespace Melia.Zone.Buffs.Handlers.Scouts.Scout
+namespace GuiltineSin.Zone.Buffs.Handlers.Scouts.Scout
 {
 	/// <summary>
 	/// Handler for Oblique Fire buff, which affects the target's movement

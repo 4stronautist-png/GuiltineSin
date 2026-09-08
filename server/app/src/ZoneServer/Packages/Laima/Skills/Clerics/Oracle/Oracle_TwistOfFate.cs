@@ -1,19 +1,19 @@
 using System;
-using Melia.Shared.Game.Const;
-using Melia.Shared.L10N;
-using Melia.Shared.Packages;
-using Melia.Shared.World;
-using Melia.Zone.Network;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.Skills.Handlers.Base;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Monsters;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.Skills.Handlers.Base;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Monsters;
 using Yggdrasil.Util;
-using static Melia.Zone.Skills.SkillUseFunctions;
-using static Melia.Zone.Skills.Helpers.SkillResultHelper;
+using static GuiltineSin.Zone.Skills.SkillUseFunctions;
+using static GuiltineSin.Zone.Skills.Helpers.SkillResultHelper;
 
-namespace Melia.Zone.Skills.Handlers.Clerics.Oracle
+namespace GuiltineSin.Zone.Skills.Handlers.Clerics.Oracle
 {
 	/// <summary>
 	/// Handler for the Oracle skill Twist Of Fate.

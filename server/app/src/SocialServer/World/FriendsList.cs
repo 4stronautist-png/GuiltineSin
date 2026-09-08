@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Melia.Social.Database;
-using Melia.Social.Network;
+using GuiltineSin.Social.Database;
+using GuiltineSin.Social.Network;
 using Yggdrasil.Geometry.Shapes;
 using Yggdrasil.Logging;
 
-namespace Melia.Social.World
+namespace GuiltineSin.Social.World
 {
 	/// <summary>
 	/// Represents a list of friends on a user.

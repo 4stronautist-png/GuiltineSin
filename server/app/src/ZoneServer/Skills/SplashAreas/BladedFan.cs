@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Linq;
-using Melia.Shared.Data.Database;
-using Melia.Shared.World;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.World;
 using Yggdrasil.Extensions;
 using Yggdrasil.Geometry;
 using Yggdrasil.Geometry.Shapes;
 
-namespace Melia.Zone.Skills.SplashAreas
+namespace GuiltineSin.Zone.Skills.SplashAreas
 {
 	/// <summary>
 	/// A splash area that consists of a number of blades arranged evenly

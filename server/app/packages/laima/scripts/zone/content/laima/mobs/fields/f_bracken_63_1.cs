@@ -1,13 +1,13 @@
-//--- Melia Script -----------------------------------------------------------
+//--- GuiltineSin Script -----------------------------------------------------------
 // Koru Jungle Spawns
 //--- Description -----------------------------------------------------------
 // Sets up monster spawners for 'f_bracken_63_1'.
 //---------------------------------------------------------------------------
 
 using System;
-using Melia.Zone.Scripting;
-using Melia.Shared.Game.Const;
-using static Melia.Zone.Scripting.Shortcuts;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Shared.Game.Const;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
 public class FBracken631MobScript : GeneralScript
 {

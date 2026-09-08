@@ -1,8 +1,8 @@
-﻿using Melia.Shared.Game.Const;
-using Melia.Shared.Network;
+﻿using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Network;
 using Yggdrasil.Logging;
 
-namespace Melia.Zone.Network
+namespace GuiltineSin.Zone.Network
 {
 	public partial class PacketHandler : PacketHandler<IZoneConnection>
 	{

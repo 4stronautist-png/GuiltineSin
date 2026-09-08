@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
-using Melia.Shared.Data.Database;
-using Melia.Zone.Network;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Zone.Network;
 using Yggdrasil.Logging;
 
-namespace Melia.Zone.World.Actors.Characters.Components
+namespace GuiltineSin.Zone.World.Actors.Characters.Components
 {
 	/// <summary>
 	/// Achievements

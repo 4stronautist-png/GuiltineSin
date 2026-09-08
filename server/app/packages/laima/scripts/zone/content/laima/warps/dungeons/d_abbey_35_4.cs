@@ -1,11 +1,11 @@
-//--- Melia Script ----------------------------------------------------------
+//--- GuiltineSin Script ----------------------------------------------------------
 // Warps
 //--- Description -----------------------------------------------------------
 // Sets up warps in Elgos Monastery Main Building
 //---------------------------------------------------------------------------
 
-using Melia.Zone.Scripting;
-using static Melia.Zone.Scripting.Shortcuts;
+using GuiltineSin.Zone.Scripting;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
 public class d_abbey_35_4WarpsScript : GeneralScript
 {

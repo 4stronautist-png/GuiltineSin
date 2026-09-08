@@ -8,9 +8,9 @@ def find_app_root(start: Path) -> Path:
     candidates = [start]
     candidates.extend(start.parents)
     for candidate in candidates:
-        if (candidate / "Melia.sln").exists() and (candidate / "system" / "db" / "quests.txt").exists():
+        if (candidate / "GuiltineSin.sln").exists() and (candidate / "system" / "db" / "quests.txt").exists():
             return candidate
-    raise FileNotFoundError(f"Unable to locate CloverTOS server/app root from {start}")
+    raise FileNotFoundError(f"Unable to locate GuiltineSin server/app root from {start}")
 
 
 def module_root(app_root: Path) -> Path:

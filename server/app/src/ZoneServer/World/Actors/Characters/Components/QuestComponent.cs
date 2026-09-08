@@ -2,32 +2,34 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using Melia.Shared.ObjectProperties;
-using Melia.Shared.Scripting;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Game.Properties;
-using Melia.Shared.World;
-using Melia.Zone.Events.Arguments;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Quests;
-using Melia.Zone.World.Quests.Modifiers;
-using Melia.Zone.World.Quests.Objectives;
-using Melia.Zone.World.Quests.Rewards;
-using Melia.Zone.World.Tracks;
+using GuiltineSin.Shared.ObjectProperties;
+using GuiltineSin.Shared.Scripting;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Game.Properties;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Events.Arguments;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Scripting.Dialogues;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Quests;
+using GuiltineSin.Zone.World.Quests.Modifiers;
+using GuiltineSin.Zone.World.Quests.Objectives;
+using GuiltineSin.Zone.World.Quests.Papaya;
+using GuiltineSin.Zone.World.Quests.Rewards;
+using GuiltineSin.Zone.World.Tracks;
 using Yggdrasil.Scheduling;
 using Yggdrasil.Util;
 using System.Threading.Tasks;
 using System.Runtime.CompilerServices;
 using Yggdrasil.Logging;
-using QuestAutoData = Melia.Shared.Data.Database.QuestAutoData;
-using QuestStaticData = Melia.Shared.Data.Database.QuestStaticData;
-using SessionQuestData = Melia.Shared.Data.Database.QuestData;
+using QuestAutoData = GuiltineSin.Shared.Data.Database.QuestAutoData;
+using QuestStaticData = GuiltineSin.Shared.Data.Database.QuestStaticData;
+using SessionQuestData = GuiltineSin.Shared.Data.Database.QuestData;
 
-namespace Melia.Zone.World.Actors.Characters.Components
+namespace GuiltineSin.Zone.World.Actors.Characters.Components
 {
 	/// <summary>
 	/// A character's quest manager.
@@ -44,6 +46,7 @@ namespace Melia.Zone.World.Actors.Characters.Components
 	{
 		private readonly static TimeSpan AutoReceiveDelay = TimeSpan.FromMinutes(1);
 		private readonly static TimeSpan LocationCheckInterval = TimeSpan.FromSeconds(1);
+		private readonly static TimeSpan StaticRuntimeCheckInterval = TimeSpan.FromSeconds(3);
 		private const int MaxClientTrackedQuestSlots = 5;
 		private const int MaxClientQuestCheckProperties = 10;
 		private readonly static object StaticObjectiveLoadLock = new();
@@ -59,10 +62,12 @@ namespace Melia.Zone.World.Actors.Characters.Components
 
 		private TimeSpan _autoReceiveDelay = AutoReceiveDelay;
 		private TimeSpan _timeSinceLastLocationCheck = TimeSpan.Zero;
+		private TimeSpan _timeSinceLastStaticRuntimeCheck = TimeSpan.Zero;
 		private int _lastWestSiauliaiTrackedQuestId = int.MinValue;
 		private string _lastTrackedQuestSignature = "";
 		private readonly Dictionary<string, DateTime> _staticQuestObjectiveSpawnPending = new(StringComparer.OrdinalIgnoreCase);
 		private bool _papayaCrystalMineSkipInProgress;
+		private PapayaQuestRuntime _papayaRuntime;
 
 		/// <summary>
 		/// Creates new instance for character.
@@ -587,6 +592,7 @@ namespace Melia.Zone.World.Actors.Characters.Components
 		{
 			var changed = false;
 			changed |= this.CompleteSucceededClientHiddenPapayaBridgeQuests();
+			changed |= this.TryRepairActivePapayaHiddenSanctumHandoff();
 
 			for (var i = 0; i < PapayaCapturedMainQuestOrder.Length - 1; i++)
 			{
@@ -639,6 +645,12 @@ namespace Melia.Zone.World.Actors.Characters.Components
 
 		private bool PapayaCapturedFollowUpMustStartImmediately(QuestStaticData completedQuestData, QuestStaticData nextQuestData)
 		{
+			if (completedQuestData != null &&
+				nextQuestData != null &&
+				string.Equals(completedQuestData.ClassName, "CHAPLE577_MQ_10", StringComparison.OrdinalIgnoreCase) &&
+				string.Equals(nextQuestData.ClassName, "CHAPLE577_MQ_10_AFTER", StringComparison.OrdinalIgnoreCase))
+				return true;
+
 			return false;
 		}
 
@@ -660,6 +672,7 @@ namespace Melia.Zone.World.Actors.Characters.Components
 			{
 				this.StartStaticQuest(nextQuestData, TimeSpan.Zero);
 				this.TrackPapayaMainFollowUpIfVisible(nextQuestData);
+				this.TryQueuePapayaHiddenSanctumPaladinMasterWarp(completedQuestData.ClassName, nextQuestData.ClassName, "follow-up start");
 				Log.Info("Papaya main quest flow: started captured follow-up '{0}' after '{1}' for '{2}'.", nextQuestName, completedQuestName, this.Character.Name);
 				return true;
 			}
@@ -674,6 +687,68 @@ namespace Melia.Zone.World.Actors.Characters.Components
 				Log.Info("Papaya main quest flow: made captured follow-up '{0}' available after '{1}' for '{2}'.", nextQuestName, completedQuestName, this.Character.Name);
 
 			return changed;
+		}
+
+		private bool TryRepairActivePapayaHiddenSanctumHandoff()
+		{
+			if (!ZoneServer.Instance.Data.QuestDb.TryFind("CHAPLE577_MQ_10_AFTER", out var questData) ||
+				!this.TryGetById(new QuestId(questData.Id), out var quest) ||
+				!quest.InProgress)
+				return false;
+
+			return this.TryQueuePapayaHiddenSanctumPaladinMasterWarp("CHAPLE577_MQ_10", "CHAPLE577_MQ_10_AFTER", "active quest repair");
+		}
+
+		private bool TryQueuePapayaHiddenSanctumPaladinMasterWarp(string completedQuestName, string nextQuestName, string reason)
+		{
+			if (!string.Equals(completedQuestName, "CHAPLE577_MQ_10", StringComparison.OrdinalIgnoreCase) ||
+				!string.Equals(nextQuestName, "CHAPLE577_MQ_10_AFTER", StringComparison.OrdinalIgnoreCase) ||
+				this.Character?.Map == null)
+				return false;
+
+			var mapClassName = this.Character.Map.ClassName;
+			if (string.Equals(mapClassName, "f_gele_57_3", StringComparison.OrdinalIgnoreCase))
+				return false;
+
+			if (!string.Equals(mapClassName, "d_chapel_57_7", StringComparison.OrdinalIgnoreCase) &&
+				!string.Equals(mapClassName, "d_chapel_57_6", StringComparison.OrdinalIgnoreCase) &&
+				!string.Equals(mapClassName, "d_chapel_57_5", StringComparison.OrdinalIgnoreCase) &&
+				!string.Equals(mapClassName, "f_gele_57_4", StringComparison.OrdinalIgnoreCase))
+				return false;
+
+			const string tempKey = "Clover.Papaya.HiddenSanctum.PaladinMasterWarpQueued";
+			if (this.Character.Variables.Temp.GetBool(tempKey, false))
+				return false;
+
+			this.Character.Variables.Temp.SetBool(tempKey, true);
+			Log.Info(
+				"Papaya main quest flow: queueing Hidden Sanctum handoff warp for '{0}' from '{1}' to Paladin Master via {2}.",
+				this.Character.Name,
+				mapClassName,
+				reason
+			);
+
+			_ = Task.Run(async () =>
+			{
+				await Task.Delay(900);
+
+				try
+				{
+					if (this.Character?.Map == null ||
+						this.Character.IsWarping ||
+						string.Equals(this.Character.Map.ClassName, "f_gele_57_3", StringComparison.OrdinalIgnoreCase))
+						return;
+
+					this.Character.Warp("f_gele_57_3", 871, -68, -514);
+				}
+				catch (Exception ex)
+				{
+					Log.Warning("Papaya main quest flow: Hidden Sanctum handoff warp failed for '{0}': {1}", this.Character?.Name ?? "unknown", ex);
+					this.Character?.Variables.Temp.SetBool(tempKey, false);
+				}
+			});
+
+			return true;
 		}
 
 		private void TrackPapayaMainFollowUpIfVisible(QuestStaticData questData)
@@ -1666,7 +1741,7 @@ namespace Melia.Zone.World.Actors.Characters.Components
 
 		private Quest CreateStaticQuest(QuestStaticData questStaticData)
 		{
-			var questData = new Melia.Zone.World.Quests.QuestData
+			var questData = new GuiltineSin.Zone.World.Quests.QuestData
 			{
 				Id = new QuestId(questStaticData.Id),
 				Name = questStaticData.Name,
@@ -1948,6 +2023,52 @@ namespace Melia.Zone.World.Actors.Characters.Components
 			return true;
 		}
 
+		public bool PapayaRuntimeRequiresPersonalClickSurface(string dialogName, string mapClassName)
+			=> (this._papayaRuntime ??= new PapayaQuestRuntime(this.Character, this)).RequiresPersonalClickSurface(dialogName, mapClassName);
+
+		public Task<bool> TryHandlePapayaObjectiveInteractionAsync(string dialogName, Dialog dialog = null)
+			=> (this._papayaRuntime ??= new PapayaQuestRuntime(this.Character, this)).TryHandleObjectiveInteractionAsync(dialogName, dialog);
+
+		public bool StaticQuestDialogRequiresScriptedInteraction(string npcDialogName)
+		{
+			if (string.IsNullOrWhiteSpace(npcDialogName))
+				return false;
+
+			var currentMap = this.Character?.Map?.ClassName;
+			if (string.IsNullOrWhiteSpace(currentMap))
+				return false;
+
+			foreach (var quest in this.GetList().Where(a => a.InProgress && a.SessionObjectStaticData?.QuestData?.MapPointGroup != null))
+			{
+				if (!quest.Progresses.Any(a => !a.Done && a.Objective is CollectItemObjective))
+					continue;
+
+				foreach (var mapPointGroup in quest.SessionObjectStaticData.QuestData.MapPointGroup)
+				{
+					if (this.StaticMapPointGroupReferencesDialog(mapPointGroup, currentMap, npcDialogName))
+						return true;
+				}
+			}
+
+			return false;
+		}
+
+		private bool StaticMapPointGroupReferencesDialog(string mapPointGroup, string mapClassName, string npcDialogName)
+		{
+			if (string.IsNullOrWhiteSpace(mapPointGroup) || string.IsNullOrWhiteSpace(mapClassName) || string.IsNullOrWhiteSpace(npcDialogName))
+				return false;
+
+			var parts = mapPointGroup.Split(' ', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+			for (var i = 0; i + 1 < parts.Length; i++)
+			{
+				if (string.Equals(parts[i], mapClassName, StringComparison.OrdinalIgnoreCase) &&
+					string.Equals(parts[i + 1], npcDialogName, StringComparison.OrdinalIgnoreCase))
+					return true;
+			}
+
+			return false;
+		}
+
 		/// <summary>
 		/// Advances, completes, and starts static NPC-dialog quests that
 		/// are tied to the given NPC dialog name.
@@ -2094,6 +2215,7 @@ namespace Melia.Zone.World.Actors.Characters.Components
 			this.EnsureStaticQuestLayerState();
 			this.SyncStaticQuestSessionObjects();
 			this.EnsureStaticQuestNpcActors(mapClassName);
+			this.EnsureStaticQuestObjectiveInteractionActors(mapClassName);
 			var startedQuestAutoTrack = this.TryStartStaticQuestAutoTracks(mapClassName);
 			if (!startedQuestAutoTrack)
 			{
@@ -2132,6 +2254,7 @@ namespace Melia.Zone.World.Actors.Characters.Components
 				}
 
 				var currentState = this.Character.GetMapNPCState(npc);
+				this.EnsureStaticQuestNpcInteractionSurface(npc);
 				if (currentState != NpcState.Highlighted)
 				{
 					this.Character.SetMapNPCState(npc, NpcState.Highlighted);
@@ -2153,6 +2276,241 @@ namespace Melia.Zone.World.Actors.Characters.Components
 			Send.ZC_ENTER_MONSTER(this.Character.Connection, npc);
 			Send.ZC_SET_NPC_STATE(this.Character.Connection, npc, (short)state);
 		}
+
+		private void EnsureStaticQuestNpcInteractionSurface(Npc npc)
+		{
+			if (npc == null || this.Character?.Connection == null)
+				return;
+
+			var currentRange = npc.Properties.GetFloat(PropertyName.Range);
+			if (currentRange >= 250)
+				return;
+
+			npc.Properties.SetFloat(PropertyName.Range, 250);
+		}
+
+		private void EnsureStaticQuestObjectiveInteractionActors(string mapClassName)
+		{
+			if (this.Character?.Connection == null || this.Character.Map == null || string.IsNullOrWhiteSpace(mapClassName))
+				return;
+
+			var activeGenTypes = new HashSet<int>();
+			foreach (var request in this.GetActiveStaticQuestObjectiveInteractionRequests(mapClassName))
+			{
+				var forcePersonalClickSurface = this.PapayaRuntimeRequiresPersonalClickSurface(request.DialogName, mapClassName);
+				if (!forcePersonalClickSurface && this.TryArmExistingStaticQuestObjectiveActor(request, out _))
+					continue;
+
+				if (this.RequiresRealStaticObjectiveActor(request.DialogName))
+					continue;
+
+				var genType = this.GetPersonalStaticQuestObjectiveGenType(request, mapClassName);
+				activeGenTypes.Add(genType);
+				this.EnsurePersonalStaticQuestObjectiveActor(request, mapClassName, genType);
+			}
+
+			this.HideInactivePersonalStaticQuestObjectiveActors(activeGenTypes);
+		}
+
+		private bool TryArmExistingStaticQuestObjectiveActor(StaticQuestNpcSpawnRequest request, out Npc npc)
+		{
+			npc = this.Character.Map
+				.GetNpcs(actor => actor is Npc candidate &&
+					!this.IsPersonalStaticQuestObjectiveActor(candidate) &&
+					(candidate.Layer == this.Character.Layer || this.Character.Layer == 0) &&
+					this.StaticNpcDialogMatches(candidate.DialogName, request.DialogName) &&
+					candidate.Position.InRange3D(new Position((float)request.X, (float)request.Y, (float)request.Z), (float)Math.Max(80, request.Range)))
+				.OfType<Npc>()
+				.OrderBy(candidate => candidate.Position.Get2DDistance(new Position((float)request.X, (float)request.Y, (float)request.Z)))
+				.FirstOrDefault();
+
+			if (npc == null)
+				return false;
+
+			this.EnsureStaticQuestNpcInteractionSurface(npc);
+			this.Character.SetMapNPCState(npc, NpcState.Highlighted);
+
+			var logKey = $"Clover.StaticQuest.ArmedObjective.{this.Character.Map.Id}.{npc.GenType}.{request.DialogName}";
+			if (!this.Character.Variables.Temp.GetBool(logKey, false))
+			{
+				this.Character.Variables.Temp.SetBool(logKey, true);
+				Log.Info(
+					"Static quest chain: armed existing objective actor '{0}' genType {1} model {2} for quest '{3}' at {4:0.##}/{5:0.##}/{6:0.##}.",
+					request.DialogName,
+					npc.GenType,
+					npc.Id,
+					request.QuestClassName,
+					npc.Position.X,
+					npc.Position.Y,
+					npc.Position.Z
+				);
+			}
+			return true;
+		}
+
+		private bool RequiresRealStaticObjectiveActor(string dialogName)
+		{
+			if (string.IsNullOrWhiteSpace(dialogName))
+				return false;
+
+			return string.Equals(dialogName, "HUEVILLAGE_58_2_MQ03_NPC", StringComparison.OrdinalIgnoreCase) ||
+				string.Equals(dialogName, "HUEVILLAGE_58_2_OBELISK_BEFORE", StringComparison.OrdinalIgnoreCase);
+		}
+
+		private IEnumerable<StaticQuestNpcSpawnRequest> GetActiveStaticQuestObjectiveInteractionRequests(string mapClassName)
+		{
+			foreach (var quest in this.GetList().Where(quest => quest.InProgress && quest.QuestStaticData?.Objectives != null))
+			{
+				var questData = quest.QuestStaticData;
+				foreach (var objectiveData in questData.Objectives)
+				{
+					if (objectiveData == null ||
+						!quest.TryGetProgress(objectiveData.Ident, out var progress) ||
+						progress.Done ||
+						!progress.Unlocked)
+						continue;
+
+					if (string.Equals(objectiveData.Type, "Interact", StringComparison.OrdinalIgnoreCase) &&
+						!this.IsNone(objectiveData.Target) &&
+						this.TryResolveStaticNpcPosition(questData, objectiveData.Target, mapClassName, out var interactX, out var interactY, out var interactZ, out var interactRange))
+					{
+						yield return new StaticQuestNpcSpawnRequest(objectiveData.Target, questData.ClassName, this.ResolveStaticQuestNpcName(objectiveData.Target), interactX, interactY, interactZ, Math.Max(250, interactRange));
+					}
+
+					if (!string.Equals(objectiveData.Type, "Collect", StringComparison.OrdinalIgnoreCase) ||
+						!this.IsNone(objectiveData.DropTarget) ||
+						quest.SessionObjectStaticData?.QuestData?.MapPointGroup == null)
+						continue;
+
+					var sourceCount = Math.Max(1, objectiveData.Count);
+					var sources = quest.SessionObjectStaticData.QuestData.MapPointGroup
+						.Where(group => !this.IsNone(group))
+						.Take(sourceCount)
+						.ToList();
+					var collectedCount = Math.Max(0, Math.Min(progress.Count, sources.Count));
+
+					foreach (var mapPointGroup in sources.Skip(collectedCount).Take(1))
+					{
+						if (this.TryCreateStaticQuestObjectiveInteractionRequest(questData, mapPointGroup, mapClassName, out var request))
+							yield return request;
+					}
+				}
+			}
+		}
+
+		private bool TryCreateStaticQuestObjectiveInteractionRequest(QuestStaticData questData, string mapPointGroup, string mapClassName, out StaticQuestNpcSpawnRequest request)
+		{
+			request = default;
+
+			if (!this.TryGetStaticMapPointGroupDialog(mapPointGroup, mapClassName, out var dialogName))
+				return false;
+
+			if (!this.TryResolveStaticPositionFromLocation(mapPointGroup, mapClassName, out var x, out var y, out var z, out var range))
+				return false;
+
+			request = new StaticQuestNpcSpawnRequest(dialogName, questData.ClassName, this.ResolveStaticQuestNpcName(dialogName), x, y, z, Math.Max(250, range));
+			return true;
+		}
+
+		private bool TryGetStaticMapPointGroupDialog(string mapPointGroup, string mapClassName, out string dialogName)
+		{
+			dialogName = null;
+
+			if (string.IsNullOrWhiteSpace(mapPointGroup) || string.IsNullOrWhiteSpace(mapClassName))
+				return false;
+
+			var parts = mapPointGroup.Split(' ', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+			for (var i = 0; i + 1 < parts.Length; i++)
+			{
+				if (!string.Equals(parts[i], mapClassName, StringComparison.OrdinalIgnoreCase))
+					continue;
+
+				if (double.TryParse(parts[i + 1], out _))
+					return false;
+
+				dialogName = parts[i + 1];
+				return !string.IsNullOrWhiteSpace(dialogName);
+			}
+
+			return false;
+		}
+
+		private int GetPersonalStaticQuestObjectiveGenType(StaticQuestNpcSpawnRequest request, string mapClassName)
+		{
+			var key = string.Format(
+				CultureInfo.InvariantCulture,
+				"{0}:{1}:{2}:{3}:{4:0.##}:{5:0.##}:{6:0.##}",
+				this.Character.ObjectId,
+				mapClassName,
+				request.QuestClassName,
+				request.DialogName,
+				request.X,
+				request.Y,
+				request.Z);
+			var hash = StringComparer.OrdinalIgnoreCase.GetHashCode(key) & 0x7fffffff;
+			return 1900000 + hash % 100000;
+		}
+
+		private void EnsurePersonalStaticQuestObjectiveActor(StaticQuestNpcSpawnRequest request, string mapClassName, int genType)
+		{
+			var npc = this.Character.Map
+				.GetNpcs(actor => actor is Npc candidate &&
+					candidate.GenType == genType &&
+					candidate.Layer == this.Character.Layer &&
+					this.StaticNpcDialogMatches(candidate.DialogName, request.DialogName))
+				.OfType<Npc>()
+				.FirstOrDefault();
+
+			if (npc == null)
+			{
+				var modelId = this.ResolveStaticQuestObjectiveInteractionMonsterId(request.DialogName);
+				npc = Shortcuts.AddNpc(genType, modelId, request.Name, mapClassName, request.X, request.Y, request.Z, 0, request.DialogName, state: (int)NpcState.Highlighted, range: request.Range);
+				npc.SetVisibilty(ActorVisibility.Individual, this.Character.ObjectId);
+				npc.Layer = this.Character.Layer;
+				Log.Info("Static quest chain: spawned personal objective click target '{0}' model {1} for quest '{2}' on map '{3}' layer {4} at {5:0.##}/{6:0.##}/{7:0.##}.", request.DialogName, modelId, request.QuestClassName, mapClassName, this.Character.Layer, request.X, request.Y, request.Z);
+			}
+			else
+			{
+				npc.Position = new Position((float)request.X, (float)request.Y, (float)request.Z);
+				npc.SetVisibilty(ActorVisibility.Individual, this.Character.ObjectId);
+				npc.Layer = this.Character.Layer;
+			}
+
+			this.EnsureStaticQuestNpcInteractionSurface(npc);
+			Send.ZC_ENTER_MONSTER(this.Character.Connection, npc);
+			this.Character.SetMapNPCState(npc, NpcState.Highlighted);
+		}
+
+		private int ResolveStaticQuestObjectiveInteractionMonsterId(string dialogName)
+		{
+			// Papaya hidenpc objectives use a trigger actor as the click surface.
+			// The visible bucket/altar/etc can remain a visual object, but some
+			// MISC object models never expose SPACE/CZ_CLICK_TRIGGER themselves.
+			return 20041;
+		}
+
+		private void HideInactivePersonalStaticQuestObjectiveActors(HashSet<int> activeGenTypes)
+		{
+			var staleNpcs = this.Character.Map
+				.GetNpcs(actor => actor is Npc npc &&
+					npc.GenType >= 1900000 &&
+					npc.GenType < 2000000 &&
+					npc.Visibility == ActorVisibility.Individual &&
+					npc.VisibilityId == this.Character.ObjectId &&
+					npc.Layer == this.Character.Layer &&
+					!activeGenTypes.Contains(npc.GenType))
+				.OfType<Npc>()
+				.ToList();
+
+			foreach (var npc in staleNpcs)
+			{
+				this.Character.SetMapNPCState(npc, NpcState.Invisible);
+				Send.ZC_LEAVE(this.Character.Connection, npc);
+			}
+		}
+
+		private bool IsPersonalStaticQuestObjectiveActor(Npc npc)
+			=> npc != null && npc.GenType >= 1900000 && npc.GenType < 2000000;
 
 		private bool TryStartStaticQuestAutoTracks(string mapClassName)
 		{
@@ -2270,6 +2628,17 @@ namespace Melia.Zone.World.Actors.Characters.Components
 
 			var mapClassName = this.Character.Map.ClassName;
 			var actors = new List<IActor>();
+			if (this.StaticQuestAutoTrackShouldSuppressGenericActors(quest, track, mapClassName))
+			{
+				Log.Info(
+					"Papaya quest_auto: suppressed generic track actors for '{0}' / quest '{1}' on map '{2}'.",
+					track.Id,
+					quest.QuestStaticData.ClassName,
+					mapClassName
+				);
+				return Array.Empty<IActor>();
+			}
+
 			this.AddGenericQuestAutoTrackNpcActors(quest, mapClassName, actors);
 			this.AddGenericQuestAutoTrackMonsterActors(quest, mapClassName, actors);
 
@@ -2286,6 +2655,24 @@ namespace Melia.Zone.World.Actors.Characters.Components
 			}
 
 			return actors.ToArray();
+		}
+
+		private bool StaticQuestAutoTrackShouldSuppressGenericActors(Quest quest, Track track, string mapClassName)
+		{
+			var questClassName = quest?.QuestStaticData?.ClassName;
+			var trackId = track?.Id ?? "";
+
+			if (!string.Equals(mapClassName, "d_chapel_57_6", StringComparison.OrdinalIgnoreCase))
+			{
+				return string.Equals(mapClassName, "d_chapel_57_7", StringComparison.OrdinalIgnoreCase) &&
+					trackId.StartsWith("CHAPLE577_", StringComparison.OrdinalIgnoreCase);
+			}
+
+			return
+				(string.Equals(questClassName, "CHAPLE576_MQ_02", StringComparison.OrdinalIgnoreCase) &&
+				 string.Equals(trackId, "CHAPLE576_MQ_04_TRACK", StringComparison.OrdinalIgnoreCase)) ||
+				(string.Equals(questClassName, "CHAPLE576_MQ_04_1", StringComparison.OrdinalIgnoreCase) &&
+				 string.Equals(trackId, "CHAPLE576_MQ_04_AFTER", StringComparison.OrdinalIgnoreCase));
 		}
 
 		public void QueueGenericQuestAutoTrackFollowUp(Track track)
@@ -2898,6 +3285,9 @@ namespace Melia.Zone.World.Actors.Characters.Components
 						 this.StaticNpcDialogMatches(questData.StartNPC, npcDialogName)))
 						return true;
 
+					if (quest.InProgress && this.StaticQuestActiveObjectiveReferencesDialog(quest, mapClassName, npcDialogName))
+						return true;
+
 					continue;
 				}
 
@@ -2907,6 +3297,47 @@ namespace Melia.Zone.World.Actors.Characters.Components
 					!this.StaticQuestIsBlockedByPapayaMainProgression(questData) &&
 					this.MeetsStaticPrerequisites(questData))
 					return true;
+			}
+
+			return false;
+		}
+
+		private bool StaticQuestActiveObjectiveReferencesDialog(Quest quest, string mapClassName, string npcDialogName)
+		{
+			if (quest?.QuestStaticData?.Objectives == null ||
+				string.IsNullOrWhiteSpace(mapClassName) ||
+				string.IsNullOrWhiteSpace(npcDialogName))
+				return false;
+
+			foreach (var objectiveData in quest.QuestStaticData.Objectives)
+			{
+				if (objectiveData == null ||
+					!quest.TryGetProgress(objectiveData.Ident, out var progress) ||
+					progress.Done ||
+					!progress.Unlocked)
+					continue;
+
+				if (string.Equals(objectiveData.Type, "Interact", StringComparison.OrdinalIgnoreCase) &&
+					this.StaticNpcDialogMatches(objectiveData.Target, npcDialogName))
+					return true;
+
+				if (!string.Equals(objectiveData.Type, "Collect", StringComparison.OrdinalIgnoreCase) ||
+					!this.IsNone(objectiveData.DropTarget) ||
+					quest.SessionObjectStaticData?.QuestData?.MapPointGroup == null)
+					continue;
+
+				var sourceCount = Math.Max(1, objectiveData.Count);
+				var sources = quest.SessionObjectStaticData.QuestData.MapPointGroup
+					.Where(group => !this.IsNone(group))
+					.Take(sourceCount)
+					.ToList();
+				var collectedCount = Math.Max(0, Math.Min(progress.Count, sources.Count));
+
+				foreach (var mapPointGroup in sources.Skip(collectedCount).Take(1))
+				{
+					if (this.StaticMapPointGroupReferencesDialog(mapPointGroup, mapClassName, npcDialogName))
+						return true;
+				}
 			}
 
 			return false;
@@ -3115,7 +3546,7 @@ namespace Melia.Zone.World.Actors.Characters.Components
 					? monster.Data.AiName
 					: "BasicMonster";
 
-				if (!Melia.Zone.Scripting.AI.AiScript.Exists(aiName))
+				if (!GuiltineSin.Zone.Scripting.AI.AiScript.Exists(aiName))
 					aiName = "BasicMonster";
 
 				monster.Components.Add(new AiComponent(monster, aiName));
@@ -3368,7 +3799,7 @@ namespace Melia.Zone.World.Actors.Characters.Components
 			}
 		}
 
-		private string GetStaticObjectiveMonsterTarget(Melia.Shared.Data.Database.QuestObjectiveStaticData objectiveData)
+		private string GetStaticObjectiveMonsterTarget(GuiltineSin.Shared.Data.Database.QuestObjectiveStaticData objectiveData)
 		{
 			if (string.Equals(objectiveData.Type, "Kill", StringComparison.OrdinalIgnoreCase))
 				return objectiveData.Target;
@@ -3379,7 +3810,7 @@ namespace Melia.Zone.World.Actors.Characters.Components
 			return null;
 		}
 
-		private IEnumerable<StaticQuestMonsterSpawnRequest> CreatePrivateEncounterMonsterSpawnRequests(IEnumerable<Melia.Shared.Data.Database.PrivateEncounterData> encounters, Melia.Shared.Data.Database.QuestObjectiveStaticData objectiveData, int progressCount, string defaultTarget, QuestStaticData questData, string mapClassName)
+		private IEnumerable<StaticQuestMonsterSpawnRequest> CreatePrivateEncounterMonsterSpawnRequests(IEnumerable<GuiltineSin.Shared.Data.Database.PrivateEncounterData> encounters, GuiltineSin.Shared.Data.Database.QuestObjectiveStaticData objectiveData, int progressCount, string defaultTarget, QuestStaticData questData, string mapClassName)
 		{
 			foreach (var encounter in encounters)
 			{
@@ -3413,7 +3844,7 @@ namespace Melia.Zone.World.Actors.Characters.Components
 			}
 		}
 
-		private IEnumerable<StaticQuestLocationPoint> ResolvePrivateEncounterSpawnPoints(Melia.Shared.Data.Database.PrivateEncounterData encounter, QuestStaticData questData, string mapClassName)
+		private IEnumerable<StaticQuestLocationPoint> ResolvePrivateEncounterSpawnPoints(GuiltineSin.Shared.Data.Database.PrivateEncounterData encounter, QuestStaticData questData, string mapClassName)
 		{
 			foreach (var mapPointGroup in encounter.MapPointGroup ?? Enumerable.Empty<string>())
 			{
@@ -3474,7 +3905,7 @@ namespace Melia.Zone.World.Actors.Characters.Components
 			return false;
 		}
 
-		private IEnumerable<Melia.Shared.Data.Database.MonsterData> ResolveStaticObjectiveMonsterTargets(string target)
+		private IEnumerable<GuiltineSin.Shared.Data.Database.MonsterData> ResolveStaticObjectiveMonsterTargets(string target)
 		{
 			foreach (var className in target
 				.Split('/', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
@@ -3488,7 +3919,7 @@ namespace Melia.Zone.World.Actors.Characters.Components
 			}
 		}
 
-		private IEnumerable<(Melia.Shared.Data.Database.MonsterData MonsterData, int Count)> DistributeStaticObjectiveMonsterSpawnBudget(string target, int spawnBudget)
+		private IEnumerable<(GuiltineSin.Shared.Data.Database.MonsterData MonsterData, int Count)> DistributeStaticObjectiveMonsterSpawnBudget(string target, int spawnBudget)
 		{
 			if (spawnBudget <= 0)
 				yield break;
@@ -4028,6 +4459,15 @@ namespace Melia.Zone.World.Actors.Characters.Components
 					range = 100;
 					return true;
 				}
+
+				if (string.Equals(dialogName, "GELE573_TO_HUE581", StringComparison.OrdinalIgnoreCase))
+				{
+					x = -1307;
+					y = -68;
+					z = -684;
+					range = 100;
+					return true;
+				}
 			}
 
 			if (string.Equals(mapClassName, "f_gele_57_4", StringComparison.OrdinalIgnoreCase))
@@ -4129,6 +4569,53 @@ namespace Melia.Zone.World.Actors.Characters.Components
 				}
 			}
 
+			if (string.Equals(mapClassName, "d_chapel_57_7", StringComparison.OrdinalIgnoreCase))
+			{
+				if (string.Equals(dialogName, "CHAPLE577_ARUNE_01", StringComparison.OrdinalIgnoreCase))
+				{
+					x = -683;
+					y = 35.917f;
+					z = -938;
+					range = 150;
+					return true;
+				}
+
+				if (string.Equals(dialogName, "CHAPLE577_ARUNE_02", StringComparison.OrdinalIgnoreCase) ||
+					string.Equals(dialogName, "CHAPLE577_HOLY_1", StringComparison.OrdinalIgnoreCase))
+				{
+					x = 95;
+					y = 164;
+					z = -731;
+					range = 225;
+					return true;
+				}
+
+				if (string.Equals(dialogName, "CHAPLE577_HOLY_2", StringComparison.OrdinalIgnoreCase))
+				{
+					x = -72;
+					y = 35;
+					z = 625;
+					range = 450;
+					return true;
+				}
+
+				if (string.Equals(dialogName, "CHAPLE577_HOLY_3", StringComparison.OrdinalIgnoreCase) ||
+					string.Equals(dialogName, "CHAPLE577_MQ_10", StringComparison.OrdinalIgnoreCase))
+				{
+					x = -30;
+					y = 35;
+					z = -127;
+					range = 150;
+					return true;
+				}
+
+				if (this.TryResolveTenet2FCentralPillarPosition(dialogName, out x, out y, out z))
+				{
+					range = 75;
+					return true;
+				}
+			}
+
 			if (string.Equals(mapClassName, "f_huevillage_58_1", StringComparison.OrdinalIgnoreCase))
 			{
 				if (string.Equals(dialogName, "HUEVILLAGE_58_1_MQ11_TRIGGER", StringComparison.OrdinalIgnoreCase) ||
@@ -4153,6 +4640,38 @@ namespace Melia.Zone.World.Actors.Characters.Components
 			}
 
 			return false;
+		}
+
+		private bool TryResolveTenet2FCentralPillarPosition(string dialogName, out double x, out double y, out double z)
+		{
+			x = 0;
+			y = 0;
+			z = 0;
+
+			if (!dialogName.StartsWith("CHAPLE577_MQ_04_", StringComparison.OrdinalIgnoreCase))
+				return false;
+
+			switch (dialogName.Substring("CHAPLE577_MQ_04_".Length))
+			{
+				case "1":
+					x = -92; y = 35; z = 390; return true;
+				case "2":
+					x = 18; y = 35; z = 649; return true;
+				case "3":
+					x = 99; y = 35; z = 1181; return true;
+				case "4":
+					x = -121; y = 35; z = 1352; return true;
+				case "5":
+					x = -807; y = 36; z = 36; return true;
+				case "6":
+					x = -425; y = 35; z = -113; return true;
+				case "7":
+					x = 461; y = 35; z = -122; return true;
+				case "8":
+					x = 831; y = 35; z = -190; return true;
+				default:
+					return false;
+			}
 		}
 
 		private bool TryResolveStaticObjectivePosition(QuestStaticData questData, string mapClassName, out double x, out double y, out double z, out double range)
@@ -4420,14 +4939,28 @@ namespace Melia.Zone.World.Actors.Characters.Components
 			if (string.Equals(dialogName, "GELE573_MQ_07_F", StringComparison.OrdinalIgnoreCase) ||
 				string.Equals(dialogName, "GELE574_ALLGES", StringComparison.OrdinalIgnoreCase) ||
 				string.Equals(dialogName, "GELE574_ARUNE_1", StringComparison.OrdinalIgnoreCase) ||
+				string.Equals(dialogName, "CHAPLE577_ARUNE_01", StringComparison.OrdinalIgnoreCase) ||
+				string.Equals(dialogName, "CHAPLE577_ARUNE_02", StringComparison.OrdinalIgnoreCase) ||
 				string.Equals(dialogName, "CHAPEL_TOMAS", StringComparison.OrdinalIgnoreCase) ||
 				string.Equals(dialogName, "CHAPEL_VIDAS", StringComparison.OrdinalIgnoreCase) ||
 				string.Equals(dialogName, "CHAPEL_VIRGINIJA", StringComparison.OrdinalIgnoreCase) ||
 				string.Equals(dialogName, "CHAPEL576_DONATAS", StringComparison.OrdinalIgnoreCase))
 				return 147390;
 
+			if (string.Equals(dialogName, "CHAPLE577_MQ_10", StringComparison.OrdinalIgnoreCase))
+				return 152003;
+
 			if (string.Equals(dialogName, "MASTER_BOCORS", StringComparison.OrdinalIgnoreCase))
 				return 20136;
+
+			if (dialogName.StartsWith("HUEVILLAGE_58_2_MQ02_BUCKET", StringComparison.OrdinalIgnoreCase))
+				return 147354;
+
+			if (string.Equals(dialogName, "HUEVILLAGE_58_2_MQ03_NPC", StringComparison.OrdinalIgnoreCase))
+				return 147414;
+
+			if (string.Equals(dialogName, "HUEVILLAGE_58_2_OBELISK_BEFORE", StringComparison.OrdinalIgnoreCase))
+				return 147501;
 
 			if (string.Equals(dialogName, "SIAUL_WEST_CAMP_MANAGER", StringComparison.OrdinalIgnoreCase))
 				return 20107;
@@ -4461,6 +4994,8 @@ namespace Melia.Zone.World.Actors.Characters.Components
 			if (dialogName.Contains("STONE", StringComparison.OrdinalIgnoreCase) ||
 				dialogName.Contains("ROCK", StringComparison.OrdinalIgnoreCase) ||
 				dialogName.Contains("CRYSTAL", StringComparison.OrdinalIgnoreCase) ||
+				dialogName.Contains("HOLY", StringComparison.OrdinalIgnoreCase) ||
+				dialogName.StartsWith("CHAPLE577_MQ_04_", StringComparison.OrdinalIgnoreCase) ||
 				dialogName.Contains("PURIFY", StringComparison.OrdinalIgnoreCase))
 				return 12080;
 
@@ -4510,6 +5045,15 @@ namespace Melia.Zone.World.Actors.Characters.Components
 			if (string.Equals(dialogName, "MASTER_BOCORS", StringComparison.OrdinalIgnoreCase))
 				return "[Bokor Master]\nMama Marilabo";
 
+			if (dialogName.StartsWith("HUEVILLAGE_58_2_MQ02_BUCKET", StringComparison.OrdinalIgnoreCase))
+				return "Tree Sap Collection Container";
+
+			if (string.Equals(dialogName, "HUEVILLAGE_58_2_MQ03_NPC", StringComparison.OrdinalIgnoreCase))
+				return "Ershike Altar";
+
+			if (string.Equals(dialogName, "HUEVILLAGE_58_2_OBELISK_BEFORE", StringComparison.OrdinalIgnoreCase))
+				return "Broken Obelisk";
+
 			if (string.Equals(dialogName, "GELE572_MQ_01", StringComparison.OrdinalIgnoreCase) ||
 				string.Equals(dialogName, "GELE573_MASTER", StringComparison.OrdinalIgnoreCase))
 				return "Paladin Master";
@@ -4517,11 +5061,22 @@ namespace Melia.Zone.World.Actors.Characters.Components
 			if (string.Equals(dialogName, "GELE573_MQ_07_F", StringComparison.OrdinalIgnoreCase) ||
 				string.Equals(dialogName, "GELE574_ALLGES", StringComparison.OrdinalIgnoreCase) ||
 				string.Equals(dialogName, "GELE574_ARUNE_1", StringComparison.OrdinalIgnoreCase) ||
+				string.Equals(dialogName, "CHAPLE577_ARUNE_01", StringComparison.OrdinalIgnoreCase) ||
+				string.Equals(dialogName, "CHAPLE577_ARUNE_02", StringComparison.OrdinalIgnoreCase) ||
 				string.Equals(dialogName, "CHAPEL_TOMAS", StringComparison.OrdinalIgnoreCase) ||
 				string.Equals(dialogName, "CHAPEL_VIDAS", StringComparison.OrdinalIgnoreCase) ||
 				string.Equals(dialogName, "CHAPEL_VIRGINIJA", StringComparison.OrdinalIgnoreCase) ||
 				string.Equals(dialogName, "CHAPEL576_DONATAS", StringComparison.OrdinalIgnoreCase))
 				return "Paladin Follower";
+
+			if (string.Equals(dialogName, "CHAPLE577_MQ_10", StringComparison.OrdinalIgnoreCase))
+				return "Secret Warp Portal";
+
+			if (dialogName.StartsWith("CHAPLE577_MQ_04_", StringComparison.OrdinalIgnoreCase))
+				return "Central Pillar";
+
+			if (dialogName.Contains("HOLY", StringComparison.OrdinalIgnoreCase))
+				return "Holy Altar";
 
 			if (string.Equals(dialogName, "CHAPLE575_MQ_04", StringComparison.OrdinalIgnoreCase) ||
 				string.Equals(dialogName, "CHAPLE575_MQ_09", StringComparison.OrdinalIgnoreCase) ||
@@ -4553,6 +5108,11 @@ namespace Melia.Zone.World.Actors.Characters.Components
 		private bool IsTechnicalStaticQuestNpc(string dialogName)
 		{
 			if (string.IsNullOrWhiteSpace(dialogName))
+				return true;
+
+			if (dialogName.StartsWith("HUEVILLAGE_58_2_MQ02_BUCKET", StringComparison.OrdinalIgnoreCase) ||
+				string.Equals(dialogName, "HUEVILLAGE_58_2_MQ03_NPC", StringComparison.OrdinalIgnoreCase) ||
+				string.Equals(dialogName, "HUEVILLAGE_58_2_OBELISK_BEFORE", StringComparison.OrdinalIgnoreCase))
 				return true;
 
 			return dialogName.Contains("_AUTO", StringComparison.OrdinalIgnoreCase) ||
@@ -4791,6 +5351,24 @@ namespace Melia.Zone.World.Actors.Characters.Components
 			"GELE574_MQ_09",
 			"CHAPLE575_MQ_04",
 			"CHAPLE575_MQ_09",
+			"CHAPLE576_MQ_01",
+			"CHAPLE576_MQ_02",
+			"CHAPLE576_MQ_04_1",
+			"CHAPLE577_MQ_01",
+			"CHAPLE577_MQ_02",
+			"CHAPLE577_MQ_03",
+			"CHAPLE577_MQ_04",
+			"CHAPLE577_MQ_09",
+			"CHAPLE577_MQ_10",
+			"CHAPLE577_MQ_10_AFTER",
+			"HUEVILLAGE_58_1_MQ01",
+			"HUEVILLAGE_58_1_MQ02",
+			"HUEVILLAGE_58_1_MQ03",
+			"HUEVILLAGE_58_1_MQ04",
+			"HUEVILLAGE_58_2_MQ01",
+			"HUEVILLAGE_58_2_MQ02",
+			"HUEVILLAGE_58_2_MQ03",
+			"HUEVILLAGE_58_2_MQ04",
 		};
 
 			private static readonly string[] PapayaCrystalMineSkipQuestNames =
@@ -4849,6 +5427,14 @@ namespace Melia.Zone.World.Actors.Characters.Components
 			if (!this.IsPapayaCapturedMainQuest(questData, out var questIndex))
 				return false;
 
+			if (this.TryGetById(new QuestId(questData.Id), out var existingQuest) &&
+				(existingQuest.InProgress ||
+				existingQuest.Status == QuestStatus.Success ||
+				existingQuest.Status == QuestStatus.Completed))
+			{
+				return false;
+			}
+
 			for (var i = 0; i < questIndex; i++)
 			{
 				if (!ZoneServer.Instance.Data.QuestDb.TryFind(PapayaCapturedMainQuestOrder[i], out var earlierQuestData))
@@ -4873,6 +5459,14 @@ namespace Melia.Zone.World.Actors.Characters.Components
 				!string.Equals(questData.QuestMode, "MAIN", StringComparison.OrdinalIgnoreCase) ||
 				string.IsNullOrWhiteSpace(questData.ClassName))
 				return false;
+
+			if (this.TryGetById(new QuestId(questData.Id), out var existingQuest) &&
+				(existingQuest.InProgress ||
+				existingQuest.Status == QuestStatus.Success ||
+				existingQuest.Status == QuestStatus.Completed))
+			{
+				return false;
+			}
 
 			var predecessorCount = 0;
 			foreach (var predecessorQuestData in this.GetPapayaAutoMainPredecessors(questData.ClassName))
@@ -5961,6 +6555,12 @@ namespace Melia.Zone.World.Actors.Characters.Components
 					_timeSinceLastLocationCheck -= LocationCheckInterval; // Reset timer correctly
 					this.CheckVisitLocationObjectivesInternal(); // Call internal method
 					this.CheckVariableCheckObjectivesInternal(); // Check variable-based objectives
+				}
+
+				_timeSinceLastStaticRuntimeCheck += elapsed;
+				if (_timeSinceLastStaticRuntimeCheck >= StaticRuntimeCheckInterval)
+				{
+					_timeSinceLastStaticRuntimeCheck = TimeSpan.Zero;
 					this.CheckStaticMainQuestRuntimeStateInternal();
 				}
 			}
@@ -5999,7 +6599,7 @@ namespace Melia.Zone.World.Actors.Characters.Components
 		{
 			var quests = this.GetList();
 			var currentMap = this.Character?.Map?.ClassName ?? this.Character?.Map?.Data?.ClassName;
-			Send.ZC_EXEC_CLIENT_SCP(this.Character.Connection, "if Melia ~= nil and Melia.Quests ~= nil and Melia.Quests.Clear ~= nil then Melia.Quests.Clear() end");
+			Send.ZC_EXEC_CLIENT_SCP(this.Character.Connection, "if GuiltineSin ~= nil and GuiltineSin.Quests ~= nil and GuiltineSin.Quests.Clear ~= nil then GuiltineSin.Quests.Clear() end");
 
 			foreach (var quest in quests.Where(a => this.QuestShouldBeVisibleInClientList(a, currentMap)))
 			{
@@ -6010,7 +6610,7 @@ namespace Melia.Zone.World.Actors.Characters.Components
 
 				var questTable = this.QuestToTable(quest);
 
-				var lua = "Melia.Quests.Restore(" + questTable.Serialize() + ")";
+				var lua = "GuiltineSin.Quests.Restore(" + questTable.Serialize() + ")";
 				Send.ZC_EXEC_CLIENT_SCP(this.Character.Connection, lua);
 			}
 
@@ -6058,7 +6658,7 @@ namespace Melia.Zone.World.Actors.Characters.Components
 				}
 			}
 
-			var lua = "Melia.Quests.Add(" + questTable.Serialize() + ")";
+			var lua = "GuiltineSin.Quests.Add(" + questTable.Serialize() + ")";
 			Send.ZC_EXEC_CLIENT_SCP(this.Character.Connection, lua);
 			this.NotifyNativeQuestTracking(quest, true);
 			this.SyncStaticQuestNpcStatesAfterDialog();
@@ -6112,7 +6712,7 @@ namespace Melia.Zone.World.Actors.Characters.Components
 					Send.ZC_OBJECT_PROPERTY(this.Character, questSessionObject, propertyName);
 			}
 
-			var lua = "Melia.Quests.Update(" + questTable.Serialize() + ")";
+			var lua = "GuiltineSin.Quests.Update(" + questTable.Serialize() + ")";
 			Send.ZC_EXEC_CLIENT_SCP(this.Character.Connection, lua);
 			this.NotifyNativeQuestTracking(quest, false);
 			this.SyncStaticQuestNpcStatesAfterDialog();
@@ -6264,7 +6864,7 @@ namespace Melia.Zone.World.Actors.Characters.Components
 			this.SetQuestSessionStringList(sessionObject, "QuestInfoName", infoNames, 10, changedProperties);
 			this.SetQuestSessionStringList(sessionObject, "QuestInfoViewType", infoViewTypes, 10, changedProperties);
 			this.SetQuestSessionNumberList(sessionObject, "QuestInfoMaxCount", infoMaxCounts, 10, changedProperties);
-			this.SetQuestInfoValueDefaults(sessionObject, infoMaxCounts.Count, changedProperties);
+			this.SetQuestSessionNumberList(sessionObject, "QuestInfoValue", this.GetQuestInfoValues(quest, infoMaxCounts.Count), 10, changedProperties);
 
 			var mapPointGroups = this.GetQuestMapPointGroups(quest, questData);
 			var mapPointViews = this.GetQuestMapPointViews(mapPointGroups, questData);
@@ -6326,13 +6926,13 @@ namespace Melia.Zone.World.Actors.Characters.Components
 
 			var className = (questClassName ?? string.Empty).Replace("\\", "\\\\").Replace("'", "\\'");
 			var lua =
-				"if Melia ~= nil and Melia.Quests ~= nil and Melia.Quests.GetAll ~= nil and Melia.Quests.Remove ~= nil then " +
-				"local list = Melia.Quests.GetAll(); " +
+				"if GuiltineSin ~= nil and GuiltineSin.Quests ~= nil and GuiltineSin.Quests.GetAll ~= nil and GuiltineSin.Quests.Remove ~= nil then " +
+				"local list = GuiltineSin.Quests.GetAll(); " +
 				"for i = #list, 1, -1 do " +
 				"local q = list[i]; " +
 				"local id = q.ClassId; " +
 				"if type(id) == 'string' then local h = string.match(id, '0x(%x+)'); if h ~= nil then id = tonumber(h, 16) else id = tonumber(id) end end; " +
-				$"if id == {questId} or q.ClassName == '{className}' then Melia.Quests.Remove(q.ObjectId) end; " +
+				$"if id == {questId} or q.ClassName == '{className}' then GuiltineSin.Quests.Remove(q.ObjectId) end; " +
 				"end; " +
 				"end";
 			Send.ZC_EXEC_CLIENT_SCP(this.Character.Connection, lua);
@@ -6449,6 +7049,28 @@ namespace Melia.Zone.World.Actors.Characters.Components
 			return result;
 		}
 
+		private List<int> GetQuestInfoValues(Quest quest, int infoCount)
+		{
+			var result = new List<int>();
+			if (quest?.Progresses != null)
+			{
+				foreach (var progress in quest.Progresses)
+				{
+					if (!progress.Unlocked)
+						continue;
+
+					result.Add(Math.Max(0, progress.Count));
+					if (result.Count >= infoCount)
+						break;
+				}
+			}
+
+			while (result.Count < infoCount)
+				result.Add(0);
+
+			return result;
+		}
+
 		private List<string> GetQuestMapPointGroups(Quest quest, SessionQuestData questData)
 		{
 			if (quest.Status == QuestStatus.Completed || quest.Status == QuestStatus.Abandoned)
@@ -6487,6 +7109,16 @@ namespace Melia.Zone.World.Actors.Characters.Components
 				? questData.MapPointGroup.Where(group => !this.IsNone(group)).ToList()
 				: new List<string>();
 
+			var activeCollectPoints = this.GetActiveNoDropCollectMapPointGroups(quest, questData);
+			if (activeCollectPoints.Count != 0)
+			{
+				var currentMap = this.Character?.Map?.ClassName ?? questStaticData?.ProgMap;
+				var resolvedCollectPoints = this.ResolveClientSafeQuestMapPointGroups(activeCollectPoints, currentMap);
+				var filteredCollectPoints = this.FilterQuestMapPointGroupsWithFallback(quest, resolvedCollectPoints);
+				if (filteredCollectPoints.Count != 0)
+					return filteredCollectPoints;
+			}
+
 			if (result.Count != 0)
 			{
 				var filteredQuestDataPoints = this.FilterClientSafeQuestMapPointGroups(result);
@@ -6523,6 +7155,37 @@ namespace Melia.Zone.World.Actors.Characters.Components
 			return this.FilterQuestMapPointGroupsWithFallback(quest, result);
 		}
 
+		private List<string> GetActiveNoDropCollectMapPointGroups(Quest quest, SessionQuestData questData)
+		{
+			var questStaticData = quest?.QuestStaticData;
+			if (questStaticData?.Objectives == null || questData?.MapPointGroup == null || !quest.InProgress)
+				return new List<string>();
+
+			foreach (var objectiveData in questStaticData.Objectives)
+			{
+				if (objectiveData == null ||
+					!string.Equals(objectiveData.Type, "Collect", StringComparison.OrdinalIgnoreCase) ||
+					!this.IsNone(objectiveData.DropTarget) ||
+					!quest.TryGetProgress(objectiveData.Ident, out var progress) ||
+					progress.Done ||
+					!progress.Unlocked)
+					continue;
+
+				var sourceCount = Math.Max(1, objectiveData.Count);
+				var sources = questData.MapPointGroup
+					.Where(group => !this.IsNone(group))
+					.Take(sourceCount)
+					.ToList();
+
+				var collectedCount = Math.Max(0, Math.Min(progress.Count, sources.Count));
+				var remaining = sources.Skip(collectedCount).Take(1).ToList();
+				if (remaining.Count != 0)
+					return remaining;
+			}
+
+			return new List<string>();
+		}
+
 		private List<string> FilterQuestMapPointGroupsWithFallback(Quest quest, List<string> mapPointGroups)
 		{
 			var filtered = this.FilterClientSafeQuestMapPointGroups(mapPointGroups ?? new List<string>());
@@ -6539,6 +7202,34 @@ namespace Melia.Zone.World.Actors.Characters.Components
 				return routePoints;
 
 			return filtered;
+		}
+
+		private List<string> ResolveClientSafeQuestMapPointGroups(List<string> mapPointGroups, string currentMap)
+		{
+			var result = new List<string>();
+			if (mapPointGroups == null)
+				return result;
+
+			foreach (var mapPointGroup in mapPointGroups)
+			{
+				if (this.IsNone(mapPointGroup))
+					continue;
+
+				if (!this.IsUnsafeClientQuestMapPointGroup(mapPointGroup))
+				{
+					result.Add(mapPointGroup);
+					continue;
+				}
+
+				var resolved = new List<string>();
+				this.AddResolvedQuestMapPointGroups(resolved, mapPointGroup, currentMap);
+				if (resolved.Count != 0)
+					result.AddRange(resolved);
+				else
+					result.Add(mapPointGroup);
+			}
+
+			return result;
 		}
 
 		private bool MapPointGroupsReferenceCurrentMap(List<string> mapPointGroups, string currentMap)
@@ -6628,9 +7319,64 @@ namespace Melia.Zone.World.Actors.Characters.Components
 				));
 			}
 
+			if (result.Count == 0 &&
+				this.TryGetStaticQuestRouteNextHopMap(mapClassName, targetMaps, out var nextHopMap))
+			{
+				foreach (var warp in this.Character.Map.GetWarps(warp => string.Equals(warp.DestinationMapName, nextHopMap, StringComparison.OrdinalIgnoreCase)))
+				{
+					result.Add(string.Format(
+						CultureInfo.InvariantCulture,
+						"{0} {1:0.###} {2:0.###} {3:0.###} 125",
+						mapClassName,
+						warp.Position.X,
+						warp.Position.Y,
+						warp.Position.Z
+					));
+				}
+			}
+
 			return this.FilterClientSafeQuestMapPointGroups(result)
 				.Distinct(StringComparer.OrdinalIgnoreCase)
 				.ToList();
+		}
+
+		private bool TryGetStaticQuestRouteNextHopMap(string mapClassName, HashSet<string> targetMaps, out string nextHopMap)
+		{
+			nextHopMap = null;
+
+			if (string.IsNullOrWhiteSpace(mapClassName) || targetMaps == null || targetMaps.Count == 0)
+				return false;
+
+			if (targetMaps.Contains("f_gele_57_3"))
+			{
+				if (string.Equals(mapClassName, "d_chapel_57_7", StringComparison.OrdinalIgnoreCase))
+				{
+					nextHopMap = "d_chapel_57_6";
+					return true;
+				}
+
+				if (string.Equals(mapClassName, "d_chapel_57_6", StringComparison.OrdinalIgnoreCase) ||
+					string.Equals(mapClassName, "d_chapel_57_5", StringComparison.OrdinalIgnoreCase))
+				{
+					nextHopMap = "f_gele_57_4";
+					return true;
+				}
+
+				if (string.Equals(mapClassName, "f_gele_57_4", StringComparison.OrdinalIgnoreCase))
+				{
+					nextHopMap = "f_gele_57_3";
+					return true;
+				}
+			}
+
+			if (targetMaps.Contains("f_huevillage_58_1") &&
+				string.Equals(mapClassName, "f_gele_57_3", StringComparison.OrdinalIgnoreCase))
+			{
+				nextHopMap = "f_huevillage_58_1";
+				return true;
+			}
+
+			return false;
 		}
 
 		private IEnumerable<string> GetStaticQuestTargetMapsForStatus(Quest quest, QuestStaticData questData)
@@ -6965,7 +7711,7 @@ namespace Melia.Zone.World.Actors.Characters.Components
 				Send.ZC_SESSION_OBJ_REMOVE(this.Character, quest.SessionObjectStaticData.Id);
 			}
 
-			var lua = $"Melia.Quests.Remove('{quest.ObjectIdStr}')";
+			var lua = $"GuiltineSin.Quests.Remove('{quest.ObjectIdStr}')";
 			Send.ZC_EXEC_CLIENT_SCP(this.Character.Connection, lua);
 			if (questDataFound)
 			{
@@ -6989,7 +7735,7 @@ namespace Melia.Zone.World.Actors.Characters.Components
 				Send.ZC_OBJECT_PROPERTY(this.Character, main, propertyName);
 			}
 
-			var lua = $"Melia.Quests.Remove('{quest.ObjectIdStr}')";
+			var lua = $"GuiltineSin.Quests.Remove('{quest.ObjectIdStr}')";
 			Send.ZC_EXEC_CLIENT_SCP(this.Character.Connection, lua);
 			if (ZoneServer.Instance.Data.QuestDb.TryFind((int)quest.Data.Id.Value, out var completedQuestData))
 			{

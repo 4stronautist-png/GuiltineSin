@@ -1,23 +1,23 @@
-﻿//--- Melia Script ----------------------------------------------------------
+﻿//--- GuiltineSin Script ----------------------------------------------------------
 // Kepa Kill Quests
 //--- Description -----------------------------------------------------------
 // Automatically received test quests for killing Kepas.
 //---------------------------------------------------------------------------
 
 using System.Threading.Tasks;
-using Melia.Zone.Scripting;
-using Melia.Zone.Scripting.Dialogues;
-using Melia.Zone.Scripting.Hooking;
-using Melia.Zone.World.Quests;
-using Melia.Zone.World.Quests.Objectives;
-using Melia.Zone.World.Quests.Prerequisites;
-using Melia.Zone.World.Quests.Rewards;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Scripting.Dialogues;
+using GuiltineSin.Zone.Scripting.Hooking;
+using GuiltineSin.Zone.World.Quests;
+using GuiltineSin.Zone.World.Quests.Objectives;
+using GuiltineSin.Zone.World.Quests.Prerequisites;
+using GuiltineSin.Zone.World.Quests.Rewards;
 
 public class KillOnions1TestQuestScript : QuestScript
 {
 	protected override void Load()
 	{
-		SetId("Melia.Test", 1);
+		SetId("GuiltineSin.Test", 1);
 		SetName("Onions Must Die");
 		SetDescription("Slice, dice, and make these onion-shaped bastards cry for a change!");
 
@@ -41,7 +41,7 @@ public class KillOnions2TestQuestScript : QuestScript
 {
 	protected override void Load()
 	{
-		SetId("Melia.Test", 2);
+		SetId("GuiltineSin.Test", 2);
 		SetName("Size Doesn't Matter");
 		SetDescription("And now for the big one. Put that giant onion back into the ground from whence it came.");
 
@@ -49,7 +49,7 @@ public class KillOnions2TestQuestScript : QuestScript
 		AddObjective("talk", "Talk to Ronesa", new ManualObjective());
 
 		SetReceive(QuestReceiveType.Auto);
-		AddPrerequisite(new CompletedPrerequisite("Melia.Test", 1));
+		AddPrerequisite(new CompletedPrerequisite("GuiltineSin.Test", 1));
 
 		AddReward(new SilverReward(10000));
 		AddReward(new ExpReward(2000, 1000));

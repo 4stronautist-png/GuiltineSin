@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Melia.Zone.Network;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Actors.Effects;
-using Melia.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.Effects;
+using GuiltineSin.Zone.World.Actors.Monsters;
 using Yggdrasil.Geometry.Shapes;
 using Yggdrasil.Scheduling;
 
-namespace Melia.Zone.World.Actors.Components
+namespace GuiltineSin.Zone.World.Actors.Components
 {
 	public class EffectsComponent : ActorComponent, IUpdateable
 	{

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Melia.Zone.Util;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.Util;
+using GuiltineSin.Zone.World.Actors.Characters;
 
-namespace Melia.Zone.Scripting
+namespace GuiltineSin.Zone.Scripting
 {
 	public static partial class Shortcuts
 	{

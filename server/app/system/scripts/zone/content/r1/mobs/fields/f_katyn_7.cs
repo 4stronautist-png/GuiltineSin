@@ -1,13 +1,13 @@
-//--- Melia Script -----------------------------------------------------------
+//--- GuiltineSin Script -----------------------------------------------------------
 // Entrance of Kateen Forest Spawns
 //--- Description -----------------------------------------------------------
 // Sets up monster spawners for 'f_katyn_7'.
 //---------------------------------------------------------------------------
 
 using System;
-using Melia.Zone.Scripting;
-using Melia.Shared.Game.Const;
-using static Melia.Zone.Scripting.Shortcuts;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Shared.Game.Const;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
 public class FKatyn7MobScript : GeneralScript
 {

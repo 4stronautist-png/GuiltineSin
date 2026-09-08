@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Melia.Shared.Game.Const;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
 using Yggdrasil.Logging;
 
-namespace Melia.Zone.Buffs.Base
+namespace GuiltineSin.Zone.Buffs.Base
 {
 	/// <summary>
 	/// Base class for damage-over-time (DoT) buffs/debuffs that snapshot damage
@@ -40,8 +40,8 @@ namespace Melia.Zone.Buffs.Base
 	/// </remarks>
 	public abstract class DamageOverTimeBuffHandler : BuffHandler
 	{
-		private const string DamageInstancesVarName = "Melia.DoT.DamageInstances";
-		private const string InstanceAddedFlagName = "Melia.DoT.InstanceAddedThisCycle";
+		private const string DamageInstancesVarName = "GuiltineSin.DoT.DamageInstances";
+		private const string InstanceAddedFlagName = "GuiltineSin.DoT.InstanceAddedThisCycle";
 
 		/// <summary>
 		/// Represents a single damage instance with its own expiration time.
@@ -199,7 +199,7 @@ namespace Melia.Zone.Buffs.Base
 			if (!target.TryGetBuff(BuffId.Link_Enemy, out var linkBuff))
 				return null;
 
-			if (!linkBuff.Vars.TryGet<List<int>>("Melia.Link.Members", out var memberHandles))
+			if (!linkBuff.Vars.TryGet<List<int>>("GuiltineSin.Link.Members", out var memberHandles))
 				return null;
 
 			var linkTargets = new List<ICombatEntity>();
@@ -227,7 +227,7 @@ namespace Melia.Zone.Buffs.Base
 			if (!target.TryGetBuff(BuffId.Link_Physical, out var linkBuff))
 				return null;
 
-			if (!linkBuff.Vars.TryGet<List<int>>("Melia.Link.Members", out var memberHandles))
+			if (!linkBuff.Vars.TryGet<List<int>>("GuiltineSin.Link.Members", out var memberHandles))
 				return null;
 
 			var linkTargets = new List<ICombatEntity>();

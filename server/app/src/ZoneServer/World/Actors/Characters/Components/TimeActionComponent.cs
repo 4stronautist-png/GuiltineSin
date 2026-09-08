@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Network;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Network;
 using Yggdrasil.Scheduling;
 
-namespace Melia.Zone.World.Actors.Characters.Components
+namespace GuiltineSin.Zone.World.Actors.Characters.Components
 {
 	/// <summary>
 	/// Controls a time action, displaying a progress bar that fills

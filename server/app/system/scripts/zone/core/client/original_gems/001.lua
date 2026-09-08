@@ -1,4 +1,4 @@
-Melia.Override("DRAW_GEM_COMMON_TOOLTIP", function(original, tooltipframe, invitem, mainframename)
+GuiltineSin.Override("DRAW_GEM_COMMON_TOOLTIP", function(original, tooltipframe, invitem, mainframename)
 
 	local result = original(tooltipframe, invitem, mainframename)
 	
@@ -20,7 +20,7 @@ Melia.Override("DRAW_GEM_COMMON_TOOLTIP", function(original, tooltipframe, invit
 
 end)
 
-Melia.Override("GET_ITEM_ICON_IMAGE", function(original, itemCls, gender)
+GuiltineSin.Override("GET_ITEM_ICON_IMAGE", function(original, itemCls, gender)
 
 	local result = original(itemCls, gender)
 	
@@ -33,7 +33,7 @@ Melia.Override("GET_ITEM_ICON_IMAGE", function(original, itemCls, gender)
 
 end)
 
-Melia.Override("INV_ICON_SETINFO", function(original, frame, slot, invItem, customFunc, scriptArg, count)
+GuiltineSin.Override("INV_ICON_SETINFO", function(original, frame, slot, invItem, customFunc, scriptArg, count)
 
 	local result = original(itemCls, gender)
 	

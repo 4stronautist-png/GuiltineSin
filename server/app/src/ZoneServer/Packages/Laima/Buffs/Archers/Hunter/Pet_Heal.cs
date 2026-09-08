@@ -1,10 +1,10 @@
 using System;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.World.Actors;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.World.Actors;
 
-namespace Melia.Zone.Buffs.Handlers.Archers.Hunter
+namespace GuiltineSin.Zone.Buffs.Handlers.Archers.Hunter
 {
 	/// <summary>
 	/// Handle for the Pet_Heal buff, which restores a percentage of a
@@ -18,7 +18,7 @@ namespace Melia.Zone.Buffs.Handlers.Archers.Hunter
 	public class Pet_HealOverride : BuffHandler
 	{
 		private const float HealRate = 0.02f;
-		private const string VarHealAmount = "Melia.Pet.HealAmount";
+		private const string VarHealAmount = "GuiltineSin.Pet.HealAmount";
 		private static readonly TimeSpan AfterBuffDuration = TimeSpan.FromMinutes(5);
 
 		public override void OnActivate(Buff buff, ActivationType activationType)

@@ -1,13 +1,13 @@
-//--- Melia Script ----------------------------------------------------------
+//--- GuiltineSin Script ----------------------------------------------------------
 // Warps
 //--- Description -----------------------------------------------------------
 // Sets up warps in West Siauliai Woods
 //---------------------------------------------------------------------------
 
 using System.Threading.Tasks;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors.Characters;
-using static Melia.Zone.Scripting.Shortcuts;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors.Characters;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
 public class f_siauliai_westWarpsScript : GeneralScript
 {

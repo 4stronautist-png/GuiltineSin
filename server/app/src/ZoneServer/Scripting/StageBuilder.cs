@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Melia.Zone.World.Dungeons;
-using Melia.Zone.World.Dungeons.Stages;
+using GuiltineSin.Zone.World.Dungeons;
+using GuiltineSin.Zone.World.Dungeons.Stages;
 
-namespace Melia.Zone.Scripting
+namespace GuiltineSin.Zone.Scripting
 {
 	/// <summary>
 	/// Helper class for building stages with branching logic.

@@ -3,39 +3,39 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Numerics;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Game.Properties;
-using Melia.Shared.Network;
-using Melia.Shared.Network.Helpers;
-using Melia.Shared.ObjectProperties;
-using Melia.Shared.Util;
-using Melia.Shared.Versioning;
-using Melia.Shared.World;
-using Melia.Zone.Buffs;
-using Melia.Zone.Events;
-using Melia.Zone.Network.Helpers;
-using Melia.Zone.Skills;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.Skills.SplashAreas;
-using Melia.Zone.World;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Characters.Components;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Groups;
-// using Melia.Zone.World.GuildColony; // Removed: GuildColony namespace deleted
-// using Melia.Zone.World.Houses; // Removed: Houses namespace deleted
-using Melia.Zone.World.Items;
-using Melia.Zone.World.Maps;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Game.Properties;
+using GuiltineSin.Shared.Network;
+using GuiltineSin.Shared.Network.Helpers;
+using GuiltineSin.Shared.ObjectProperties;
+using GuiltineSin.Shared.Util;
+using GuiltineSin.Shared.Versioning;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Buffs;
+using GuiltineSin.Zone.Events;
+using GuiltineSin.Zone.Network.Helpers;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.Skills.SplashAreas;
+using GuiltineSin.Zone.World;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Characters.Components;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Groups;
+// using GuiltineSin.Zone.World.GuildColony; // Removed: GuildColony namespace deleted
+// using GuiltineSin.Zone.World.Houses; // Removed: Houses namespace deleted
+using GuiltineSin.Zone.World.Items;
+using GuiltineSin.Zone.World.Maps;
 using Yggdrasil.Extensions;
 using Yggdrasil.Geometry.Shapes;
 using Yggdrasil.Logging;
 using Yggdrasil.Util;
 
-namespace Melia.Zone.Network
+namespace GuiltineSin.Zone.Network
 {
 	public static partial class Send
 	{
@@ -496,8 +496,8 @@ namespace Melia.Zone.Network
 		public static void ZC_QUICK_SLOT_LIST(Character character)
 		{
 			// If no hotkeys were saved yet, we don't need to send anything.
-			var quickSlotRows = character.Variables.Perm.Get<byte>("Melia.QuickSlotRows", 20);
-			var serialized = character.Variables.Perm.Get<string>("Melia.QuickSlotList",
+			var quickSlotRows = character.Variables.Perm.Get<byte>("GuiltineSin.QuickSlotRows", 20);
+			var serialized = character.Variables.Perm.Get<string>("GuiltineSin.QuickSlotList",
 				"#None,0,0#None,0,0#None,0,0#None,0,0#None,0,0#None,0,0#None,0,0#None,0,0#None,0,0#None,0,0#None,0,0#None,0,0#None,0,0#None,0,0#None,0,0#None,0,0#None,0,0#None,0,0#None,0,0#None,0,0#None,0,0#None,0,0#None,0,0#None,0,0#None,0,0#None,0,0#None,0,0#None,0,0#None,0,0#None,0,0#None,0,0#None,0,0#None,0,0#None,0,0#None,0,0#None,0,0#None,0,0#None,0,0#None,0,0#None,0,0#None,0,0#None,0,0#None,0,0#None,0,0#None,0,0#None,0,0#None,0,0#None,0,0#None,0,0#None,0,0#None,0,0#None,1,0#None,2,0#None,3,0#");
 
 			using var packet = Packet.Rent(Op.ZC_QUICK_SLOT_LIST);
@@ -605,7 +605,7 @@ namespace Melia.Zone.Network
 			}
 
 			var skills = character.Skills.GetList()
-				.Where(skill => !Character.IsClassChangeUnsafeSkillStateSkill(skill.Id))
+				.Where(skill => !Character.IsClassChangeUnsafeSkillStateSkill(skill.Id) && !Character.IsClientLoadUnsafeSkillStateSkill(skill.Id))
 				.ToList();
 			var skillIds = new HashSet<SkillId>(skills.Select(skill => skill.Id));
 			var packetSkills = new List<Skill>(skills);
@@ -615,7 +615,7 @@ namespace Melia.Zone.Network
 				var skillTree = ZoneServer.Instance.Data.SkillTreeDb.FindSkills(job.Id, job.Level);
 				foreach (var skillTreeData in skillTree)
 				{
-					if (Character.IsClassChangeUnsafeSkillStateSkill(skillTreeData.SkillId))
+					if (Character.IsClassChangeUnsafeSkillStateSkill(skillTreeData.SkillId) || Character.IsClientLoadUnsafeSkillStateSkill(skillTreeData.SkillId))
 						continue;
 
 					if (!skillIds.Add(skillTreeData.SkillId))
@@ -671,6 +671,12 @@ namespace Melia.Zone.Network
 		/// <param name="skill"></param>
 		public static void ZC_SKILL_ADD(Character character, Skill skill, bool shouldDisplayQuickBar = true)
 		{
+			if (Character.IsClientLoadUnsafeSkillStateSkill(skill.Id))
+			{
+				Log.Info("ZC_SKILL_ADD: Suppressed client-load-unsafe skill-state skill '{0}' for '{1}'.", skill.Id, character.Name);
+				return;
+			}
+
 			// Passive skills and basic attack replacements aren't added to the quickbar
 			var addToQuickbar = skill.Data.ActivationType == SkillActivationType.ActiveSkill && !skill.Data.Tags.Has("NormalSkill") &&  shouldDisplayQuickBar;
 
@@ -1013,7 +1019,7 @@ namespace Melia.Zone.Network
 		/// <param name="skill"></param>
 		public static void ZC_OVERHEAT_CHANGED(Character character, Skill skill)
 		{
-			// Melia uses OvearheatResetTime, but in Laima we patched
+			// GuiltineSin uses OvearheatResetTime, but in Laima we patched
 			// the client to use all overheat reset times equal to the skill's
 			// default cooldown time. This simpler system allows us to customize
 			// skills overheats without having to constantly change cooldown.ies
@@ -2430,7 +2436,7 @@ namespace Melia.Zone.Network
 			packet.PutFloat(45);       // Camera Y
 			packet.PutFloat(200);      // Zoom Min
 			packet.PutFloat(2200);     // Zoom Max
-			packet.PutFloat(1000);     // Zoom Start
+			packet.PutFloat(0);        // Zoom Start: keep the Papaya client from forcing auto-zoom on map entry.
 			packet.PutInt(26);         // Position?
 			packet.PutInt(20);         // Position?
 			packet.PutInt(59);         // Position?
@@ -5342,7 +5348,7 @@ SOUL_GAMETIME_APPLY_MINIMAP();
 		/// <param name="character"></param>
 		public static void ZC_RES_DAMAGEFONT_SKIN(IZoneConnection conn, Character character)
 		{
-			var skinId = character.Variables.Perm.GetInt("Melia.DamageFontSkin", 1);
+			var skinId = character.Variables.Perm.GetInt("GuiltineSin.DamageFontSkin", 1);
 
 			using var packet = Packet.Rent(Op.ZC_RES_DAMAGEFONT_SKIN);
 
@@ -5362,7 +5368,7 @@ SOUL_GAMETIME_APPLY_MINIMAP();
 		/// <param name="character"></param>
 		public static void ZC_RES_DAMAGEEFFECT_SKIN(IZoneConnection conn, Character character)
 		{
-			var skinId = character.Variables.Perm.GetInt("Melia.DamageEffectSkin", 1);
+			var skinId = character.Variables.Perm.GetInt("GuiltineSin.DamageEffectSkin", 1);
 
 			using var packet = Packet.Rent(Op.ZC_RES_DAMAGEEFFECT_SKIN);
 
@@ -5382,7 +5388,7 @@ SOUL_GAMETIME_APPLY_MINIMAP();
 		/// <param name="character"></param>
 		public static void ZC_SUMMON_CUPOLE(IZoneConnection conn, Character character)
 		{
-			var kupoleId = character.Variables.Perm.GetInt("Melia.KupoleId", 1);
+			var kupoleId = character.Variables.Perm.GetInt("GuiltineSin.KupoleId", 1);
 
 			using var packet = Packet.Rent(Op.ZC_SUMMON_CUPOLE);
 
@@ -5402,7 +5408,7 @@ SOUL_GAMETIME_APPLY_MINIMAP();
 		public static void ZC_SUMMON_CUPOLE(Character character, int kupoleId = -1)
 		{
 			if (kupoleId == -1)
-				kupoleId = character.Variables.Perm.GetInt("Melia.KupoleId", 1);
+				kupoleId = character.Variables.Perm.GetInt("GuiltineSin.KupoleId", 1);
 
 			using var packet = Packet.Rent(Op.ZC_SUMMON_CUPOLE);
 
@@ -6684,7 +6690,7 @@ SOUL_GAMETIME_APPLY_MINIMAP();
 
 		public static void ZC_MEMBERINFO_VISIBILITY_UI(Character character)
 		{
-			var enabled = character.Variables.Perm.GetBool("SoulSociety.MemberInfo.ShowEquipment", false);
+			var enabled = character.Variables.Perm.GetBool("GuiltineSin.MemberInfo.ShowEquipment", false);
 			var luaBool = enabled ? "true" : "false";
 			ZC_EXEC_CLIENT_SCP(character.Connection, @"
 local ok,err=pcall(function()
@@ -7730,7 +7736,7 @@ if ok~=true then ui.SysMsg('SSMIV '..tostring(err)) end;");
 		/// <param name="character"></param>
 		public static void ZC_SEND_APPLY_HUD_SKIN_MYSELF(IZoneConnection conn, Character character)
 		{
-			var skinId = character.Variables.Perm.GetInt("Melia.HudSkin", 0);
+			var skinId = character.Variables.Perm.GetInt("GuiltineSin.HudSkin", 0);
 
 			using var packet = Packet.Rent(Op.ZC_SEND_APPLY_HUD_SKIN_MYSELF);
 
@@ -7746,7 +7752,7 @@ if ok~=true then ui.SysMsg('SSMIV '..tostring(err)) end;");
 		/// <param name="character"></param>
 		public static void ZC_SEND_APPLY_HUD_SKIN_OTHER(IZoneConnection conn, Character character)
 		{
-			var skinId = character.Variables.Perm.GetInt("Melia.HudSkin", 0);
+			var skinId = character.Variables.Perm.GetInt("GuiltineSin.HudSkin", 0);
 
 			using var packet = Packet.Rent(Op.ZC_SEND_APPLY_HUD_SKIN_OTHER);
 
@@ -7780,7 +7786,7 @@ if ok~=true then ui.SysMsg('SSMIV '..tostring(err)) end;");
 		/// <param name="party"></param>
 		public static void ZC_SEND_APPLY_HUD_SKIN_PARTY(IZoneConnection conn, Character character, Party party)
 		{
-			var skinId = character.Variables.Perm.GetInt("Melia.HudSkin", 0);
+			var skinId = character.Variables.Perm.GetInt("GuiltineSin.HudSkin", 0);
 
 			using var packet = Packet.Rent(Op.ZC_SEND_APPLY_HUD_SKIN_PARTY);
 

@@ -1,4 +1,4 @@
-//--- Melia Script ----------------------------------------------------------
+//--- GuiltineSin Script ----------------------------------------------------------
 // Item Equip Effects Registry
 //--- Description -----------------------------------------------------------
 // Central registry defining ALL equipment special effects. Each item's
@@ -17,11 +17,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Melia.Shared.Game.Const;
-using Melia.Zone;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
 
 public enum ItemEffectType
 {

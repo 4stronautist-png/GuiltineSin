@@ -1,25 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Melia.Shared.Packages;
-using Melia.Shared.L10N;
-using Melia.Shared.Game.Const;
-using Melia.Shared.World;
-using Melia.Zone.Buffs;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting.Dialogues;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.Skills.Handlers.Base;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Actors.Monsters;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Buffs;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting.Dialogues;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.Skills.Handlers.Base;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.Monsters;
 using Yggdrasil.Logging;
-using static Melia.Zone.Skills.Helpers.SkillDamageHelper;
-using Melia.Zone.World.Actors.Pads;
-using Melia.Zone.Skills.SplashAreas;
-using Melia.Zone.Skills.Helpers;
+using static GuiltineSin.Zone.Skills.Helpers.SkillDamageHelper;
+using GuiltineSin.Zone.World.Actors.Pads;
+using GuiltineSin.Zone.Skills.SplashAreas;
+using GuiltineSin.Zone.Skills.Helpers;
 
-namespace Melia.Zone.Skills.Handlers.Pyromancer
+namespace GuiltineSin.Zone.Skills.Handlers.Pyromancer
 {
 	/// <summary>
 	/// Handler for the Pyromancer skill Flame Ground.
@@ -39,7 +39,7 @@ namespace Melia.Zone.Skills.Handlers.Pyromancer
 		/// <param name="targets"></param>
 		public void Handle(Skill skill, ICombatEntity caster, Position originPos, Position farPos, ICombatEntity target)
 		{
-			if (!skill.Vars.TryGet<Position>("Melia.ToolGroundPos", out var targetPos))
+			if (!skill.Vars.TryGet<Position>("GuiltineSin.ToolGroundPos", out var targetPos))
 			{
 				caster.ServerMessage(Localization.Get("No target location specified."));
 				return;

@@ -1,7 +1,7 @@
-﻿using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
+﻿using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
 
-namespace Melia.Zone.Buffs.Handlers.Common
+namespace GuiltineSin.Zone.Buffs.Handlers.Common
 {
 	/// <summary>
 	/// Handle for the Lethargy main debuff that reduces a target's attack

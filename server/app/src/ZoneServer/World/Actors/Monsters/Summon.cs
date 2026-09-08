@@ -1,15 +1,15 @@
 ﻿using System;
-using Melia.Shared.ObjectProperties;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Util;
-using Melia.Shared.World;
-using Melia.Zone.Network;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Shared.ObjectProperties;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Util;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
 using Yggdrasil.Scheduling;
 using Yggdrasil.Util;
 
-namespace Melia.Zone.World.Actors.Monsters
+namespace GuiltineSin.Zone.World.Actors.Monsters
 {
 	public class Summon : Mob
 	{

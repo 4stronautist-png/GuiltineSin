@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Yggdrasil.Logging;
 
-namespace Melia.Shared.Util
+namespace GuiltineSin.Shared.Util
 {
 	public static class TaskHelper
 	{

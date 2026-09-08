@@ -1,24 +1,24 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Melia.Shared.Data.Database;
-using Melia.Shared.ObjectProperties;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Util;
-using Melia.Shared.World;
-using Melia.Zone.Buffs;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Actors.Components;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.ObjectProperties;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Util;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Buffs;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.Components;
 using Yggdrasil.Scheduling;
-using Melia.Zone.Events.Arguments;
+using GuiltineSin.Zone.Events.Arguments;
 using Yggdrasil.Logging;
-using Melia.Zone.Buffs.Handlers;
-using Melia.Zone.Buffs.Handlers.Common;
+using GuiltineSin.Zone.Buffs.Handlers;
+using GuiltineSin.Zone.Buffs.Handlers.Common;
 
-namespace Melia.Zone.World.Actors.Monsters
+namespace GuiltineSin.Zone.World.Actors.Monsters
 {
 	public class Companion : Mob, IPropertyObject
 	{
@@ -245,9 +245,9 @@ namespace Melia.Zone.World.Actors.Monsters
 				Send.ZC_NORMAL.PetInfo(this.Owner);
 				// Note: PvP/duel relation handling is done in HandleAppearingMonsters
 
-				if (this.Owner.Variables.Perm.GetBool("Melia.WasRidingOnWarp"))
+				if (this.Owner.Variables.Perm.GetBool("GuiltineSin.WasRidingOnWarp"))
 				{
-					this.Owner.Variables.Perm.Remove("Melia.WasRidingOnWarp");
+					this.Owner.Variables.Perm.Remove("GuiltineSin.WasRidingOnWarp");
 					if (!this.IsDead && !this.IsBird)
 						this.PendingMount = true;
 				}
@@ -340,7 +340,7 @@ namespace Melia.Zone.World.Actors.Monsters
 			this.StartBuff(BuffId.Pet_Dead, TimeSpan.FromSeconds(8));
 
 			if (this.IsBird)
-				Melia.Zone.Skills.Helpers.FalconerHawkHelper.ResetHawkState(this);
+				GuiltineSin.Zone.Skills.Helpers.FalconerHawkHelper.ResetHawkState(this);
 		}
 
 		/// <summary>

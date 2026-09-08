@@ -1,9 +1,9 @@
-﻿using Melia.Shared.Game.Const;
-using Melia.Shared.Scripting;
-using Melia.Zone;
-using Melia.Zone.Events.Arguments;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting;
+﻿using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Scripting;
+using GuiltineSin.Zone;
+using GuiltineSin.Zone.Events.Arguments;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting;
 
 public class JobExpMigrationScript : GeneralScript
 {

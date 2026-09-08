@@ -1,7 +1,7 @@
 ﻿using System;
-using Melia.Barracks.Network;
+using GuiltineSin.Barracks.Network;
 
-namespace Melia.Barracks.Events
+namespace GuiltineSin.Barracks.Events
 {
 	/// <summary>
 	/// Manager for events occurring on the server, such as players logging

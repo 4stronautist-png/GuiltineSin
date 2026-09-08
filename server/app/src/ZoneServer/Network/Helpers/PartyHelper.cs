@@ -1,9 +1,9 @@
-﻿using Melia.Shared.Network;
-using Melia.Shared.Network.Helpers;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Groups;
+﻿using GuiltineSin.Shared.Network;
+using GuiltineSin.Shared.Network.Helpers;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Groups;
 
-namespace Melia.Zone.Network.Helpers
+namespace GuiltineSin.Zone.Network.Helpers
 {
 	public static class PartyHelper
 	{

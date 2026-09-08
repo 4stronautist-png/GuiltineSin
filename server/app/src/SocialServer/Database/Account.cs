@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Melia.Social.Database
+namespace GuiltineSin.Social.Database
 {
 	public class Account
 	{

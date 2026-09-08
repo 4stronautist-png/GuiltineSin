@@ -2,23 +2,23 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Shared.ObjectProperties;
-using Melia.Shared.World;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Items.Mods;
-using Melia.Zone.World.Maps;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.ObjectProperties;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Items.Mods;
+using GuiltineSin.Zone.World.Maps;
 using SixLabors.ImageSharp.Drawing;
 using Yggdrasil.Extensions;
 using Yggdrasil.Geometry.Shapes;
 using Yggdrasil.Util;
 
-namespace Melia.Zone.World.Items
+namespace GuiltineSin.Zone.World.Items
 {
 	/// <summary>
 	/// An item, that might be lying around in the world or is owned by

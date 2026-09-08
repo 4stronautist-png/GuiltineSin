@@ -1,8 +1,8 @@
-using Melia.Shared.Game.Const;
-using Melia.Shared.Packages;
-using Melia.Zone.Buffs.Base;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Zone.Buffs.Base;
 
-namespace Melia.Zone.Buffs.Handlers.Archers.Falconer
+namespace GuiltineSin.Zone.Buffs.Handlers.Archers.Falconer
 {
 	/// <summary>
 	/// Handle for the Circling, AoE defense rate fixed to 1.

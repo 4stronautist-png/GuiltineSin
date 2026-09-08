@@ -1,8 +1,8 @@
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Network;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Network;
 
-namespace Melia.Zone.Buffs.Handlers.Common
+namespace GuiltineSin.Zone.Buffs.Handlers.Common
 {
 	/// <summary>
 	/// Handle for the Slow, Decreased movement speed.

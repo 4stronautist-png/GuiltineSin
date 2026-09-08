@@ -1,15 +1,15 @@
 using System;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Network;
-using Melia.Zone.Pads;
-using Melia.Zone.Pads.Handlers;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Actors.Pads;
-using static Melia.Zone.Pads.Helpers.PadHelper;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Pads;
+using GuiltineSin.Zone.Pads.Handlers;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Actors.Pads;
+using static GuiltineSin.Zone.Pads.Helpers.PadHelper;
 
-namespace Melia.Zone.Pads.HandlersOverride.Archers.Sapper
+namespace GuiltineSin.Zone.Pads.HandlersOverride.Archers.Sapper
 {
 	/// <summary>
 	/// Handler for the Sapper Leg Hold Trap damage pad.

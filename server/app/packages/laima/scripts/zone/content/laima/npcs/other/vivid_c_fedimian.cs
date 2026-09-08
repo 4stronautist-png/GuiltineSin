@@ -1,12 +1,12 @@
-//--- Melia Script ----------------------------------------------------------
+//--- GuiltineSin Script ----------------------------------------------------------
 // Rainbow Fedimian
 //--- Description -----------------------------------------------------------
 // NPCs found in and around Rainbow Fedimian.
 //---------------------------------------------------------------------------
 
-using Melia.Shared.Game.Const;
-using Melia.Zone.Scripting;
-using static Melia.Zone.Scripting.Shortcuts;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Scripting;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
 public class VividCFedimianNpcScript : GeneralScript
 {

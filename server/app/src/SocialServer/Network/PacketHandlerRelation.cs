@@ -1,9 +1,9 @@
-﻿using Melia.Shared.Network;
-using Melia.Social.Database;
+﻿using GuiltineSin.Shared.Network;
+using GuiltineSin.Social.Database;
 using Yggdrasil.Logging;
 using Yggdrasil.Security.Hashing;
 
-namespace Melia.Social.Network
+namespace GuiltineSin.Social.Network
 {
 	public class PacketHandlerRelation : PacketHandler
 	{

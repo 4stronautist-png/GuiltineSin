@@ -1,16 +1,16 @@
 using System;
-using Melia.Shared.Game.Const;
-using Melia.Shared.L10N;
-using Melia.Shared.Packages;
-using Melia.Shared.World;
-using Melia.Zone.Network;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.Skills.Handlers.Base;
-using Melia.Zone.Skills.Helpers;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.Skills.Handlers.Base;
+using GuiltineSin.Zone.Skills.Helpers;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
 
-namespace Melia.Zone.Skills.Handlers.Archers.Falconer
+namespace GuiltineSin.Zone.Skills.Handlers.Archers.Falconer
 {
 	/// <summary>
 	/// Handler for the Falconer skill First Strike.
@@ -47,8 +47,8 @@ namespace Melia.Zone.Skills.Handlers.Archers.Falconer
 			Send.ZC_SKILL_MELEE_GROUND(caster, skill, farPos, ForceId.GetNew(), null);
 
 			// Toggle behavior
-			var currentToggle = skill.Vars.GetBool("Melia.Skill.Toggled");
-			skill.Vars.SetBool("Melia.Skill.Toggled", !currentToggle);
+			var currentToggle = skill.Vars.GetBool("GuiltineSin.Skill.Toggled");
+			skill.Vars.SetBool("GuiltineSin.Skill.Toggled", !currentToggle);
 			var isToggled = !currentToggle;
 			if (caster is Character toggleChar)
 				Send.ZC_NORMAL.SkillToggle(toggleChar, isToggled ? skill.Id : SkillId.None);

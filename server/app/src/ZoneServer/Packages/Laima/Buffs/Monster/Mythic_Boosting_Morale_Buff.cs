@@ -1,14 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Buffs.Handlers.Monster;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Monsters;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Buffs.Handlers.Monster;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Monsters;
 
-namespace Melia.Zone.Buffs.Handlers.Laima.Monster
+namespace GuiltineSin.Zone.Buffs.Handlers.Laima.Monster
 {
 	/// <summary>
 	/// Handler for Mythic_Boosting_Morale_Buff.
@@ -19,8 +19,8 @@ namespace Melia.Zone.Buffs.Handlers.Laima.Monster
 	[BuffHandler(BuffId.Mythic_Boosting_Morale_Buff)]
 	public class Mythic_Boosting_Morale_BuffOverride : BuffHandler
 	{
-		private const string MinionHandlesVar = "Melia.Mythic.Minions";
-		private const string StatsAppliedVar = "Melia.Mythic.StatsApplied";
+		private const string MinionHandlesVar = "GuiltineSin.Mythic.Minions";
+		private const string StatsAppliedVar = "GuiltineSin.Mythic.StatsApplied";
 		private const int TargetMinionCount = 5;
 		private const float MoraleRange = 150f;
 

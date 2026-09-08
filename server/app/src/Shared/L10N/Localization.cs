@@ -1,6 +1,6 @@
 using System.Threading;
 
-namespace Melia.Shared.L10N
+namespace GuiltineSin.Shared.L10N
 {
 	/// <summary>
 	/// Provides quick access to a global localizer, loaded with the

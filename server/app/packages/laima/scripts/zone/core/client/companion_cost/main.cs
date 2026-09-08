@@ -1,14 +1,14 @@
-﻿//--- Melia Script ----------------------------------------------------------
+﻿//--- GuiltineSin Script ----------------------------------------------------------
 // Companion Cost
 //--- Description -----------------------------------------------------------
 // Modifies the client's companion cost function to return the server's
 // configured value.
 //---------------------------------------------------------------------------
 
-using Melia.Shared.Scripting;
-using Melia.Zone;
-using Melia.Zone.Events.Arguments;
-using Melia.Zone.Scripting;
+using GuiltineSin.Shared.Scripting;
+using GuiltineSin.Zone;
+using GuiltineSin.Zone.Events.Arguments;
+using GuiltineSin.Zone.Scripting;
 
 public class CompanionCostClientScript : ClientScript
 {
@@ -29,13 +29,13 @@ public class CompanionCostClientScript : ClientScript
 			hoglanPrice = hoglanData.Price;
 
 		this.SendRawLuaScript(e.Character, $@"
-			Melia.Override(""SCR_GET_VELHIDER_PRICE"", function(original)
+			GuiltineSin.Override(""SCR_GET_VELHIDER_PRICE"", function(original)
 				return {velhiderPrice};
 			end)
 		");
 
 		this.SendRawLuaScript(e.Character, $@"
-			Melia.Override(""SCR_GET_HOGLAN_PRICE"", function(original)
+			GuiltineSin.Override(""SCR_GET_HOGLAN_PRICE"", function(original)
 				return {hoglanPrice};
 			end)
 		");

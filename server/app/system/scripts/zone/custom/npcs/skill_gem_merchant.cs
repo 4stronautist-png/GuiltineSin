@@ -1,16 +1,16 @@
-//--- Melia Script ----------------------------------------------------------
+//--- GuiltineSin Script ----------------------------------------------------------
 // Skill Gem Merchant
 //--- Description -----------------------------------------------------------
 // This file contains the skill gem merchant NPC and shop that has been
 // disabled. To re-enable, uncomment the code in the Load() method.
 //---------------------------------------------------------------------------
 
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Scripting;
-using Melia.Zone.World;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World;
 using Yggdrasil.Util;
-using static Melia.Zone.Scripting.Shortcuts;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
 public class SkillGemMerchantDisabledScript : GeneralScript
 {

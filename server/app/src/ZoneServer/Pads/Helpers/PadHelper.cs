@@ -2,32 +2,32 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Shared.World;
-using Melia.Zone.Buffs;
-using Melia.Zone.Buffs.Handlers.Common;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting;
-using Melia.Zone.Scripting.AI;
-using Melia.Zone.Skills;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.Skills.SplashAreas;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Actors.Effects;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Actors.Pads;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Buffs;
+using GuiltineSin.Zone.Buffs.Handlers.Common;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Scripting.AI;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.Skills.SplashAreas;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.Effects;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Actors.Pads;
 using Yggdrasil.Logging;
 using Yggdrasil.Util;
-using static Melia.Shared.Util.TaskHelper;
-using static Melia.Zone.Scripting.Shortcuts;
-using static Melia.Zone.Skills.Helpers.MonsterSkillHelper;
-using static Melia.Zone.Skills.Helpers.SkillDamageHelper;
-using static Melia.Zone.Skills.SkillUseFunctions;
+using static GuiltineSin.Shared.Util.TaskHelper;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
+using static GuiltineSin.Zone.Skills.Helpers.MonsterSkillHelper;
+using static GuiltineSin.Zone.Skills.Helpers.SkillDamageHelper;
+using static GuiltineSin.Zone.Skills.SkillUseFunctions;
 
-namespace Melia.Zone.Pads.Helpers
+namespace GuiltineSin.Zone.Pads.Helpers
 {
 	public static class PadHelper
 	{
@@ -91,7 +91,7 @@ namespace Melia.Zone.Pads.Helpers
 				monster.OwnerHandle = caster.Handle;
 			}
 
-			monster.Vars.SetInt("Melia.Summon.SkillLevel", skill.Level);
+			monster.Vars.SetInt("GuiltineSin.Summon.SkillLevel", skill.Level);
 
 			if (lifeTime > 0)
 				monster.DisappearTime = DateTime.Now.AddMilliseconds(lifeTime);
@@ -101,8 +101,8 @@ namespace Melia.Zone.Pads.Helpers
 			else if (effect != "None")
 				monster.AttachEffect(effect, eftScale);
 
-			monster.Vars.SetInt("Melia.Pad.Handle", pad.Handle);
-			monster.Vars.Set("Melia.Summoner.Handle", caster.Handle);
+			monster.Vars.SetInt("GuiltineSin.Pad.Handle", pad.Handle);
+			monster.Vars.Set("GuiltineSin.Summoner.Handle", caster.Handle);
 			pad.Monster = monster;
 			monster.OwnerHandle = caster.Handle;
 			caster.Map.AddMonster(monster);
@@ -145,7 +145,7 @@ namespace Melia.Zone.Pads.Helpers
 				mob.AssociatedHandle = caster.Handle;
 			}
 
-			mob.Vars.SetInt("Melia.Summon.SkillLevel", skill.Level);
+			mob.Vars.SetInt("GuiltineSin.Summon.SkillLevel", skill.Level);
 
 			if (!string.IsNullOrEmpty(aiName) && aiName != "None" && AiScript.Exists(aiName))
 			{
@@ -161,14 +161,14 @@ namespace Melia.Zone.Pads.Helpers
 			if (effect != "None")
 				mob.AttachEffect(effect, eftScale);
 
-			mob.Vars.SetInt("Melia.Pad.Handle", pad.Handle);
-			mob.Vars.Set("Melia.Summoner.Handle", caster.Handle);
+			mob.Vars.SetInt("GuiltineSin.Pad.Handle", pad.Handle);
+			mob.Vars.Set("GuiltineSin.Summoner.Handle", caster.Handle);
 			mob.OwnerHandle = caster.Handle;
 			pad.Monster = mob;
 
 			if (skill.Id == SkillId.Corsair_JollyRoger)
 			{
-				pad.Variables.Set("Melia.Pad.Monster.Handle", mob.Handle);
+				pad.Variables.Set("GuiltineSin.Pad.Monster.Handle", mob.Handle);
 			}
 
 			return mob;

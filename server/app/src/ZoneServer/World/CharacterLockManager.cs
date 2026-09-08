@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Threading;
 using Yggdrasil.Logging;
 
-namespace Melia.Zone.World
+namespace GuiltineSin.Zone.World
 {
 	/// <summary>
 	/// Manages per-character locks to prevent concurrent saves of the same character.

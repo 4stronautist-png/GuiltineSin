@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Melia.Shared.Game.Const;
-using Melia.Shared.World;
-using Melia.Zone.Network;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using static Melia.Zone.Skills.SkillUseFunctions;
-using static Melia.Zone.Skills.Helpers.SkillDamageHelper;
-using static Melia.Zone.Skills.Helpers.SkillUtilHelper;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using static GuiltineSin.Zone.Skills.SkillUseFunctions;
+using static GuiltineSin.Zone.Skills.Helpers.SkillDamageHelper;
+using static GuiltineSin.Zone.Skills.Helpers.SkillUtilHelper;
 
-namespace Melia.Zone.Skills.Helpers
+namespace GuiltineSin.Zone.Skills.Helpers
 {
 	public static class SkillTargetHelper
 	{

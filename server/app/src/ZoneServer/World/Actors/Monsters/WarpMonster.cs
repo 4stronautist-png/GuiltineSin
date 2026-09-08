@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Melia.Shared.Game.Const;
-using Melia.Shared.World;
-using Melia.Zone.World.Actors.Characters;
-using static Melia.Zone.Scripting.Shortcuts;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.World.Actors.Characters;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
-namespace Melia.Zone.World.Actors.Monsters
+namespace GuiltineSin.Zone.World.Actors.Monsters
 {
 	/// <summary>
 	/// A monster that represents a warp to another map.

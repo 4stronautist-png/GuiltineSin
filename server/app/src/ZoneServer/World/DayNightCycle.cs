@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Melia.Shared.Network;
-using Melia.Zone.Events.Arguments;
-using Melia.Zone.Network;
+using GuiltineSin.Shared.Network;
+using GuiltineSin.Zone.Events.Arguments;
+using GuiltineSin.Zone.Network;
 using Yggdrasil.Scheduling;
 
-namespace Melia.Zone.World
+namespace GuiltineSin.Zone.World
 {
 	/// <summary>
 	/// Simulates a day/night cycle by tinting the players' game graphics.

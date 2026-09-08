@@ -1,6 +1,6 @@
-﻿using Melia.Shared.Network;
+﻿using GuiltineSin.Shared.Network;
 
-namespace Melia.Social.Network
+namespace GuiltineSin.Social.Network
 {
 	public abstract class PacketHandler : PacketHandler<ISocialConnection>
 	{

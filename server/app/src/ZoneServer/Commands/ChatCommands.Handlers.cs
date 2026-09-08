@@ -6,35 +6,35 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
-using Melia.Zone.Buffs.Handlers.Monster;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Game.Properties;
-using Melia.Shared.L10N;
-using Melia.Shared.Network;
-using Melia.Shared.Network.Inter.Messages;
-using Melia.Shared.Util;
-using Melia.Shared.World;
-using Melia.Zone;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting;
-using Melia.Zone.Scripting.Dialogues;
-using Melia.Zone.Scripting.Extensions.Keywords;
-using Melia.Zone.Skills;
-using Melia.Zone.Skills.Helpers;
-using Melia.Zone.World;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Characters.Components;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Actors.Components;
-using Melia.Zone.World.Actors.Effects;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Dungeons;
-// using Melia.Zone.World.Houses; // Removed: Houses namespace deleted
-using Melia.Zone.World.Items;
-using Melia.Zone.World.Maps;
-using Melia.Zone.World.Spawning;
+using GuiltineSin.Zone.Buffs.Handlers.Monster;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Game.Properties;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Shared.Network;
+using GuiltineSin.Shared.Network.Inter.Messages;
+using GuiltineSin.Shared.Util;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Scripting.Dialogues;
+using GuiltineSin.Zone.Scripting.Extensions.Keywords;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.Skills.Helpers;
+using GuiltineSin.Zone.World;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Characters.Components;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.Components;
+using GuiltineSin.Zone.World.Actors.Effects;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Dungeons;
+// using GuiltineSin.Zone.World.Houses; // Removed: Houses namespace deleted
+using GuiltineSin.Zone.World.Items;
+using GuiltineSin.Zone.World.Maps;
+using GuiltineSin.Zone.World.Spawning;
 using Yggdrasil.Extensions;
 using Yggdrasil.Geometry.Shapes;
 using Yggdrasil.Logging;
@@ -43,11 +43,11 @@ using Yggdrasil.Util;
 using Yggdrasil.Util.Commands;
 using System.Threading.Tasks;
 using System.Net.Http.Headers;
-using Melia.Zone.World.Gacha;
-using Melia.Zone.Scripting;
-using static Melia.Zone.Scripting.Shortcuts;
+using GuiltineSin.Zone.World.Gacha;
+using GuiltineSin.Zone.Scripting;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
-namespace Melia.Zone.Commands
+namespace GuiltineSin.Zone.Commands
 {
 	/// <summary>
 	/// The chat command manager, holding the commands and executing them.
@@ -183,7 +183,7 @@ namespace Melia.Zone.Commands
 			this.Add("give", "<item id> <amount> <player>", "Creates items in a player's inventory.", this.HandleGive);
 			this.Add("removeitem", "<item id> <amount> <player>", "Removes items from a player.", this.HandleRemoveItem);
 			this.Add("godmode", "<player>", "Toggles invulnerability for a player.", this.HandleGodMode);
-			this.Add("gmpanel", "", "Displays SoulSociety GM panel shortcuts.", this.HandleGmPanel);
+			this.Add("gmpanel", "", "Displays GuiltineSin GM panel shortcuts.", this.HandleGmPanel);
 			this.Add("mail", "<item id> <amount> <player> <title> <message>", "Sends an item to a player's message box.", this.HandleMail);
 			this.Add("mailall", "<item id> <amount> <title> <message> <days>", "Sends an item to all registered teams' message boxes.", this.HandleMailAll);
 			this.Add("serialkiller", "", "Toggles one-hit kills for the GM.", this.HandleSerialKiller);
@@ -507,15 +507,15 @@ namespace Melia.Zone.Commands
 		{
 			var vars = target.Variables.Temp;
 
-			if (!vars.TryGet<Position>("Melia.Commands.DistancePos1", out var pos1))
+			if (!vars.TryGet<Position>("GuiltineSin.Commands.DistancePos1", out var pos1))
 			{
-				vars.Set("Melia.Commands.DistancePos1", target.Position);
+				vars.Set("GuiltineSin.Commands.DistancePos1", target.Position);
 
 				sender.ServerMessage(Localization.Get("Saved first position. Go to second position and use the command again."));
 			}
 			else
 			{
-				vars.Remove("Melia.Commands.DistancePos1");
+				vars.Remove("GuiltineSin.Commands.DistancePos1");
 
 				var pos2 = target.Position;
 				var distance2D = pos1.Get2DDistance(pos2);
@@ -3259,7 +3259,7 @@ namespace Melia.Zone.Commands
 				return CommandResult.Okay;
 			}
 
-			var showEquipment = sender.Connection?.Account?.Authority >= 99 || character.Variables.Perm.GetBool("SoulSociety.MemberInfo.ShowEquipment", false);
+			var showEquipment = sender.Connection?.Account?.Authority >= 99 || character.Variables.Perm.GetBool("GuiltineSin.MemberInfo.ShowEquipment", false);
 				if (!showEquipment)
 				{
 					this.SendMemberInfoDisabledMessage(sender);
@@ -3274,7 +3274,7 @@ namespace Melia.Zone.Commands
 
 		private CommandResult HandleMemberInfoVisibility(Character sender, Character target, string message, string commandName, Arguments args)
 		{
-			var enabled = sender.Variables.Perm.GetBool("SoulSociety.MemberInfo.ShowEquipment", false);
+			var enabled = sender.Variables.Perm.GetBool("GuiltineSin.MemberInfo.ShowEquipment", false);
 			var action = args.Count > 0 ? args.Get(0).ToLowerInvariant() : "status";
 			var shouldSave = false;
 
@@ -3300,7 +3300,7 @@ namespace Melia.Zone.Commands
 
 			if (shouldSave)
 			{
-				sender.Variables.Perm.SetBool("SoulSociety.MemberInfo.ShowEquipment", enabled);
+				sender.Variables.Perm.SetBool("GuiltineSin.MemberInfo.ShowEquipment", enabled);
 				ZoneServer.Instance.Database.SavePlayerData(sender, sender.Connection?.Account);
 				sender.MsgBox(enabled ? "Memberinfo habilitado." : "Memberinfo desabilitado.");
 			}
@@ -4413,7 +4413,7 @@ namespace Melia.Zone.Commands
 		/// <returns></returns>
 		private CommandResult HandleAutoloot(Character sender, Character target, string message, string command, Arguments args)
 		{
-			var autoloot = sender.Variables.Perm.GetInt("Melia.Autoloot", 0);
+			var autoloot = sender.Variables.Perm.GetInt("GuiltineSin.Autoloot", 0);
 
 			// If we got an argument, use it as the max drop chance of
 			// items that are to be autolooted. Without an argument,
@@ -4434,7 +4434,7 @@ namespace Melia.Zone.Commands
 				autoloot = 0;
 			}
 
-			sender.Variables.Perm.SetInt("Melia.Autoloot", autoloot);
+			sender.Variables.Perm.SetInt("GuiltineSin.Autoloot", autoloot);
 
 			if (autoloot == 100)
 				target.ServerMessage(Localization.Get("Autoloot is now active."));
@@ -4457,7 +4457,7 @@ namespace Melia.Zone.Commands
 		/// <returns></returns>
 		private CommandResult HandleRangePreview(Character sender, Character target, string message, string command, Arguments args)
 		{
-			var rangePreview = sender.Variables.Temp.GetBool("Melia.RangePreview", false);
+			var rangePreview = sender.Variables.Temp.GetBool("GuiltineSin.RangePreview", false);
 
 			if (args.Count >= 1)
 			{
@@ -4469,7 +4469,7 @@ namespace Melia.Zone.Commands
 				rangePreview = !rangePreview;
 			}
 
-			sender.Variables.Temp.SetBool("Melia.RangePreview", rangePreview);
+			sender.Variables.Temp.SetBool("GuiltineSin.RangePreview", rangePreview);
 
 			if (rangePreview)
 				target.ServerMessage(Localization.Get("Skill range preview is now active."));
@@ -4627,7 +4627,7 @@ namespace Melia.Zone.Commands
 
 					var sb = new StringBuilder();
 
-					sb.AppendLine("// Melia");
+					sb.AppendLine("// GuiltineSin");
 					sb.AppendLine("// Database file");
 					sb.AppendLine("//---------------------------------------------------------------------------");
 					sb.AppendLine();
@@ -5094,13 +5094,13 @@ namespace Melia.Zone.Commands
 		}
 
 		/// <summary>
-		/// Displays the SoulSociety GM panel shortcuts.
+		/// Displays the GuiltineSin GM panel shortcuts.
 		/// </summary>
 		private CommandResult HandleGmPanel(Character sender, Character target, string message, string commandName, Arguments args)
 		{
 			var prefix = ZoneServer.Instance.Conf.Commands.SelfPrefix;
 
-			sender.ServerMessage("SoulSociety GM Panel");
+			sender.ServerMessage("GuiltineSin GM Panel");
 			sender.ServerMessage("[ITENS]");
 			sender.ServerMessage("{0}earring <classeId> <linha1> <linha2> <linha3> - cria brinco Fire Flame customizado", prefix);
 			sender.ServerMessage("{0}item <itemId> [quantidade] [grade] - cria item", prefix);
@@ -5186,8 +5186,8 @@ namespace Melia.Zone.Commands
 				return CommandResult.Okay;
 			}
 
-			var enabled = !player.Variables.Temp.GetBool("Melia.Commands.GodMode", false);
-			player.Variables.Temp.SetBool("Melia.Commands.GodMode", enabled);
+			var enabled = !player.Variables.Temp.GetBool("GuiltineSin.Commands.GodMode", false);
+			player.Variables.Temp.SetBool("GuiltineSin.Commands.GodMode", enabled);
 
 			sender.ServerMessage(Localization.Get("Godmode {0} for {1}."), enabled ? "enabled" : "disabled", player.TeamName);
 			player.ServerMessage(Localization.Get("Godmode {0} by {1}."), enabled ? "enabled" : "disabled", sender.TeamName);
@@ -5250,8 +5250,8 @@ namespace Melia.Zone.Commands
 		/// </summary>
 		private CommandResult HandleSerialKiller(Character sender, Character target, string message, string commandName, Arguments args)
 		{
-			var enabled = !sender.Variables.Temp.GetBool("Melia.Commands.SerialKiller", false);
-			sender.Variables.Temp.SetBool("Melia.Commands.SerialKiller", enabled);
+			var enabled = !sender.Variables.Temp.GetBool("GuiltineSin.Commands.SerialKiller", false);
+			sender.Variables.Temp.SetBool("GuiltineSin.Commands.SerialKiller", enabled);
 			sender.ServerMessage(Localization.Get("Serial killer mode {0}."), enabled ? "enabled" : "disabled");
 			return CommandResult.Okay;
 		}
@@ -6303,7 +6303,7 @@ namespace Melia.Zone.Commands
 		/// <returns></returns>
 		private CommandResult HandleFixCamera(Character sender, Character target, string message, string commandName, Arguments args)
 		{
-			var isFixed = target.Variables.Temp.GetBool("Melia.Commands.FixedCamera", false);
+			var isFixed = target.Variables.Temp.GetBool("GuiltineSin.Commands.FixedCamera", false);
 
 			if (!isFixed)
 			{
@@ -6316,7 +6316,7 @@ namespace Melia.Zone.Commands
 				sender.ServerMessage(Localization.Get("The camera was unfixed."));
 			}
 
-			target.Variables.Temp.SetBool("Melia.Commands.FixedCamera", !isFixed);
+			target.Variables.Temp.SetBool("GuiltineSin.Commands.FixedCamera", !isFixed);
 
 			return CommandResult.Okay;
 		}
@@ -6375,7 +6375,7 @@ namespace Melia.Zone.Commands
 		{
 			if (args.Count < 1)
 			{
-				if (target.Variables.Temp.GetBool("Melia.NoSave", false))
+				if (target.Variables.Temp.GetBool("GuiltineSin.NoSave", false))
 					sender.ServerMessage(Localization.Get("The character is currently set to *not* be saved on logout."));
 				else
 					sender.ServerMessage(Localization.Get("The character is currently set to be saved on logout."));
@@ -6386,7 +6386,7 @@ namespace Melia.Zone.Commands
 			if (!bool.TryParse(args.Get(0), out var enabled))
 				return CommandResult.InvalidArgument;
 
-			target.Variables.Temp.SetBool("Melia.NoSave", enabled);
+			target.Variables.Temp.SetBool("GuiltineSin.NoSave", enabled);
 
 			if (enabled)
 				sender.ServerMessage(Localization.Get("The character was set to *not* be saved on logout."));

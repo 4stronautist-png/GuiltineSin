@@ -1,6 +1,6 @@
 using System;
 
-namespace Melia.Zone.Skills.Helpers
+namespace GuiltineSin.Zone.Skills.Helpers
 {
 	/// <summary>
 	/// Contains constants used across skill and pad helper functions.

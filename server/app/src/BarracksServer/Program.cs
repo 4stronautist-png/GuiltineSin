@@ -2,7 +2,7 @@
 using Yggdrasil.Logging;
 using Yggdrasil.Util;
 
-namespace Melia.Barracks
+namespace GuiltineSin.Barracks
 {
 	internal class Program
 	{

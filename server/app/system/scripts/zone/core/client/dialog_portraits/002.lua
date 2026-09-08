@@ -1,7 +1,7 @@
 -- Replaces dialog portrait display function to add support for directly
 -- referencing images from the basic skin set, instead of relying on
 -- the dialog data.
-Melia.Override("DIALOGILLUST_TEXTVIEW", function(original, frame, msg, argStr, argNum)
+GuiltineSin.Override("DIALOGILLUST_TEXTVIEW", function(original, frame, msg, argStr, argNum)
 
 	local index = string.find(argStr, "\\")
 	if index == nil then

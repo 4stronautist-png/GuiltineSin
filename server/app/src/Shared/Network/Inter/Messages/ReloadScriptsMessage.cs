@@ -1,7 +1,7 @@
 using System;
 using Yggdrasil.Network.Communication;
 
-namespace Melia.Shared.Network.Inter.Messages
+namespace GuiltineSin.Shared.Network.Inter.Messages
 {
 	/// <summary>
 	/// Message to request script reload on zone servers.

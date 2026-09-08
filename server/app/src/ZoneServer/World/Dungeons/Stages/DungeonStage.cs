@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Quests;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Quests;
 
-namespace Melia.Zone.World.Dungeons.Stages
+namespace GuiltineSin.Zone.World.Dungeons.Stages
 {
 	/// <summary>
 	/// Special stage IDs for common terminal states.

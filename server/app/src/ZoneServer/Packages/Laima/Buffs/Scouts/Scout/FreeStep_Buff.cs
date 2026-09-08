@@ -1,8 +1,8 @@
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
 
-namespace Melia.Zone.Buffs.Handlers.Scout
+namespace GuiltineSin.Zone.Buffs.Handlers.Scout
 {
 	/// <summary>
 	/// Handle for the Free Step Buff, which increases the target's

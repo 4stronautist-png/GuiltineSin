@@ -17,7 +17,7 @@ Setup (Windows)
 ### Obtaining the source code
 
 The easiest way to download the source code is to head over to
-[GitHub](https://github.com/aura-project/melia) and click the "Download
+[GitHub](https://github.com/aura-project/guiltinesin) and click the "Download
 ZIP" button on the repository's page.
 
 Alternatively you can use git, a command line tool for managing Git
@@ -27,15 +27,15 @@ files, etc.
 
 To download the source code with git, install it, open the Command
 Prompt (Windows key + R, type "cmd" and press "OK"), navigate to the
-directory you want to download Melia to by using the "cd" command
+directory you want to download GuiltineSin to by using the "cd" command
 (change directory) and in there type:
 ```
-git clone https://github.com/NoCode-NoLife/melia.git
+git clone https://github.com/NoCode-NoLife/guiltinesin.git
 ```
 This will download a copy of the repository into the current folder,
-into a sub-folder called "melia".
+into a sub-folder called "guiltinesin".
 
-To update it you do the same, but go into the "melia" folder and enter
+To update it you do the same, but go into the "guiltinesin" folder and enter
 ```
 git pull
 ```
@@ -43,11 +43,11 @@ instead. This will "pull" the latest changes from the online repository.
 
 ### Setting up the database
 
-Once you've obtained a copy of the Melia source code, you must set up
+Once you've obtained a copy of the GuiltineSin source code, you must set up
 your database. Download MySQL or MariaDB and follow the instructions
-during the setup. Afterwards, open `<melia directory>/sql/main.sql` in
+during the setup. Afterwards, open `<guiltinesin directory>/sql/main.sql` in
 your query browser (e.g. HeideSQL) *and run it*, to create the basic
-structure for Melia.
+structure for GuiltineSin.
 
 Then, navigate to `user/conf/` and create a file called database.conf.
 Put the following into the file, with your username and password:
@@ -59,14 +59,14 @@ Save and close database.conf.
 
 ### Compiling
 
-Open the file Melia.sln in the melia folder in Visual Studio. Under the
-Build Menu, select Build or simply hit F6. Melia should compile
+Open the file GuiltineSin.sln in the guiltinesin folder in Visual Studio. Under the
+Build Menu, select Build or simply hit F6. GuiltineSin should compile
 automatically, you don't need to do anything else with the source code.
 
 Once you have finished compiling, simply launch start-all.bat and your
 server should be running.
 
-## Connecting to a Melia Server
+## Connecting to a GuiltineSin Server
 
 To connect to a server other than the official one, you need to modify
 the client's "client.xml" file, specifically, the values "ServerListURL"
@@ -75,7 +75,7 @@ be able to still connect to officials.
 
 Change "ServerListURL" to point to the server list XML, and
 "StaticConfigURL" to the folder that contains the static_Config.txt. For
-example, if you're running Melia's web server on port 8080 your settings
+example, if you're running GuiltineSin's web server on port 8080 your settings
 might look like this:
 
 ```xml

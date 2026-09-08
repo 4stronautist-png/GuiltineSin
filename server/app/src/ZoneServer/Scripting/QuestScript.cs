@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using Melia.Zone.Scripting.Hooking;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Quests;
-using Melia.Zone.World.Quests.Modifiers;
-using Melia.Zone.World.Quests.Prerequisites;
+using GuiltineSin.Zone.Scripting.Hooking;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Quests;
+using GuiltineSin.Zone.World.Quests.Modifiers;
+using GuiltineSin.Zone.World.Quests.Prerequisites;
 using Yggdrasil.Logging;
 using Yggdrasil.Scripting;
 
-namespace Melia.Zone.Scripting
+namespace GuiltineSin.Zone.Scripting
 {
 	/// <summary>
 	/// A script that sets up and manages quests.

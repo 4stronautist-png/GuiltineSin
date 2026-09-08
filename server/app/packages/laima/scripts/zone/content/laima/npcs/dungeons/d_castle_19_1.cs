@@ -1,12 +1,12 @@
-//--- Melia Script ----------------------------------------------------------
+//--- GuiltineSin Script ----------------------------------------------------------
 // Sajunga Road
 //--- Description -----------------------------------------------------------
 // NPCs found in and around Sajunga Road.
 //---------------------------------------------------------------------------
 
-using Melia.Shared.Game.Const;
-using Melia.Zone.Scripting;
-using static Melia.Zone.Scripting.Shortcuts;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Scripting;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
 public class DCastle191NpcScript : GeneralScript
 {

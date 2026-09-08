@@ -1,7 +1,7 @@
 -- Replaces function to add support for setting a title after a dialog
 -- target was set. In the official function, a dialog element's caption
 -- takes precedence over a custom title.
-Melia.Override("DIALOG_TEXTVIEW", function(original, frame, msg, argStr)
+GuiltineSin.Override("DIALOG_TEXTVIEW", function(original, frame, msg, argStr)
 	
 	local text
 	local title = "Unknown"

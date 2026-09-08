@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Melia.Shared.Game.Const;
+using GuiltineSin.Shared.Game.Const;
 
-namespace Melia.Zone.Database
+namespace GuiltineSin.Zone.Database
 {
 	/// <summary>
 	/// Manages account's settings.

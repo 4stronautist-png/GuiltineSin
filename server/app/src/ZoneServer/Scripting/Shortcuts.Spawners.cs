@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Shared.World;
-using Melia.Zone.World.Spawning;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.World.Spawning;
 using Yggdrasil.Geometry;
 using Yggdrasil.Geometry.Shapes;
 using Yggdrasil.Util;
 
-namespace Melia.Zone.Scripting
+namespace GuiltineSin.Zone.Scripting
 {
 	public static partial class Shortcuts
 	{

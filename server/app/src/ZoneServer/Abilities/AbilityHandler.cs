@@ -1,14 +1,14 @@
 ﻿using System;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Game.Properties;
-using Melia.Zone.Network;
-using Melia.Zone.Skills;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Game.Properties;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
 using Yggdrasil.Logging;
 
-namespace Melia.Zone.Abilities
+namespace GuiltineSin.Zone.Abilities
 {
 	/// <summary>
 	/// Base interface for ability handlers.
@@ -53,7 +53,7 @@ namespace Melia.Zone.Abilities
 		/// <summary>
 		/// Prefix used for storing property modifiers in ability Vars.
 		/// </summary>
-		public const string ModifierVarPrefix = "Melia.AbilityModifier.";
+		public const string ModifierVarPrefix = "GuiltineSin.AbilityModifier.";
 
 		/// <summary>
 		/// Called when the ability is activated.

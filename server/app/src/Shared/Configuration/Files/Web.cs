@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using Yggdrasil.Configuration;
 
-namespace Melia.Shared.Configuration.Files
+namespace GuiltineSin.Shared.Configuration.Files
 {
 	/// <summary>
 	/// Represents web.conf.
@@ -122,7 +122,7 @@ namespace Melia.Shared.Configuration.Files
 			this.SmtpPassword = this.GetString("smtp_password", "");
 			this.SmtpUseSsl = this.GetBool("smtp_use_ssl", true);
 			this.SmtpSenderEmail = this.GetString("smtp_sender_email", "noreply@example.com");
-			this.SmtpSenderName = this.GetString("smtp_sender_name", "Melia Server");
+			this.SmtpSenderName = this.GetString("smtp_sender_name", "GuiltineSin Server");
 			this.SmtpBaseUrl = this.GetString("smtp_base_url", "http://localhost");
 
 			this.PhpCgiFilePath = this.GetString("php_cgi_bin", Path.Combine("user", "tools", "php", "php-cgi.exe"));

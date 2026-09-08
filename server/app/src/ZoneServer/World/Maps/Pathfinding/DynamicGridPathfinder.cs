@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Melia.Shared.World;
+using GuiltineSin.Shared.World;
 using Yggdrasil.Logging;
 using Yggdrasil.Util;
 
-namespace Melia.Zone.World.Maps.Pathfinding
+namespace GuiltineSin.Zone.World.Maps.Pathfinding
 {
 	/// <summary>
 	/// A pathfinder that uses a dynamic grid with the A* algorithm.

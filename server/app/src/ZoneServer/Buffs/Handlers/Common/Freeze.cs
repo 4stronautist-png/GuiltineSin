@@ -1,13 +1,13 @@
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Scripting.ScriptableEvents;
-using Melia.Zone.Skills;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Actors.Components;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Scripting.ScriptableEvents;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.Components;
 
-namespace Melia.Zone.Buffs.Handlers.Common
+namespace GuiltineSin.Zone.Buffs.Handlers.Common
 {
 	/// <summary>
 	/// Handle for the Freeze Debuff. Frozen solid.

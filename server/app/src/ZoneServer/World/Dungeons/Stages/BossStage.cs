@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Melia.Shared.World;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Quests.Objectives;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Quests.Objectives;
 
-namespace Melia.Zone.World.Dungeons.Stages
+namespace GuiltineSin.Zone.World.Dungeons.Stages
 {
 	public class BossStage : DungeonStage
 	{

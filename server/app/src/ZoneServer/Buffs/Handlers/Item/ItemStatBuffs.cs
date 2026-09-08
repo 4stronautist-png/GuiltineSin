@@ -1,7 +1,7 @@
-﻿using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
+﻿using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
 
-namespace Melia.Zone.Buffs.Handlers
+namespace GuiltineSin.Zone.Buffs.Handlers
 {
 	/// <summary>
 	/// Handle for ItemDEFUP, which increases Defense. The bonus amount is passed as NumArg1.

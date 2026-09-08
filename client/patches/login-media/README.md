@@ -1,4 +1,4 @@
-# CloverTOS Login Media Patch
+# GuiltineSin Login Media Patch
 
 Patch portatil para aplicar o video e a musica customizados da tela de login/barracks.
 
@@ -16,7 +16,7 @@ powershell -ExecutionPolicy Bypass -File .\Install-LoginMediaPatch.ps1
 Se o cliente estiver em outro caminho:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\Install-LoginMediaPatch.ps1 -ClientPath "C:\CloverTOS-Local"
+powershell -ExecutionPolicy Bypass -File .\Install-LoginMediaPatch.ps1 -ClientPath "C:\GuiltineSin"
 ```
 
 ## O que o patch troca

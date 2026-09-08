@@ -1,13 +1,13 @@
-//--- Melia Script -----------------------------------------------------------
+//--- GuiltineSin Script -----------------------------------------------------------
 // Vedas Plateau Spawns
 //--- Description -----------------------------------------------------------
 // Sets up monster spawners for 'f_tableland_11_1'.
 //---------------------------------------------------------------------------
 
 using System;
-using Melia.Zone.Scripting;
-using Melia.Shared.Game.Const;
-using static Melia.Zone.Scripting.Shortcuts;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Shared.Game.Const;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
 public class FTableland111MobScript : GeneralScript
 {

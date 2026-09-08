@@ -84,7 +84,7 @@ def ingest_quests(conn, app_root: Path) -> dict[str, int]:
                 quest["progress_npc"],
                 quest["end_npc"],
                 quest["raw"],
-                "clover:system/db/quests.txt",
+                "guiltinesin:system/db/quests.txt",
             ),
         )
         quest_count += 1
@@ -94,7 +94,7 @@ def ingest_quests(conn, app_root: Path) -> dict[str, int]:
                 INSERT OR REPLACE INTO quest_requirements(quest_name, required_quest_name, source)
                 VALUES (?, ?, ?)
                 """,
-                (quest["class_name"], required, "clover:system/db/quests.txt"),
+                (quest["class_name"], required, "guiltinesin:system/db/quests.txt"),
             )
             requirement_count += 1
         for objective in quest["objectives"]:
@@ -115,7 +115,7 @@ def ingest_quests(conn, app_root: Path) -> dict[str, int]:
                     int(objective.get("count") or 0),
                     objective.get("text"),
                     objective.get("raw", ""),
-                    "clover:system/db/quests.txt",
+                    "guiltinesin:system/db/quests.txt",
                 ),
             )
             objective_count += 1
@@ -143,7 +143,7 @@ def ingest_entities(conn, app_root: Path) -> dict[str, int]:
                 INSERT OR REPLACE INTO entities(kind, class_name, id, name, raw, source)
                 VALUES (?, ?, ?, ?, ?, ?)
                 """,
-                (kind, entity["class_name"], entity["id"], entity["name"], entity["raw"], f"clover:{_rel(app_root, path)}"),
+                (kind, entity["class_name"], entity["id"], entity["name"], entity["raw"], f"guiltinesin:{_rel(app_root, path)}"),
             )
             count += 1
         counts[kind] = count
@@ -165,7 +165,7 @@ def ingest_quest_auto(conn, app_root: Path) -> int:
                 INSERT OR REPLACE INTO quest_auto_edges(quest_name, next_quest_name, track, track_auto_complete, source)
                 VALUES (?, ?, ?, ?, ?)
                 """,
-                (quest_name, "", row.get("track", ""), int(bool(row.get("trackAutoComplete"))), "clover:system/db/quest_auto.txt"),
+                (quest_name, "", row.get("track", ""), int(bool(row.get("trackAutoComplete"))), "guiltinesin:system/db/quest_auto.txt"),
             )
             count += 1
             continue
@@ -175,7 +175,7 @@ def ingest_quest_auto(conn, app_root: Path) -> int:
                 INSERT OR REPLACE INTO quest_auto_edges(quest_name, next_quest_name, track, track_auto_complete, source)
                 VALUES (?, ?, ?, ?, ?)
                 """,
-                (quest_name, next_quest, row.get("track", ""), int(bool(row.get("trackAutoComplete"))), "clover:system/db/quest_auto.txt"),
+                (quest_name, next_quest, row.get("track", ""), int(bool(row.get("trackAutoComplete"))), "guiltinesin:system/db/quest_auto.txt"),
             )
             count += 1
     return count
@@ -204,7 +204,7 @@ def ingest_private_encounters(conn, app_root: Path) -> int:
                     int(row.get("minSpawnCount") or 0),
                     point,
                     json.dumps(row, sort_keys=True),
-                    "clover:system/db/private_encounters.txt",
+                    "guiltinesin:system/db/private_encounters.txt",
                 ),
             )
             count += 1
@@ -241,7 +241,7 @@ def ingest_npc_spawns(conn, app_root: Path) -> int:
                     npc.direction,
                     _rel(app_root, path),
                     npc.raw,
-                    "clover:npc-scripts",
+                    "guiltinesin:npc-scripts",
                 ),
             )
             count += 1

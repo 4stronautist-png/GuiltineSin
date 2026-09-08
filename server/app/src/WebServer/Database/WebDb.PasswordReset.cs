@@ -2,7 +2,7 @@ using System;
 using Yggdrasil.Logging;
 using Yggdrasil.Security.Hashing;
 
-namespace Melia.Web.Database
+namespace GuiltineSin.Web.Database
 {
 	public partial class WebDb
 	{

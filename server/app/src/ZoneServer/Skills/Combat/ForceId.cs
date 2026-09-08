@@ -1,6 +1,6 @@
 ﻿using System.Threading;
 
-namespace Melia.Zone.Skills.Combat
+namespace GuiltineSin.Zone.Skills.Combat
 {
 	/// <summary>
 	/// Force id generator.

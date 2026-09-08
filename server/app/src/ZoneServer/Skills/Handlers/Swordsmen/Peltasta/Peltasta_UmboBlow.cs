@@ -2,21 +2,21 @@
 using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Shared.L10N;
-using Melia.Shared.World;
-using Melia.Zone.Abilities.Handlers.Swordsmen.Peltasta;
-using Melia.Zone.Network;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.Skills.Handlers.Base;
-using Melia.Zone.Skills.SplashAreas;
-using Melia.Zone.World.Actors;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Abilities.Handlers.Swordsmen.Peltasta;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.Skills.Handlers.Base;
+using GuiltineSin.Zone.Skills.SplashAreas;
+using GuiltineSin.Zone.World.Actors;
 using Yggdrasil.Util;
-using static Melia.Shared.Util.TaskHelper;
-using static Melia.Zone.Skills.SkillUseFunctions;
+using static GuiltineSin.Shared.Util.TaskHelper;
+using static GuiltineSin.Zone.Skills.SkillUseFunctions;
 
-namespace Melia.Zone.Skills.Handlers.Swordsmen.Peltasta
+namespace GuiltineSin.Zone.Skills.Handlers.Swordsmen.Peltasta
 {
 	/// <summary>
 	/// Handler for the Peltasta Skill Umbo Blow.

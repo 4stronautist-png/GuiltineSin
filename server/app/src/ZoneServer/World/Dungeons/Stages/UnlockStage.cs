@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Melia.Shared.World;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Dungeons;
-using Melia.Zone.World.Quests;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Dungeons;
+using GuiltineSin.Zone.World.Quests;
 
-namespace Melia.Zone.World.Dungeons.Stages
+namespace GuiltineSin.Zone.World.Dungeons.Stages
 {
 	/// <summary>
 	/// A stage that "unlocks" persistent content (warp portals, reward chests, etc.)

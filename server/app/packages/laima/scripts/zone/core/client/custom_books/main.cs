@@ -1,12 +1,12 @@
-﻿//--- Melia Script ----------------------------------------------------------
+﻿//--- GuiltineSin Script ----------------------------------------------------------
 // Custom Books
 //--- Description -----------------------------------------------------------
 // Allows the use of custom books by sending the book text instead of
 // a book name, prefixed with "CUSTOM:".
 //---------------------------------------------------------------------------
 
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors.Characters;
 
 public class CustomBooksClientScript : ClientScript
 {

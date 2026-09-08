@@ -1,5 +1,5 @@
 param(
-    [string] $ClientPath = "C:\CloverTOS-Local",
+    [string] $ClientPath = "C:\GuiltineSin",
     [switch] $ForceCloseClient
 )
 
@@ -32,7 +32,7 @@ $releasePath = Join-Path $clientRoot "release"
 $clientExe = Join-Path $releasePath "Client_tos_x64.exe"
 
 if (-not (Test-Path -LiteralPath $clientExe)) {
-    throw "Nao encontrei Client_tos_x64.exe em '$releasePath'. Use -ClientPath com a pasta raiz do cliente CloverTOS."
+    throw "Nao encontrei Client_tos_x64.exe em '$releasePath'. Use -ClientPath com a pasta raiz do cliente GuiltineSin."
 }
 
 $runningClients = Get-Process -Name "Client_tos_x64", "Client_tos" -ErrorAction SilentlyContinue

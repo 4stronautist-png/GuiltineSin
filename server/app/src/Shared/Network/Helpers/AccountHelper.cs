@@ -1,8 +1,8 @@
-﻿using Melia.Shared.Game.Const;
-using Melia.Shared.ObjectProperties;
-using Melia.Shared.Versioning;
+﻿using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.ObjectProperties;
+using GuiltineSin.Shared.Versioning;
 
-namespace Melia.Shared.Network.Helpers
+namespace GuiltineSin.Shared.Network.Helpers
 {
 	public static class AccountHelper
 	{

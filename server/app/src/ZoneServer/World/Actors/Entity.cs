@@ -2,36 +2,36 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Shared.ObjectProperties;
-using Melia.Shared.World;
-using Melia.Zone.Buffs;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Buffs.Handlers;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting.AI;
-using Melia.Zone.Skills;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.Skills.Handlers.Base;
-using Melia.Zone.Skills.SplashAreas;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Characters.Components;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Actors.Components;
-using Melia.Zone.World.Actors.Effects;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Items;
-using Melia.Zone.World.Maps;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.ObjectProperties;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Buffs;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Buffs.Handlers;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting.AI;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.Skills.Handlers.Base;
+using GuiltineSin.Zone.Skills.SplashAreas;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Characters.Components;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.Components;
+using GuiltineSin.Zone.World.Actors.Effects;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Items;
+using GuiltineSin.Zone.World.Maps;
 using Yggdrasil.Composition;
 using Yggdrasil.Extensions;
 using Yggdrasil.Geometry.Shapes;
 using Yggdrasil.Logging;
 using Yggdrasil.Util;
-using static Melia.Shared.Network.NormalOp;
-using static Melia.Zone.Skills.SkillUseFunctions;
+using static GuiltineSin.Shared.Network.NormalOp;
+using static GuiltineSin.Zone.Skills.SkillUseFunctions;
 
-namespace Melia.Zone.World.Actors
+namespace GuiltineSin.Zone.World.Actors
 {
 	/// <summary>
 	/// Describes an entity that can actively participate in combat.
@@ -1063,9 +1063,9 @@ namespace Melia.Zone.World.Actors
 		public static void SetHideFromMon(this ICombatEntity entity, bool value)
 		{
 			if (entity is Character character)
-				character.Variables.Temp.SetBool("Melia.HiddenFromMobs", value);
+				character.Variables.Temp.SetBool("GuiltineSin.HiddenFromMobs", value);
 			else if (entity is Mob mob)
-				mob.Vars.SetBool("Melia.HiddenFromMobs", value);
+				mob.Vars.SetBool("GuiltineSin.HiddenFromMobs", value);
 		}
 
 		/// <summary>
@@ -1074,9 +1074,9 @@ namespace Melia.Zone.World.Actors
 		public static int GetAge(this ICombatEntity entity)
 		{
 			if (entity is Character character)
-				return character.Variables.Temp.Get<int>($"Melia.Age");
+				return character.Variables.Temp.Get<int>($"GuiltineSin.Age");
 			else if (entity is Mob mob)
-				return mob.Vars.Get<int>($"Melia.Age");
+				return mob.Vars.Get<int>($"GuiltineSin.Age");
 			return 0;
 		}
 
@@ -1119,7 +1119,7 @@ namespace Melia.Zone.World.Actors
 			return movement.IsFlying && movement.FlyHeight >= 50f;
 		}
 
-		// NOTE: This is the main method in Melia for checking enemies, but
+		// NOTE: This is the main method in GuiltineSin for checking enemies, but
 		// since it's lacking in checks compared to our relation system in laima,
 		// it is temporarily disabled so there's no confusion.
 		/// <summary>

@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parent
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from tos_knowledge.ingest.clover import build_database
+from tos_knowledge.ingest.guiltinesin import build_database
 from tos_knowledge.mcp.stdio_server import run_stdio_server
 from tos_knowledge.paths import find_app_root, knowledge_db_path
 from tos_knowledge.repository import KnowledgeRepository
@@ -97,8 +97,8 @@ def command_mcp(args: argparse.Namespace) -> int:
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="CloverTOS Tree of Savior knowledge MCP")
-    parser.add_argument("--app-root", default=None, help="CloverTOS server/app root")
+    parser = argparse.ArgumentParser(description="GuiltineSin Tree of Savior knowledge MCP")
+    parser.add_argument("--app-root", default=None, help="GuiltineSin server/app root")
     parser.add_argument("--db", default=None, help="SQLite database path")
     sub = parser.add_subparsers(dest="command", required=True)
 

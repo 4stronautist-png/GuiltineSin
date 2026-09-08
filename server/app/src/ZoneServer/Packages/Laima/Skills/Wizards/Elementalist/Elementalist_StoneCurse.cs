@@ -2,21 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Game.Const.Web;
-using Melia.Shared.L10N;
-using Melia.Shared.World;
-using Melia.Zone.Network;
-using Melia.Zone.Pads.Helpers;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.Skills.Handlers.Base;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Pads;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Game.Const.Web;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Pads.Helpers;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.Skills.Handlers.Base;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Pads;
 using Yggdrasil.Geometry.Shapes;
-using static Melia.Zone.Skills.Helpers.SkillDamageHelper;
+using static GuiltineSin.Zone.Skills.Helpers.SkillDamageHelper;
 
-namespace Melia.Zone.Skills.Handlers.Wizards.Elementalist
+namespace GuiltineSin.Zone.Skills.Handlers.Wizards.Elementalist
 {
 	/// <summary>
 	/// Handler override for the Elementalist skill Lightning Orb.
@@ -27,8 +27,8 @@ namespace Melia.Zone.Skills.Handlers.Wizards.Elementalist
 	{
 		private const int OrbCount = 14;
 
-		private const string VarPads = "Melia.StoneCurse.Pads";
-		private const string VarCastTimeMs = "Melia.StoneCurse.CastTimeMs";
+		private const string VarPads = "GuiltineSin.StoneCurse.Pads";
+		private const string VarCastTimeMs = "GuiltineSin.StoneCurse.CastTimeMs";
 
 		public void StartDynamicCast(Skill skill, ICombatEntity caster, float maxCastTime)
 		{

@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Melia.Shared.Game.Const;
+using GuiltineSin.Shared.Game.Const;
 
-namespace Melia.Barracks.Database
+namespace GuiltineSin.Barracks.Database
 {
 	/// <summary>
 	/// Represents a mailbox that allows accounts to receive items via mail messages.

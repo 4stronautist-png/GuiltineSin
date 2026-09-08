@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Linq;
 using System.Text.RegularExpressions;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
 
-namespace Melia.Zone.Skills.Handlers
+namespace GuiltineSin.Zone.Skills.Handlers
 {
 	/// <summary>
 	/// Used to mark skill handler classes, which are then automatically

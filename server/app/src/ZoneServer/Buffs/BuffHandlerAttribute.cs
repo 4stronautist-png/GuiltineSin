@@ -1,7 +1,7 @@
 ﻿using System;
-using Melia.Shared.Game.Const;
+using GuiltineSin.Shared.Game.Const;
 
-namespace Melia.Zone.Buffs
+namespace GuiltineSin.Zone.Buffs
 {
 	/// <summary>
 	/// Used to mark buff handler classes, which are then automatically

@@ -2,7 +2,7 @@
 using g4;
 using Yggdrasil.Geometry;
 
-namespace Melia.Zone.World.Maps.NavMesh
+namespace GuiltineSin.Zone.World.Maps.NavMesh
 {
 	/// <summary>
 	/// Provides utility functions for 2D polygons.

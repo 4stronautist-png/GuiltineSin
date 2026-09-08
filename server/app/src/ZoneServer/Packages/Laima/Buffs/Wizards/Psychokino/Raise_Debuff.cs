@@ -1,13 +1,13 @@
 using System;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Actors.Components;
-using Melia.Zone.World.Actors.Monsters;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.Components;
+using GuiltineSin.Zone.World.Actors.Monsters;
 
-namespace Melia.Zone.Buffs.HandlersOverrides.Wizards.Psychokino
+namespace GuiltineSin.Zone.Buffs.HandlersOverrides.Wizards.Psychokino
 {
 	/// <summary>
 	/// Handle for the Raise, Restrained in the air..

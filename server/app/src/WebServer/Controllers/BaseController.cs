@@ -4,7 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using EmbedIO.WebApi;
 
-namespace Melia.Web.Controllers
+namespace GuiltineSin.Web.Controllers
 {
 	/// <summary>
 	/// Base controller with improved sending functionality.

@@ -1,8 +1,8 @@
 using System;
-using Melia.Shared.Game.Const;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.World.Actors.Characters;
 
-namespace Melia.Zone.Buffs.Handlers
+namespace GuiltineSin.Zone.Buffs.Handlers
 {
 	/// <summary>
 	/// Shared helper for card buff handlers that need to scan equipped

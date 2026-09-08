@@ -4,18 +4,18 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Shared.World;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Maps;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Maps;
 using Yggdrasil.Extensions;
 using Yggdrasil.Logging;
 using Yggdrasil.Util;
 using Yggdrasil.Geometry;
 
-namespace Melia.Zone.World.Spawning
+namespace GuiltineSin.Zone.World.Spawning
 {
 	/// <summary>
 	/// Spawns minigames in a list of MinigameSpawnPointData.

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Melia.Shared.Game.Const
+namespace GuiltineSin.Shared.Game.Const
 {
 	public struct BeautyStyle
 	{

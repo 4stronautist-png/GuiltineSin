@@ -1,8 +1,8 @@
 ﻿using System;
-using Melia.Shared.Game.Const;
+using GuiltineSin.Shared.Game.Const;
 using Yggdrasil.Network.Communication;
 
-namespace Melia.Shared.Network.Inter.Messages
+namespace GuiltineSin.Shared.Network.Inter.Messages
 {
 	/// <summary>
 	/// Instruction to broadcast a notice text to all players.

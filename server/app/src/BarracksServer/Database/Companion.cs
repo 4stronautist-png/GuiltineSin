@@ -1,8 +1,8 @@
-using Melia.Shared.ObjectProperties;
-using Melia.Shared.Game.Const;
-using Melia.Shared.World;
+using GuiltineSin.Shared.ObjectProperties;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.World;
 
-namespace Melia.Barracks.Database
+namespace GuiltineSin.Barracks.Database
 {
 	public class Companion
 	{

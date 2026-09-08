@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Game.Properties;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Game.Properties;
 using Yggdrasil.Variables;
 
-namespace Melia.Shared.ObjectProperties
+namespace GuiltineSin.Shared.ObjectProperties
 {
 	/// <summary>
 	/// A collection of properties.

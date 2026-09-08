@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Melia.Shared.Data;
-using Melia.Shared.Data.Database;
+using GuiltineSin.Shared.Data;
+using GuiltineSin.Shared.Data.Database;
 using Newtonsoft.Json.Linq;
 using Yggdrasil.Data.JSON;
 using Yggdrasil.Logging;
 
-namespace Melia.Shared.Data.Database
+namespace GuiltineSin.Shared.Data.Database
 {
 	[Serializable]
 	public class TradeShopItemData

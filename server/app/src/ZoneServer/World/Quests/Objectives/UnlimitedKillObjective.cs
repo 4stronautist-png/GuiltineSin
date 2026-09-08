@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
-using Melia.Zone.Events.Arguments;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Groups;
+using GuiltineSin.Zone.Events.Arguments;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Groups;
 
-namespace Melia.Zone.World.Quests.Objectives
+namespace GuiltineSin.Zone.World.Quests.Objectives
 {
 	/// <summary>
 	/// A kill-tracking objective that never marks itself complete. Used for

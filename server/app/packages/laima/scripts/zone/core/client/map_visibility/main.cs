@@ -1,11 +1,11 @@
-﻿//--- Melia Script ----------------------------------------------------------
+﻿//--- GuiltineSin Script ----------------------------------------------------------
 // Map Visibility
 //--- Description -----------------------------------------------------------
 // Makes warps/NPCs visible in map regardless of range to player
 //---------------------------------------------------------------------------
 
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors.Characters;
 
 public class MapVisibilityClientScript : ClientScript
 {

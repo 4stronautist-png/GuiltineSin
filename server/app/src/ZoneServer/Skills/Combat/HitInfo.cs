@@ -1,9 +1,9 @@
 ﻿using System;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Zone.World.Actors;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.World.Actors;
 
-namespace Melia.Zone.Skills.Combat
+namespace GuiltineSin.Zone.Skills.Combat
 {
 	/// <summary>
 	/// Contains information about a hit and the damage it caused.

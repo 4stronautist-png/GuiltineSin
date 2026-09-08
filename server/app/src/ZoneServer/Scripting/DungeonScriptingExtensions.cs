@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Dungeons;
-using Melia.Zone.World.Dungeons.Stages;
-using Melia.Zone.World.Quests;
-using Melia.Zone.World.Quests.Objectives;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Dungeons;
+using GuiltineSin.Zone.World.Dungeons.Stages;
+using GuiltineSin.Zone.World.Quests;
+using GuiltineSin.Zone.World.Quests.Objectives;
 
-namespace Melia.Zone.Scripting
+namespace GuiltineSin.Zone.Scripting
 {
 	/// <summary>
 	/// Contains implementations of monster ranking scripts for dynamic property calculation.

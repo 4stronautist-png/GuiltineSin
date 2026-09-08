@@ -1,7 +1,7 @@
-﻿using Melia.Zone.World.Actors.Characters;
+﻿using GuiltineSin.Zone.World.Actors.Characters;
 using Yggdrasil.Util.Commands;
 
-namespace Melia.Zone.Commands
+namespace GuiltineSin.Zone.Commands
 {
 	/// <summary>
 	/// Represents a chat command.

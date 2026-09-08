@@ -1,13 +1,13 @@
 using System;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Packages;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Monsters;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Monsters;
 using Yggdrasil.Util;
 
-namespace Melia.Zone.Buffs.Handlers.Clerics.Pardoner
+namespace GuiltineSin.Zone.Buffs.Handlers.Clerics.Pardoner
 {
 	/// <summary>
 	/// Handle for the Dekatos_Buff, which has a chance to instantly kill

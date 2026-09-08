@@ -1,4 +1,4 @@
-﻿namespace Melia.Zone.World
+﻿namespace GuiltineSin.Zone.World
 {
 	public class ChatMacro
 	{

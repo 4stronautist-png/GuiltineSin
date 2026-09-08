@@ -1,9 +1,9 @@
 ﻿using System;
-using Melia.Shared.Network;
+using GuiltineSin.Shared.Network;
 using Xunit;
 using Yggdrasil.Util;
 
-namespace Melia.Test.Shared.Network
+namespace GuiltineSin.Test.Shared.Network
 {
 	public class PacketTests
 	{

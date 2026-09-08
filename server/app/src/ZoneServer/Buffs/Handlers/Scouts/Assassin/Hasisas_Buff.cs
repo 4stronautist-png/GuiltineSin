@@ -1,8 +1,8 @@
-﻿using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.World.Actors.Characters;
+﻿using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.World.Actors.Characters;
 
-namespace Melia.Zone.Buffs.Handlers.Scouts.Assassin
+namespace GuiltineSin.Zone.Buffs.Handlers.Scouts.Assassin
 {
 	/// <summary>
 	/// Handle for the Hasisas Buff, which increases the target's Attack speed and Crit damage

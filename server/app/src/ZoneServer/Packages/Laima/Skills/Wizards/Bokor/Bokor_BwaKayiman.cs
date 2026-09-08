@@ -2,22 +2,22 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Melia.Shared.Packages;
-using Melia.Shared.L10N;
-using Melia.Shared.Game.Const;
-using Melia.Shared.World;
-using Melia.Zone.Network;
-using Melia.Zone.Skills.Handlers.Base;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Components;
-using Melia.Zone.Pads;
-using Melia.Zone.World.Actors.Pads;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Skills.Handlers.Base;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Components;
+using GuiltineSin.Zone.Pads;
+using GuiltineSin.Zone.World.Actors.Pads;
 using Yggdrasil.Geometry;
 using Yggdrasil.Geometry.Shapes;
-using Melia.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
 
-namespace Melia.Zone.Skills.Handlers.Wizards.Bokor
+namespace GuiltineSin.Zone.Skills.Handlers.Wizards.Bokor
 {
 	/// <summary>
 	/// Handler for the Bokor skill Bwa Kayiman.
@@ -80,13 +80,13 @@ namespace Melia.Zone.Skills.Handlers.Wizards.Bokor
 				positionHistory.Add(caster.Position.GetRelative(behindDir, offset));
 			}
 
-			skill.Vars.Set("Melia.Skills.BwaKayiman.PositionHistory", positionHistory);
+			skill.Vars.Set("GuiltineSin.Skills.BwaKayiman.PositionHistory", positionHistory);
 
 			// Store ordered summon handles so positions stay fixed
 			var summonHandles = new List<int>();
 			for (var i = 0; i < summons.Count; i++)
 				summonHandles.Add(summons[i].Handle);
-			skill.Vars.Set("Melia.Skills.BwaKayiman.SummonOrder", summonHandles);
+			skill.Vars.Set("GuiltineSin.Skills.BwaKayiman.SummonOrder", summonHandles);
 
 			// Place each summon at its initial line position and suspend
 			// their AI so it doesn't fight our MoveTo commands.
@@ -108,7 +108,7 @@ namespace Melia.Zone.Skills.Handlers.Wizards.Bokor
 				var pad = new Pad(PadName.Bokor_BwaKayiman_Fluting, caster, skill, new CircleF(positionHistory[i], radius));
 				pad.Position = positionHistory[i];
 				pad.Trigger.LifeTime = TimeSpan.FromMilliseconds(10000);
-				pad.Variables.Set("Melia.Skills.BwaKayiman.SummonHandle", summon.Handle);
+				pad.Variables.Set("GuiltineSin.Skills.BwaKayiman.SummonHandle", summon.Handle);
 
 				caster.Map.AddPad(pad);
 			}
@@ -134,8 +134,8 @@ namespace Melia.Zone.Skills.Handlers.Wizards.Bokor
 					ai.Script.Suspended = false;
 			}
 
-			skill.Vars.Remove("Melia.Skills.BwaKayiman.PositionHistory");
-			skill.Vars.Remove("Melia.Skills.BwaKayiman.SummonOrder");
+			skill.Vars.Remove("GuiltineSin.Skills.BwaKayiman.PositionHistory");
+			skill.Vars.Remove("GuiltineSin.Skills.BwaKayiman.SummonOrder");
 		}
 
 		public void Handle(Skill skill, ICombatEntity caster, Position originPos, Position farPos, ICombatEntity target)
@@ -149,10 +149,10 @@ namespace Melia.Zone.Skills.Handlers.Wizards.Bokor
 
 			while (caster.IsCasting(skill))
 			{
-				if (!skill.Vars.TryGet("Melia.Skills.BwaKayiman.PositionHistory", out List<Position> positionHistory))
+				if (!skill.Vars.TryGet("GuiltineSin.Skills.BwaKayiman.PositionHistory", out List<Position> positionHistory))
 					break;
 
-				if (!skill.Vars.TryGet("Melia.Skills.BwaKayiman.SummonOrder", out List<int> summonHandles))
+				if (!skill.Vars.TryGet("GuiltineSin.Skills.BwaKayiman.SummonOrder", out List<int> summonHandles))
 					break;
 
 				// Extend the trail only when the caster has moved enough to

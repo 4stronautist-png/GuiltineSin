@@ -3,16 +3,16 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Packages;
-using Melia.Zone.Scripting;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.Skills.Handlers.Base;
-using Melia.Zone.World.Actors;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.Skills.Handlers.Base;
+using GuiltineSin.Zone.World.Actors;
 using Yggdrasil.Logging;
 
-namespace Melia.Zone.Skills.Handlers
+namespace GuiltineSin.Zone.Skills.Handlers
 {
 	/// <summary>
 	/// Skill handler collection and manager.

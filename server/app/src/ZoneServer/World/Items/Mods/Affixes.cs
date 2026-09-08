@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Melia.Shared.Game.Const;
+using GuiltineSin.Shared.Game.Const;
 
-namespace Melia.Zone.World.Items.Mods
+namespace GuiltineSin.Zone.World.Items.Mods
 {
 	public class AffixGenerator
 	{

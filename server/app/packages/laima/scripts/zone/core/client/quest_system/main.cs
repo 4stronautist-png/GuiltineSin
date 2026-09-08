@@ -1,17 +1,17 @@
-﻿//--- Melia Script ----------------------------------------------------------
+﻿//--- GuiltineSin Script ----------------------------------------------------------
 // Quest System
 //--- Description -----------------------------------------------------------
 // Adds client-side support for our custom quest system.
 //---------------------------------------------------------------------------
 
 using System.Globalization;
-using Melia.Shared.Network;
-using Melia.Zone.Scripting;
-using Melia.Zone.Network;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Shared.Network;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.World.Actors.Characters;
 using Yggdrasil.Logging;
 using Yggdrasil.Util.Commands;
-using static Melia.Zone.Scripting.Shortcuts;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
 public class CustomQuestSystemClientScript : ClientScript
 {

@@ -1,20 +1,20 @@
-﻿//--- Melia Script ----------------------------------------------------------
+﻿//--- GuiltineSin Script ----------------------------------------------------------
 // Normal Transaction Scripts
 //--- Description -----------------------------------------------------------
 // Handles "Normal TX" requests from the client.
 //---------------------------------------------------------------------------
 
 using System.Linq;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Game.Properties;
-using Melia.Shared.Versioning;
-using Melia.Zone;
-using Melia.Zone.Events.Arguments;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting;
-using Melia.Zone.Skills;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Game.Properties;
+using GuiltineSin.Shared.Versioning;
+using GuiltineSin.Zone;
+using GuiltineSin.Zone.Events.Arguments;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.World.Actors.Characters;
 using Yggdrasil.Logging;
 
 public class NormalTxFunctionsScript : GeneralScript

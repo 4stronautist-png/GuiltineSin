@@ -4,7 +4,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text.RegularExpressions;
 
-namespace Melia.Shared.Network
+namespace GuiltineSin.Shared.Network
 {
 	/// <summary>
 	/// Utility for IP-related operations.

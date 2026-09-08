@@ -1,11 +1,11 @@
 ﻿using System;
-using Melia.Shared.Database;
-using Melia.Shared.Game.Const;
-using Melia.Zone.World;
-using Melia.Zone.World.Maps;
+using GuiltineSin.Shared.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.World;
+using GuiltineSin.Zone.World.Maps;
 using MySqlConnector;
 
-namespace Melia.Zone.Database
+namespace GuiltineSin.Zone.Database
 {
 	/// <summary>
 	/// Contains methods related to Account persistence.

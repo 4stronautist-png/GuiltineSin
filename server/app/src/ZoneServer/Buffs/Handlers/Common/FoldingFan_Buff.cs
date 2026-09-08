@@ -1,9 +1,9 @@
-﻿using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Network;
-using Melia.Zone.World.Actors;
+﻿using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.World.Actors;
 
-namespace Melia.Zone.Buffs.Handlers
+namespace GuiltineSin.Zone.Buffs.Handlers
 {
 	/// <summary>
 	/// Handle for the FoldingFan_Buff, which applies a visual spinning effect to the target.

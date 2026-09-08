@@ -5,18 +5,18 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SERVER_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 APP_DIR="$SERVER_DIR/app"
-DB_DUMP="$SERVER_DIR/db/clover_local.sql.gz"
+DB_DUMP="$SERVER_DIR/db/guiltinesin_local.sql.gz"
 
-DB_NAME="${DB_NAME:-clover_local}"
-DB_USER="${DB_USER:-melia}"
-DB_PASS="${DB_PASS:-melia123}"
+DB_NAME="${DB_NAME:-guiltinesin_local}"
+DB_USER="${DB_USER:-guiltinesin}"
+DB_PASS="${DB_PASS:-guiltinesin123}"
 SERVER_NAME="${SERVER_NAME:-Clover}"
 GROUP_ID="${GROUP_ID:-1001}"
 PUBLIC_HOST="${PUBLIC_HOST:-127.0.0.1}"
 INTER_HOST="${INTER_HOST:-127.0.0.1}"
 PUBLIC_WEB_PORT="${PUBLIC_WEB_PORT:-8080}"
-DEFAULT_ACCOUNT="${DEFAULT_ACCOUNT:-clover}"
-DEFAULT_PASSWORD="${DEFAULT_PASSWORD:-clover123}"
+DEFAULT_ACCOUNT="${DEFAULT_ACCOUNT:-guiltinesin}"
+DEFAULT_PASSWORD="${DEFAULT_PASSWORD:-guiltinesin123}"
 
 RESET_DB=1
 START_AFTER_INSTALL=1
@@ -102,18 +102,18 @@ SQL
 	if [ "$RESET_DB" -eq 1 ]; then
 		require_file "$DB_DUMP"
 		log "Restaurando dump ${DB_DUMP}"
-		mysql -u "$DB_USER" -p"$DB_PASS" -e "DROP DATABASE IF EXISTS \`${DB_NAME}\`; CREATE DATABASE \`${DB_NAME}\` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
-		gzip -dc "$DB_DUMP" | mysql -u "$DB_USER" -p"$DB_PASS" "$DB_NAME"
-		mysql -u "$DB_USER" -p"$DB_PASS" "$DB_NAME" < "$APP_DIR/tools/clover-repair-barracks.sql"
+		sudo mysql -e "DROP DATABASE IF EXISTS ${DB_NAME}; CREATE DATABASE ${DB_NAME} CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
+		gzip -dc "$DB_DUMP" | sudo mysql "${DB_NAME}"
+		mysql -u "$DB_USER" -p"$DB_PASS" "$DB_NAME" < "$APP_DIR/tools/guiltinesin-repair-barracks.sql"
 		ok "Dump restaurado"
 	else
-		mysql -u "$DB_USER" -p"$DB_PASS" "$DB_NAME" < "$APP_DIR/tools/clover-repair-barracks.sql"
+		mysql -u "$DB_USER" -p"$DB_PASS" "$DB_NAME" < "$APP_DIR/tools/guiltinesin-repair-barracks.sql"
 		ok "Banco existente preservado por causa de --keep-db"
 	fi
 }
 
 write_server_config() {
-	log "Escrevendo configuracao local do Melia"
+	log "Escrevendo configuracao local do GuiltineSin"
 
 	mkdir -p "$APP_DIR/user/conf" "$APP_DIR/user/db" "$APP_DIR/logs"
 
@@ -175,7 +175,7 @@ EOF
 
 	if [ ! -f "$APP_DIR/user/scripts/zone/scripts_custom.txt" ]; then
 		cat > "$APP_DIR/user/scripts/zone/scripts_custom.txt" <<'EOF'
-// CloverTOS
+// GuiltineSin
 // Add custom user zone scripts here, one relative path per line.
 //---------------------------------------------------------------------------
 EOF
@@ -183,7 +183,7 @@ EOF
 
 	if [ ! -f "$APP_DIR/user/scripts/zone/scripts_content.txt" ]; then
 		cat > "$APP_DIR/user/scripts/zone/scripts_content.txt" <<'EOF'
-// CloverTOS
+// GuiltineSin
 // Add custom user content scripts here, one relative path per line.
 //---------------------------------------------------------------------------
 EOF
@@ -206,7 +206,7 @@ EOF
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>CloverTOS Account</title>
+	<title>GuiltineSin Account</title>
 	<style>
 		body { margin: 0; min-height: 100vh; display: grid; place-items: center; font-family: Segoe UI, sans-serif; background: #111820; color: #eef4fb; }
 		main { width: min(420px, calc(100vw - 32px)); border: 1px solid #314255; background: #1b2530; padding: 28px; }
@@ -218,7 +218,7 @@ EOF
 </head>
 <body>
 	<main>
-		<h1>Create CloverTOS Account</h1>
+		<h1>Create GuiltineSin Account</h1>
 		<form id="form">
 			<label>Username<input id="username" minlength="4" required></label>
 			<label>Password<input id="password1" type="password" minlength="6" required></label>
@@ -277,10 +277,10 @@ install_packages() {
 }
 
 build_server() {
-	log "Compilando CloverTOS/Melia"
+	log "Compilando GuiltineSin/GuiltineSin"
 	cd "$APP_DIR"
-	dotnet restore Melia.sln
-	dotnet build Melia.sln -c Release --no-restore
+	dotnet restore GuiltineSin.sln
+	dotnet build GuiltineSin.sln -c Release --no-restore
 	ok "Build concluido"
 }
 
@@ -318,25 +318,25 @@ create_default_account() {
 	if curl -fsS \
 		-H "Content-Type: application/json" \
 		-d "$body" \
-		"http://127.0.0.1:8080/api/account/create" >/tmp/clovertos-create-account.json 2>/tmp/clovertos-create-account.err; then
+		"http://127.0.0.1:8080/api/account/create" >/tmp/guiltinesin-create-account.json 2>/tmp/guiltinesin-create-account.err; then
 		ok "Conta pronta: ${DEFAULT_ACCOUNT}"
 		return
 	fi
 
-	if grep -qi "already exists" /tmp/clovertos-create-account.json /tmp/clovertos-create-account.err 2>/dev/null; then
+	if grep -qi "already exists" /tmp/guiltinesin-create-account.json /tmp/guiltinesin-create-account.err 2>/dev/null; then
 		ok "Conta ja existia: ${DEFAULT_ACCOUNT}"
 		return
 	fi
 
-	echo "[WARN] Nao foi possivel criar a conta padrao agora. Veja /tmp/clovertos-create-account.err"
+	echo "[WARN] Nao foi possivel criar a conta padrao agora. Veja /tmp/guiltinesin-create-account.err"
 }
 
 echo "=========================================="
-echo "   CLOVERTOS WSL LOCAL INSTALL"
+echo "   GUILTINESIN WSL LOCAL INSTALL"
 echo "=========================================="
 
-if [ ! -f "$APP_DIR/Melia.sln" ]; then
-	echo "[ERROR] Estrutura CloverTOS invalida. Rode a partir do repositorio clonado."
+if [ ! -f "$APP_DIR/GuiltineSin.sln" ]; then
+	echo "[ERROR] Estrutura GuiltineSin invalida. Rode a partir do repositorio clonado."
 	exit 1
 fi
 
@@ -349,7 +349,7 @@ ensure_generated_user_files
 build_server
 
 if [ "$START_AFTER_INSTALL" -eq 1 ]; then
-	log "Subindo stack CloverTOS"
+	log "Subindo stack GuiltineSin"
 	cd "$APP_DIR"
 	DB_NAME="$DB_NAME" DB_USER="$DB_USER" DB_PASS="$DB_PASS" GROUP_ID="$GROUP_ID" PUBLIC_HOST="$PUBLIC_HOST" PUBLIC_WEB_PORT="$PUBLIC_WEB_PORT" ./start-server.sh
 	create_default_account

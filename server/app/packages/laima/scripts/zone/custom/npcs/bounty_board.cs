@@ -1,4 +1,4 @@
-﻿//--- Melia Script ----------------------------------------------------------
+﻿//--- GuiltineSin Script ----------------------------------------------------------
 // Bounty Boards
 //--- Description -----------------------------------------------------------
 // Provides a lawful interface for the Bounty Hunter system in major cities.
@@ -7,11 +7,11 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Melia.Zone;
-using Melia.Zone.Scripting;
-using Melia.Zone.Scripting.Dialogues;
-using Melia.Zone.World;
-using static Melia.Zone.Scripting.Shortcuts;
+using GuiltineSin.Zone;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Scripting.Dialogues;
+using GuiltineSin.Zone.World;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
 public class CBountyBoardNpcScript : GeneralScript
 {

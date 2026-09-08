@@ -1,7 +1,7 @@
-﻿using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Items;
-using Melia.Zone.Network;
+﻿using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Items;
+using GuiltineSin.Zone.Network;
 
 public class ItemQuestScripts : GeneralScript
 {
@@ -17,7 +17,7 @@ public class ItemQuestScripts : GeneralScript
 	[ScriptableFunction("SCR_USE_E_Balloon")]
 	public ItemUseResult SCR_USE_E_Balloon(Character character, Item item, string strArg, float numArg1, float numArg2)
 	{
-		var oldBalloonStr = character.Variables.Perm.GetString("Melia.BalloonId", "Dummy_balloon");
+		var oldBalloonStr = character.Variables.Perm.GetString("GuiltineSin.BalloonId", "Dummy_balloon");
 		var newBalloonStr = "artefact_balloon_" + strArg;
 
 		if (oldBalloonStr == newBalloonStr)
@@ -26,7 +26,7 @@ public class ItemQuestScripts : GeneralScript
 			newBalloonStr = null;
 		}
 
-		character.Variables.Perm.SetString("Melia.BalloonId", newBalloonStr);
+		character.Variables.Perm.SetString("GuiltineSin.BalloonId", newBalloonStr);
 
 		Send.ZC_ATTACH_TO_SLOT(character, 5, newBalloonStr, oldBalloonStr);
 

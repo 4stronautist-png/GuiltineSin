@@ -3,7 +3,7 @@ using System.IO;
 using System.Threading.Tasks;
 using EmbedIO;
 
-namespace Melia.Web.Modules
+namespace GuiltineSin.Web.Modules
 {
 	/// <summary>
 	/// Module that handles clean URL routing for static pages.

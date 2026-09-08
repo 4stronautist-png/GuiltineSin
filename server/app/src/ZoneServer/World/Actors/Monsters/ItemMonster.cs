@@ -1,9 +1,9 @@
 ﻿using System;
-using Melia.Shared.Game.Const;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Items;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Items;
 
-namespace Melia.Zone.World.Actors.Monsters
+namespace GuiltineSin.Zone.World.Actors.Monsters
 {
 	/// <summary>
 	/// A representation of an item on a map.

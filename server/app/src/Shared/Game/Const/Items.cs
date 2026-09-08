@@ -1,7 +1,7 @@
 ﻿using System;
-using Melia.Shared.Versioning;
+using GuiltineSin.Shared.Versioning;
 
-namespace Melia.Shared.Game.Const
+namespace GuiltineSin.Shared.Game.Const
 {
 	/// <summary>
 	/// Inventory categories.

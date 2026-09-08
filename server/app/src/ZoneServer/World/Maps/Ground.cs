@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using g4;
-using Melia.Shared.Data.Database;
-using Melia.Shared.World;
-using Melia.Zone.World.Maps.NavMesh;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.World.Maps.NavMesh;
 using Yggdrasil.Geometry;
 using Yggdrasil.Util;
 
-namespace Melia.Zone.World.Maps
+namespace GuiltineSin.Zone.World.Maps
 {
 	/// <summary>
 	/// Represents a map's ground, providing collision, height, and pathing information.

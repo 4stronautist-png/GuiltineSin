@@ -1,4 +1,4 @@
-﻿//--- Melia Script ----------------------------------------------------------
+﻿//--- GuiltineSin Script ----------------------------------------------------------
 // World Map
 //--- Description -----------------------------------------------------------
 // Makes changes to the world and mini maps, such as removing the level
@@ -6,13 +6,13 @@
 // default icons, such as for warps.
 //---------------------------------------------------------------------------
 
-using Melia.Shared.L10N;
-using Melia.Shared.Scripting;
-using Melia.Shared.World;
-using Melia.Zone;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Monsters;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Shared.Scripting;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Monsters;
 
 public class WorldMapClientScript : ClientScript
 {
@@ -73,7 +73,7 @@ public class WorldMapClientScript : ClientScript
 			table.Insert(iconTable);
 		}
 
-		this.SendRawLuaScript(character, "Melia.World.Icons.Load(" + table.Serialize() + ")");
+		this.SendRawLuaScript(character, "GuiltineSin.World.Icons.Load(" + table.Serialize() + ")");
 	}
 
 	private LuaTable CreateIconTable(string imageName, string mapClassName, Position pos, string tooltip)

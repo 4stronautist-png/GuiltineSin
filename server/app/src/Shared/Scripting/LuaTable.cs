@@ -4,7 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 
-namespace Melia.Shared.Scripting
+namespace GuiltineSin.Shared.Scripting
 {
 	/// <summary>
 	/// An entry in a Lua table.

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Yggdrasil.Util;
 
-namespace Melia.Zone.Util
+namespace GuiltineSin.Zone.Util
 {
 	public class WeightedRandom<T>
 	{

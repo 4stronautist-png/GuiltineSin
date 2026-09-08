@@ -5,11 +5,11 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using EmbedIO;
 using EmbedIO.Routing;
-using Melia.Shared.Game.Const.Web;
-using Melia.Web.Const;
-using Melia.Web.Util;
+using GuiltineSin.Shared.Game.Const.Web;
+using GuiltineSin.Web.Const;
+using GuiltineSin.Web.Util;
 
-namespace Melia.Web.Controllers
+namespace GuiltineSin.Web.Controllers
 {
 	/// <summary>
 	/// Controller for TOS Guild and Team Storage related endpoints.

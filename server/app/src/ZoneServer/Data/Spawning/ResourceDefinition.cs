@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace Melia.Zone.Data.Spawning
+namespace GuiltineSin.Zone.Data.Spawning
 {
 
 	public class ResourceNodeDefinition

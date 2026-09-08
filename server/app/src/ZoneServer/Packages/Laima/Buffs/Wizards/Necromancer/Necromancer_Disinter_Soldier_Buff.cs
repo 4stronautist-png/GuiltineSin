@@ -1,9 +1,9 @@
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Network;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Network;
 
-namespace Melia.Zone.Buffs.Handlers.Wizards.Necromancer
+namespace GuiltineSin.Zone.Buffs.Handlers.Wizards.Necromancer
 {
 	/// <summary>
 	/// Handle for the Sacrifice: Skeleton, Max HP, Physical and Magic DEF Increase.
@@ -12,8 +12,8 @@ namespace Melia.Zone.Buffs.Handlers.Wizards.Necromancer
 	[BuffHandler(BuffId.Disinter_Soldier_Buff)]
 	public class Necromancer_Disinter_Soldier_BuffOverride : BuffHandler
 	{
-		private const string MaxHpVarName = "Melia.MaxHPModifier";
-		private const string DefVarName = "Melia.DefModifier";
+		private const string MaxHpVarName = "GuiltineSin.MaxHPModifier";
+		private const string DefVarName = "GuiltineSin.DefModifier";
 		private const float Bonus = .1f;
 
 		public override void OnActivate(Buff buff, ActivationType activationType)

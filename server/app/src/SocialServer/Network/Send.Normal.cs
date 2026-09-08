@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Melia.Shared.Network;
-using Melia.Social.Database;
-using Melia.Social.Network.Helpers;
-using Melia.Social.World;
+using GuiltineSin.Shared.Network;
+using GuiltineSin.Social.Database;
+using GuiltineSin.Social.Network.Helpers;
+using GuiltineSin.Social.World;
 
-namespace Melia.Social.Network
+namespace GuiltineSin.Social.Network
 {
 	public static partial class Send
 	{

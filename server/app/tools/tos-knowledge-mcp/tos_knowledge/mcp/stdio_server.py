@@ -18,7 +18,7 @@ def _tool(name: str, description: str, schema: dict[str, Any]) -> dict[str, Any]
 TOOLS = [
     _tool(
         "quest_lookup",
-        "Look up one CloverTOS quest by className or display name.",
+        "Look up one GuiltineSin quest by className or display name.",
         {"type": "object", "properties": {"query": {"type": "string"}}, "required": ["query"]},
     ),
     _tool(
@@ -71,7 +71,7 @@ TOOLS = [
     ),
     _tool(
         "compare_sources",
-        "Compare Clover local quest data with indexed IPF/public/manual evidence.",
+        "Compare GuiltineSin local quest data with indexed IPF/public/manual evidence.",
         {"type": "object", "properties": {"quest": {"type": "string"}}, "required": ["quest"]},
     ),
     _tool(

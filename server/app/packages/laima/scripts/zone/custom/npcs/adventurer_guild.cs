@@ -1,5 +1,5 @@
 ﻿
-// --- Melia Script ----------------------------------------------------------
+// --- GuiltineSin Script ----------------------------------------------------------
 // Adventurer's Guild NPCs
 // --- Description -----------------------------------------------------------
 // Provides various services related to the Adventurer's Guild.
@@ -9,24 +9,24 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Scripting;
-using Melia.Shared.Versioning;
-using Melia.Shared.World;
-using Melia.Zone;
-using Melia.Zone.Events.Arguments;
-using Melia.Zone.Scripting;
-using Melia.Zone.Scripting.Dialogues;
-using Melia.Zone.Scripting.Extensions.LivelyDialog;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Maps;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Scripting;
+using GuiltineSin.Shared.Versioning;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone;
+using GuiltineSin.Zone.Events.Arguments;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Scripting.Dialogues;
+using GuiltineSin.Zone.Scripting.Extensions.LivelyDialog;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Maps;
 using Yggdrasil.Logging;
 using Yggdrasil.Util;
-using static Melia.Zone.Scripting.Shortcuts;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
 public class AdventurersGuildScript : GeneralScript
 {

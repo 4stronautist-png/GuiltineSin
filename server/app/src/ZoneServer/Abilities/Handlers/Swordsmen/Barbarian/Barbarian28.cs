@@ -1,8 +1,8 @@
 ﻿using System;
-using Melia.Shared.Game.Const;
-using Melia.Zone.World.Actors;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.World.Actors;
 
-namespace Melia.Zone.Abilities.Handlers.Swordsmen.Barbarian
+namespace GuiltineSin.Zone.Abilities.Handlers.Swordsmen.Barbarian
 {
 	/// <summary>
 	/// Handler for the Barbarian ability Barbarian28 (Wild Nature)

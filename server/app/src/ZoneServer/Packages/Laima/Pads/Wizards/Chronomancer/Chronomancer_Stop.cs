@@ -1,18 +1,18 @@
 using System;
-using Melia.Shared.Data;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Network;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Actors.Pads;
-using static Melia.Zone.Pads.Helpers.PadHelper;
-using Melia.Zone.Pads;
-using Melia.Zone.Pads.Handlers;
+using GuiltineSin.Shared.Data;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Actors.Pads;
+using static GuiltineSin.Zone.Pads.Helpers.PadHelper;
+using GuiltineSin.Zone.Pads;
+using GuiltineSin.Zone.Pads.Handlers;
 
-namespace Melia.Zone.Packages.Laima.Pads.Wizards.Chronomancer
+namespace GuiltineSin.Zone.Packages.Laima.Pads.Wizards.Chronomancer
 {
 	[Package("laima")]
 	[PadHandler(PadName.Chronomancer_Stop)]

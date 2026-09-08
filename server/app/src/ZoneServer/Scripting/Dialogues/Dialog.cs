@@ -5,26 +5,26 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Shared.World;
-using Melia.Zone.Events;
-using Melia.Zone.Events.Arguments;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting.Hooking;
-using Melia.Zone.World;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Characters.Components;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Items;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Events;
+using GuiltineSin.Zone.Events.Arguments;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting.Hooking;
+using GuiltineSin.Zone.World;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Characters.Components;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Items;
 using Yggdrasil.Extensions;
 using Yggdrasil.Geometry.Shapes;
 using Yggdrasil.Logging;
-using static Melia.Zone.Scripting.Hooking.DialogHook;
-using static Melia.Zone.Scripting.Shortcuts;
+using static GuiltineSin.Zone.Scripting.Hooking.DialogHook;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
-namespace Melia.Zone.Scripting.Dialogues
+namespace GuiltineSin.Zone.Scripting.Dialogues
 {
 	/// <summary>
 	/// Manages a dialog between a player and an NPC and allows sending
@@ -797,7 +797,7 @@ namespace Melia.Zone.Scripting.Dialogues
 				// --- End Calculate Reputation Discount ---
 
 				// Start receival of the shop data
-				Send.ZC_EXEC_CLIENT_SCP(this.Player.Connection, "Melia.Comm.BeginRecv('CustomShop')");
+				Send.ZC_EXEC_CLIENT_SCP(this.Player.Connection, "GuiltineSin.Comm.BeginRecv('CustomShop')");
 
 				// Append products and send them in intervals when the calls
 				// get too close to the max script length
@@ -823,7 +823,7 @@ namespace Melia.Zone.Scripting.Dialogues
 
 					if (sb.Length > ClientScript.ScriptMaxLength * 0.8)
 					{
-						Send.ZC_EXEC_CLIENT_SCP(this.Player.Connection, $"Melia.Comm.Recv('CustomShop', {{ {sb} }})");
+						Send.ZC_EXEC_CLIENT_SCP(this.Player.Connection, $"GuiltineSin.Comm.Recv('CustomShop', {{ {sb} }})");
 						sb.Clear();
 					}
 				}
@@ -833,16 +833,16 @@ namespace Melia.Zone.Scripting.Dialogues
 				// remaining ones that weren't sent yet.
 				if (sb.Length > 0)
 				{
-					Send.ZC_EXEC_CLIENT_SCP(this.Player.Connection, $"Melia.Comm.Recv('CustomShop', {{ {sb} }})");
+					Send.ZC_EXEC_CLIENT_SCP(this.Player.Connection, $"GuiltineSin.Comm.Recv('CustomShop', {{ {sb} }})");
 					sb.Clear();
 				}
 
 				// End receival of the shop data and set it
-				Send.ZC_EXEC_CLIENT_SCP(this.Player.Connection, "Melia.Comm.ExecData('CustomShop', M_SET_CUSTOM_SHOP)");
-				Send.ZC_EXEC_CLIENT_SCP(this.Player.Connection, "Melia.Comm.EndRecv('CustomShop')");
+				Send.ZC_EXEC_CLIENT_SCP(this.Player.Connection, "GuiltineSin.Comm.ExecData('CustomShop', M_SET_CUSTOM_SHOP)");
+				Send.ZC_EXEC_CLIENT_SCP(this.Player.Connection, "GuiltineSin.Comm.EndRecv('CustomShop')");
 
 				// Open the shop
-				Send.ZC_DIALOG_TRADE(this.Player.Connection, "MeliaCustomShop");
+				Send.ZC_DIALOG_TRADE(this.Player.Connection, "GuiltineSinCustomShop");
 			}
 			else
 			{
@@ -927,7 +927,7 @@ namespace Melia.Zone.Scripting.Dialogues
 			if (!_propertyShopsByMap.TryGetValue(mapName, out var list))
 				return;
 
-			var flag = "Melia.PropertyShop." + mapName + ".Streamed";
+			var flag = "GuiltineSin.PropertyShop." + mapName + ".Streamed";
 			if (character.Variables.Temp.GetBool(flag, false))
 				return;
 
@@ -985,7 +985,7 @@ namespace Melia.Zone.Scripting.Dialogues
 				throw new ArgumentException($"Companion shop '{shopName}' not found.");
 
 			// Start receival of companion data
-			Send.ZC_EXEC_CLIENT_SCP(this.Player.Connection, "Melia.Comm.BeginRecv('CustomCompanionShop')");
+			Send.ZC_EXEC_CLIENT_SCP(this.Player.Connection, "GuiltineSin.Comm.BeginRecv('CustomCompanionShop')");
 
 			// Send companion data
 			var sb = new StringBuilder();
@@ -995,7 +995,7 @@ namespace Melia.Zone.Scripting.Dialogues
 
 				if (sb.Length > ClientScript.ScriptMaxLength * 0.8)
 				{
-					Send.ZC_EXEC_CLIENT_SCP(this.Player.Connection, $"Melia.Comm.Recv('CustomCompanionShop', {{ {sb} }})");
+					Send.ZC_EXEC_CLIENT_SCP(this.Player.Connection, $"GuiltineSin.Comm.Recv('CustomCompanionShop', {{ {sb} }})");
 					sb.Clear();
 				}
 			}
@@ -1003,14 +1003,14 @@ namespace Melia.Zone.Scripting.Dialogues
 			// Send remaining companions
 			if (sb.Length > 0)
 			{
-				Send.ZC_EXEC_CLIENT_SCP(this.Player.Connection, $"Melia.Comm.Recv('CustomCompanionShop', {{ {sb} }})");
+				Send.ZC_EXEC_CLIENT_SCP(this.Player.Connection, $"GuiltineSin.Comm.Recv('CustomCompanionShop', {{ {sb} }})");
 				sb.Clear();
 			}
 
 			// End receival and set the companion shop
-			Send.ZC_EXEC_CLIENT_SCP(this.Player.Connection, "Melia.Comm.ExecData('CustomCompanionShop', M_SET_CUSTOM_COMPANION_SHOP)");
+			Send.ZC_EXEC_CLIENT_SCP(this.Player.Connection, "GuiltineSin.Comm.ExecData('CustomCompanionShop', M_SET_CUSTOM_COMPANION_SHOP)");
   
-			Send.ZC_EXEC_CLIENT_SCP(this.Player.Connection, "Melia.Comm.EndRecv('CustomCompanionShop')");
+			Send.ZC_EXEC_CLIENT_SCP(this.Player.Connection, "GuiltineSin.Comm.EndRecv('CustomCompanionShop')");
 
 			// Open the companion shop UI
 			Send.ZC_ADDON_MSG(this.Player, "OPEN_DLG_COMPANIONSHOP", 0, "Normal");

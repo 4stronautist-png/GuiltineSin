@@ -1,7 +1,7 @@
 # TOS Knowledge MCP
 
-This module is the long-horizon quest repair knowledge layer for CloverTOS.
-It builds a local, versioned knowledge database from Clover data, extracted
+This module is the long-horizon quest repair knowledge layer for GuiltineSin.
+It builds a local, versioned knowledge database from GuiltineSin data, extracted
 client/IPF data, public sources, and manually exported community/Papaya notes.
 
 The goal is not to replace playtesting. The goal is to catch the questing
@@ -18,7 +18,7 @@ failure modes that make playtesting 1400+ quests impractical:
 
 ## Quick Start
 
-From `CloverTOS/server/app`:
+From `GuiltineSin/server/app`:
 
 ```powershell
 tools/Validate-TosKnowledge.ps1 -Rebuild
@@ -46,7 +46,7 @@ Example `~/.codex/config.toml` entry:
 [mcp_servers.tosKnowledge]
 command = "python"
 args = ["tools/tos-knowledge-mcp/server.py", "mcp"]
-cwd = "/home/z3ck/Melia-TOS-Server/CloverTOS/server/app"
+cwd = "/home/z3ck/GuiltineSin-TOS-Server/GuiltineSin/server/app"
 ```
 
 ## Data Sources
@@ -56,7 +56,7 @@ Source definitions live in `sources/source_registry.json`.
 The module treats sources with different trust levels:
 
 1. Papaya traces and local captured behavior
-2. CloverTOS local code/data
+2. GuiltineSin local code/data
 3. Extracted client/IPF data
 4. Official IMC/Tree of Savior docs
 5. TosBase and tos.guru public databases

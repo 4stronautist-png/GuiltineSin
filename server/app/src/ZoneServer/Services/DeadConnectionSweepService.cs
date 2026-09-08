@@ -1,9 +1,9 @@
 using System;
 using System.Threading;
-using Melia.Zone.Network;
+using GuiltineSin.Zone.Network;
 using Yggdrasil.Logging;
 
-namespace Melia.Zone.Services
+namespace GuiltineSin.Zone.Services
 {
 	/// <summary>
 	/// Periodically checks all active connections and closes any that

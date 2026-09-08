@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Melia.Shared.World;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Quests;
-using Melia.Zone.World.Quests.Objectives;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Quests;
+using GuiltineSin.Zone.World.Quests.Objectives;
 using Yggdrasil.Logging;
 
-namespace Melia.Zone.World.Dungeons.Stages
+namespace GuiltineSin.Zone.World.Dungeons.Stages
 {
 	/// <summary>
 	/// A stage that requires killing a specified percentage of monsters to progress.

@@ -2,14 +2,14 @@ using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Network;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Maps;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Network;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Maps;
 using Yggdrasil.Logging;
 
-namespace Melia.Zone.World
+namespace GuiltineSin.Zone.World
 {
 	/// <summary>
 	/// Holds and manages a list of maps.

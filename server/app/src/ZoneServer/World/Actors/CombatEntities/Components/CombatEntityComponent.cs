@@ -1,6 +1,6 @@
 ﻿using Yggdrasil.Composition;
 
-namespace Melia.Zone.World.Actors.CombatEntities.Components
+namespace GuiltineSin.Zone.World.Actors.CombatEntities.Components
 {
 	/// <summary>
 	/// A component for a combat entity.

@@ -1,6 +1,6 @@
-﻿using Melia.Zone.World.Actors.Characters;
+﻿using GuiltineSin.Zone.World.Actors.Characters;
 
-namespace Melia.Zone.World.Quests.Prerequisites
+namespace GuiltineSin.Zone.World.Quests.Prerequisites
 {
 	/// <summary>
 	/// A prerequisite to reach a have certain item and quantity.

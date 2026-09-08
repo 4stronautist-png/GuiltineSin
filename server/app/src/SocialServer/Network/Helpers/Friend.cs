@@ -1,7 +1,7 @@
-﻿using Melia.Shared.Network;
-using Melia.Social.Database;
+﻿using GuiltineSin.Shared.Network;
+using GuiltineSin.Social.Database;
 
-namespace Melia.Social.Network.Helpers
+namespace GuiltineSin.Social.Network.Helpers
 {
 	/// <summary>
 	/// Helpers for sending friend data.

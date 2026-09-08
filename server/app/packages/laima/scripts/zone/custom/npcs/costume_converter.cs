@@ -1,4 +1,4 @@
-//--- Melia Script ----------------------------------------------------------
+//--- GuiltineSin Script ----------------------------------------------------------
 // Costume Converter NPC
 //--- Description -----------------------------------------------------------
 // An eccentric fashion designer who can convert costumes between male and
@@ -8,12 +8,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Melia.Shared.Game.Const;
-using Melia.Zone;
-using Melia.Zone.Scripting;
-using Melia.Zone.Scripting.Dialogues;
-using Melia.Zone.World.Items;
-using static Melia.Zone.Scripting.Shortcuts;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Scripting.Dialogues;
+using GuiltineSin.Zone.World.Items;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
 public class CostumeConverterNpc : GeneralScript
 {
@@ -55,7 +55,7 @@ public class CostumeConverterNpc : GeneralScript
 		}
 	}
 
-	private async Task HandleConversion(Dialog dialog, Melia.Zone.World.Actors.Characters.Character pc)
+	private async Task HandleConversion(Dialog dialog, GuiltineSin.Zone.World.Actors.Characters.Character pc)
 	{
 		var convertibleCostumes = pc.Inventory.GetItems(item =>
 			item.Data.EquipSlot == "OUTER" &&

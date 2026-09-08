@@ -1,4 +1,4 @@
-M_CUSTOM_SHOP_NAME = "MeliaCustomShop"
+M_CUSTOM_SHOP_NAME = "GuiltineSinCustomShop"
 
 -- Returns a new shop list that's modeled after the ones the client returns.
 function ShopItemList_New(name)

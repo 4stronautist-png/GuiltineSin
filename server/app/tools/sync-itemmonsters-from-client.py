@@ -150,7 +150,7 @@ def extract_client_item_order(item_ies, server_items):
 
 def write_itemmonsters(path, entries, source_count):
 	lines = [
-		"// Melia",
+		"// GuiltineSin",
 		"// Database file",
 		"//---------------------------------------------------------------------------",
 		"// Synced with the local client's data/ies.ipf Item.ies where possible.",
@@ -172,7 +172,7 @@ def write_itemmonsters(path, entries, source_count):
 
 def main():
 	parser = argparse.ArgumentParser(description="Regenerate itemmonsters.txt from the local ToS client Item.ies order.")
-	parser.add_argument("--client-root", default="/mnt/c/CloverTOS-Local", help="Path to the local CloverTOS client root.")
+	parser.add_argument("--client-root", default="/mnt/c/GuiltineSin", help="Path to the local GuiltineSin client root.")
 	parser.add_argument("--items", default="system/db/items.txt", help="Path to the server items.txt file.")
 	parser.add_argument("--output", default="system/db/itemmonsters.txt", help="Path to write itemmonsters.txt.")
 	parser.add_argument("--fallback", default="system/db/itemmonsters.txt", help="Existing itemmonsters.txt to keep entries for client-unknown items.")

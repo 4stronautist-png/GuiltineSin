@@ -1,10 +1,10 @@
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Network;
-using Melia.Zone.World.Actors;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.World.Actors;
 
-namespace Melia.Zone.Buffs.Handlers.Cryomancer
+namespace GuiltineSin.Zone.Buffs.Handlers.Cryomancer
 {
 	[Package("laima")]
 	[BuffHandler(BuffId.SnowRolling_Buff)]

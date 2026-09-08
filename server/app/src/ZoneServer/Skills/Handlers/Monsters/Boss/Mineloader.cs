@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Melia.Shared.Game.Const;
-using Melia.Shared.L10N;
-using Melia.Shared.World;
-using Melia.Zone.Network;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.Skills.Handlers.Base;
-using Melia.Zone.World.Actors;
-using static Melia.Zone.Skills.Helpers.MonsterSkillHelper;
-using static Melia.Zone.Skills.Helpers.SkillDamageHelper;
-using static Melia.Zone.Skills.Helpers.SkillResultHelper;
-using Melia.Zone.Skills.Helpers;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.Skills.Handlers.Base;
+using GuiltineSin.Zone.World.Actors;
+using static GuiltineSin.Zone.Skills.Helpers.MonsterSkillHelper;
+using static GuiltineSin.Zone.Skills.Helpers.SkillDamageHelper;
+using static GuiltineSin.Zone.Skills.Helpers.SkillResultHelper;
+using GuiltineSin.Zone.Skills.Helpers;
 
-namespace Melia.Zone.Skills.Handlers.Monsters.Boss
+namespace GuiltineSin.Zone.Skills.Handlers.Monsters.Boss
 {
 	[SkillHandler(SkillId.Mon_boss_mineloader_Skill_1)]
 	public class Mon_boss_mineloader_Skill_1 : ITargetSkillHandler
@@ -116,7 +116,7 @@ namespace Melia.Zone.Skills.Handlers.Monsters.Boss
 		{
 			await skill.Wait(TimeSpan.FromMilliseconds(2400));
 			var targetPos = caster.Map.Ground.GetLastValidPosition(originPos, originPos.GetRelative(farPos, distance: 200));
-			skill.Vars.Set("Melia.Pad.TargetPos", targetPos);
+			skill.Vars.Set("GuiltineSin.Pad.TargetPos", targetPos);
 			SkillCreatePad(caster, skill, originPos, 0f, PadName.mineloader_laser);
 			await skill.Wait(TimeSpan.FromMilliseconds(4300));
 			SkillRemovePad(caster, skill);

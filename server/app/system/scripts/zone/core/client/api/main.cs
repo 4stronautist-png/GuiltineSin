@@ -1,15 +1,15 @@
-﻿//--- Melia Script ----------------------------------------------------------
-// Melia Lua API
+﻿//--- GuiltineSin Script ----------------------------------------------------------
+// GuiltineSin Lua API
 //--- Description -----------------------------------------------------------
 // Provides QoL functions for client scripting.
 //---------------------------------------------------------------------------
 
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors.Characters;
 using Yggdrasil.Scripting;
 
 [Priority(100)]
-public class MeliaLuaApiScript : ClientScript
+public class GuiltineSinLuaApiScript : ClientScript
 {
 	protected override void Load()
 	{

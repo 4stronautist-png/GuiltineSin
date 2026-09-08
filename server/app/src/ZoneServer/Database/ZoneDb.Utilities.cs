@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using Melia.Shared.Database;
-using Melia.Shared.ObjectProperties;
+using GuiltineSin.Shared.Database;
+using GuiltineSin.Shared.ObjectProperties;
 using Yggdrasil.Db.MySql.SimpleCommands;
-using Melia.Zone.Scripting;
+using GuiltineSin.Zone.Scripting;
 using MySqlConnector;
 using Yggdrasil.Logging;
 using Yggdrasil.Util;
 
-namespace Melia.Zone.Database
+namespace GuiltineSin.Zone.Database
 {
 	/// <summary>
 	/// Contains generic utility and helper methods for database interaction.

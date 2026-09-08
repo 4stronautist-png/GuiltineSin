@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using Melia.Shared.Game.Const;
-using Melia.Shared.L10N;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting.Dialogues;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Items;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting.Dialogues;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Items;
 
-namespace Melia.Zone.World.Storages
+namespace GuiltineSin.Zone.World.Storages
 {
 	/// <summary>
 	/// Team storage of an account.

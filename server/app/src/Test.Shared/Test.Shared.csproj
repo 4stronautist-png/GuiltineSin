@@ -2,7 +2,7 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <OutputType>Library</OutputType>
-    <RootNamespace>Melia.Test.Shared</RootNamespace>
+    <RootNamespace>GuiltineSin.Test.Shared</RootNamespace>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <AssemblyTitle>Test.Shared</AssemblyTitle>
     <Product>Test.Shared</Product>

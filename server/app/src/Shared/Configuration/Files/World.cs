@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Melia.Shared.Game.Const.Web;
+using GuiltineSin.Shared.Game.Const.Web;
 using Yggdrasil.Configuration;
 
-namespace Melia.Shared.Configuration.Files
+namespace GuiltineSin.Shared.Configuration.Files
 {
 	/// <summary>
 	/// Represents world.conf

@@ -1,8 +1,8 @@
 ﻿using System.Collections;
-using Melia.Zone.Scripting;
-using Melia.Zone.Scripting.AI;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Scripting.AI;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Monsters;
 
 [Ai("TrackWaitMonster")]
 public class TrackWaitMonsterAiScript : AiScript

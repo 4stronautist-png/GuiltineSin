@@ -1,7 +1,7 @@
 ﻿using System;
-using Melia.Shared.Game.Const;
+using GuiltineSin.Shared.Game.Const;
 
-namespace Melia.Zone.Abilities
+namespace GuiltineSin.Zone.Abilities
 {
 	/// <summary>
 	/// Used to mark ability handler classes, which are then automatically

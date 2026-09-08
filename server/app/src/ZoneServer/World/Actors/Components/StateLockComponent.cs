@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting.AI;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Actors.Monsters;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting.AI;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.Monsters;
 using Yggdrasil.Composition;
 using Yggdrasil.Logging;
 using Yggdrasil.Scheduling;
 
-namespace Melia.Zone.World.Actors.Components
+namespace GuiltineSin.Zone.World.Actors.Components
 {
 	/// <summary>
 	/// A state and lock management component for actors.

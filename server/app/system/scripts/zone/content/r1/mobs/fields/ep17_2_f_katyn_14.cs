@@ -1,13 +1,13 @@
-//--- Melia Script -----------------------------------------------------------
+//--- GuiltineSin Script -----------------------------------------------------------
 // EP17 Saknis Plains Spawns
 //--- Description -----------------------------------------------------------
 // Sets up monster spawners for 'ep17_2_f_katyn_14'.
 //---------------------------------------------------------------------------
 
 using System;
-using Melia.Zone.Scripting;
-using Melia.Shared.Game.Const;
-using static Melia.Zone.Scripting.Shortcuts;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Shared.Game.Const;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
 public class Ep172FKatyn14MobScript : GeneralScript
 {

@@ -1,6 +1,6 @@
-﻿using Melia.Shared.L10N;
+﻿using GuiltineSin.Shared.L10N;
 
-namespace Melia.Zone.Scripting
+namespace GuiltineSin.Zone.Scripting
 {
 	public static partial class Shortcuts
 	{

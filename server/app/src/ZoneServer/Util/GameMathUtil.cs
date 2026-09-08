@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Melia.Zone.Util
+namespace GuiltineSin.Zone.Util
 {
 	internal static class GameMathUtil
 	{

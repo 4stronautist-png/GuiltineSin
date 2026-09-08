@@ -1,12 +1,12 @@
 ﻿using System;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Abilities.Handlers.Swordsmen.Barbarian;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Network;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Abilities.Handlers.Swordsmen.Barbarian;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
 
-namespace Melia.Zone.Buffs.Handlers.Common
+namespace GuiltineSin.Zone.Buffs.Handlers.Common
 {
 	/// <summary>
 	/// Handler DashRun, the movement speed buff for running.

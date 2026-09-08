@@ -1,6 +1,6 @@
 ﻿using Yggdrasil.Util;
 
-namespace Melia.Shared.Scripting
+namespace GuiltineSin.Shared.Scripting
 {
 	/// <summary>
 	/// Holds references to a set of permanent and temporary variables.

@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using CodingSeb.ExpressionEvaluator;
 
-namespace Melia.Shared.Versioning.MEnums
+namespace GuiltineSin.Shared.Versioning.MEnums
 {
 	/// <summary>
 	/// Preprocessor for text-files inspired by C.

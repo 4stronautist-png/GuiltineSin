@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Yggdrasil.Logging;
 using Yggdrasil.Util;
 
-namespace Melia.Zone
+namespace GuiltineSin.Zone
 {
 	internal class Program
 	{

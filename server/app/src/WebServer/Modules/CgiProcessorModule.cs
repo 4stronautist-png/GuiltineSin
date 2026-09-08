@@ -3,7 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using EmbedIO;
 
-namespace Melia.Web.Modules
+namespace GuiltineSin.Web.Modules
 {
 	/// <summary>
 	/// Handles requests for files via CGI.

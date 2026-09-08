@@ -1,25 +1,25 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Melia.Shared.Game.Const;
-using Melia.Shared.L10N;
-using Melia.Shared.World;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting;
-using Melia.Zone.Scripting.Dialogues;
-using Melia.Zone.Scripting.ScriptableEvents;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.Skills.Handlers.Base;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Characters.Components;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Actors.Monsters;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Scripting.Dialogues;
+using GuiltineSin.Zone.Scripting.ScriptableEvents;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.Skills.Handlers.Base;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Characters.Components;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.Monsters;
 using Yggdrasil.Geometry;
 using Yggdrasil.Geometry.Shapes;
-using static Melia.Zone.Skills.SkillUseFunctions;
+using static GuiltineSin.Zone.Skills.SkillUseFunctions;
 
-namespace Melia.Zone.Skills.Handlers.Clerics.Cleric
+namespace GuiltineSin.Zone.Skills.Handlers.Clerics.Cleric
 {
 	/// <summary>
 	/// Handler for the Cleric skill Heal.
@@ -151,8 +151,8 @@ namespace Melia.Zone.Skills.Handlers.Clerics.Cleric
 					var area = PolygonF.Rectangle(pos, new Vector2F(size, size), caster.Direction.NormalDegreeAngle);
 
 					var trigger = new Npc(12082, "", new Location(caster.Map.Id, pos), caster.Direction);
-					trigger.Vars.Set("Melia.HealCaster", caster);
-					trigger.Vars.Set("Melia.HealSkill", skill);
+					trigger.Vars.Set("GuiltineSin.HealCaster", caster);
+					trigger.Vars.Set("GuiltineSin.HealSkill", skill);
 					trigger.SetTriggerArea(area);
 					trigger.SetEnterTrigger("CLERIC_HEAL_ENTER", this.OnEnterHealingPad);
 
@@ -185,10 +185,10 @@ namespace Melia.Zone.Skills.Handlers.Clerics.Cleric
 			if (args.Trigger is not Npc trigger)
 				return Task.CompletedTask;
 
-			var caster = trigger.Vars.Get<ICombatEntity>("Melia.HealCaster");
-			var skill = trigger.Vars.Get<Skill>("Melia.HealSkill");
+			var caster = trigger.Vars.Get<ICombatEntity>("GuiltineSin.HealCaster");
+			var skill = trigger.Vars.Get<Skill>("GuiltineSin.HealSkill");
 
-			if (trigger.Vars.ActivateOnce("Melia.HealTriggered"))
+			if (trigger.Vars.ActivateOnce("GuiltineSin.HealTriggered"))
 			{
 				if (initiator is Character)
 				{

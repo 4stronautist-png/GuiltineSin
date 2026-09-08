@@ -1,11 +1,11 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.Monsters;
 
-namespace Melia.Zone.Skills.Helpers
+namespace GuiltineSin.Zone.Skills.Helpers
 {
 	/// <summary>
 	/// Thin façade for interacting with the per-hawk skill queue, which

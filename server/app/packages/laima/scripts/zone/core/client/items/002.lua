@@ -1,5 +1,5 @@
 ﻿-- Override the draw equip function, in case we want custom grades.
-Melia.Override('GET_NAME_OWNED', function (original, item)
+GuiltineSin.Override('GET_NAME_OWNED', function (original, item)
 	local itemName = item.Name
 	local legendPrefix = TryGetProp(item, "LegendPrefix")
 	if legendPrefix ~= nil then

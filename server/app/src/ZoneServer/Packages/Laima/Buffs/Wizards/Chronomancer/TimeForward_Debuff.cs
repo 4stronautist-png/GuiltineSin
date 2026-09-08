@@ -1,10 +1,10 @@
 using System;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
 
-namespace Melia.Zone.Buffs.HandlersOverrides.Wizards.Chronomancer
+namespace GuiltineSin.Zone.Buffs.HandlersOverrides.Wizards.Chronomancer
 {
 	/// <summary>
 	/// Handler for TimeForward_Debuff.
@@ -15,7 +15,7 @@ namespace Melia.Zone.Buffs.HandlersOverrides.Wizards.Chronomancer
 	[BuffHandler(BuffId.TimeForward_Debuff)]
 	public class TimeForward_DebuffOverride : BuffHandler
 	{
-		private const string ExtraCdVar = "Melia.TimeForward.ExtraCooldown";
+		private const string ExtraCdVar = "GuiltineSin.TimeForward.ExtraCooldown";
 
 		public override void OnActivate(Buff buff, ActivationType activationType)
 		{

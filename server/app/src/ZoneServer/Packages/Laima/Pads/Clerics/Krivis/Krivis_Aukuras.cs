@@ -1,15 +1,15 @@
 using System;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Network;
-using Melia.Zone.World.Actors.Monsters;
-using static Melia.Zone.Pads.Helpers.PadHelper;
-using Melia.Zone.World.Actors;
-using Melia.Zone.Scripting;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.Skills;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using static GuiltineSin.Zone.Pads.Helpers.PadHelper;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.Skills;
 
-namespace Melia.Zone.Pads.Handlers
+namespace GuiltineSin.Zone.Pads.Handlers
 {
 	[Package("laima")]
 	[PadHandler(PadName.Cleric_New_Aukuras)]

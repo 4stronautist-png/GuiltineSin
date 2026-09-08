@@ -1,4 +1,4 @@
-// Melia
+// GuiltineSin
 // Database file
 // 
 // The Equip EXP need to be changed on both client and server, because the

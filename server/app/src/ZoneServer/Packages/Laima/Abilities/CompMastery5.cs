@@ -1,7 +1,7 @@
-using Melia.Shared.Game.Const;
-using Melia.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Packages;
 
-namespace Melia.Zone.Abilities.Handlers
+namespace GuiltineSin.Zone.Abilities.Handlers
 {
 	/// <summary>
 	/// Companion Mastery: Fang ability.

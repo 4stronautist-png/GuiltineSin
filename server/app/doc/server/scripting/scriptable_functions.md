@@ -198,5 +198,5 @@ More
 -----------------------------------------------------------------------------
 
 To find more examples and learn about which functions may exist for
-potential overrides, we recommend studying the scripts found in Melia.
+potential overrides, we recommend studying the scripts found in GuiltineSin.
 Particularly, the files in `system/scripts/zone/core/`.

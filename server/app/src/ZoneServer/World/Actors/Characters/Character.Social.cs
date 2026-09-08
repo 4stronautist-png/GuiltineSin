@@ -4,11 +4,11 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Threading.Tasks;
-using Melia.Shared.Game.Const;
-using Melia.Shared.L10N;
-using Melia.Zone.Network;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Zone.Network;
 
-namespace Melia.Zone.World.Actors.Characters
+namespace GuiltineSin.Zone.World.Actors.Characters
 {
 	public partial class Character
 	{
@@ -88,7 +88,7 @@ namespace Melia.Zone.World.Actors.Characters
 			if (this.Connection == null)
 				return;
 
-			this.Variables.Perm.SetString("Melia.Main.Welcome", this.Connection?.SessionKey);
+			this.Variables.Perm.SetString("GuiltineSin.Main.Welcome", this.Connection?.SessionKey);
 		}
 
 		/// <summary>

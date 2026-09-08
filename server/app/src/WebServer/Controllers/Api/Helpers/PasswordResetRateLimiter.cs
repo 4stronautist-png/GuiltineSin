@@ -3,7 +3,7 @@ using System.Collections.Concurrent;
 using System.Linq;
 using System.Threading;
 
-namespace Melia.Web.Controllers.Api.Helpers
+namespace GuiltineSin.Web.Controllers.Api.Helpers
 {
 	/// <summary>
 	/// Specialized rate limiter for password reset requests.

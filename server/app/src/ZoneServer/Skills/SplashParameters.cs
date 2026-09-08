@@ -1,6 +1,6 @@
-﻿using Melia.Shared.World;
+﻿using GuiltineSin.Shared.World;
 
-namespace Melia.Zone.Skills
+namespace GuiltineSin.Zone.Skills
 {
 	/// <summary>
 	/// Holds parameters for splash areas.

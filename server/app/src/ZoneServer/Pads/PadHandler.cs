@@ -1,6 +1,6 @@
-﻿using Melia.Zone.World.Actors.Monsters;
+﻿using GuiltineSin.Zone.World.Actors.Monsters;
 
-namespace Melia.Zone.Pads
+namespace GuiltineSin.Zone.Pads
 {
 	/// <summary>
 	/// Describes a handler for a pad that can handle creation events.

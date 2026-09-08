@@ -1,5 +1,5 @@
-Melia.Hook("UPDATE_MINIMAP", function(original, result, frame)
-	local icons = Melia.World.Icons.GetAll()
+GuiltineSin.Hook("UPDATE_MINIMAP", function(original, result, frame)
+	local icons = GuiltineSin.World.Icons.GetAll()
 	if not icons then
 		return result
 	end
@@ -18,8 +18,8 @@ Melia.Hook("UPDATE_MINIMAP", function(original, result, frame)
 	return result
 end)
 
-Melia.Hook("MAKE_MAP_NPC_ICONS", function(original, result, frame, mapName, mapWidth, mapHeight, offsetX, offsetY)
-	local icons = Melia.World.Icons.GetAll()
+GuiltineSin.Hook("MAKE_MAP_NPC_ICONS", function(original, result, frame, mapName, mapWidth, mapHeight, offsetX, offsetY)
+	local icons = GuiltineSin.World.Icons.GetAll()
 	if not icons then
 		return result
 	end

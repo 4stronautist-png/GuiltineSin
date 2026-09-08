@@ -1,14 +1,14 @@
 using System;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Network;
-using Melia.Zone.Skills;
-using Melia.Zone.World.Actors;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.World.Actors;
 using Yggdrasil.Geometry.Shapes;
-using static Melia.Zone.Skills.SkillUseFunctions;
+using static GuiltineSin.Zone.Skills.SkillUseFunctions;
 
-namespace Melia.Zone.Buffs.Handlers.Archers.Fletcher
+namespace GuiltineSin.Zone.Buffs.Handlers.Archers.Fletcher
 {
 	/// <summary>
 	/// Handle for the Singijeon_Debuff. It stores damage on application
@@ -18,7 +18,7 @@ namespace Melia.Zone.Buffs.Handlers.Archers.Fletcher
 	[BuffHandler(BuffId.Singijeon_Debuff)]
 	public class Singijeon_DebuffOverride : BuffHandler
 	{
-		private const string VarDamage = "Melia.Skill.Singijeon.Damage";
+		private const string VarDamage = "GuiltineSin.Skill.Singijeon.Damage";
 		private const int SplashRadius = 65;
 		private const int MaxSplashTargets = 9;
 		private const int ShockDuration = 10000;

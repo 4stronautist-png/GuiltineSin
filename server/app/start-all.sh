@@ -40,7 +40,7 @@ screen -wipe > /dev/null 2>&1
 
 echo "Starting all servers..."
 
-# BarracksServer acts as the coordinator in Melia, so start it first.
+# BarracksServer acts as the coordinator in GuiltineSin, so start it first.
 launch_server "Barracks" "BarracksServer.dll" "1001" "1"
 sleep 2
 

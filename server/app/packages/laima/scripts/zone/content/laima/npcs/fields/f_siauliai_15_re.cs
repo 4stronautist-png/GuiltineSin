@@ -1,4 +1,4 @@
-//--- Melia Script ----------------------------------------------------------
+//--- GuiltineSin Script ----------------------------------------------------------
 // Woods of the Linked Bridges
 //--- Description -----------------------------------------------------------
 // NPCs found in and around Woods of the Linked Bridges.
@@ -6,15 +6,15 @@
 //---------------------------------------------------------------------------
 
 using System;
-using Melia.Shared.Game.Const;
-using Melia.Shared.World;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Characters.Components;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Characters.Components;
 using Yggdrasil.Util;
-using static Melia.Zone.Scripting.Shortcuts;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
 public class FSiauliai15ReNpcScript : GeneralScript
 {

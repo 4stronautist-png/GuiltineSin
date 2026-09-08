@@ -1,13 +1,13 @@
-﻿//--- Melia Script ----------------------------------------------------------
+﻿//--- GuiltineSin Script ----------------------------------------------------------
 // Treasure Spawns
 //--- Description -----------------------------------------------------------
 // Spawns Treasure Chests randomly in a list of maps
 //---------------------------------------------------------------------------
 
 using System;
-using Melia.Zone;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Spawning;
+using GuiltineSin.Zone;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Spawning;
 
 public class RandomTreasureChestScript : GeneralScript
 {

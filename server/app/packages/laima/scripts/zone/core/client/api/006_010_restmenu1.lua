@@ -1,19 +1,19 @@
 local sysmenuFrame = ui.GetFrame("sysmenu")
 
-Melia.Ui.RestMenu.Buttons = {}
+GuiltineSin.Ui.RestMenu.Buttons = {}
 
-Melia.Ui.RestMenu.Clear = function()
-	Melia.Ui.RestMenu.Buttons = {}
+GuiltineSin.Ui.RestMenu.Clear = function()
+	GuiltineSin.Ui.RestMenu.Buttons = {}
 end
 
-Melia.Ui.RestMenu.AddButton = function(cls)
-	table.insert(Melia.Ui.RestMenu.Buttons, cls)
+GuiltineSin.Ui.RestMenu.AddButton = function(cls)
+	table.insert(GuiltineSin.Ui.RestMenu.Buttons, cls)
 end
 
-Melia.Ui.RestMenu.RemoveButton = function(name)
-	for i, cls in ipairs(Melia.Ui.RestMenu.Buttons) do
+GuiltineSin.Ui.RestMenu.RemoveButton = function(name)
+	for i, cls in ipairs(GuiltineSin.Ui.RestMenu.Buttons) do
 		if cls.Script == name then
-			table.remove(Melia.Ui.RestMenu.Buttons, i)
+			table.remove(GuiltineSin.Ui.RestMenu.Buttons, i)
 			return
 		end
 	end
@@ -26,12 +26,12 @@ for i = 0, count - 1 do
 		-- icon_rest_fire -> RestFire
 		--local name = cls.Icon:gsub("^icon_", ""):gsub("^(%a)", string.upper):gsub("_([%w])", string.upper):gsub("_", "")
 
-		Melia.Ui.RestMenu.AddButton(cls)
+		GuiltineSin.Ui.RestMenu.AddButton(cls)
 	end
 end
 
-Melia.Override("ON_RESTQUICKSLOT_OPEN", function(original, frame, msg, argStr, argNum)
-	for i, cls in ipairs(Melia.Ui.RestMenu.Buttons) do
+GuiltineSin.Override("ON_RESTQUICKSLOT_OPEN", function(original, frame, msg, argStr, argNum)
+	for i, cls in ipairs(GuiltineSin.Ui.RestMenu.Buttons) do
 		local slot = GET_CHILD(frame, "slot"..i, "ui::CSlot")
 		if slot ~= nil then
 			slot:ReleaseBlink()

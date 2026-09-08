@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting.ScriptableEvents;
-using Melia.Zone.Skills;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.World.Actors;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting.ScriptableEvents;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.World.Actors;
 
-namespace Melia.Zone.Buffs.Handlers.Common
+namespace GuiltineSin.Zone.Buffs.Handlers.Common
 {
 	/// <summary>
 	/// Handler for the Link (de)buff, which links targets together to receive
@@ -31,14 +31,14 @@ namespace Melia.Zone.Buffs.Handlers.Common
 				// any existing links they might have
 				if (target.TryGetBuff(BuffId.Link, out var existingLink))
 				{
-					var existingTargets = existingLink.Vars.Get<IEnumerable<ICombatEntity>>("Melia.LinkMembers");
+					var existingTargets = existingLink.Vars.Get<IEnumerable<ICombatEntity>>("GuiltineSin.LinkMembers");
 					foreach (var existingTarget in existingTargets)
 						existingTarget.StopBuff(BuffId.Link);
 				}
 
 				// Then apply a new buff and remember the linked targets
 				var linkBuff = target.StartBuff(BuffId.Link, 0, 0, duration, caster);
-				linkBuff.Vars.Set("Melia.LinkMembers", targets);
+				linkBuff.Vars.Set("GuiltineSin.LinkMembers", targets);
 
 				Send.ZC_NORMAL.PlayTextEffect(target, caster, "SHOW_BUFF_TEXT", (float)BuffId.Link, null, "Item");
 			}
@@ -58,7 +58,7 @@ namespace Melia.Zone.Buffs.Handlers.Common
 			// now, since I don't feel like writing a workaround for locking
 			// this shared target list to remove one of them.
 
-			var linkTargets = linkBuff.Vars.Get<IEnumerable<ICombatEntity>>("Melia.LinkMembers");
+			var linkTargets = linkBuff.Vars.Get<IEnumerable<ICombatEntity>>("GuiltineSin.LinkMembers");
 			foreach (var linkTarget in linkTargets)
 				linkTarget.StopBuff(BuffId.Link);
 		}
@@ -77,7 +77,7 @@ namespace Melia.Zone.Buffs.Handlers.Common
 			if (!target.TryGetBuff(BuffId.Link, out var buff))
 				return;
 
-			if (!buff.Vars.TryGet<IEnumerable<ICombatEntity>>("Melia.LinkMembers", out var linkTargets))
+			if (!buff.Vars.TryGet<IEnumerable<ICombatEntity>>("GuiltineSin.LinkMembers", out var linkTargets))
 				return;
 
 			// Is the shared damage really the full amount? That would seem like

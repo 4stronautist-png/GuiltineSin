@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Yggdrasil.Logging;
 
-namespace Melia.Shared.Network
+namespace GuiltineSin.Shared.Network
 {
 	/// <summary>
 	/// Manager for packet handlers.

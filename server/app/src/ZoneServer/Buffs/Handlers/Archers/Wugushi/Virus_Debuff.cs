@@ -1,10 +1,10 @@
 ﻿using System.Linq;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.World.Actors;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.World.Actors;
 
-namespace Melia.Zone.Buffs.Handlers.Archers.Wugushi
+namespace GuiltineSin.Zone.Buffs.Handlers.Archers.Wugushi
 {
 	/// <summary>
 	/// Handle for the Virus Debuff, which ticks damage while active.

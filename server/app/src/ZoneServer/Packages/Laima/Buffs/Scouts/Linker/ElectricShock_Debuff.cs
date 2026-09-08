@@ -1,10 +1,10 @@
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Network;
-using Melia.Zone.World.Actors;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.World.Actors;
 
-namespace Melia.Zone.Buffs.Handlers.Scouts.Linker
+namespace GuiltineSin.Zone.Buffs.Handlers.Scouts.Linker
 {
 	/// <summary>
 	/// Handle for the Electric Shock debuff. Target is connected and takes
@@ -60,12 +60,12 @@ namespace Melia.Zone.Buffs.Handlers.Scouts.Linker
 		/// </summary>
 		public override void OnEnd(Buff buff)
 		{
-			if (buff.Caster != null && buff.Vars.TryGet<string>("Melia.Link.EffectName", out var effectName))
+			if (buff.Caster != null && buff.Vars.TryGet<string>("GuiltineSin.Link.EffectName", out var effectName))
 			{
 				buff.Caster.RemoveEffect(effectName);
 			}
 
-			buff.Target.RemoveEffect("Melia.Link.Chain");
+			buff.Target.RemoveEffect("GuiltineSin.Link.Chain");
 		}
 
 		/// <summary>

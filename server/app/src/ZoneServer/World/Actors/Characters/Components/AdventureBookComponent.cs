@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Network;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Network;
 
-namespace Melia.Zone.World.Actors.Characters.Components
+namespace GuiltineSin.Zone.World.Actors.Characters.Components
 {
 	/// <summary>
 	/// Adventure Book

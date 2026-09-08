@@ -6,7 +6,7 @@ local friendnoticeGb = GET_CHILD_RECURSIVELY(sysmenuFrame, "friendnotice", "ui::
 local statusnoticeGb = GET_CHILD_RECURSIVELY(sysmenuFrame, "statusnotice", "ui::CGroupBox")
 local journalnoticeGb = GET_CHILD_RECURSIVELY(sysmenuFrame, "journalnotice", "ui::CGroupBox")
 
-Melia.Ui.SysMenu.HideNoticeTexts = function()
+GuiltineSin.Ui.SysMenu.HideNoticeTexts = function()
 	skilltreenoticeGb:SetMargin(0, 0, -9999, 0)
 	friendnoticeGb:SetMargin(0, 0, -9999, 0)
 	statusnoticeGb:SetMargin(0, 0, -9999, 0)
@@ -14,7 +14,7 @@ Melia.Ui.SysMenu.HideNoticeTexts = function()
 	partyappsFrame:SetMargin(0, 0, -9999, 0)
 end
 
-Melia.Ui.SysMenu.CreateButton = function(index, name, icon, tooltip, onClick)
+GuiltineSin.Ui.SysMenu.CreateButton = function(index, name, icon, tooltip, onClick)
 	local marginRight = index * 38
 
 	local newBtn = sysmenuFrame:CreateControl("button", name, 0, 0, 38, 44)

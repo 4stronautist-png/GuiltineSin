@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Melia.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Actors.Monsters;
 using Yggdrasil.Composition;
 using Yggdrasil.Scheduling;
 
-namespace Melia.Zone.World.Actors.CombatEntities.Components
+namespace GuiltineSin.Zone.World.Actors.CombatEntities.Components
 {
 	/// <summary>
 	/// LifeTime component, an entity lives for a fixed duration.

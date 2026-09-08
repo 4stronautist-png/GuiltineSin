@@ -1,18 +1,18 @@
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Buffs.Handlers;
-using Melia.Zone.Scripting;
-using Melia.Zone.Network;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using static Melia.Zone.Skills.SkillUseFunctions;
-using static Melia.Zone.Skills.Helpers.SkillDamageHelper;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Buffs.Handlers;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using static GuiltineSin.Zone.Skills.SkillUseFunctions;
+using static GuiltineSin.Zone.Skills.Helpers.SkillDamageHelper;
 using System;
-using Melia.Zone.World.Actors.Components;
+using GuiltineSin.Zone.World.Actors.Components;
 
-namespace Melia.Zone.Buffs.HandlersOverrides.Scouts.Rogue
+namespace GuiltineSin.Zone.Buffs.HandlersOverrides.Scouts.Rogue
 {
 	/// <summary>
 	/// Handler for the Burrow buff. Hides underground, becoming

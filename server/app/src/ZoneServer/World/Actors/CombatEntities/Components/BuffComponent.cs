@@ -1,20 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Versioning;
-using Melia.Zone.Buffs;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Network;
-using Melia.Zone.Skills;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Monsters;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Versioning;
+using GuiltineSin.Zone.Buffs;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Monsters;
 using Yggdrasil.Extensions;
 using Yggdrasil.Scheduling;
 using Yggdrasil.Util;
-using Melia.Zone.Items.Effects;
+using GuiltineSin.Zone.Items.Effects;
 
-namespace Melia.Zone.World.Actors.CombatEntities.Components
+namespace GuiltineSin.Zone.World.Actors.CombatEntities.Components
 {
 	/// <summary>
 	/// Buff collection and manager for an entity.
@@ -694,7 +694,7 @@ namespace Melia.Zone.World.Actors.CombatEntities.Components
 			if (!isDebuff)
 				return false;
 
-			if (this.Entity is Character godModeCharacter && godModeCharacter.Variables.Temp.GetBool("Melia.Commands.GodMode", false))
+			if (this.Entity is Character godModeCharacter && godModeCharacter.Variables.Temp.GetBool("GuiltineSin.Commands.GodMode", false))
 				return true;
 
 			if (this.Has(BuffId.Skill_MomentaryImmune_Buff))

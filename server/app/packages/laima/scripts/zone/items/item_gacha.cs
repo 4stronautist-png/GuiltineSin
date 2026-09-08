@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using System;
-using Melia.Shared.Game.Const;
-using Melia.Zone;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Items;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Items;
 using Yggdrasil.Util;
 using Yggdrasil.Extensions;
-using Melia.Shared.Data.Database;
+using GuiltineSin.Shared.Data.Database;
 using System.Linq;
 
 public class ItemGachaScripts : GeneralScript

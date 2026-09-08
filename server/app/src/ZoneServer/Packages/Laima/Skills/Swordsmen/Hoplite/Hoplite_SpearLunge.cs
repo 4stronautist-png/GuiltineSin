@@ -1,21 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Melia.Shared.Packages;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Shared.L10N;
-using Melia.Shared.World;
-using Melia.Zone.Network;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.Skills.Handlers;
-using Melia.Zone.Skills.Handlers.Base;
-using Melia.Zone.Skills.SplashAreas;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using static Melia.Zone.Skills.SkillUseFunctions;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.Skills.Handlers;
+using GuiltineSin.Zone.Skills.Handlers.Base;
+using GuiltineSin.Zone.Skills.SplashAreas;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using static GuiltineSin.Zone.Skills.SkillUseFunctions;
 
-namespace Melia.Zone.Skills.HandlersOverrides.Swordsmen.Hoplite
+namespace GuiltineSin.Zone.Skills.HandlersOverrides.Swordsmen.Hoplite
 {
 	/// <summary>
 	/// Handler override for the Hoplite skill Spear Lunge.

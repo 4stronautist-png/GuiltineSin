@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Shared.L10N;
-using Melia.Zone.Buffs.Handlers.Common;
-using Melia.Zone.Network;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.Skills.Handlers.Base;
-using Melia.Zone.Skills.SplashAreas;
-using Melia.Zone.World.Actors;
-using static Melia.Shared.Util.TaskHelper;
-using static Melia.Zone.Skills.SkillUseFunctions;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Zone.Buffs.Handlers.Common;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.Skills.Handlers.Base;
+using GuiltineSin.Zone.Skills.SplashAreas;
+using GuiltineSin.Zone.World.Actors;
+using static GuiltineSin.Shared.Util.TaskHelper;
+using static GuiltineSin.Zone.Skills.SkillUseFunctions;
 
-namespace Melia.Zone.Skills.Handlers.Archers.Archer
+namespace GuiltineSin.Zone.Skills.Handlers.Archers.Archer
 {
 	/// <summary>
 	/// Handler for the Archer skill Multishot.

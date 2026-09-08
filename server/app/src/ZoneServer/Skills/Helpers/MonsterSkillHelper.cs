@@ -5,26 +5,26 @@ using System.Reflection.Emit;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Linq;
-using Melia.Shared.Game.Const;
-using Melia.Shared.World;
-using Melia.Zone.Buffs;
-using Melia.Zone.Network;
-using Melia.Zone.Pads.Helpers;
-using Melia.Zone.Scripting.AI;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Actors.Components;
-using Melia.Zone.World.Actors.Effects;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Actors.Pads;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Buffs;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Pads.Helpers;
+using GuiltineSin.Zone.Scripting.AI;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.Components;
+using GuiltineSin.Zone.World.Actors.Effects;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Actors.Pads;
 using Yggdrasil.Geometry.Shapes;
 using Yggdrasil.Logging;
-using static Melia.Zone.Skills.Helpers.SkillDamageHelper;
-using static Melia.Zone.Skills.SkillUseFunctions;
+using static GuiltineSin.Zone.Skills.Helpers.SkillDamageHelper;
+using static GuiltineSin.Zone.Skills.SkillUseFunctions;
 
-namespace Melia.Zone.Skills.Helpers
+namespace GuiltineSin.Zone.Skills.Helpers
 {
 	public static class MonsterSkillHelper
 	{
@@ -71,7 +71,7 @@ namespace Melia.Zone.Skills.Helpers
 			if (caster.IsDead)
 				return;
 
-			skill.Vars.Set("Melia.Skill.vAngle", config.VerticalAngle);
+			skill.Vars.Set("GuiltineSin.Skill.vAngle", config.VerticalAngle);
 
 			caster.MissileFall(skill.Data.ClassName, config.Effect.Name, config.Effect.Scale, position, config.Range, config.DelayTime, config.FlyTime, config.Height, config.Easing, config.EndEffect.Name, config.EndEffect.Scale, config.StartEasing, config.GroundEffect.Name, config.GroundEffect.Scale);
 
@@ -91,7 +91,7 @@ namespace Melia.Zone.Skills.Helpers
 			{
 				if (mob.Trigger != null)
 					mob.Components.Remove<TriggerComponent>();
-				mob.Vars.SetInt("Melia.CollisionSkillId", (int)SkillId.None);
+				mob.Vars.SetInt("GuiltineSin.CollisionSkillId", (int)SkillId.None);
 				return;
 			}
 
@@ -126,8 +126,8 @@ namespace Melia.Zone.Skills.Helpers
 			};
 
 			mob.Components.Add(mob.Trigger = trigger);
-			mob.Vars.SetInt("Melia.CollisionSkillId", (int)skillId);
-			mob.Vars.SetFloat("Melia.CollisionDamageRate", dmgRate);
+			mob.Vars.SetInt("GuiltineSin.CollisionSkillId", (int)skillId);
+			mob.Vars.SetFloat("GuiltineSin.CollisionDamageRate", dmgRate);
 		}
 
 		public static Pad MonsterSkillCreatePad(ICombatEntity caster, Skill skill, Position position, float angle, string padName)

@@ -1,19 +1,19 @@
 using System;
 using System.Linq;
 using System.Numerics;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Shared.World;
-using Melia.Zone.Network;
-using Melia.Zone.World.Actors.Pads;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Monsters;
-using static Melia.Zone.Pads.Helpers.PadHelper;
-using static Melia.Zone.Skills.SkillUseFunctions;
-using Melia.Zone.Skills;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.World.Actors.Pads;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using static GuiltineSin.Zone.Pads.Helpers.PadHelper;
+using static GuiltineSin.Zone.Skills.SkillUseFunctions;
+using GuiltineSin.Zone.Skills;
 
-namespace Melia.Zone.Pads.Handlers
+namespace GuiltineSin.Zone.Pads.Handlers
 {
 	[Package("laima")]
 	[PadHandler(PadName.Cleric_Zaibas)]
@@ -82,7 +82,7 @@ namespace Melia.Zone.Pads.Handlers
 			if (!target.IsKnockdownable())
 				return;
 
-			var staggerKey = "Melia.Zaibas.Stagger." + target.Handle;
+			var staggerKey = "GuiltineSin.Zaibas.Stagger." + target.Handle;
 			var now = DateTime.Now;
 
 			if (pad.Variables.TryGet<DateTime>(staggerKey, out var lastStagger) && (now - lastStagger).TotalMilliseconds < 1000)

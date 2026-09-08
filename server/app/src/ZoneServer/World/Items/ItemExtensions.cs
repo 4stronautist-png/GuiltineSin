@@ -4,10 +4,10 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Melia.Shared.Game.Const;
-using Melia.Shared.ObjectProperties;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.ObjectProperties;
 
-namespace Melia.Zone.World.Items
+namespace GuiltineSin.Zone.World.Items
 {
 	public static class ItemExtensions
 	{

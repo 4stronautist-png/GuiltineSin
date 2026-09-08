@@ -1,8 +1,8 @@
 ﻿using System;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors.Characters;
 
-namespace Melia.Zone.World.Quests.Prerequisites
+namespace GuiltineSin.Zone.World.Quests.Prerequisites
 {
 	/// <summary>
 	/// A prerequisite to complete a certain quest.

@@ -1,15 +1,15 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Buffs.Handlers.Monster;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Effects;
-using Melia.Zone.World.Actors.Monsters;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Buffs.Handlers.Monster;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Effects;
+using GuiltineSin.Zone.World.Actors.Monsters;
 
-namespace Melia.Zone.Buffs.Handlers.Laima.Monster
+namespace GuiltineSin.Zone.Buffs.Handlers.Laima.Monster
 {
 	/// <summary>
 	/// Handler for Mythic_Link_Buff.
@@ -21,9 +21,9 @@ namespace Melia.Zone.Buffs.Handlers.Laima.Monster
 	[BuffHandler(BuffId.Mythic_Link_Buff)]
 	public class Mythic_Link_BuffOverride : BuffHandler
 	{
-		private const string LinkMembersVar = "Melia.Mythic.LinkMembers";
-		private const string LinkIdVar = "Melia.Mythic.LinkId";
-		private const string MinionHandlesVar = "Melia.Mythic.LinkMinions";
+		private const string LinkMembersVar = "GuiltineSin.Mythic.LinkMembers";
+		private const string LinkIdVar = "GuiltineSin.Mythic.LinkId";
+		private const string MinionHandlesVar = "GuiltineSin.Mythic.LinkMinions";
 		private const string LinkTexture = "Linker3";
 		private const int TargetMinionCount = 5;
 		private const float ScanRange = 150f;
@@ -137,9 +137,9 @@ namespace Melia.Zone.Buffs.Handlers.Laima.Monster
 				var linkBuff = member.StartBuff(BuffId.Mythic_Link_mon_Buff, 10, 0, TimeSpan.Zero, leader);
 				if (linkBuff != null)
 				{
-					linkBuff.Vars.Set("Melia.Link.Members", memberHandles);
-					linkBuff.Vars.Set("Melia.Link.Id", linkId);
-					linkBuff.Vars.Set("Melia.Link.Leader", leader.Handle);
+					linkBuff.Vars.Set("GuiltineSin.Link.Members", memberHandles);
+					linkBuff.Vars.Set("GuiltineSin.Link.Id", linkId);
+					linkBuff.Vars.Set("GuiltineSin.Link.Leader", leader.Handle);
 				}
 			}
 		}

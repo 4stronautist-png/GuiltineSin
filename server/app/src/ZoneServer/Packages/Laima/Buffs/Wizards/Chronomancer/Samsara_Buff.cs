@@ -1,10 +1,10 @@
-using Melia.Shared.Game.Const;
-using Melia.Shared.Packages;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Network;
-using Melia.Zone.World.Actors;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.World.Actors;
 
-namespace Melia.Zone.Buffs.HandlersOverrides.Wizards.Chronomancer
+namespace GuiltineSin.Zone.Buffs.HandlersOverrides.Wizards.Chronomancer
 {
 	[Package("laima")]
 	[BuffHandler(BuffId.Samsara_Buff)]

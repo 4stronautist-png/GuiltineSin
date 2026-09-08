@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using Yggdrasil.Configuration;
 
-namespace Melia.Shared.Configuration.Files
+namespace GuiltineSin.Shared.Configuration.Files
 {
 	/// <summary>
 	/// Represents database.conf.
@@ -33,7 +33,7 @@ namespace Melia.Shared.Configuration.Files
 			this.Port = this.GetInt("port", 3306);
 			this.User = this.GetString("user", "root");
 			this.Pass = this.GetString("pass", "");
-			this.Db = this.GetString("database", "melia");
+			this.Db = this.GetString("database", "guiltinesin");
 			this.MaxAutoSaveConcurrency = this.GetInt("max_auto_save_concurrency", 10);
 		}
 	}

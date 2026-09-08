@@ -1,7 +1,7 @@
-﻿using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
+﻿using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
 
-namespace Melia.Zone.Buffs.Handlers.Swordsmen.Hoplite
+namespace GuiltineSin.Zone.Buffs.Handlers.Swordsmen.Hoplite
 {
 	/// <summary>
 	/// Handle for the Finestra Buff, which flatly increases critical rate

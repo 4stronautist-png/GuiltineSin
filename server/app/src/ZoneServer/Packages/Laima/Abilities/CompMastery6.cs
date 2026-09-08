@@ -1,12 +1,12 @@
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Packages;
-using Melia.Zone.Scripting.ScriptableEvents;
-using Melia.Zone.Skills;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.World.Actors;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Zone.Scripting.ScriptableEvents;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.World.Actors;
 
-namespace Melia.Zone.Abilities.Handlers
+namespace GuiltineSin.Zone.Abilities.Handlers
 {
 	/// <summary>
 	/// Companion Mastery: Thick Hide ability.

@@ -1,13 +1,13 @@
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Buffs.Handlers.Monster;
-using Melia.Zone.Skills;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Actors.Pads;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Buffs.Handlers.Monster;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Actors.Pads;
 
-namespace Melia.Zone.Buffs.Handlers.Laima.Monster
+namespace GuiltineSin.Zone.Buffs.Handlers.Laima.Monster
 {
 	/// <summary>
 	/// Handler for Mythic_Puddle_Buff.

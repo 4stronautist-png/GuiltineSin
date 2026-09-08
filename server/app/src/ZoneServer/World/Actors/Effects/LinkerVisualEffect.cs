@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using Melia.Zone.Network;
+using GuiltineSin.Zone.Network;
 
-namespace Melia.Zone.World.Actors.Effects
+namespace GuiltineSin.Zone.World.Actors.Effects
 {
 	/// <summary>
 	/// An effect that creates a visual link between multiple actors.

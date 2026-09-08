@@ -1,20 +1,20 @@
-﻿//--- Melia Script ----------------------------------------------------------
+﻿//--- GuiltineSin Script ----------------------------------------------------------
 // Character Initialization
 //--- Description -----------------------------------------------------------
 // Grants default items, skills, and abilities to newly created characters.
 //---------------------------------------------------------------------------
 
 using System;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Scripting;
-using Melia.Shared.World;
-using Melia.Zone;
-using Melia.Zone.Events.Arguments;
-using Melia.Zone.Scripting;
-using Melia.Zone.Skills;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Items;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Scripting;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone;
+using GuiltineSin.Zone.Events.Arguments;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Items;
 
 public class CharacterInitializationScript : GeneralScript
 {

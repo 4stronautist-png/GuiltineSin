@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace Melia.Web.Controllers.Api.Objects
+namespace GuiltineSin.Web.Controllers.Api.Objects
 {
 	/// <summary>
 	/// Request object for initiating a password reset.

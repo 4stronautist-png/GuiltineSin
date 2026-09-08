@@ -1,16 +1,16 @@
-﻿//--- Melia Script ----------------------------------------------------------
+﻿//--- GuiltineSin Script ----------------------------------------------------------
 // Exp Calculation Functions
 //--- Description -----------------------------------------------------------
 // Functions that primarily calculate exp given by monsters.
 //---------------------------------------------------------------------------
 
 using System;
-using Melia.Shared.Game.Const;
-using Melia.Zone;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Dungeons;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Dungeons;
 
 public class ExpCalculationsFunctionsScript : GeneralScript
 {

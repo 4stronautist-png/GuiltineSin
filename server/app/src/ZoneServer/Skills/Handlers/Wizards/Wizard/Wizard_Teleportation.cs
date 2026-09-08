@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Linq;
-using Melia.Shared.Game.Const;
-using Melia.Shared.L10N;
-using Melia.Shared.World;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting.ScriptableEvents;
-using Melia.Zone.Skills.Handlers.Base;
-using Melia.Zone.World.Actors;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting.ScriptableEvents;
+using GuiltineSin.Zone.Skills.Handlers.Base;
+using GuiltineSin.Zone.World.Actors;
 
-namespace Melia.Zone.Skills.Handlers.Wizards.Wizard
+namespace GuiltineSin.Zone.Skills.Handlers.Wizards.Wizard
 {
 	/// <summary>
 	/// Handler for the Wizard skill Teleportation.
@@ -46,14 +46,14 @@ namespace Melia.Zone.Skills.Handlers.Wizards.Wizard
 			var now = DateTime.Now;
 			var usedRecently = false;
 
-			if (skill.Vars.TryGet("Melia.LastUse", out DateTime lastUse))
+			if (skill.Vars.TryGet("GuiltineSin.LastUse", out DateTime lastUse))
 			{
 				var elapsed = now - lastUse;
 				usedRecently = elapsed < ReUseTime;
 			}
 
 			Position targetPos;
-			if (usedRecently && skill.Vars.TryGet<Position>("Melia.LastPos", out var lastPos))
+			if (usedRecently && skill.Vars.TryGet<Position>("GuiltineSin.LastPos", out var lastPos))
 			{
 				targetPos = lastPos;
 			}
@@ -63,8 +63,8 @@ namespace Melia.Zone.Skills.Handlers.Wizards.Wizard
 				targetPos = caster.Map.Ground.GetLastValidPosition(caster.Position, targetPos);
 			}
 
-			skill.Vars.Set("Melia.LastPos", caster.Position);
-			skill.Vars.Set("Melia.LastUse", now);
+			skill.Vars.Set("GuiltineSin.LastPos", caster.Position);
+			skill.Vars.Set("GuiltineSin.LastUse", now);
 
 			caster.Position = targetPos;
 			Send.ZC_SET_POS(caster, targetPos);

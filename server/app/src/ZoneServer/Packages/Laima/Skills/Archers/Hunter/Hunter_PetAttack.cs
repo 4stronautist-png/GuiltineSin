@@ -1,26 +1,26 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Shared.L10N;
-using Melia.Shared.World;
-using Melia.Zone.Network;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.Skills.Handlers.Base;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Monsters;
-using static Melia.Zone.Skills.SkillUseFunctions;
-using Melia.Zone.World.Actors.Pads;
-using Melia.Zone.World.Maps;
-using static Melia.Zone.Skills.Helpers.SkillDamageHelper;
-using Melia.Zone.Scripting.AI;
-using Melia.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.Skills.Handlers.Base;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using static GuiltineSin.Zone.Skills.SkillUseFunctions;
+using GuiltineSin.Zone.World.Actors.Pads;
+using GuiltineSin.Zone.World.Maps;
+using static GuiltineSin.Zone.Skills.Helpers.SkillDamageHelper;
+using GuiltineSin.Zone.Scripting.AI;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
 using System.Collections.Generic;
 using Yggdrasil.Util;
 
-namespace Melia.Zone.Skills.Handlers.Hunter
+namespace GuiltineSin.Zone.Skills.Handlers.Hunter
 {
 	/// <summary>
 	/// Handler for the Hunter skill Pet Attack.
@@ -49,7 +49,7 @@ namespace Melia.Zone.Skills.Handlers.Hunter
 				Send.ZC_SKILL_DISABLE(caster);
 				return;
 			}
-			if (!skill.Vars.TryGet<Position>("Melia.ToolGroundPos", out var targetPos))
+			if (!skill.Vars.TryGet<Position>("GuiltineSin.ToolGroundPos", out var targetPos))
 			{
 				caster.ServerMessage(Localization.Get("No target location specified."));
 				return;

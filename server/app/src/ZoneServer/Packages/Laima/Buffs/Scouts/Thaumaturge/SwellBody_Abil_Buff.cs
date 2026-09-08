@@ -1,19 +1,19 @@
 using System;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Network;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Monsters;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Monsters;
 
-namespace Melia.Zone.Buffs.Handlers.Scouts.Thaumaturge
+namespace GuiltineSin.Zone.Buffs.Handlers.Scouts.Thaumaturge
 {
 	[Package("laima")]
 	[BuffHandler(BuffId.SwellBody_Abil_Buff)]
 	public class SwellBody_Abil_BuffOverride : BuffHandler
 	{
 		private const float SwellScale = 1.15f;
-		private const string VarOriginalSize = "Melia.SwellBody.OriginalSize";
+		private const string VarOriginalSize = "GuiltineSin.SwellBody.OriginalSize";
 
 		public override void OnActivate(Buff buff, ActivationType activationType)
 		{

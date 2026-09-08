@@ -3,26 +3,26 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Melia.Shared.Configuration.Files;
-using Melia.Shared.L10N;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Scripting;
-using Melia.Shared.World;
-using Melia.Zone.Commands;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting.Dialogues;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Actors.Effects;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Maps;
+using GuiltineSin.Shared.Configuration.Files;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Scripting;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Commands;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting.Dialogues;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Actors.Effects;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Maps;
 using Yggdrasil.Geometry;
 using Yggdrasil.Geometry.Shapes;
 using Yggdrasil.Logging;
 using Yggdrasil.Util;
 
-namespace Melia.Zone.Scripting
+namespace GuiltineSin.Zone.Scripting
 {
 	public static partial class Shortcuts
 	{

@@ -3,22 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Shared.World;
-using Melia.Zone.Skills;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Actors.Components;
-using Melia.Zone.World.Actors.Monsters;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.Components;
+using GuiltineSin.Zone.World.Actors.Monsters;
 using Yggdrasil.Ai.Enumerable;
 using Yggdrasil.Logging;
 using Yggdrasil.Scheduling;
 using Yggdrasil.Scripting;
 using Yggdrasil.Util;
 
-namespace Melia.Zone.Scripting.AI
+namespace GuiltineSin.Zone.Scripting.AI
 {
 	/// <summary>
 	/// A script that sets up and controls a character or monster.

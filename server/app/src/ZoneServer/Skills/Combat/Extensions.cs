@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Zone.World.Actors;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.World.Actors;
 using Yggdrasil.Util;
 
-namespace Melia.Zone.Skills.Combat
+namespace GuiltineSin.Zone.Skills.Combat
 {
 	/// <summary>
 	/// Extensions that help with handling skills.

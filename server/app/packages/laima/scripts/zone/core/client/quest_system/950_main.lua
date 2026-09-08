@@ -4,7 +4,7 @@ function M_QUESTS_UPDATE_LIST()
 	if gbBody == nil then
 		gbBody = GET_CHILD_RECURSIVELY(questFrame, "gb_body", "ui::CGroupBox")
 	end
-	local quests = Melia.Quests.GetAll()
+	local quests = GuiltineSin.Quests.GetAll()
 
 	if gbBody ~= nil then
 		M_QUESTS_DRAW_LIST(gbBody, quests)

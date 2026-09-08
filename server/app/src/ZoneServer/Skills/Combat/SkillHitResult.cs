@@ -1,6 +1,6 @@
-﻿using Melia.Shared.Game.Const;
+﻿using GuiltineSin.Shared.Game.Const;
 
-namespace Melia.Zone.Skills.Combat
+namespace GuiltineSin.Zone.Skills.Combat
 {
 	/// <summary>
 	/// Contains information about a hit from a skill.

@@ -1,11 +1,11 @@
 using System;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
 
-namespace Melia.Zone.Buffs.Handlers.Clerics.Monk
+namespace GuiltineSin.Zone.Buffs.Handlers.Clerics.Monk
 {
 	/// <summary>
 	/// Handler for Iron Skin buff. Provides high physical defense and

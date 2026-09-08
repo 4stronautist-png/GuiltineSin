@@ -1,8 +1,8 @@
-﻿using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.World.Actors.Characters;
+﻿using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.World.Actors.Characters;
 
-namespace Melia.Zone.Buffs.Handlers.Scouts.Assassin
+namespace GuiltineSin.Zone.Buffs.Handlers.Scouts.Assassin
 {
 	/// <summary>
 	/// Handler for Assassin Target debuff, which can only
@@ -21,8 +21,8 @@ namespace Melia.Zone.Buffs.Handlers.Scouts.Assassin
 		{
 			var targetHandle = buff.Target.Handle;
 			var caster = buff.Caster;
-			if (caster is Character character && character != null && character.Variables.Temp.TryGetInt("Melia.AssassinationTarget", out var assassinationTarget) && assassinationTarget == targetHandle)
-				character.Variables.Temp.Remove("Melia.AssassinationTarget");
+			if (caster is Character character && character != null && character.Variables.Temp.TryGetInt("GuiltineSin.AssassinationTarget", out var assassinationTarget) && assassinationTarget == targetHandle)
+				character.Variables.Temp.Remove("GuiltineSin.AssassinationTarget");
 		}
 	}
 }

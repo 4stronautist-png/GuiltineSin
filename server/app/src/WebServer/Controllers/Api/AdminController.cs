@@ -2,13 +2,13 @@
 using System.Threading.Tasks;
 using EmbedIO;
 using EmbedIO.Routing;
-using Melia.Shared.Network.Inter.Messages;
-using Melia.Web.Const;
-using Melia.Web.Controllers.Api.Objects;
+using GuiltineSin.Shared.Network.Inter.Messages;
+using GuiltineSin.Web.Const;
+using GuiltineSin.Web.Controllers.Api.Objects;
 using Yggdrasil.Logging;
 using Yggdrasil.Network.Communication;
 
-namespace Melia.Web.Controllers.Api
+namespace GuiltineSin.Web.Controllers.Api
 {
 	/// <summary>
 	/// Controller with API endpoints that provide access to administrative functions

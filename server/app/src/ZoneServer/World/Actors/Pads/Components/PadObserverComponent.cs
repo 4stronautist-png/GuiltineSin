@@ -1,9 +1,9 @@
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
 
-namespace Melia.Zone.World.Actors.Pads.Components
+namespace GuiltineSin.Zone.World.Actors.Pads.Components
 {
 	/// <summary>
 	/// Tracks characters who have seen this pad, ensuring they receive

@@ -1,11 +1,11 @@
 using System;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Network;
-using Melia.Zone.Skills;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.World.Actors.Characters;
 
-namespace Melia.Zone.Buffs.Handlers.Swordsmen.NakMuay
+namespace GuiltineSin.Zone.Buffs.Handlers.Swordsmen.NakMuay
 {
 	/// <summary>
 	/// Handles Ram Muay's temporary basic attack stance.

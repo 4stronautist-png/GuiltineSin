@@ -1,6 +1,6 @@
-﻿using Melia.Shared.Network;
+﻿using GuiltineSin.Shared.Network;
 
-namespace Melia.Zone.Network.Helpers
+namespace GuiltineSin.Zone.Network.Helpers
 {
 	/// <summary>
 	/// Helper class for reading CZ_DIALOG_TX.

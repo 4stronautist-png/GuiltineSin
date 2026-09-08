@@ -1,21 +1,21 @@
 using System;
 using System.Threading.Tasks;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Shared.World;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting;
-using Melia.Zone.Skills.Handlers.Cryomancer;
-using Melia.Zone.Skills.Handlers.Pyromancer;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Actors.Effects;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.Skills.SplashAreas;
-using Melia.Zone.World.Actors.Pads;
-using static Melia.Zone.Pads.Helpers.PadHelper;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Skills.Handlers.Cryomancer;
+using GuiltineSin.Zone.Skills.Handlers.Pyromancer;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.Effects;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.Skills.SplashAreas;
+using GuiltineSin.Zone.World.Actors.Pads;
+using static GuiltineSin.Zone.Pads.Helpers.PadHelper;
 
-namespace Melia.Zone.Pads.Handlers
+namespace GuiltineSin.Zone.Pads.Handlers
 {
 	[Package("laima")]
 	[PadHandler(PadName.Cryomancer_IceWall)]

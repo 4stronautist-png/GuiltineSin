@@ -1,6 +1,6 @@
-﻿using Melia.Shared.Network;
+﻿using GuiltineSin.Shared.Network;
 
-namespace Melia.Zone.World.Maps
+namespace GuiltineSin.Zone.World.Maps
 {
 	/// <summary>
 	/// Dummy map actors receive by default.

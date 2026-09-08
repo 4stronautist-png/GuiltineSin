@@ -1,8 +1,8 @@
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
 
-namespace Melia.Zone.Buffs.Handlers.Clerics.Monk
+namespace GuiltineSin.Zone.Buffs.Handlers.Clerics.Monk
 {
 	/// <summary>
 	/// Handle for the God_Finger_Flicking_Debuff, which reduces the target's Max SP by 50%.

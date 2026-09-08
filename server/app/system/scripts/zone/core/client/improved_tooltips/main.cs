@@ -1,11 +1,11 @@
-﻿//--- Melia Script ----------------------------------------------------------
+﻿//--- GuiltineSin Script ----------------------------------------------------------
 // Improved Tooltips
 //--- Description -----------------------------------------------------------
 // Adds or improves some tooltips on default UI controls.
 //---------------------------------------------------------------------------
 
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors.Characters;
 
 public class ImprovedTooltipsClientScript : ClientScript
 {

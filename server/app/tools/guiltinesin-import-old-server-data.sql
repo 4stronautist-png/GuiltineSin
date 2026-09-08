@@ -4,38 +4,38 @@ SET FOREIGN_KEY_CHECKS=0;
 
 CREATE TEMPORARY TABLE source_accounts
 SELECT accountId
-FROM melia.accounts;
+FROM guiltinesin.accounts;
 
 CREATE TEMPORARY TABLE source_characters
 SELECT characterId
-FROM melia.characters
+FROM guiltinesin.characters
 WHERE accountId IN (SELECT accountId FROM source_accounts);
 
 CREATE TEMPORARY TABLE source_mail_ids
 SELECT mailId
-FROM melia.mail
+FROM guiltinesin.mail
 WHERE accountId IN (SELECT accountId FROM source_accounts);
 
 CREATE TEMPORARY TABLE source_buff_ids
 SELECT buffId
-FROM melia.buffs
+FROM guiltinesin.buffs
 WHERE characterId IN (SELECT characterId FROM source_characters);
 
 CREATE TEMPORARY TABLE source_item_ids
 SELECT itemId
-FROM melia.inventory
+FROM guiltinesin.inventory
 WHERE characterId IN (SELECT characterId FROM source_characters)
 UNION
 SELECT itemId
-FROM melia.storage_personal
+FROM guiltinesin.storage_personal
 WHERE characterId IN (SELECT characterId FROM source_characters)
 UNION
 SELECT itemId
-FROM melia.storage_team
+FROM guiltinesin.storage_team
 WHERE accountId IN (SELECT accountId FROM source_accounts)
 UNION
 SELECT itemId
-FROM melia.mail_items
+FROM guiltinesin.mail_items
 WHERE mailId IN (SELECT mailId FROM source_mail_ids);
 
 DELETE FROM laima_local.vars_buffs
@@ -135,7 +135,7 @@ SELECT
 	accountId, name, password, sessionKey, teamName, 3, authority, settings,
 	medals, giftMedals, premiumMedals, additionalSlotCount, teamExp, barracksThema,
 	themas, selectedSlot, 0, 0, premiumTokenExpiration, language, lastLogin
-FROM melia.accounts;
+FROM guiltinesin.accounts;
 
 REPLACE INTO laima_local.characters
 (
@@ -153,7 +153,7 @@ SELECT
 	`maxStamina`, `str`, `strByJob`, `con`, `conByJob`, `int`, `intByJob`, `spr`, `sprByJob`, `dex`,
 	`dexByJob`, `statByLevel`, `statByBonus`, `usedStat`, `abilityPoints`, `silver`,
 	`equipVisibility`
-FROM melia.characters;
+FROM guiltinesin.characters;
 
 REPLACE INTO laima_local.items
 (
@@ -161,17 +161,17 @@ REPLACE INTO laima_local.items
 )
 SELECT
 	itemUniqueId, itemId, amount, 0
-FROM melia.items
+FROM guiltinesin.items
 WHERE itemUniqueId IN (SELECT itemId FROM source_item_ids);
 
 REPLACE INTO laima_local.account_properties
 SELECT *
-FROM melia.account_properties
+FROM guiltinesin.account_properties
 WHERE accountId IN (SELECT accountId FROM source_accounts);
 
 REPLACE INTO laima_local.abilities
 SELECT *
-FROM melia.abilities
+FROM guiltinesin.abilities
 WHERE characterId IN (SELECT characterId FROM source_characters);
 
 REPLACE INTO laima_local.buffs
@@ -182,48 +182,48 @@ REPLACE INTO laima_local.buffs
 SELECT
 	buffId, characterId, classId, numArg1, numArg2, 0, 0, 0,
 	duration, runTime, skillId, overbuffCount
-FROM melia.buffs
+FROM guiltinesin.buffs
 WHERE characterId IN (SELECT characterId FROM source_characters);
 
 REPLACE INTO laima_local.character_etc_properties
 SELECT *
-FROM melia.character_etc_properties
+FROM guiltinesin.character_etc_properties
 WHERE characterId IN (SELECT characterId FROM source_characters);
 
 REPLACE INTO laima_local.character_properties
 SELECT *
-FROM melia.character_properties
+FROM guiltinesin.character_properties
 WHERE characterId IN (SELECT characterId FROM source_characters);
 
 REPLACE INTO laima_local.chatmacros
 SELECT *
-FROM melia.chatmacros
+FROM guiltinesin.chatmacros
 WHERE accountId IN (SELECT accountId FROM source_accounts);
 
 REPLACE INTO laima_local.collections
 SELECT *
-FROM melia.collections
+FROM guiltinesin.collections
 WHERE accountId IN (SELECT accountId FROM source_accounts);
 
 REPLACE INTO laima_local.collection_items
 SELECT *
-FROM melia.collection_items
+FROM guiltinesin.collection_items
 WHERE accountId IN (SELECT accountId FROM source_accounts);
 
 REPLACE INTO laima_local.cooldowns
 SELECT *
-FROM melia.cooldowns
+FROM guiltinesin.cooldowns
 WHERE characterId IN (SELECT characterId FROM source_characters);
 
 REPLACE INTO laima_local.friends
 SELECT *
-FROM melia.friends
+FROM guiltinesin.friends
 WHERE userId IN (SELECT accountId FROM source_accounts)
    OR friendUserId IN (SELECT accountId FROM source_accounts);
 
 REPLACE INTO laima_local.inventory
 SELECT *
-FROM melia.inventory
+FROM guiltinesin.inventory
 WHERE characterId IN (SELECT characterId FROM source_characters);
 
 REPLACE INTO laima_local.jobs
@@ -232,78 +232,78 @@ REPLACE INTO laima_local.jobs
 )
 SELECT
 	characterId, jobId, circle, skillPoints, totalExp, selectionDate, selectionDate
-FROM melia.jobs
+FROM guiltinesin.jobs
 WHERE characterId IN (SELECT characterId FROM source_characters);
 
 REPLACE INTO laima_local.likes
 SELECT *
-FROM melia.likes
+FROM guiltinesin.likes
 WHERE receiverId IN (SELECT characterId FROM source_characters)
    OR senderId IN (SELECT characterId FROM source_characters);
 
 REPLACE INTO laima_local.mail
 SELECT *
-FROM melia.mail
+FROM guiltinesin.mail
 WHERE accountId IN (SELECT accountId FROM source_accounts);
 
 REPLACE INTO laima_local.mail_items
 SELECT *
-FROM melia.mail_items
+FROM guiltinesin.mail_items
 WHERE mailId IN (SELECT mailId FROM source_mail_ids);
 
 REPLACE INTO laima_local.quests
 SELECT *
-FROM melia.quests
+FROM guiltinesin.quests
 WHERE characterId IN (SELECT characterId FROM source_characters);
 
 REPLACE INTO laima_local.quests_progress
 SELECT *
-FROM melia.quests_progress
+FROM guiltinesin.quests_progress
 WHERE characterId IN (SELECT characterId FROM source_characters);
 
 REPLACE INTO laima_local.revealedmaps
 SELECT *
-FROM melia.revealedmaps
+FROM guiltinesin.revealedmaps
 WHERE accountId IN (SELECT accountId FROM source_accounts);
 
 REPLACE INTO laima_local.session_objects_properties
 SELECT *
-FROM melia.session_objects_properties
+FROM guiltinesin.session_objects_properties
 WHERE characterId IN (SELECT characterId FROM source_characters);
 
 REPLACE INTO laima_local.skills
 SELECT *
-FROM melia.skills
+FROM guiltinesin.skills
 WHERE characterId IN (SELECT characterId FROM source_characters);
 
 REPLACE INTO laima_local.social_users
 SELECT *
-FROM melia.social_users
+FROM guiltinesin.social_users
 WHERE accountId IN (SELECT accountId FROM source_accounts);
 
 REPLACE INTO laima_local.storage_personal
 SELECT *
-FROM melia.storage_personal
+FROM guiltinesin.storage_personal
 WHERE characterId IN (SELECT characterId FROM source_characters);
 
 REPLACE INTO laima_local.storage_team
 SELECT *
-FROM melia.storage_team
+FROM guiltinesin.storage_team
 WHERE accountId IN (SELECT accountId FROM source_accounts);
 
 REPLACE INTO laima_local.vars_accounts
 SELECT *
-FROM melia.vars_accounts
+FROM guiltinesin.vars_accounts
 WHERE accountId IN (SELECT accountId FROM source_accounts);
 
 REPLACE INTO laima_local.vars_buffs
 SELECT *
-FROM melia.vars_buffs
+FROM guiltinesin.vars_buffs
 WHERE buffId IN (SELECT buffId FROM source_buff_ids);
 
 REPLACE INTO laima_local.vars_characters
 SELECT *
-FROM melia.vars_characters
+FROM guiltinesin.vars_characters
 WHERE characterId IN (SELECT characterId FROM source_characters);
 
 SET FOREIGN_KEY_CHECKS=1;

@@ -2,7 +2,7 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Melia.Social</RootNamespace>
+    <RootNamespace>GuiltineSin.Social</RootNamespace>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <AssemblyTitle>SocialServer</AssemblyTitle>
     <Product>SocialServer</Product>

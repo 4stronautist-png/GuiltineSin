@@ -1,8 +1,8 @@
 ﻿using System;
-using Melia.Zone.Scripting.AI;
+using GuiltineSin.Zone.Scripting.AI;
 using Yggdrasil.Scheduling;
 
-namespace Melia.Zone.World.Actors.CombatEntities.Components
+namespace GuiltineSin.Zone.World.Actors.CombatEntities.Components
 {
 	/// <summary>
 	/// Component that handles an entity's AI.

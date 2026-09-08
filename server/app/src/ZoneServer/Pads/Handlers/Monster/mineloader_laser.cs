@@ -1,13 +1,13 @@
 using System;
-using Melia.Shared.Game.Const;
-using Melia.Shared.World;
-using Melia.Zone.Network;
-using Melia.Zone.Pads;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Actors.Pads;
-using static Melia.Zone.Pads.Helpers.PadHelper;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Pads;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Actors.Pads;
+using static GuiltineSin.Zone.Pads.Helpers.PadHelper;
 
-namespace Melia.Zone.Pads.Handlers
+namespace GuiltineSin.Zone.Pads.Handlers
 {
 	/// <summary>
 	/// Handler for the Mineloader laser pad. Deals damage while inside
@@ -31,7 +31,7 @@ namespace Melia.Zone.Pads.Handlers
 			pad.SetUpdateInterval(500);
 			pad.Trigger.LifeTime = TimeSpan.FromMilliseconds(PadDuration);
 
-			if (skill.Vars.TryGet<Position>("Melia.Pad.TargetPos", out var targetPos))
+			if (skill.Vars.TryGet<Position>("GuiltineSin.Pad.TargetPos", out var targetPos))
 			{
 				pad.SetDestPos(targetPos, MoveSpeed, 0, false);
 			}

@@ -1,18 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Shared.L10N;
-using Melia.Shared.World;
-using Melia.Zone.Network;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.Skills.Handlers.Base;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Effects;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.Skills.Handlers.Base;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Effects;
 
-namespace Melia.Zone.Skills.Handlers.Scouts.Linker
+namespace GuiltineSin.Zone.Skills.Handlers.Scouts.Linker
 {
 	/// <summary>
 	/// Handler for the Linker skill Physical Link.
@@ -63,7 +63,7 @@ namespace Melia.Zone.Skills.Handlers.Scouts.Linker
 			foreach (var buffId in buffsToDestroy)
 			{
 				if (caster.TryGetBuff(buffId, out var buff) &&
-					buff.Vars.TryGet<List<int>>("Melia.Link.Members", out var memberHandles))
+					buff.Vars.TryGet<List<int>>("GuiltineSin.Link.Members", out var memberHandles))
 				{
 					foreach (var handle in memberHandles)
 					{
@@ -132,15 +132,15 @@ namespace Melia.Zone.Skills.Handlers.Scouts.Linker
 
 				if (buff != null)
 				{
-					buff.Vars.Set("Melia.Link.Id", linkId);
-					buff.Vars.Set("Melia.Link.Caster", caster.Handle);
-					buff.Vars.Set("Melia.Link.Members", handles);
+					buff.Vars.Set("GuiltineSin.Link.Id", linkId);
+					buff.Vars.Set("GuiltineSin.Link.Caster", caster.Handle);
+					buff.Vars.Set("GuiltineSin.Link.Members", handles);
 
 					// Mark the caster (index 0) as IsCaster for chain breaking logic
 					if (i == 0)
 					{
-						buff.Vars.Set("Melia.Link.IsCaster", true);
-						entity.AddEffect("Melia.Link.Chain", new AttachEffect("I_chain004_mash_loop2", 2, EffectLocation.Bottom));
+						buff.Vars.Set("GuiltineSin.Link.IsCaster", true);
+						entity.AddEffect("GuiltineSin.Link.Chain", new AttachEffect("I_chain004_mash_loop2", 2, EffectLocation.Bottom));
 					}
 				}
 			}

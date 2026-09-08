@@ -1,15 +1,15 @@
-﻿//--- Melia Script ----------------------------------------------------------
+﻿//--- GuiltineSin Script ----------------------------------------------------------
 // Goddess' Blessed Cubes Items
 //--- Description -----------------------------------------------------------
 // Scripts related to the Goddess' Blessed Cubes, aka the gacha items.
 //---------------------------------------------------------------------------
 
 using System.Collections.Generic;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Gacha;
-using Melia.Zone.World.Items;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Gacha;
+using GuiltineSin.Zone.World.Items;
 
 namespace ScriptsZone.items
 {

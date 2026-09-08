@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Melia.Zone.World.Quests
+namespace GuiltineSin.Zone.World.Quests
 {
 	/// <summary>
 	/// Specifies a quest's track.

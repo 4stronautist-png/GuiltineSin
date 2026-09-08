@@ -1,9 +1,9 @@
 ﻿using System;
-using Melia.Zone.Scripting;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.World.Actors;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.World.Actors;
 
-namespace Melia.Zone.Skills
+namespace GuiltineSin.Zone.Skills
 {
 	/// <summary>
 	/// Provides quick access to scriptable skill use functions.

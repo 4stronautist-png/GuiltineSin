@@ -3,33 +3,33 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Game.Properties;
-using Melia.Shared.Network;
-using Melia.Shared.ObjectProperties;
-using Melia.Shared.Versioning;
-using Melia.Shared.World;
-using Melia.Zone.Buffs.Handlers;
-using Melia.Zone.Buffs.Handlers.Common;
-using Melia.Zone.Events.Arguments;
-using Melia.Zone.Items.Effects;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting;
-using Melia.Zone.Scripting.AI;
-using Melia.Zone.Skills;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Characters.Components;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Actors.Components;
-using Melia.Zone.World.Items;
-using Melia.Zone.World.Maps;
-using Melia.Zone.World.Spawning;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Game.Properties;
+using GuiltineSin.Shared.Network;
+using GuiltineSin.Shared.ObjectProperties;
+using GuiltineSin.Shared.Versioning;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Buffs.Handlers;
+using GuiltineSin.Zone.Buffs.Handlers.Common;
+using GuiltineSin.Zone.Events.Arguments;
+using GuiltineSin.Zone.Items.Effects;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Scripting.AI;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Characters.Components;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.Components;
+using GuiltineSin.Zone.World.Items;
+using GuiltineSin.Zone.World.Maps;
+using GuiltineSin.Zone.World.Spawning;
 using Yggdrasil.Logging;
 using Yggdrasil.Scheduling;
 using Yggdrasil.Util;
 
-namespace Melia.Zone.World.Actors.Monsters
+namespace GuiltineSin.Zone.World.Actors.Monsters
 {
 	/// <summary>
 	/// An actual monster.
@@ -134,7 +134,7 @@ namespace Melia.Zone.World.Actors.Monsters
 		/// Gets or sets the function to call when the monster is clicked.
 		/// </summary>
 		/// <remarks>
-		/// Not actively used in Melia, but important to the client,
+		/// Not actively used in GuiltineSin, but important to the client,
 		/// as it's used to determine whether the monster is clickable
 		/// and should display an HP bar.
 		/// </remarks>
@@ -145,7 +145,7 @@ namespace Melia.Zone.World.Actors.Monsters
 		/// trigger area is entered.
 		/// </summary>
 		/// <remarks>
-		/// Not actively used in Melia, but potentially importat to the
+		/// Not actively used in GuiltineSin, but potentially importat to the
 		/// client.
 		/// </remarks>
 		public string EnterName { get; set; }
@@ -155,7 +155,7 @@ namespace Melia.Zone.World.Actors.Monsters
 		/// trigger area is left.
 		/// </summary>
 		/// <remarks>
-		/// Not actively used in Melia, but potentially importat to the
+		/// Not actively used in GuiltineSin, but potentially importat to the
 		/// client.
 		/// </remarks>
 		public string LeaveName { get; set; }
@@ -587,7 +587,7 @@ namespace Melia.Zone.World.Actors.Monsters
 			if (this.IsBuffActive(BuffId.Skill_NoDamage_Buff))
 				return false;
 
-			if (attacker is Character character && character.Variables.Temp.GetBool("Melia.Commands.SerialKiller", false))
+			if (attacker is Character character && character.Variables.Temp.GetBool("GuiltineSin.Commands.SerialKiller", false))
 				damage = this.Hp + this.Shield;
 
 			// Interrupt casting when taking damage (force interrupt for monsters)
@@ -1118,7 +1118,7 @@ namespace Melia.Zone.World.Actors.Monsters
 		/// </summary>
 		public bool IsMythicMonster()
 		{
-			if (this.Vars.GetBool("Melia.Mythic.IsMythic", false))
+			if (this.Vars.GetBool("GuiltineSin.Mythic.IsMythic", false))
 				return true;
 
 			return this.IsBuffActive(BuffId.Mythic_Chain_Lightning_Buff)
@@ -1171,7 +1171,7 @@ namespace Melia.Zone.World.Actors.Monsters
 				this.ApplyItemGrade(dropItem, grade);
 			}
 
-			var autolootThreshold = killer?.Variables.Perm.Get("Melia.Autoloot", 0);
+			var autolootThreshold = killer?.Variables.Perm.Get("GuiltineSin.Autoloot", 0);
 			var autoloot = dropChance <= autolootThreshold;
 
 			var direction = new Direction(rnd.Next(0, 360));

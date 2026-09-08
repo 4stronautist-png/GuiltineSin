@@ -1,9 +1,9 @@
-﻿using Melia.Shared.Game.Const;
-using Melia.Shared.Network;
-using Melia.Shared.Network.Helpers;
-using Melia.Zone.World.Actors.Monsters;
+﻿using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Network;
+using GuiltineSin.Shared.Network.Helpers;
+using GuiltineSin.Zone.World.Actors.Monsters;
 
-namespace Melia.Zone.Network.Helpers
+namespace GuiltineSin.Zone.Network.Helpers
 {
 	public static class CompanionHelper
 	{

@@ -1,13 +1,13 @@
 ﻿using System;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Shared.World;
-using Melia.Zone.Network;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.Skills.Handlers.Base;
-using Melia.Zone.World.Actors;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.Skills.Handlers.Base;
+using GuiltineSin.Zone.World.Actors;
 
-namespace Melia.Zone.Skills.Handlers.Clerics.Sadhu
+namespace GuiltineSin.Zone.Skills.Handlers.Clerics.Sadhu
 {
 	/// <summary>
 	/// Handler for the Cleric skill Spirit Expert (Soul Master).

@@ -1,10 +1,10 @@
-﻿using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Properties;
-using Melia.Zone.Network;
-using Melia.Zone.World.Dungeons;
+﻿using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Properties;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.World.Dungeons;
 using Yggdrasil.Logging;
 
-namespace Melia.Zone.World.Actors.Characters.Components
+namespace GuiltineSin.Zone.World.Actors.Characters.Components
 {
 	/// <summary>
 	/// Dungeon Component

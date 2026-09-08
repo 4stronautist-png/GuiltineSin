@@ -1,11 +1,11 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Melia.Zone.Database;
+using GuiltineSin.Zone.Database;
 using MySqlConnector;
 using Yggdrasil.Logging;
 
-namespace Melia.Zone.Services
+namespace GuiltineSin.Zone.Services
 {
 	/// <summary>
 	/// Service that periodically cleans up orphaned items from the database.

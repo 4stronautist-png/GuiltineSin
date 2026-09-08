@@ -1,6 +1,6 @@
-﻿using Melia.Zone.Network;
+﻿using GuiltineSin.Zone.Network;
 
-namespace Melia.Zone.World.Actors.Effects
+namespace GuiltineSin.Zone.World.Actors.Effects
 {
 	public class ScriptInvisibleEffect : Effect
 	{

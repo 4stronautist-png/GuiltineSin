@@ -1,15 +1,15 @@
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
 using Yggdrasil.Util;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Scripting.ScriptableEvents;
-using Melia.Zone.Skills;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Scripting.ScriptableEvents;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Monsters;
 
-namespace Melia.Zone.Buffs.Handlers.Scouts.Corsair
+namespace GuiltineSin.Zone.Buffs.Handlers.Scouts.Corsair
 {
 	/// <summary>
 	/// Handler for the Looting Buff.
@@ -23,7 +23,7 @@ namespace Melia.Zone.Buffs.Handlers.Scouts.Corsair
 		private const int SilverPerLevel = 3;
 		private const float DropChance = 15f;
 
-		private const string LootingCounterKey = "Melia.Buff.Looting.DropCount";
+		private const string LootingCounterKey = "GuiltineSin.Buff.Looting.DropCount";
 		private const int MaxDropsPerMob = 10;
 
 		[CombatCalcModifier(CombatCalcPhase.AfterCalc, BuffId.Looting_Buff)]

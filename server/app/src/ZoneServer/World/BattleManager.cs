@@ -1,9 +1,9 @@
 using System;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
 using Yggdrasil.Scheduling;
 
-namespace Melia.Zone.World
+namespace GuiltineSin.Zone.World
 {
 	// Stub: Battles system was removed during Laima merge.
 	public class BattleManager : IUpdateable

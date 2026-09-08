@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Skills;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Skills;
 using Yggdrasil.Scheduling;
 
-namespace Melia.Zone.World.Actors.CombatEntities.Components
+namespace GuiltineSin.Zone.World.Actors.CombatEntities.Components
 {
 	public class BaseSkillComponent : CombatEntityComponent, IUpdateable
 	{

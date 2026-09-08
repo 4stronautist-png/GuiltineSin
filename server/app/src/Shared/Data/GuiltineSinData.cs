@@ -1,11 +1,11 @@
-﻿using Melia.Shared.Data.Database;
+﻿using GuiltineSin.Shared.Data.Database;
 
-namespace Melia.Shared.Data
+namespace GuiltineSin.Shared.Data
 {
 	/// <summary>
 	/// Wrapper for all file databases.
 	/// </summary>
-	public class MeliaData
+	public class GuiltineSinData
 	{
 		public AbilityDb AbilityDb { get; } = new AbilityDb();
 		public AbilityTreeDb AbilityTreeDb { get; } = new AbilityTreeDb();
@@ -83,7 +83,7 @@ namespace Melia.Shared.Data
 		public WarpDb WarpDb { get; } = new WarpDb();
 		public OpDb OpDb { get; set; }
 
-		public MeliaData()
+		public GuiltineSinData()
 		{
 			// Not entirely happy with this design, but I want access to
 			// the map list from the server db to determine which maps

@@ -1,12 +1,12 @@
 using System;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Network;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Monsters;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Monsters;
 
-namespace Melia.Zone.Buffs.Handlers.Scouts.Thaumaturge
+namespace GuiltineSin.Zone.Buffs.Handlers.Scouts.Thaumaturge
 {
 	[Package("laima")]
 	[BuffHandler(BuffId.ShrinkBody_Debuff)]
@@ -24,12 +24,12 @@ namespace Melia.Zone.Buffs.Handlers.Scouts.Thaumaturge
 		{
 			var target = buff.Target;
 
-			if (!buff.Vars.Has("Melia.ShrinkBody.Size"))
-				buff.Vars.Set("Melia.ShrinkBody.Size", target.EffectiveSize);
+			if (!buff.Vars.Has("GuiltineSin.ShrinkBody.Size"))
+				buff.Vars.Set("GuiltineSin.ShrinkBody.Size", target.EffectiveSize);
 
 			var currentScale = target.Properties.GetFloat(PropertyName.Scale);
-			if (!buff.Vars.Has("Melia.ShrinkBody.Scale"))
-				buff.Vars.Set("Melia.ShrinkBody.Scale", currentScale > 0 ? currentScale : 1f);
+			if (!buff.Vars.Has("GuiltineSin.ShrinkBody.Scale"))
+				buff.Vars.Set("GuiltineSin.ShrinkBody.Scale", currentScale > 0 ? currentScale : 1f);
 
 			switch (target.EffectiveSize)
 			{
@@ -86,8 +86,8 @@ namespace Melia.Zone.Buffs.Handlers.Scouts.Thaumaturge
 		{
 			var target = buff.Target;
 
-			var originalSize = buff.Vars.Get("Melia.ShrinkBody.Size", target.EffectiveSize);
-			var originalScale = buff.Vars.Get("Melia.ShrinkBody.Scale", 1f);
+			var originalSize = buff.Vars.Get("GuiltineSin.ShrinkBody.Size", target.EffectiveSize);
+			var originalScale = buff.Vars.Get("GuiltineSin.ShrinkBody.Scale", 1f);
 
 			target.Properties.SetString(PropertyName.Size, originalSize);
 			(target as Mob)?.InvalidateSizeCache();

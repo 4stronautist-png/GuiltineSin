@@ -3,7 +3,7 @@ using System.IO.Compression;
 using System.Linq;
 using Yggdrasil.Data.Binary;
 
-namespace Melia.Shared.Data.Database
+namespace GuiltineSin.Shared.Data.Database
 {
 	public class GroundData
 	{

@@ -1,11 +1,11 @@
 ﻿using System.Text;
-using Melia.Shared.Network;
-using Melia.Shared.Network.Helpers;
-using Melia.Shared.Game.Const;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Items;
+using GuiltineSin.Shared.Network;
+using GuiltineSin.Shared.Network.Helpers;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Items;
 
-namespace Melia.Zone.Network.Helpers
+namespace GuiltineSin.Zone.Network.Helpers
 {
 	public static class ItemHelper
 	{

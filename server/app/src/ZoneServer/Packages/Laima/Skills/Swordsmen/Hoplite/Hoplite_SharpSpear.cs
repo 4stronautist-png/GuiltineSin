@@ -1,14 +1,14 @@
-using Melia.Shared.Packages;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Scripting.ScriptableEvents;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.Skills.Handlers;
-using Melia.Zone.Skills.Handlers.Base;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Scripting.ScriptableEvents;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.Skills.Handlers;
+using GuiltineSin.Zone.Skills.Handlers.Base;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors;
 
-namespace Melia.Zone.Skills.HandlersOverrides.Swordsmen.Hoplite
+namespace GuiltineSin.Zone.Skills.HandlersOverrides.Swordsmen.Hoplite
 {
 	/// <summary>
 	/// Handler override for the Hoplite passive skill Sharp Spear.

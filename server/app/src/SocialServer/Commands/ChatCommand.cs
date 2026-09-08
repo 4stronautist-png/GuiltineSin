@@ -1,7 +1,7 @@
-﻿using Melia.Social.World;
+﻿using GuiltineSin.Social.World;
 using Yggdrasil.Util.Commands;
 
-namespace Melia.Social.Commands
+namespace GuiltineSin.Social.Commands
 {
 	/// <summary>
 	/// Represents a chat command.

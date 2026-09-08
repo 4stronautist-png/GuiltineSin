@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Melia.Web.Controllers.Api.Helpers
+namespace GuiltineSin.Web.Controllers.Api.Helpers
 {
 	/// <summary>
 	/// Simple rate limiter that keeps track of the number of requests made

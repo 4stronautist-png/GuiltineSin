@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
 using Yggdrasil.Scripting;
 
-namespace Melia.Zone.Scripting
+namespace GuiltineSin.Zone.Scripting
 {
 	/// <summary>
 	/// Stub: MiniGames system was removed during Laima merge.

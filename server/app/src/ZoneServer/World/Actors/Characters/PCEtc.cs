@@ -1,8 +1,8 @@
-﻿using Melia.Shared.Game.Const;
-using Melia.Shared.ObjectProperties;
-using Melia.Zone.World.Storages;
+﻿using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.ObjectProperties;
+using GuiltineSin.Zone.World.Storages;
 
-namespace Melia.Zone.World.Actors.Characters
+namespace GuiltineSin.Zone.World.Actors.Characters
 {
 	/// <summary>
 	/// Represents the character's etc property manager.

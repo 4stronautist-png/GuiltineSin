@@ -1,10 +1,10 @@
-using Melia.Shared.Game.Const;
-using Melia.Shared.Scripting;
-using Melia.Zone.Events.Arguments;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Scripting;
+using GuiltineSin.Zone.Events.Arguments;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
 
 public class SysMenuVarIconsScript : ClientScript
 {
@@ -20,7 +20,7 @@ public class SysMenuVarIconsScript : ClientScript
 		if (character.Jobs.Has(JobId.Wugushi))
 		{
 			this.SendRawLuaScript(character, @"
-				Melia.Ui.SysMenu.AddButton(""BtnPoisonPot"", ""sysmenu_wugushi"", ""Poison Pot"", ""ui.ToggleFrame('poisonpot')"")
+				GuiltineSin.Ui.SysMenu.AddButton(""BtnPoisonPot"", ""sysmenu_wugushi"", ""Poison Pot"", ""ui.ToggleFrame('poisonpot')"")
 			");
 	
 			var bossCardId = (int)character.Etc.Properties.GetFloat(PropertyName.Wugushi_bosscard);
@@ -31,7 +31,7 @@ public class SysMenuVarIconsScript : ClientScript
 		if (character.Jobs.Has(JobId.Sorcerer))
 		{
 			this.SendRawLuaScript(character, @"
-				Melia.Ui.SysMenu.AddButton(""BtnGrimoire"", ""sysmenu_neacro"", ""Grimoire"", ""ui.ToggleFrame('grimoire')"")
+				GuiltineSin.Ui.SysMenu.AddButton(""BtnGrimoire"", ""sysmenu_neacro"", ""Grimoire"", ""ui.ToggleFrame('grimoire')"")
 			");
 
 			RefreshGrimoireGuids(character);

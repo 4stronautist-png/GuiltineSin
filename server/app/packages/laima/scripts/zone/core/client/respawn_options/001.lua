@@ -1,4 +1,4 @@
-Melia.Hook("RESTART_ON_MSG", function(original, result, frame, msg, argStr, argNum)
+GuiltineSin.Hook("RESTART_ON_MSG", function(original, result, frame, msg, argStr, argNum)
 
     if msg == "RESTART_HERE" then
 		local btnRestart = GET_CHILD(frame, "restart6btn", "ui::CButton")
@@ -18,7 +18,7 @@ Melia.Hook("RESTART_ON_MSG", function(original, result, frame, msg, argStr, argN
 
 end)
 
-Melia.Hook("COLONY_WAR_RESTART_UPDATE", function(original, result, frame)
+GuiltineSin.Hook("COLONY_WAR_RESTART_UPDATE", function(original, result, frame)
 
 	local btnRestart = GET_CHILD(frame, "restart6btn", "ui::CButton")
 	

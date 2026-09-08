@@ -1,4 +1,4 @@
-﻿//--- Melia Script ----------------------------------------------------------
+﻿//--- GuiltineSin Script ----------------------------------------------------------
 // PVP Arena Custom NPC
 //--- Description -----------------------------------------------------------
 // Allows players to enter the PVP Arena
@@ -8,24 +8,24 @@
 // Limit of players in the arena depends on party limit size.
 //---------------------------------------------------------------------------
 
-using static Melia.Zone.Scripting.Shortcuts;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.Scripting.Dialogues;
-using Melia.Zone.World.Maps;
-using Melia.Zone.Scripting;
-using Melia.Shared.Scripting;
-using Melia.Shared.World;
-using Melia.Zone.Network;
-using Melia.Zone.Events.Arguments;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.Scripting.Dialogues;
+using GuiltineSin.Zone.World.Maps;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Shared.Scripting;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Events.Arguments;
 using Yggdrasil.Extensions;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using Melia.Shared.Game.Const;
-using Melia.Zone.World;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.World;
 using System.Diagnostics;
 using System.Threading;
 using System.Linq;
-using Melia.Zone;
+using GuiltineSin.Zone;
 using System;
 using Yggdrasil.Logging;
 

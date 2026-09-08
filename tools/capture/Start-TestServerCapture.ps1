@@ -1,6 +1,6 @@
 param(
     [string]$ServerIp = "",
-    [string]$OutputDir = "C:\CloverTOS-Captures",
+    [string]$OutputDir = "C:\GuiltineSin-Captures",
     [string]$Name = "",
     [int]$WaitSeconds = 300
 )
@@ -68,7 +68,7 @@ Write-Host "Iniciando captura filtrada para $ServerIp" -ForegroundColor Green
 
 & pktmon stop 2>$null | Out-Null
 & pktmon filter remove | Out-Null
-& pktmon filter add CloverTOS-TestServer -i $ServerIp -t TCP | Out-Null
+& pktmon filter add GuiltineSin-TestServer -i $ServerIp -t TCP | Out-Null
 & pktmon start --capture --comp nics --pkt-size 0 --file-name $etlPath | Out-Null
 
 @(

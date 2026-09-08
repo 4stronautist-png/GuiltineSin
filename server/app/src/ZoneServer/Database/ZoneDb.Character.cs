@@ -2,28 +2,28 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using Melia.Shared.Database;
-using Melia.Shared.Game.Const;
+using GuiltineSin.Shared.Database;
+using GuiltineSin.Shared.Game.Const;
 using Yggdrasil.Db.MySql.SimpleCommands;
-using Melia.Shared.Game.Properties;
-using Melia.Shared.ObjectProperties;
-using Melia.Shared.World;
-using Melia.Zone.Buffs;
-using Melia.Zone.Items.Effects;
-using Melia.Zone.Scripting;
-using Melia.Zone.Skills;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Characters.Components;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Actors.Monsters;
-// using Melia.Zone.World.Houses; // Removed: Houses namespace deleted
-using Melia.Zone.World.Quests;
+using GuiltineSin.Shared.Game.Properties;
+using GuiltineSin.Shared.ObjectProperties;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Buffs;
+using GuiltineSin.Zone.Items.Effects;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Characters.Components;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.Monsters;
+// using GuiltineSin.Zone.World.Houses; // Removed: Houses namespace deleted
+using GuiltineSin.Zone.World.Quests;
 using MySqlConnector;
 using Yggdrasil.Geometry.Shapes;
 using Yggdrasil.Logging;
 using Yggdrasil.Util;
 
-namespace Melia.Zone.Database
+namespace GuiltineSin.Zone.Database
 {
 	/// <summary>
 	/// Contains methods for loading various Character components from the database.
@@ -355,8 +355,8 @@ namespace Melia.Zone.Database
 							var tracked = reader.GetBoolean("tracked");
 							var questId = questClassId switch
 							{
-								1000001 => new QuestId("Melia.Test", 1),
-								1000002 => new QuestId("Melia.Test", 2),
+								1000001 => new QuestId("GuiltineSin.Test", 1),
+								1000002 => new QuestId("GuiltineSin.Test", 2),
 								_ => new QuestId(questClassId)
 							};
 							if (!QuestScript.Exists(questId))

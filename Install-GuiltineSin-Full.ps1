@@ -1,15 +1,15 @@
 param(
     [string]$Distro = "Ubuntu-20.04",
     [string]$WslUser = "",
-    [string]$ClientDestination = "C:\CloverTOS-Local",
+    [string]$ClientDestination = "C:\GuiltineSin",
     [string]$HostName = "127.0.0.1",
     [int]$WebPort = 8080,
     [int]$BarracksPort = 2000,
     [int]$GroupId = 1001,
     [string]$ServerName = "Clover",
     [string]$SteamTosPath = "",
-    [string]$AccountName = "clover",
-    [string]$AccountPassword = "clover123",
+    [string]$AccountName = "guiltinesin",
+    [string]$AccountPassword = "guiltinesin123",
     [switch]$SkipServer,
     [switch]$SkipClient,
     [switch]$KeepDb,
@@ -60,11 +60,11 @@ if (-not (Get-Command "wsl.exe" -ErrorAction SilentlyContinue)) {
 
 $repoRoot = $PSScriptRoot
 $serverScripts = Join-Path $repoRoot "server\scripts"
-$clientInstaller = Join-Path $repoRoot "client\tools\Install-CloverTOS-Local.ps1"
-$startClientScript = Join-Path $repoRoot "client\tools\Start-CloverTOS-Client.ps1"
+$clientInstaller = Join-Path $repoRoot "client\tools\Install-GuiltineSin-Local.ps1"
+$startClientScript = Join-Path $repoRoot "client\tools\Start-GuiltineSin-Client.ps1"
 
 if (-not $SkipServer) {
-    Write-Step "Instalando servidor CloverTOS dentro do Ubuntu WSL"
+    Write-Step "Instalando servidor GuiltineSin dentro do Ubuntu WSL"
     $wslScripts = Convert-ToWslPath $serverScripts
     $installArgs = @()
     if ($KeepDb) {
@@ -95,7 +95,7 @@ if (-not $SkipClient) {
 
     & powershell.exe @clientArgs
     if ($LASTEXITCODE -ne 0) {
-        throw "Falha ao instalar o cliente CloverTOS."
+        throw "Falha ao instalar o cliente GuiltineSin."
     }
 
     Write-Ok "Cliente instalado"
@@ -107,5 +107,5 @@ if ($StartClient -and -not $SkipClient) {
 
 Write-Step "Finalizado"
 Write-Host "Servidor: http://${HostName}:${WebPort}/toslive/patch/serverlist.xml" -ForegroundColor Yellow
-Write-Host "Cliente: $ClientDestination\release\Start-CloverTOS-Local.bat" -ForegroundColor Yellow
+Write-Host "Cliente: $ClientDestination\release\Start-GuiltineSin.bat" -ForegroundColor Yellow
 Write-Host "Conta: $AccountName / $AccountPassword" -ForegroundColor Yellow

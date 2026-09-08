@@ -1,16 +1,16 @@
 using System.Collections.Generic;
 using System.Linq;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting;
-using Melia.Zone.Scripting.ScriptableEvents;
-using Melia.Zone.Skills;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.World.Actors;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Scripting.ScriptableEvents;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.World.Actors;
 
-namespace Melia.Zone.Buffs.Handlers.Scouts.Linker
+namespace GuiltineSin.Zone.Buffs.Handlers.Scouts.Linker
 {
 	/// <summary>
 	/// Handler for the Link_Enemy (de)buff, which links enemy targets together
@@ -52,7 +52,7 @@ namespace Melia.Zone.Buffs.Handlers.Scouts.Linker
 			if (!target.TryGetBuff(BuffId.Link_Enemy, out var buff))
 				return;
 
-			if (!buff.Vars.TryGet<List<int>>("Melia.Link.Members", out var memberHandles))
+			if (!buff.Vars.TryGet<List<int>>("GuiltineSin.Link.Members", out var memberHandles))
 				return;
 
 			var linkTargets = new List<ICombatEntity>();
@@ -114,10 +114,10 @@ namespace Melia.Zone.Buffs.Handlers.Scouts.Linker
 		public override void WhileActive(Buff buff)
 		{
 			// Only check non-anchor targets
-			if (buff.Vars.GetBool("Melia.Link.IsAnchor"))
+			if (buff.Vars.GetBool("GuiltineSin.Link.IsAnchor"))
 				return;
 
-			if (!buff.Vars.TryGet<List<int>>("Melia.Link.Members", out var memberHandles) || memberHandles.Count == 0)
+			if (!buff.Vars.TryGet<List<int>>("GuiltineSin.Link.Members", out var memberHandles) || memberHandles.Count == 0)
 				return;
 
 			// First member is always the anchor
@@ -134,7 +134,7 @@ namespace Melia.Zone.Buffs.Handlers.Scouts.Linker
 			if (distance > MaxHorizontalDistance)
 			{
 				// Remove visual effect for this target before stopping buff
-				if (buff.Vars.TryGet<int>("Melia.Link.Id", out var linkId) && buff.Caster != null)
+				if (buff.Vars.TryGet<int>("GuiltineSin.Link.Id", out var linkId) && buff.Caster != null)
 				{
 					var memberIndex = memberHandles.IndexOf(buff.Target.Handle);
 					if (memberIndex > 0)
@@ -154,18 +154,18 @@ namespace Melia.Zone.Buffs.Handlers.Scouts.Linker
 		public override void OnEnd(Buff buff)
 		{
 			// Only the anchor removes visual effects
-			if (buff.Vars.GetBool("Melia.Link.IsAnchor"))
+			if (buff.Vars.GetBool("GuiltineSin.Link.IsAnchor"))
 			{
-				buff.Target.RemoveEffect("Melia.Link.Chain");
+				buff.Target.RemoveEffect("GuiltineSin.Link.Chain");
 
-				if (buff.Vars.TryGet<int>("Melia.Link.Id", out var linkId) && linkId != 0)
+				if (buff.Vars.TryGet<int>("GuiltineSin.Link.Id", out var linkId) && linkId != 0)
 				{
-					var topology = buff.Vars.GetInt("Melia.Link.Topology", 0);
+					var topology = buff.Vars.GetInt("GuiltineSin.Link.Topology", 0);
 
 					if (topology == 1) // Star topology
 					{
 						// Remove all star topology visual links (Link_{linkId}_1, Link_{linkId}_2, etc.)
-						if (buff.Vars.TryGet<List<int>>("Melia.Link.Members", out var members))
+						if (buff.Vars.TryGet<List<int>>("GuiltineSin.Link.Members", out var members))
 						{
 							for (var i = 1; i < members.Count; i++)
 							{

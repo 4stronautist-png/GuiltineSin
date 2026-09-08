@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Melia.Shared.Game.Const;
-using Melia.Shared.ObjectProperties;
-using Melia.Zone.Network;
-using Melia.Zone.World.Actors.Characters.Components;
-using Melia.Zone.World.Actors.Monsters;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.ObjectProperties;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.World.Actors.Characters.Components;
+using GuiltineSin.Zone.World.Actors.Monsters;
 using Yggdrasil.Logging;
 
-namespace Melia.Zone.World.Actors.Characters
+namespace GuiltineSin.Zone.World.Actors.Characters
 {
 	// ===================================================================
 	// CharacterStats.cs - Character statistics and progression
@@ -223,7 +223,7 @@ namespace Melia.Zone.World.Actors.Characters
 			if (this.Job == null)
 				throw new InvalidOperationException("Character's jobs need to be loaded before initializing the properties.");
 
-			if (!this.Variables.Perm.Has("Melia.PropertiesInitialized"))
+			if (!this.Variables.Perm.Has("GuiltineSin.PropertiesInitialized"))
 			{
 				this.Exp = 0;
 				this.TotalExp = 0;
@@ -235,7 +235,7 @@ namespace Melia.Zone.World.Actors.Characters
 				this.Properties.SetFloat(PropertyName.SP, this.Properties.GetFloat(PropertyName.MSP));
 				this.Properties.Stamina = (int)this.Properties.GetFloat(PropertyName.MaxSta);
 
-				this.Variables.Perm.SetBool("Melia.PropertiesInitialized", true);
+				this.Variables.Perm.SetBool("GuiltineSin.PropertiesInitialized", true);
 			}
 			else
 			{
@@ -425,6 +425,8 @@ pcall(function() ReserveScript('SOUL_RESTORE_CORE_HUD()', 3.0); end);
 			if (levelUps > 0)
 				this.LevelUp(levelUps);
 
+			this.EnsureCloverLevelingJobProgression();
+
 			// Job EXP
 			// Increase the total EXP and check whether the job level,
 			// which is calculcated from that value, has changed.
@@ -495,9 +497,9 @@ pcall(function() ReserveScript('SOUL_RESTORE_CORE_HUD()', 3.0); end);
 			var newLevel = this.Properties.Modify(PropertyName.Lv, amount);
 			this.GrantScaledAbilityPointsForLevelGain(amount, ZoneServer.Instance.Conf.World.AbilityPointsPerLevel, ZoneServer.Instance.Conf.World.ExpRate);
 
-			if (newLevel >= ZoneServer.Instance.Conf.World.MaxLevel && !this.Variables.Perm.Has("Melia.MaxLevel.AchievedTime"))
+			if (newLevel >= ZoneServer.Instance.Conf.World.MaxLevel && !this.Variables.Perm.Has("GuiltineSin.MaxLevel.AchievedTime"))
 			{
-				this.Variables.Perm.Set("Melia.MaxLevel.AchievedTime", DateTime.UtcNow.Ticks.ToString());
+				this.Variables.Perm.Set("GuiltineSin.MaxLevel.AchievedTime", DateTime.UtcNow.Ticks.ToString());
 				Log.Info("Max Level Reached: {0} {1} {2} ", this.DbId, this.Name, this.TeamName);
 				Send.ZC_TEXT(NoticeTextType.Gold, $"Congratulations to {this.Name} for reaching max level.");
 			}
@@ -513,6 +515,7 @@ pcall(function() ReserveScript('SOUL_RESTORE_CORE_HUD()', 3.0); end);
 			this.AddonMessage("NOTICE_Dm_levelup_base", "!@#$Auto_KaeLigTeo_LeBeli_SangSeungHayeossSeupNiDa#@!", 3);
 			this.PlayEffect("F_pc_level_up", 3);
 			this.Connection.Party?.UpdateMemberInfo(this);
+			this.EnsureCloverLevelingJobProgression();
 			// this.Connection.Guild?.UpdateMemberInfo(this); // Removed: Guild type deleted
 		}
 

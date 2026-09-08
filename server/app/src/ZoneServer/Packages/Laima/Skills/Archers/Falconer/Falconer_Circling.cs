@@ -1,21 +1,21 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Melia.Shared.Game.Const;
-using Melia.Shared.L10N;
-using Melia.Shared.Packages;
-using Melia.Shared.World;
-using Melia.Zone.Network;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.Skills.Handlers.Base;
-using Melia.Zone.Skills.Helpers;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Pads;
-using static Melia.Zone.Skills.SkillUseFunctions;
-using static Melia.Zone.Skills.Helpers.SkillDamageHelper;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.Skills.Handlers.Base;
+using GuiltineSin.Zone.Skills.Helpers;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Pads;
+using static GuiltineSin.Zone.Skills.SkillUseFunctions;
+using static GuiltineSin.Zone.Skills.Helpers.SkillDamageHelper;
 
-namespace Melia.Zone.Skills.Handlers.Archers.Falconer
+namespace GuiltineSin.Zone.Skills.Handlers.Archers.Falconer
 {
 	/// <summary>
 	/// Handler for the Falconer skill Circling.
@@ -49,9 +49,9 @@ namespace Melia.Zone.Skills.Handlers.Archers.Falconer
 			var targetHandle = target?.Handle ?? 0;
 
 			// Toggle off: cancel circling
-			if (skill.Vars.GetBool("Melia.Skill.Toggled"))
+			if (skill.Vars.GetBool("GuiltineSin.Skill.Toggled"))
 			{
-				skill.Vars.SetBool("Melia.Skill.Toggled", false);
+				skill.Vars.SetBool("GuiltineSin.Skill.Toggled", false);
 				if (caster is Character toggleOffChar)
 					Send.ZC_NORMAL.SkillToggle(toggleOffChar, SkillId.None);
 
@@ -75,7 +75,7 @@ namespace Melia.Zone.Skills.Handlers.Archers.Falconer
 			skill.IncreaseOverheat();
 			caster.SetAttackState(true);
 
-			skill.Vars.SetBool("Melia.Skill.Toggled", true);
+			skill.Vars.SetBool("GuiltineSin.Skill.Toggled", true);
 			if (caster is Character toggleOnChar)
 				Send.ZC_NORMAL.SkillToggle(toggleOnChar, skill.Id);
 
@@ -132,7 +132,7 @@ namespace Melia.Zone.Skills.Handlers.Archers.Falconer
 
 			while (DateTime.Now < endTime)
 			{
-				if (!skill.Vars.GetBool("Melia.Skill.Toggled"))
+				if (!skill.Vars.GetBool("GuiltineSin.Skill.Toggled"))
 					break;
 
 				if (caster.IsDead || hawk.IsDead)
@@ -145,7 +145,7 @@ namespace Melia.Zone.Skills.Handlers.Archers.Falconer
 			}
 
 			// Auto-cleanup when duration expires
-			skill.Vars.SetBool("Melia.Skill.Toggled", false);
+			skill.Vars.SetBool("GuiltineSin.Skill.Toggled", false);
 			if (caster is Character character)
 				Send.ZC_NORMAL.SkillToggle(character, SkillId.None);
 

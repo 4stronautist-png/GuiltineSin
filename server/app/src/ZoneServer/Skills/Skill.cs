@@ -3,23 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Shared.ObjectProperties;
-using Melia.Shared.World;
-using Melia.Zone.Buffs;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting;
-using Melia.Zone.Skills.SplashAreas;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.ObjectProperties;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Buffs;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Skills.SplashAreas;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
 using Yggdrasil.Logging;
 using Yggdrasil.Scheduling;
 using Yggdrasil.Util;
 
-namespace Melia.Zone.Skills
+namespace GuiltineSin.Zone.Skills
 {
 	public class Skill : IPropertyObject, IUpdateable
 	{
@@ -466,7 +466,7 @@ namespace Melia.Zone.Skills
 			// the overheat counter, in which case we reset the
 			// overheat and go on cooldown.
 			this.OverheatCounter++;
-			// Melia uses OvearheatResetTime, but in Laima we patched
+			// GuiltineSin uses OvearheatResetTime, but in Laima we patched
 			// the client to use all overheat reset times equal to the skill's
 			// default cooldown time. This simpler system allows us to customize
 			// skills overheats without having to constantly change cooldown.ies

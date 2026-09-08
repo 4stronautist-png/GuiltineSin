@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using Melia.Shared.Database;
-using Melia.Shared.Game.Const;
+using GuiltineSin.Shared.Database;
+using GuiltineSin.Shared.Game.Const;
 using Yggdrasil.Db.MySql.SimpleCommands;
-using Melia.Shared.ObjectProperties;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Items;
-using Melia.Zone.World.Storages;
+using GuiltineSin.Shared.ObjectProperties;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Items;
+using GuiltineSin.Zone.World.Storages;
 using MySqlConnector;
 using Yggdrasil.Logging;
 using Yggdrasil.Util;
 
-namespace Melia.Zone.Database
+namespace GuiltineSin.Zone.Database
 {
 	public partial class ZoneDb
 	{

@@ -2,22 +2,22 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Melia.Shared.Game.Const;
-using Melia.Shared.World;
-using Melia.Zone;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting;
-using Melia.Zone.Scripting.AI;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Actors.Components;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Maps;
-using Melia.Zone.World.Spawning;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Scripting.AI;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.Components;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Maps;
+using GuiltineSin.Zone.World.Spawning;
 using Yggdrasil.Geometry;
 using Yggdrasil.Util;
-using static Melia.Zone.Scripting.Shortcuts;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
 /// <summary>
 /// Whack-a-Mole minigame.
@@ -634,7 +634,7 @@ public class WhackAMoleInstance : MinigameBase
 		_moleClusterMap[mole] = cluster;
 
 		// Store the spawn burrow position so we can exclude it from disappear checks
-		mole.Vars.Set("Melia.SpawnBurrow", startSpot);
+		mole.Vars.Set("GuiltineSin.SpawnBurrow", startSpot);
 
 		// Make the mole move to another burrow spot in the same cluster
 		this.MoveMoleToRandomBurrow(mole, cluster, startSpot);
@@ -670,7 +670,7 @@ public class WhackAMoleInstance : MinigameBase
 				continue;
 
 			// Get the spawn burrow to exclude from disappear check
-			var hasSpawnBurrow = mole.Vars.TryGet<Position>("Melia.SpawnBurrow", out var spawnBurrow);
+			var hasSpawnBurrow = mole.Vars.TryGet<Position>("GuiltineSin.SpawnBurrow", out var spawnBurrow);
 
 			// Check if mole is close to any burrow spot in its cluster (except spawn burrow)
 			foreach (var burrowSpot in cluster.ActiveBurrows)

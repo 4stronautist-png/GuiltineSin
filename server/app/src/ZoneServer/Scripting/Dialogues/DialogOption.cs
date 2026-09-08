@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Yggdrasil.Util;
 
-namespace Melia.Zone.Scripting.Dialogues
+namespace GuiltineSin.Zone.Scripting.Dialogues
 {
 	/// <summary>
 	/// Represents an option in a dialog's menu.

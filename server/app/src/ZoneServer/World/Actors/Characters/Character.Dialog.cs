@@ -3,24 +3,24 @@
 // ===================================================================
 using System;
 using System.Threading.Tasks;
-using Melia.Shared.Game.Const;
-using Melia.Shared.L10N;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting;
-using Melia.Zone.Scripting.Dialogues;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Items;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Scripting.Dialogues;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Items;
 using Yggdrasil.Logging;
-using static Melia.Shared.Util.TaskHelper;
+using static GuiltineSin.Shared.Util.TaskHelper;
 
-namespace Melia.Zone.World.Actors.Characters
+namespace GuiltineSin.Zone.World.Actors.Characters
 {
 	public partial class Character
 	{
 		#region NPC Interaction
 		private bool IsHidden(Npc npc)
 		{
-			var variableName = npc.GenType < 1_000_000 ? $"Melia.NPC.Visibility.{npc.Map.Id}:{npc.GenType}" : $"Melia.NPC.Visibility.{npc.Map.Id}:{npc.DialogName}";
+			var variableName = npc.GenType < 1_000_000 ? $"GuiltineSin.NPC.Visibility.{npc.Map.Id}:{npc.GenType}" : $"GuiltineSin.NPC.Visibility.{npc.Map.Id}:{npc.DialogName}";
 			if (this.Variables.Perm.Has(variableName))
 				return this.Variables.Perm.GetBool(variableName);
 			return false;
@@ -35,9 +35,9 @@ namespace Melia.Zone.World.Actors.Characters
 			if (!ZoneServer.Instance.World.NPCs.TryGetValue(npcDialogName, out var npc))
 				return;
 			if (npc.GenType < 1_000_000)
-				this.Variables.Perm.SetBool($"Melia.NPC.Visibility.{npc.Map.Id}:{npc.GenType}", true);
+				this.Variables.Perm.SetBool($"GuiltineSin.NPC.Visibility.{npc.Map.Id}:{npc.GenType}", true);
 			else
-				this.Variables.Perm.SetBool($"Melia.NPC.Visibility.{npc.Map.Id}:{npc.DialogName}", true);
+				this.Variables.Perm.SetBool($"GuiltineSin.NPC.Visibility.{npc.Map.Id}:{npc.DialogName}", true);
 		}
 
 		/// <summary>
@@ -48,9 +48,9 @@ namespace Melia.Zone.World.Actors.Characters
 			if (!ZoneServer.Instance.World.NPCs.TryGetValue(npcDialogName, out var npc))
 				return;
 			if (npc.GenType < 1_000_000)
-				this.Variables.Perm.Remove($"Melia.NPC.Visibility.{npc.Map.Id}:{npc.GenType}");
+				this.Variables.Perm.Remove($"GuiltineSin.NPC.Visibility.{npc.Map.Id}:{npc.GenType}");
 			else
-				this.Variables.Perm.Remove($"Melia.NPC.Visibility.{npc.Map.Id}:{npc.DialogName}");
+				this.Variables.Perm.Remove($"GuiltineSin.NPC.Visibility.{npc.Map.Id}:{npc.DialogName}");
 		}
 
 		/// <summary>
@@ -123,7 +123,7 @@ namespace Melia.Zone.World.Actors.Characters
 						SetPlayerLocalizationContext();
 						dlg.State = DialogState.Active;
 
-						if (this.TryHandleStaticQuestNpcDialogAtStart(actor, dialogName))
+						if (await this.TryHandleStaticQuestNpcDialogAtStart(dlg, actor, dialogName, dialogFunc))
 							return;
 
 						await dialogFunc(dlg);
@@ -176,7 +176,7 @@ namespace Melia.Zone.World.Actors.Characters
 						SetPlayerLocalizationContext();
 						dlg.State = DialogState.Active;
 
-						if (this.TryHandleStaticQuestNpcDialogAtStart(npc, npc.DialogName))
+						if (await this.TryHandleStaticQuestNpcDialogAtStart(dlg, npc, npc.DialogName, dialogFunc))
 							return;
 
 						await dialogFunc(dlg);
@@ -255,9 +255,12 @@ namespace Melia.Zone.World.Actors.Characters
 			}
 		}
 
-		private bool TryHandleStaticQuestNpcDialogAtStart(IActor actor, string dialogName)
+		private async Task<bool> TryHandleStaticQuestNpcDialogAtStart(Dialog dialog, IActor actor, string dialogName, DialogFunc dialogFunc)
 		{
 			if (actor is not Npc || string.IsNullOrWhiteSpace(dialogName))
+				return false;
+
+			if (!IsStaticQuestFallbackDialogFunc(dialogFunc))
 				return false;
 
 			if (string.Equals(this.Map?.ClassName, "f_siauliai_west", StringComparison.OrdinalIgnoreCase))
@@ -268,6 +271,18 @@ namespace Melia.Zone.World.Actors.Characters
 				string.Equals(dialogName, "AKALABETH", StringComparison.OrdinalIgnoreCase))
 				return false;
 
+			if (await this.Quests.TryHandlePapayaObjectiveInteractionAsync(dialogName, dialog))
+			{
+				this.Quests.SyncStaticQuestNpcStates();
+				this.Quests.UpdateClient();
+				this.RestoreCoreHudState(true, true);
+				Log.Info("Papaya runtime: handled objective interaction '{0}' at dialog start for '{1}' on '{2}'.", dialogName, this.Name, this.Map?.ClassName ?? "unknown");
+				return true;
+			}
+
+			if (this.Quests.StaticQuestDialogRequiresScriptedInteraction(dialogName))
+				return false;
+
 			if (!this.Quests.HandleStaticNpcDialog(dialogName))
 				return false;
 
@@ -276,6 +291,12 @@ namespace Melia.Zone.World.Actors.Characters
 			this.RestoreCoreHudState(true, true);
 			Log.Info("Static quest chain: handled Papaya NPC dialog '{0}' at dialog start for '{1}' on '{2}'.", dialogName, this.Name, this.Map?.ClassName ?? "unknown");
 			return true;
+		}
+
+		private static bool IsStaticQuestFallbackDialogFunc(DialogFunc dialogFunc)
+		{
+			return string.Equals(dialogFunc?.Method?.Name, "COMMON_QUEST_HANDLER", StringComparison.Ordinal) &&
+				string.Equals(dialogFunc?.Method?.DeclaringType?.Name, "NPCFunctions", StringComparison.Ordinal);
 		}
 		#endregion
 	}

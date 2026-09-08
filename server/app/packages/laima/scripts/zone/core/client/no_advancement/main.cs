@@ -1,13 +1,13 @@
-﻿//--- Melia Script ----------------------------------------------------------
+﻿//--- GuiltineSin Script ----------------------------------------------------------
 // No Advancement
 //--- Description -----------------------------------------------------------
 // Disables the advancement button and screen, so player can no longer
 // change jobs via the UI.
 //---------------------------------------------------------------------------
 
-using Melia.Zone;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Zone;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors.Characters;
 
 public class NoAdvancementClientScript : ClientScript
 {

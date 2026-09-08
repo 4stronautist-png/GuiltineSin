@@ -65,7 +65,7 @@ is no longer 0.
 function ImgWebTest_Update(imgWeb, count)
 	-- Stop if the image was loaded or we tried too many times
 	if imgWeb:GetImageWidth() ~= 0 or count >= 100 then
-		Melia.Log.Error(""Failed to load web picture: "" .. url)
+		GuiltineSin.Log.Error(""Failed to load web picture: "" .. url)
 		return
 	end
 	

@@ -1,4 +1,4 @@
-﻿//--- Melia Script ----------------------------------------------------------
+﻿//--- GuiltineSin Script ----------------------------------------------------------
 // Skill Calculation Script
 //--- Description -----------------------------------------------------------
 // Functions that calculate skill-related values, such as properties,
@@ -13,10 +13,10 @@
 // instead of the default one.
 //---------------------------------------------------------------------------
 
-using Melia.Shared.Game.Const;
-using Melia.Zone.Scripting;
-using Melia.Zone.Skills;
-using Melia.Zone.World.Actors;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.World.Actors;
 
 public class SkillOverrideCalculationsScript : GeneralScript
 {

@@ -1,9 +1,9 @@
 ﻿using System;
-using Melia.Shared.World;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
 
-namespace Melia.Zone.World.Quests
+namespace GuiltineSin.Zone.World.Quests
 {
 	/// <summary>
 	/// Represents an objective of a quest.

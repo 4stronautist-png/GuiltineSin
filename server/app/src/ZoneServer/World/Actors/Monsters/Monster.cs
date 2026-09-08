@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Globalization;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Game.Properties;
-using Melia.Shared.ObjectProperties;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Game.Properties;
+using GuiltineSin.Shared.ObjectProperties;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting;
 
-namespace Melia.Zone.World.Actors.Monsters
+namespace GuiltineSin.Zone.World.Actors.Monsters
 {
 	public interface IMonster : ISubActor, IMonsterAppearance, IMonsterAppearanceBase, ISpawn
 	{
@@ -119,7 +119,7 @@ namespace Melia.Zone.World.Actors.Monsters
 		/// monster gets triggered.
 		/// </summary>
 		/// <remarks>
-		/// Not currently used in Melia, but required for the client to
+		/// Not currently used in GuiltineSin, but required for the client to
 		/// mark a monster as a potential conversation target.
 		/// </remarks>
 		string DialogName { get; }
@@ -129,7 +129,7 @@ namespace Melia.Zone.World.Actors.Monsters
 		/// this monster's trigger area.
 		/// </summary>
 		/// <remarks>
-		/// Not currently used in Melia, but might serve a purpose on the
+		/// Not currently used in GuiltineSin, but might serve a purpose on the
 		/// client-side, similar to DialogName.
 		/// </remarks>
 		string EnterName { get; }
@@ -139,7 +139,7 @@ namespace Melia.Zone.World.Actors.Monsters
 		/// this monster's trigger area.
 		/// </summary>
 		/// <remarks>
-		/// Not currently used in Melia, but might serve a purpose on the
+		/// Not currently used in GuiltineSin, but might serve a purpose on the
 		/// client-side, similar to DialogName.
 		/// </remarks>
 		string LeaveName { get; }

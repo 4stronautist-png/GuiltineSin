@@ -1,10 +1,10 @@
-﻿using Melia.Shared.Game.Const;
-using Melia.Shared.Network;
-using Melia.Shared.Versioning;
-using Melia.Shared.World;
-using Melia.Zone.World.Actors;
+﻿using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Network;
+using GuiltineSin.Shared.Versioning;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.World.Actors;
 
-namespace Melia.Zone.Network.Helpers
+namespace GuiltineSin.Zone.Network.Helpers
 {
 	/// <summary>
 	/// Helper methods for adding movement information to packets.

@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Melia.Shared.Network.Helpers;
-using Melia.Shared.ObjectProperties;
-using Melia.Shared.Game.Const;
+using GuiltineSin.Shared.Network.Helpers;
+using GuiltineSin.Shared.ObjectProperties;
+using GuiltineSin.Shared.Game.Const;
 
-namespace Melia.Barracks.Database
+namespace GuiltineSin.Barracks.Database
 {
 	/// <summary>
 	/// Represents a player's account.

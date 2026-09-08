@@ -1,18 +1,18 @@
-//--- Melia Script ----------------------------------------------------------
+//--- GuiltineSin Script ----------------------------------------------------------
 // Popup Book Items
 //--- Description -----------------------------------------------------------
 // Item scripts that spawn popup book/photo wall NPCs.
 //---------------------------------------------------------------------------
 
 using System;
-using Melia.Shared.Game.Const;
-using Melia.Shared.World;
-using Melia.Zone;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Items;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Items;
 
 public class PopupBookItemScripts : GeneralScript
 {
@@ -36,7 +36,7 @@ public class PopupBookItemScripts : GeneralScript
 		}
 
 		// Check if player already has a popup book active
-		if (character.Variables.Temp.Has("Melia.PopupBook.Active"))
+		if (character.Variables.Temp.Has("GuiltineSin.PopupBook.Active"))
 		{
 			// Remove existing popup book first
 			var existingMonster = character.Map.GetMonster(m =>
@@ -46,7 +46,7 @@ public class PopupBookItemScripts : GeneralScript
 			if (existingMonster != null)
 				character.Map.RemoveMonster(existingMonster);
 
-			character.Variables.Temp.Remove("Melia.PopupBook.Active");
+			character.Variables.Temp.Remove("GuiltineSin.PopupBook.Active");
 		}
 
 		// Calculate spawn position (offset from player position)
@@ -68,7 +68,7 @@ public class PopupBookItemScripts : GeneralScript
 
 		// Track ownership
 		popupBook.Vars.Set("PopupBook.Owner", character);
-		character.Variables.Temp.Set("Melia.PopupBook.Active", true);
+		character.Variables.Temp.Set("GuiltineSin.PopupBook.Active", true);
 
 		// Add movement component (required for proper spawning)
 		// popupBook.Components.Add(new MovementComponent(popupBook));

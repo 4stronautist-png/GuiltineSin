@@ -1,7 +1,7 @@
 Web API
 =============================================================================
 
-The web server is integrated into the internal network of the Melia server
+The web server is integrated into the internal network of the GuiltineSin server
 and is capable of communicating information between the core servers and
 the web interface. This allows outside services or custom web pages to
 display information about the server or accept instructions. Examples

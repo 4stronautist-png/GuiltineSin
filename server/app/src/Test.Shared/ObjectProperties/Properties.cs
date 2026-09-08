@@ -1,7 +1,7 @@
-﻿using Melia.Shared.ObjectProperties;
+﻿using GuiltineSin.Shared.ObjectProperties;
 using Xunit;
 
-namespace Melia.Test.Shared.ObjectProperties
+namespace GuiltineSin.Test.Shared.ObjectProperties
 {
 	public class PropertiesTests
 	{

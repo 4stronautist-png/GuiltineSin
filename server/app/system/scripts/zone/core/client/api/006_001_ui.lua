@@ -1,7 +1,7 @@
-Melia.Ui = {}
+GuiltineSin.Ui = {}
 
-Melia.Ui.SysMenu = {}
-Melia.Ui.SysMenu.Buttons = {}
+GuiltineSin.Ui.SysMenu = {}
+GuiltineSin.Ui.SysMenu.Buttons = {}
 
-Melia.Ui.RestMenu = {}
-Melia.Ui.RestMenu.Buttons = {}
+GuiltineSin.Ui.RestMenu = {}
+GuiltineSin.Ui.RestMenu.Buttons = {}

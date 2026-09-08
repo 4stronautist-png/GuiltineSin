@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Melia.Shared.ObjectProperties;
-using Melia.Shared.Game.Const;
-using Melia.Shared.World;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Shared.ObjectProperties;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.World.Actors.Characters;
 
-namespace Melia.Zone.World.Groups
+namespace GuiltineSin.Zone.World.Groups
 {
 	public class GuildMember : GroupMember
 	{

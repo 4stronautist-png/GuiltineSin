@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Util;
-using Melia.Zone.Network;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Util;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.World.Actors.Characters;
 using Yggdrasil.Extensions;
 using Yggdrasil.Util;
 
-namespace Melia.Zone.World.Gacha
+namespace GuiltineSin.Zone.World.Gacha
 {
 	/// <summary>
 	/// A gacha machine, full of fun and excitement, with not a single

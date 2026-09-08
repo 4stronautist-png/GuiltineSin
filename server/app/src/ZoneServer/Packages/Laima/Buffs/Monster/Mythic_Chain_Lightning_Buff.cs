@@ -2,19 +2,19 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Buffs.Handlers.Monster;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting.ScriptableEvents;
-using Melia.Zone.Skills;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Monsters;
-using static Melia.Zone.Skills.SkillUseFunctions;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Buffs.Handlers.Monster;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting.ScriptableEvents;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using static GuiltineSin.Zone.Skills.SkillUseFunctions;
 
-namespace Melia.Zone.Buffs.Handlers.Laima.Monster
+namespace GuiltineSin.Zone.Buffs.Handlers.Laima.Monster
 {
 	/// <summary>
 	/// Handler for Mythic_Chain_Lightning_Buff.
@@ -27,7 +27,7 @@ namespace Melia.Zone.Buffs.Handlers.Laima.Monster
 	[BuffHandler(BuffId.Mythic_Chain_Lightning_Buff)]
 	public class Mythic_Chain_Lightning_BuffOverride : BuffHandler
 	{
-		private const string LastLightningTimeVar = "Melia.Mythic.LastLightning";
+		private const string LastLightningTimeVar = "GuiltineSin.Mythic.LastLightning";
 		private const string ChainEffect = "I_laser005_blue#Dummy_effect_electrocute";
 		private const float ChainEffectScale = 4f;
 		private const float ChainDuration = 0.1f;

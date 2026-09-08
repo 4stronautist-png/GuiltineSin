@@ -1,4 +1,4 @@
-Melia.Hook("WORLDMAP2_MAINMAP_DRAW_CITY", function(original, result, frame, mapData)
+GuiltineSin.Hook("WORLDMAP2_MAINMAP_DRAW_CITY", function(original, result, frame, mapData)
 
 	local episode = mapData.ClassName
 	
@@ -15,6 +15,6 @@ Melia.Hook("WORLDMAP2_MAINMAP_DRAW_CITY", function(original, result, frame, mapD
 
 end)
 
-Melia.Override("WORLDMAP2_SUBMAP_EFFECT_ON_ZONE_CHECK", function(original, frame)
+GuiltineSin.Override("WORLDMAP2_SUBMAP_EFFECT_ON_ZONE_CHECK", function(original, frame)
 	-- Don't add glowing green circle around maps
 end)

@@ -1,9 +1,9 @@
 using System.Linq;
-using Melia.Shared.Game.Properties;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Shared.Game.Properties;
+using GuiltineSin.Zone.World.Actors.Characters;
 using Yggdrasil.Logging;
 
-namespace Melia.Zone.Items.Effects
+namespace GuiltineSin.Zone.Items.Effects
 {
 	/// <summary>
 	/// Manages property modifications applied by equipped cards.
@@ -20,7 +20,7 @@ namespace Melia.Zone.Items.Effects
 		/// <summary>
 		/// Prefix used for storing card modifiers in character Variables.Perm.
 		/// </summary>
-		public const string ModifierVarPrefix = "Melia.CardModifier.";
+		public const string ModifierVarPrefix = "GuiltineSin.CardModifier.";
 
 		/// <summary>
 		/// Returns true if the property should be calculated on-demand (like equipment)
@@ -205,7 +205,7 @@ namespace Melia.Zone.Items.Effects
 
 			foreach (var kvp in cardVars)
 			{
-				// Parse property name from var key: "Melia.CardModifier.Slot{X}.{propertyName}"
+				// Parse property name from var key: "GuiltineSin.CardModifier.Slot{X}.{propertyName}"
 				var afterPrefix = kvp.Key.Substring(ModifierVarPrefix.Length);
 				var dotIndex = afterPrefix.IndexOf('.');
 				if (dotIndex < 0)

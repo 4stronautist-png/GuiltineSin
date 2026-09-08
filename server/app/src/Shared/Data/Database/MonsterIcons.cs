@@ -2,7 +2,7 @@
 using Yggdrasil.Data.JSON;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace Melia.Shared.Data.Database
+namespace GuiltineSin.Shared.Data.Database
 {
 
 	public class MonsterIconData

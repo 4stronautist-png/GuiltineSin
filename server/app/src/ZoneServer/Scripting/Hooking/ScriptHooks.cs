@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Melia.Zone.Scripting.Hooking
+namespace GuiltineSin.Zone.Scripting.Hooking
 {
 	/// <summary>
 	/// Global script hook registry.

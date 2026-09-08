@@ -1,23 +1,23 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Melia.Shared.Game.Const;
-using Melia.Shared.L10N;
-using Melia.Shared.World;
-using Melia.Zone.Network;
-using Melia.Zone.Pads;
-using Melia.Zone.Pads.Handlers;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.Skills.Handlers.Base;
-using Melia.Zone.Skills.SplashAreas;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Actors.Pads;
-using static Melia.Shared.Util.TaskHelper;
-using static Melia.Zone.Skills.SkillUseFunctions;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Pads;
+using GuiltineSin.Zone.Pads.Handlers;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.Skills.Handlers.Base;
+using GuiltineSin.Zone.Skills.SplashAreas;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Actors.Pads;
+using static GuiltineSin.Shared.Util.TaskHelper;
+using static GuiltineSin.Zone.Skills.SkillUseFunctions;
 
-namespace Melia.Zone.Skills.Handlers.Scouts.Assassin
+namespace GuiltineSin.Zone.Skills.Handlers.Scouts.Assassin
 {
 	/// <summary>
 	/// Handler for the Assassin skill Hallucination Smoke
@@ -102,9 +102,9 @@ namespace Melia.Zone.Skills.Handlers.Scouts.Assassin
 
 			// Assassin18 applies a special debuff.  Only one enemy can have this
 			// debuff at a time, so we use a character variable to track it.
-			if (creator.IsAbilityActive(AbilityId.Assassin18) && creator is Character character && !character.Variables.Temp.Has("Melia.AssassinationTarget"))
+			if (creator.IsAbilityActive(AbilityId.Assassin18) && creator is Character character && !character.Variables.Temp.Has("GuiltineSin.AssassinationTarget"))
 			{
-				character.Variables.Temp.SetInt("Melia.AssassinationTarget", target.Handle);
+				character.Variables.Temp.SetInt("GuiltineSin.AssassinationTarget", target.Handle);
 				target.StartBuff(BuffId.Assassin_Target_Debuff, skill.Level, 0, TimeSpan.FromSeconds(15), creator);
 			}
 

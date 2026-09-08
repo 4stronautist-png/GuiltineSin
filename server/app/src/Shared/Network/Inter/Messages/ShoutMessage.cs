@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Melia.Shared.Game.Const;
+using GuiltineSin.Shared.Game.Const;
 using Yggdrasil.Network.Communication;
 
-namespace Melia.Shared.Network.Inter.Messages
+namespace GuiltineSin.Shared.Network.Inter.Messages
 {
 	/// <summary>
 	/// Instruction to broadcast a shout to all users.

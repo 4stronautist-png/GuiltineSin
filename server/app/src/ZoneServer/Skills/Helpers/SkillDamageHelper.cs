@@ -2,30 +2,30 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Melia.Shared.Game.Const;
-using Melia.Shared.World;
-using Melia.Zone.Buffs;
-using Melia.Zone.Network;
-using Melia.Zone.Pads;
-using Melia.Zone.Scripting.AI;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.Skills.SplashAreas;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Actors.Pads;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Buffs;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Pads;
+using GuiltineSin.Zone.Scripting.AI;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.Skills.SplashAreas;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Actors.Pads;
 using Yggdrasil.Extensions;
 using Yggdrasil.Geometry.Shapes;
 using Yggdrasil.Geometry;
 using Yggdrasil.Logging;
 using Yggdrasil.Util;
-using static Melia.Zone.Scripting.Shortcuts;
-using static Melia.Zone.Skills.SkillUseFunctions;
-using static Melia.Zone.Skills.Helpers.SkillTargetHelper;
-using static Melia.Zone.Skills.Helpers.SkillUtilHelper;
-using static Melia.Zone.Skills.Helpers.SkillRangePreviewHelper;
-namespace Melia.Zone.Skills.Helpers
+using static GuiltineSin.Zone.Scripting.Shortcuts;
+using static GuiltineSin.Zone.Skills.SkillUseFunctions;
+using static GuiltineSin.Zone.Skills.Helpers.SkillTargetHelper;
+using static GuiltineSin.Zone.Skills.Helpers.SkillUtilHelper;
+using static GuiltineSin.Zone.Skills.Helpers.SkillRangePreviewHelper;
+namespace GuiltineSin.Zone.Skills.Helpers
 {
 	public static class SkillDamageHelper
 	{
@@ -244,7 +244,7 @@ namespace Melia.Zone.Skills.Helpers
 			if (isActive)
 				pad.Activate();
 
-			if (caster is Character character && (character.Variables.Temp.GetBool("Melia.RangePreview")))
+			if (caster is Character character && (character.Variables.Temp.GetBool("GuiltineSin.RangePreview")))
 			{
 				if (skill.Data.ShootTime < SkillConstants.MaxPadShootTimeForPreview)
 					Debug.ShowShape(caster.Map, pad.Area, skill.Data.ShootTime);
@@ -264,11 +264,11 @@ namespace Melia.Zone.Skills.Helpers
 
 		public static void SkillRemovePad(ICombatEntity caster, Skill skill)
 		{
-			var padHandle = skill.Vars.GetInt($"Melia.{skill.Id}.PadHandle");
+			var padHandle = skill.Vars.GetInt($"GuiltineSin.{skill.Id}.PadHandle");
 			if (caster.Map.TryGetPad(padHandle, out var pad))
 			{
 				pad.Destroy();
-				skill.Vars.Remove($"Melia.{skill.Id}.PadHandle");
+				skill.Vars.Remove($"GuiltineSin.{skill.Id}.PadHandle");
 			}
 		}
 
@@ -464,7 +464,7 @@ namespace Melia.Zone.Skills.Helpers
 			mob.Direction = caster.Direction.AddDegreeAngle(angle);
 			mob.Layer = caster.Layer;
 
-			mob.Vars.SetInt("Melia.Summon.SkillLevel", skill.Level);
+			mob.Vars.SetInt("GuiltineSin.Summon.SkillLevel", skill.Level);
 
 			mob.OwnerHandle = caster.Handle;
 			mob.AssociatedHandle = caster.Handle;
@@ -514,8 +514,8 @@ namespace Melia.Zone.Skills.Helpers
 				character.Summons.AddSummon(summon);
 			}
 
-			mob.Vars.SetInt("Melia.Summon.Skill", (int)skill.Id);
-			mob.Vars.Set("Melia.Summoner.Owner", caster);
+			mob.Vars.SetInt("GuiltineSin.Summon.Skill", (int)skill.Id);
+			mob.Vars.Set("GuiltineSin.Summoner.Owner", caster);
 			caster.Map.AddMonster(mob);
 			mob.FromGround = true;
 			mob.DelayEnterWorld();
@@ -531,7 +531,7 @@ namespace Melia.Zone.Skills.Helpers
 
 			ShowRangePreview(caster, skill, GetPreviewArea(caster, position, config.Range));
 
-			skill.Vars.Set("Melia.Skill.vAngle", config.VerticalAngle);
+			skill.Vars.Set("GuiltineSin.Skill.vAngle", config.VerticalAngle);
 
 			caster.MissileFall(skill.Data.ClassName, config.Effect.Name, config.Effect.Scale, position, config.Range, config.DelayTime, config.FlyTime, config.Height, config.Easing, config.EndEffect.Name, config.EndEffect.Scale, config.StartEasing, config.GroundEffect.Name, config.GroundEffect.Scale);
 
@@ -616,7 +616,7 @@ namespace Melia.Zone.Skills.Helpers
 			var previewMs = config.PositionDelay + config.Delay + config.HitDuration;
 			ShowRangePreview(caster, skill, GetPreviewArea(caster, position, config.Range, config.InnerRange), TimeSpan.FromMilliseconds(previewMs));
 
-			skill.Vars.Set("Melia.Skill.vAngle", config.VerticalAngle);
+			skill.Vars.Set("GuiltineSin.Skill.vAngle", config.VerticalAngle);
 
 			if (config.GroundEffect.Name != "None")
 				await caster.PlayEffectToGround(config.GroundEffect.Name, position, config.GroundEffect.Scale);
@@ -689,7 +689,7 @@ namespace Melia.Zone.Skills.Helpers
 			if (config.PositionDelay > 0)
 				await skill.Wait(TimeSpan.FromMilliseconds((int)config.PositionDelay));
 
-			skill.Vars.Set("Melia.Skill.vAngle", config.VerticalAngle);
+			skill.Vars.Set("GuiltineSin.Skill.vAngle", config.VerticalAngle);
 			for (var i = 0; i < hitPointCount; i++)
 			{
 				var di = (float)i / hitPointCount;
@@ -844,7 +844,7 @@ namespace Melia.Zone.Skills.Helpers
 			if (mob == null)
 				return false;
 
-			skill.Vars.SetBool("Melia.MonsterCastInterrupted", false);
+			skill.Vars.SetBool("GuiltineSin.MonsterCastInterrupted", false);
 			mob.StartCasting(skill, skillName, castTime, showCastingBar, changeColor);
 
 			const int tickInterval = 100;
@@ -854,7 +854,7 @@ namespace Melia.Zone.Skills.Helpers
 			{
 				if (!caster.IsCasting(skill))
 				{
-					skill.Vars.SetBool("Melia.MonsterCastInterrupted", true);
+					skill.Vars.SetBool("GuiltineSin.MonsterCastInterrupted", true);
 					return false;
 				}
 
@@ -867,7 +867,7 @@ namespace Melia.Zone.Skills.Helpers
 
 			if (!caster.IsCasting(skill))
 			{
-				skill.Vars.SetBool("Melia.MonsterCastInterrupted", true);
+				skill.Vars.SetBool("GuiltineSin.MonsterCastInterrupted", true);
 				return false;
 			}
 

@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Melia.Shared.Data.Database;
-using Melia.Shared.ObjectProperties;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.ObjectProperties;
 using Newtonsoft.Json;
 
-namespace Melia.Shared.Game.Const.Web
+namespace GuiltineSin.Shared.Game.Const.Web
 {
 	public class MarketSearch
 	{

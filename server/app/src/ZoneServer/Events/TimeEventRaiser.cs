@@ -1,8 +1,8 @@
 ﻿using System;
-using Melia.Zone.Events.Arguments;
+using GuiltineSin.Zone.Events.Arguments;
 using Yggdrasil.Scheduling;
 
-namespace Melia.Zone.Events
+namespace GuiltineSin.Zone.Events
 {
 	/// <summary>
 	/// Raises time events on the event manager.

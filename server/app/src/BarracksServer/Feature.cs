@@ -1,4 +1,4 @@
-﻿namespace Melia.Barracks
+﻿namespace GuiltineSin.Barracks
 {
 	/// <summary>
 	/// Easy access method for feature checks.

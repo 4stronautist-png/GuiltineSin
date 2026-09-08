@@ -8,11 +8,11 @@ function M_CHASE_REDRAW(frame)
 
 	ctrl:DeleteAllControl();
 
-	if not Melia.Conf.GetBool("display_quest_objectives") then
+	if not GuiltineSin.Conf.GetBool("display_quest_objectives") then
 		return
 	end
 
-	local quests = Melia.Quests.GetAll()
+	local quests = GuiltineSin.Quests.GetAll()
 	local x = 0
 	local y = 0
 

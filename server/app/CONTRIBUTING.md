@@ -6,18 +6,18 @@ issue might exist already.
 
 Bugs
 -----------------------------------------------------------------------------
-If you've found a bug in Melia, please create a new issue just for that
+If you've found a bug in GuiltineSin, please create a new issue just for that
 one bug, explaining what was going on when it happened and how it can
 be reproduced. If necessary, you may include screen shots or videos as
 well.
 
-However, keep in mind that Melia is still very early in development,
+However, keep in mind that GuiltineSin is still very early in development,
 and something not working might not be a bug, but simply something
 nobody has worked on yet.
 
 Suggestions
 -----------------------------------------------------------------------------
-We are happy to listen to your ideas on how to improve Melia as a server
+We are happy to listen to your ideas on how to improve GuiltineSin as a server
 emulator, just create an issue for your idea, and we will take a look at
 it. Please understand that our main focus is emulating the main game though,
 and suggestions for custom NPCs, or completely custom features that have
@@ -25,12 +25,12 @@ little to do with the game might be out-of-scope for us.
 
 Discussions
 ----------------------------------------------------------------------------
-If you're working on a feature for Melia and you want to let others know
+If you're working on a feature for GuiltineSin and you want to let others know
 about it, get their input, or talk about how to best implement or how
 to change something, create an issue for that discussion, which will
 serve as the thread for discussing that one topic.
 
-We're in this together, and the more we work together, the better Melia
+We're in this together, and the more we work together, the better GuiltineSin
 will be.
 
 Contributing code
@@ -132,16 +132,16 @@ is reviewed by the maintainers, and then merged into `master`.
 Fork and Pull Request Strategy
 -----------------------------------------------------------------------------
 
-For managing your work and pull requests for Melia as an outside
+For managing your work and pull requests for GuiltineSin as an outside
 contributor, we recommend the following process.
 
-1. Fork Melia on GitHub.
+1. Fork GuiltineSin on GitHub.
 2. Add the main repository as a remote.
-3. Pull the latest changes from Melia's `master` into your local branch
+3. Pull the latest changes from GuiltineSin's `master` into your local branch
    regularly.
 4. Never push to your fork's `master` branch directly.
 5. Adopt the same branching strategy as lined out above.
-6. Create pull requests from your branches to Melia's master once you're
+6. Create pull requests from your branches to GuiltineSin's master once you're
    done.
 
 With this approach, you always have a clean master to branch off of,

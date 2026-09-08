@@ -1,8 +1,8 @@
-﻿using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Network;
+﻿using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Network;
 
-namespace Melia.Zone.Buffs.Handlers.Swordsmen.Rodelero
+namespace GuiltineSin.Zone.Buffs.Handlers.Swordsmen.Rodelero
 {
 	/// <summary>
 	/// Handle for the Slithering Buff, which increases block rate,

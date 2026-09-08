@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 
-namespace Melia.Shared.Data
+namespace GuiltineSin.Shared.Data
 {
 	/// <summary>
 	/// Collection of tags that may classify some of a data object's properties.

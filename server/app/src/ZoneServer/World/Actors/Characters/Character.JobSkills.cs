@@ -4,24 +4,44 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Game.Properties;
-using Melia.Zone.Events.Arguments;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting;
-using Melia.Zone.Skills;
-using Melia.Zone.World.Actors.Characters.Components;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Game.Properties;
+using GuiltineSin.Zone.Events.Arguments;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.World.Actors.Characters.Components;
+using Yggdrasil.Logging;
 
-namespace Melia.Zone.World.Actors.Characters
+namespace GuiltineSin.Zone.World.Actors.Characters
 {
 	public partial class Character
 	{
 		#region Job & Skill Management
+		private static readonly (int Level, int Slot)[] CloverLevelingJobUnlocks =
+		[
+			(45, 0),
+			(85, 1),
+			(120, 2),
+		];
+
+		private static readonly Dictionary<JobClass, JobId[]> CloverDefaultAdvancedJobs = new()
+		{
+			[JobClass.Swordsman] = [JobId.Highlander, JobId.Peltasta, JobId.Hoplite],
+			[JobClass.Wizard] = [JobId.Pyromancer, JobId.Cryomancer, JobId.Psychokino],
+			[JobClass.Archer] = [JobId.Ranger, JobId.QuarrelShooter, JobId.Hunter],
+			[JobClass.Cleric] = [JobId.Priest, JobId.Krivis, JobId.Dievdirbys],
+			[JobClass.Scout] = [JobId.Assassin, JobId.Outlaw, JobId.Corsair],
+		};
+
 		private static readonly BuffId[] ClassChangeUnsafeSkillStateBuffs =
 		[
 			BuffId.DoubleAttack_Buff,
 			BuffId.FreeStep_Buff,
+			BuffId.Brutality_Buff,
+			BuffId.Quicken_Buff,
+			BuffId.EnchantEarth_Buff,
 		];
 
 		private static readonly SkillId[] ClassChangeUnsafeSkillStateSkills =
@@ -30,11 +50,28 @@ namespace Melia.Zone.World.Actors.Characters
 			SkillId.Scout_FreeStep,
 		];
 
+		private static readonly SkillId[] ClientLoadUnsafeSkillStateSkills =
+		[
+			..ClassChangeUnsafeSkillStateSkills,
+			SkillId.Corsair_Brutality,
+			SkillId.Thaumaturge_Quicken,
+			SkillId.Thaumaturge_SwellHands,
+			SkillId.Thaumaturge_SwellBrain,
+			SkillId.Thaumaturge_Transpose,
+			SkillId.Enchanter_EnchantLightning,
+			SkillId.Enchanter_EnchantEarth,
+			SkillId.Enchanter_EnchantGlove,
+			SkillId.Enchanter_EnchantAura,
+		];
+
 		public static bool IsClassChangeUnsafeSkillStateBuff(BuffId buffId)
 			=> ClassChangeUnsafeSkillStateBuffs.Contains(buffId);
 
 		public static bool IsClassChangeUnsafeSkillStateSkill(SkillId skillId)
 			=> ClassChangeUnsafeSkillStateSkills.Contains(skillId);
+
+		public static bool IsClientLoadUnsafeSkillStateSkill(SkillId skillId)
+			=> ClientLoadUnsafeSkillStateSkills.Contains(skillId);
 
 		public int ClearClassChangeUnsafeSkillStateBuffs(bool silently = false)
 		{
@@ -47,6 +84,58 @@ namespace Melia.Zone.World.Actors.Characters
 			}
 
 			return removed;
+		}
+
+
+		public int EnsureCloverLevelingJobProgression(bool updateClient = true)
+		{
+			if (this.JobId == JobId.None || this.JobClass == JobClass.GM)
+				return 0;
+
+			if (!CloverDefaultAdvancedJobs.TryGetValue(this.JobClass, out var progression))
+				return 0;
+
+			var added = 0;
+			foreach (var unlock in CloverLevelingJobUnlocks)
+			{
+				if (this.Level < unlock.Level || unlock.Slot < 0 || unlock.Slot >= progression.Length)
+					continue;
+
+				if (this.Jobs.Count >= ZoneServer.Instance.Conf.World.JobMaxRank)
+					break;
+
+				var jobId = progression[unlock.Slot];
+				if (this.Jobs.Has(jobId))
+					continue;
+
+				var removedSkillStateBuffs = this.ClearClassChangeUnsafeSkillStateBuffs(true);
+				var newJob = new Job(this, jobId, JobCircle.First, 1);
+				this.Jobs.AddSilent(newJob);
+				this.JobId = newJob.Id;
+				this.Properties.SetFloat(PropertyName.Job, (int)newJob.Id);
+				added++;
+
+				Log.Info("Clover leveling: auto-advanced character '{0}' to '{1}' at base level {2} (slot {3}/3).", this.Name, jobId, this.Level, unlock.Slot + 1);
+				if (removedSkillStateBuffs > 0)
+					Log.Info("Clover leveling: removed {0} unsafe skill-state buff(s) before auto class advancement for '{1}'.", removedSkillStateBuffs, this.Name);
+			}
+
+			if (added > 0 && updateClient && this.Connection != null)
+			{
+				foreach (var job in this.Jobs.GetList().OrderBy(job => job.SelectionDate).ThenBy(job => job.Rank))
+					Send.ZC_PC(this, PcUpdateType.Job, (int)job.Id, job.Level);
+
+				Send.ZC_JOB_PTS(this, this.Job);
+				Send.ZC_SKILL_LIST(this);
+				Send.ZC_COMMON_SKILL_LIST(this);
+				Send.ZC_OBJECT_PROPERTY(this, PropertyName.JobName);
+				Send.ZC_NORMAL.UpdateSkillUI(this);
+				this.AddonMessage(GuiltineSin.Shared.Game.Const.AddonMessage.JOB_UPDATE);
+				this.AddonMessage(GuiltineSin.Shared.Game.Const.AddonMessage.RESET_SKL_UP);
+				this.InvalidateProperties();
+			}
+
+			return added;
 		}
 
 		/// <summary>
@@ -103,8 +192,8 @@ namespace Melia.Zone.World.Actors.Characters
 
 			Send.ZC_OBJECT_PROPERTY(this);
 			Send.ZC_NORMAL.UpdateSkillUI(this);
-			this.AddonMessage(Melia.Shared.Game.Const.AddonMessage.JOB_UPDATE);
-			this.AddonMessage(Melia.Shared.Game.Const.AddonMessage.RESET_SKL_UP);
+			this.AddonMessage(GuiltineSin.Shared.Game.Const.AddonMessage.JOB_UPDATE);
+			this.AddonMessage(GuiltineSin.Shared.Game.Const.AddonMessage.RESET_SKL_UP);
 			this.AddonMessage("NOTICE_Dm_levelup_skill", "!@#$Auto_KeulLeSeu_LeBeli_SangSeungHayeossSeupNiDa#@!", 3);
 			this.PlayEffect("F_pc_joblevel_up", 3);
 			Send.ZC_SKILL_LIST(this);

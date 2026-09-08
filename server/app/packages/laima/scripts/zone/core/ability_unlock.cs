@@ -1,14 +1,14 @@
-﻿//--- Melia Script ----------------------------------------------------------
+﻿//--- GuiltineSin Script ----------------------------------------------------------
 // Ability Unlocked Check Functions
 //--- Description -----------------------------------------------------------
 // Scriptable functions that determine whether an ability is unlocked
 // and can be learned.
 //---------------------------------------------------------------------------
 
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors.Characters;
 
 public class AbilityUnlockedFunctionsScript : GeneralScript
 {

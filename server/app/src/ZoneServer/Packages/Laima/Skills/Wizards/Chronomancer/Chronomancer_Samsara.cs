@@ -1,28 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Melia.Shared.Game.Const;
-using Melia.Shared.L10N;
-using Melia.Shared.Packages;
-using Melia.Shared.World;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting;
-using Melia.Zone.Scripting.AI;
-using Melia.Zone.Skills.Handlers.Base;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Actors.Monsters;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Scripting.AI;
+using GuiltineSin.Zone.Skills.Handlers.Base;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.Monsters;
 using Yggdrasil.Util;
 
-namespace Melia.Zone.Skills.Handlers.Wizards.Chronomancer
+namespace GuiltineSin.Zone.Skills.Handlers.Wizards.Chronomancer
 {
 	[Package("laima")]
 	[SkillHandler(SkillId.Chronomancer_Samsara)]
 	public class Chronomancer_SamsaraOverride : IGroundSkillHandler
 	{
-		private const string VarReincarnated = "Melia.Skill.Samsara.Reincarnated";
-		private const string VarCreatedBySamsara = "Melia.Skill.Samsara.Created";
+		private const string VarReincarnated = "GuiltineSin.Skill.Samsara.Reincarnated";
+		private const string VarCreatedBySamsara = "GuiltineSin.Skill.Samsara.Created";
 
 		public void Handle(Skill skill, ICombatEntity caster, Position originPos, Position farPos, ICombatEntity target)
 		{

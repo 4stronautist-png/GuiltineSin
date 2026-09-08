@@ -6,25 +6,25 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Versioning;
-using Melia.Shared.World;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting.Dialogues;
-using Melia.Zone.Skills;
-using Melia.Zone.Skills.Handlers.Base;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Actors.Components;
-using Melia.Zone.World.Actors.Monsters;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Versioning;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting.Dialogues;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.Skills.Handlers.Base;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.Components;
+using GuiltineSin.Zone.World.Actors.Monsters;
 using Yggdrasil.Extensions;
 using Yggdrasil.Logging;
 using Yggdrasil.Util;
-using static Melia.Shared.Util.TaskHelper;
+using static GuiltineSin.Shared.Util.TaskHelper;
 
-namespace Melia.Zone.Scripting.AI
+namespace GuiltineSin.Zone.Scripting.AI
 {
 	public abstract partial class AiScript
 	{
@@ -626,7 +626,7 @@ namespace Melia.Zone.Scripting.AI
 				while (DateTime.Now < waitEnd)
 				{
 					// If the cast was interrupted, stop waiting immediately
-					if (skill.Vars.GetBool("Melia.MonsterCastInterrupted"))
+					if (skill.Vars.GetBool("GuiltineSin.MonsterCastInterrupted"))
 						break;
 
 					yield return this.Wait(TimeSpan.FromMilliseconds(100));

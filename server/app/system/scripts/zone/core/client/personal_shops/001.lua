@@ -1,7 +1,7 @@
 -- The original function fails to find the slot control because it"s
 -- searching in the wrong place. We have to make sure it finds it,
 -- for the clicked items to be moved to slot and be added to the list.
-Melia.Override("PS_SET_ITEM_TO_SLOT", function(original, parent, ctrl)
+GuiltineSin.Override("PS_SET_ITEM_TO_SLOT", function(original, parent, ctrl)
 
 	local slot = ctrl:GetTopParentFrame():GetChild("gbox"):GetChild("selllist"):GetChild("CTRLSET_NEW"):GetChild("slot")
 	local classId = ctrl:GetUserIValue("ITEM_CLSID")
@@ -16,7 +16,7 @@ end)
 -- and doesn't work with normal items anymore. We'll catch PersonalShop
 -- requests and handle them ourselves, while calling the original function
 -- for all other requests.
-Melia.Override("BUFFSELLER_REG_EXEC", function(original, frame)
+GuiltineSin.Override("BUFFSELLER_REG_EXEC", function(original, frame)
 
 	frame = frame:GetTopParentFrame();
 	

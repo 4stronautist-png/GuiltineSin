@@ -1,20 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Shared.L10N;
-using Melia.Shared.World;
-using Melia.Zone.Network;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Effects;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Actors.Pads;
-using Melia.Zone.Skills.Handlers.Base;
-using Melia.Zone.Skills.Combat;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Effects;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Actors.Pads;
+using GuiltineSin.Zone.Skills.Handlers.Base;
+using GuiltineSin.Zone.Skills.Combat;
 using Yggdrasil.Geometry.Shapes;
 
-namespace Melia.Zone.Skills.Handlers.Archers.Fletcher
+namespace GuiltineSin.Zone.Skills.Handlers.Archers.Fletcher
 {
 	/// <summary>
 	/// Handler for the Fletcher skill Catena Chain Arrow.
@@ -23,14 +23,14 @@ namespace Melia.Zone.Skills.Handlers.Archers.Fletcher
 	[SkillHandler(SkillId.Fletcher_CatenaChainArrow)]
 	public class Fletcher_CatenaChainArrowOverride : IGroundSkillHandler, IDynamicCasted
 	{
-		private const string ChainLinkEffectKey = "Melia.Skill.CatenaChainLink";
+		private const string ChainLinkEffectKey = "GuiltineSin.Skill.CatenaChainLink";
 		private const float PadDuration = 5f;
 		private const float PadSize = 20f;
 		private const float MaxLeashDistance = 150f;
 
 		public void Handle(Skill skill, ICombatEntity caster, Position originPos, Position farPos, ICombatEntity target)
 		{
-			if (skill.Vars.TryGet<int>("Melia.Skill.CatenaPadHandle", out var existingPadHandle) && existingPadHandle > 0)
+			if (skill.Vars.TryGet<int>("GuiltineSin.Skill.CatenaPadHandle", out var existingPadHandle) && existingPadHandle > 0)
 			{
 				skill.IncreaseOverheat();
 				caster.SetAttackState(true);
@@ -41,7 +41,7 @@ namespace Melia.Zone.Skills.Handlers.Archers.Fletcher
 				return;
 			}
 
-			if (!skill.Vars.TryGet<Position>("Melia.ToolGroundPos", out var targetPos))
+			if (!skill.Vars.TryGet<Position>("GuiltineSin.ToolGroundPos", out var targetPos))
 			{
 				caster.ServerMessage(Localization.Get("No target location specified."));
 				return;
@@ -86,13 +86,13 @@ namespace Melia.Zone.Skills.Handlers.Archers.Fletcher
 			anchor.AssociatedHandle = caster.Handle;
 			caster.Map.AddMonster(anchor);
 
-			pad.Variables.Set("Melia.Pad.CatenaAnchor", anchor);
+			pad.Variables.Set("GuiltineSin.Pad.CatenaAnchor", anchor);
 
 			caster.Map.AddPad(pad);
 
 			caster.StartBuff(BuffId.Fletcher_CatenaChainArrow_Buff, skill.Level, 0, TimeSpan.FromSeconds(PadDuration), caster);
 
-			skill.Vars.SetInt("Melia.Skill.CatenaPadHandle", pad.Handle);
+			skill.Vars.SetInt("GuiltineSin.Skill.CatenaPadHandle", pad.Handle);
 
 			var linkId = ZoneServer.Instance.World.CreateLinkHandle();
 			var linkedHandles = new List<int> { caster.Handle, anchor.Handle };
@@ -105,7 +105,7 @@ namespace Melia.Zone.Skills.Handlers.Archers.Fletcher
 		/// </summary>
 		private void DestroyCatenaPad(ICombatEntity caster, Skill skill)
 		{
-			if (skill.Vars.TryGet<int>("Melia.Skill.CatenaPadHandle", out var padHandle) && padHandle > 0)
+			if (skill.Vars.TryGet<int>("GuiltineSin.Skill.CatenaPadHandle", out var padHandle) && padHandle > 0)
 			{
 				if (caster.Map.TryGetPad(padHandle, out var pad))
 					caster.Map.RemovePad(pad);

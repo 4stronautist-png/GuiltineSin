@@ -1,9 +1,9 @@
-﻿using Melia.Shared.Data.Database;
+﻿using GuiltineSin.Shared.Data.Database;
 using System;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Network;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Network;
 
-namespace Melia.Zone.World.Actors.Effects
+namespace GuiltineSin.Zone.World.Actors.Effects
 {
 	public class AttachEffect : Effect
 	{

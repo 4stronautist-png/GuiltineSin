@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Melia.Shared.Scripting
+namespace GuiltineSin.Shared.Scripting
 {
 	// Just a copy of the attribute from Yggdrasil because I don't want to update
 	// the using directives in all of the scripts right now.

@@ -1,10 +1,10 @@
 ﻿using System;
-using Melia.Shared.Network;
+using GuiltineSin.Shared.Network;
 using Newtonsoft.Json.Linq;
 using Yggdrasil.Data.JSON;
 using Yggdrasil.Logging;
 
-namespace Melia.Shared.Data.Database
+namespace GuiltineSin.Shared.Data.Database
 {
 	public class OpData
 	{

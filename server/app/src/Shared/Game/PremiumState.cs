@@ -1,7 +1,7 @@
 ﻿using System;
-using Melia.Shared.Game.Const;
+using GuiltineSin.Shared.Game.Const;
 
-namespace Melia.Shared.Game
+namespace GuiltineSin.Shared.Game
 {
 	/// <summary>
 	/// Represents an account's premium state.

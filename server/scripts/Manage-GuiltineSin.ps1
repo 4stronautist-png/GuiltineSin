@@ -51,7 +51,7 @@ function Invoke-Wsl {
     }
 }
 
-Write-Step "Executando acao '$Action' para o CloverTOS"
+Write-Step "Executando acao '$Action' para o GuiltineSin"
 
 $env:PUBLIC_HOST = $PublicHost
 $env:SERVER_NAME = $ServerName
@@ -72,15 +72,15 @@ switch ($Action) {
 
         $suffix = ($installArgs -join " ")
         Invoke-Wsl "cd '$wslScriptDir' && PUBLIC_HOST='$PublicHost' SERVER_NAME='$ServerName' GROUP_ID='$GroupId' ./install-wsl.sh $suffix"
-        Write-Ok "Ambiente CloverTOS instalado no WSL"
+        Write-Ok "Ambiente GuiltineSin instalado no WSL"
     }
     "up" {
         Invoke-Wsl "cd '$wslScriptDir' && PUBLIC_HOST='$PublicHost' SERVER_NAME='$ServerName' GROUP_ID='$GroupId' ./up.sh"
-        Write-Ok "Ambiente CloverTOS iniciado"
+        Write-Ok "Ambiente GuiltineSin iniciado"
     }
     "down" {
         Invoke-Wsl "cd '$wslScriptDir' && ./down.sh"
-        Write-Ok "Ambiente CloverTOS parado"
+        Write-Ok "Ambiente GuiltineSin parado"
     }
     "logs" {
         Invoke-Wsl "cd '$wslScriptDir' && ./logs.sh"

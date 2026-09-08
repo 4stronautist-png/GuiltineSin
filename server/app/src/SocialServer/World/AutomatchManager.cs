@@ -2,15 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Network.Inter.Messages;
-using Melia.Social;
-using Melia.Social.Network;
-using Melia.Social.World;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Network.Inter.Messages;
+using GuiltineSin.Social;
+using GuiltineSin.Social.Network;
+using GuiltineSin.Social.World;
 using Yggdrasil.Logging;
 using Yggdrasil.Network.Communication;
 
-namespace Melia.Social.World
+namespace GuiltineSin.Social.World
 {
 	/// <summary>
 	/// Manages Auto Matches queues, players can join to search

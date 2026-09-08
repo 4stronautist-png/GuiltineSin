@@ -1,21 +1,21 @@
 using System;
-using Melia.Shared.Game.Const;
-using Melia.Shared.World;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.Skills.SplashAreas;
-using Melia.Zone.World.Actors.Monsters;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.Skills.SplashAreas;
+using GuiltineSin.Zone.World.Actors.Monsters;
 using Yggdrasil.Geometry;
 using Yggdrasil.Geometry.Shapes;
 using Yggdrasil.Util;
 
-namespace Melia.Zone.Skills.Helpers
+namespace GuiltineSin.Zone.Skills.Helpers
 {
 	public static class SkillRangePreviewHelper
 	{
 		/// <summary>
 		/// Draws a debug outline of a skill's damage area. Characters need
-		/// the "Melia.RangePreview" temp flag; non-Companion mobs always show.
+		/// the "GuiltineSin.RangePreview" temp flag; non-Companion mobs always show.
 		/// Pass an explicit duration when the skill's ShootTime covers the
 		/// entire skill rather than a single projectile.
 		/// </summary>
@@ -26,7 +26,7 @@ namespace Melia.Zone.Skills.Helpers
 				if (caster is not Mob || caster is Companion)
 					return;
 			}
-			else if (!character.Variables.Temp.GetBool("Melia.RangePreview"))
+			else if (!character.Variables.Temp.GetBool("GuiltineSin.RangePreview"))
 			{
 				return;
 			}

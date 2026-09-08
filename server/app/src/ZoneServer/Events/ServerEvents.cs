@@ -1,7 +1,7 @@
-﻿using Melia.Zone.Events.Arguments;
+﻿using GuiltineSin.Zone.Events.Arguments;
 using Yggdrasil.Events;
 
-namespace Melia.Zone.Events
+namespace GuiltineSin.Zone.Events
 {
 	/// <summary>
 	/// Manager for events occurring on the server, such as players logging

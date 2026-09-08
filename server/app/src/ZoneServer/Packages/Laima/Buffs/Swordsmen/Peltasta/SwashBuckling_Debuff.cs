@@ -1,9 +1,9 @@
 using System;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
 
-namespace Melia.Zone.Buffs.HandlersOverrides.Swordsman.Peltasta
+namespace GuiltineSin.Zone.Buffs.HandlersOverrides.Swordsman.Peltasta
 {
 	/// <summary>
 	/// Handle for the Swashbuckling Debuff

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Melia.Shared.World
+namespace GuiltineSin.Shared.World
 {
 	public enum CardinalDirection
 	{

@@ -1,9 +1,9 @@
 ﻿using System;
-using Melia.Zone.Events;
-using Melia.Zone.Events.Arguments;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.Events;
+using GuiltineSin.Zone.Events.Arguments;
+using GuiltineSin.Zone.World.Actors.Characters;
 
-namespace Melia.Zone.World.Quests.Objectives
+namespace GuiltineSin.Zone.World.Quests.Objectives
 {
 	/// <summary>
 	/// Objective to collect a certain amount of an item.

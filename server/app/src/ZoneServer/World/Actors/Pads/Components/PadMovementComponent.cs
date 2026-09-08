@@ -1,8 +1,8 @@
-﻿using Melia.Shared.World;
-using Melia.Zone.Network;
-using Melia.Zone.World.Actors.Components;
+﻿using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.World.Actors.Components;
 
-namespace Melia.Zone.World.Actors.Pads.Components
+namespace GuiltineSin.Zone.World.Actors.Pads.Components
 {
 	public class PadMovementComponent : ActorMovementComponent
 	{

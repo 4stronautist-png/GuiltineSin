@@ -1,15 +1,15 @@
 ﻿using System;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Game.Properties;
-using Melia.Zone.Buffs;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Game.Properties;
+using GuiltineSin.Zone.Buffs;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
 using Newtonsoft.Json.Linq;
 using Yggdrasil.Logging;
 
-namespace Melia.Zone.Buffs.Base
+namespace GuiltineSin.Zone.Buffs.Base
 {
 	/// <summary>
 	/// Base class for buff handlers.
@@ -19,7 +19,7 @@ namespace Melia.Zone.Buffs.Base
 		/// <summary>
 		/// Prefix used for storing property modifiers in buff Vars.
 		/// </summary>
-		public const string ModifierVarPrefix = "Melia.Modifier.";
+		public const string ModifierVarPrefix = "GuiltineSin.Modifier.";
 
 		/// <summary>
 		/// Initializes buff handler.

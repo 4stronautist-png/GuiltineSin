@@ -2,21 +2,21 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting;
-using Melia.Zone.Scripting.Dialogues;
-using Melia.Zone.World;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Maps;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Events.Arguments;
-using Melia.Shared.Scripting;
-using Melia.Shared.World;
-using Melia.Zone;
-using Melia.Zone.World.Actors.Effects;
-using Melia.Shared.Data.Database;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Scripting.Dialogues;
+using GuiltineSin.Zone.World;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Maps;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Events.Arguments;
+using GuiltineSin.Shared.Scripting;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone;
+using GuiltineSin.Zone.World.Actors.Effects;
+using GuiltineSin.Shared.Data.Database;
 using Yggdrasil.Logging;
-using static Melia.Zone.Scripting.Shortcuts;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
 /// <summary>
 /// Script that manages a Free-For-All PvP arena where all players fight against each other

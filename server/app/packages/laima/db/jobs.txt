@@ -1,4 +1,4 @@
-// Melia
+// GuiltineSin
 // Database file
 // 
 // Values: jobId, className, initial, jobClass, name, rank, str, con, int, spr, dex, strRatio, conRatio, intRatio, sprRatio, dexRatio, hpRate, spRate, stamina, barrackStance

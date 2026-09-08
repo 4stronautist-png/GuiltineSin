@@ -1,14 +1,14 @@
-//--- Melia Script ----------------------------------------------------------
+//--- GuiltineSin Script ----------------------------------------------------------
 // Srautas Gorge
 //--- Description -----------------------------------------------------------
 // NPCs found in and around Srautas Gorge.
 //---------------------------------------------------------------------------
 
 using System;
-using Melia.Shared.Game.Const;
-using Melia.Shared.World;
-using Melia.Zone.Scripting;
-using static Melia.Zone.Scripting.Shortcuts;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Scripting;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
 public class FGele571NpcScript : GeneralScript
 {

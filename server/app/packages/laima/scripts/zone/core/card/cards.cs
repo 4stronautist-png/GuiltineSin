@@ -1,4 +1,4 @@
-﻿//--- Melia Script ----------------------------------------------------------
+﻿//--- GuiltineSin Script ----------------------------------------------------------
 // Card Functions
 //--- Description -----------------------------------------------------------
 // Scriptable functions that handle card specific behaviors.
@@ -7,19 +7,19 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Zone;
-using Melia.Zone.Buffs;
-using Melia.Zone.Items.Effects;
-using Melia.Zone.Scripting;
-using Melia.Zone.Skills;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Items;
-using Melia.Zone.Network;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone;
+using GuiltineSin.Zone.Buffs;
+using GuiltineSin.Zone.Items.Effects;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Items;
+using GuiltineSin.Zone.Network;
 using Yggdrasil.Logging;
 using Yggdrasil.Util;
 
@@ -75,7 +75,7 @@ public class CardFunctionsScript : GeneralScript
 	[ScriptableFunction]
 	public static void SCR_CARDEFFECT_ADD_EXPROP_STARVALUE_PC(Character character, ICombatEntity target, Item item, float TypeValue, string arg1, string arg2, string arg3)
 	{
-		var varName = $"Melia.CardExProp.{item.ObjectId}.{arg1}";
+		var varName = $"GuiltineSin.CardExProp.{item.ObjectId}.{arg1}";
 
 		if (TypeValue <= 0)
 		{

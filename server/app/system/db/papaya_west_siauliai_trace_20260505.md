@@ -2,7 +2,7 @@
 
 Source trace:
 
-- `C:\CloverTOS-Captures\quest-traces\20260505-145952-papaya-west-siauliai-clean-new-character`
+- `C:\GuiltineSin-Captures\quest-traces\20260505-145952-papaya-west-siauliai-clean-new-character`
 - Played segment: new character through the Laimonas quest pickup.
 
 Observed network game flows:

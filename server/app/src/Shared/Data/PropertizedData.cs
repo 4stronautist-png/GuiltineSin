@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Reflection;
-using Melia.Shared.ObjectProperties;
+using GuiltineSin.Shared.ObjectProperties;
 
-namespace Melia.Shared.Data
+namespace GuiltineSin.Shared.Data
 {
 	/// <summary>
 	/// Base class for data entries that adds support for property creation

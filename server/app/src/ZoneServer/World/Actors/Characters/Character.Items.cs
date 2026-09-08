@@ -2,13 +2,13 @@
 // CharacterItems.cs - Item and inventory management
 // ===================================================================
 using System.Linq;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Network;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Items;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Items;
 using Yggdrasil.Logging;
 
-namespace Melia.Zone.World.Actors.Characters
+namespace GuiltineSin.Zone.World.Actors.Characters
 {
 	public partial class Character
 	{

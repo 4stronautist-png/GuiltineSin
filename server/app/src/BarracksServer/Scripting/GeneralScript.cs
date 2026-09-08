@@ -1,8 +1,8 @@
 ﻿using System;
-using Melia.Shared.Scripting;
+using GuiltineSin.Shared.Scripting;
 using Yggdrasil.Scripting;
 
-namespace Melia.Barracks.Scripting
+namespace GuiltineSin.Barracks.Scripting
 {
 	/// <summary>
 	/// General purpose script class.

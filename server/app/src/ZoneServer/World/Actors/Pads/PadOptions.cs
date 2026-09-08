@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Melia.Zone.World.Actors.Pads
+namespace GuiltineSin.Zone.World.Actors.Pads
 {
 	/// <summary>
 	/// Defines options for creating a pad.

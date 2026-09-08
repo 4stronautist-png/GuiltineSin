@@ -4,9 +4,9 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
-using Melia.Zone.Network;
+using GuiltineSin.Zone.Network;
 
-namespace Melia.Zone.World.Actors.Effects
+namespace GuiltineSin.Zone.World.Actors.Effects
 {
 	internal class SpinObjectEffect : Effect
 	{

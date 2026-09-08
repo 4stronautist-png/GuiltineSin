@@ -1,4 +1,4 @@
-﻿namespace Melia.Zone.World.Gacha
+﻿namespace GuiltineSin.Zone.World.Gacha
 {
 	/// <summary>
 	/// Defines the rarity of a gacha entry, affecting the look of the

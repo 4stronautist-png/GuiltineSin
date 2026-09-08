@@ -3,12 +3,12 @@
 // ===================================================================
 using System;
 using System.Threading.Tasks;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Network;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Actors.Components;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.Components;
 
-namespace Melia.Zone.World.Actors.Characters
+namespace GuiltineSin.Zone.World.Actors.Characters
 {
 	public partial class Character
 	{

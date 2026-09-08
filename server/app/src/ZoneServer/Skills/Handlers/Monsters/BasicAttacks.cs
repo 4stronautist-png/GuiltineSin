@@ -1,12 +1,12 @@
 using System;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.Skills.Handlers.Base;
-using Melia.Zone.Skills.SplashAreas;
-using Melia.Zone.World.Actors;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.Skills.Handlers.Base;
+using GuiltineSin.Zone.Skills.SplashAreas;
+using GuiltineSin.Zone.World.Actors;
 
-namespace Melia.Zone.Skills.Handlers.Monsters
+namespace GuiltineSin.Zone.Skills.Handlers.Monsters
 {
 	[SkillHandler(HandlerPriority.Low, SkillId.Monk_PalmStrike)]
 	public class Monk_PalmStrike : ParametersOnlySkill

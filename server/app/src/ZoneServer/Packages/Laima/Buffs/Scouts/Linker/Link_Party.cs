@@ -1,14 +1,14 @@
 using System;
 using System.Collections.Generic;
-using Melia.Shared.Packages;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Skills;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
 
-namespace Melia.Zone.Buffs.Handlers.Scouts.Linker
+namespace GuiltineSin.Zone.Buffs.Handlers.Scouts.Linker
 {
 	/// <summary>
 	/// Handler for the Link_Party buff (Spiritual Chain).
@@ -102,14 +102,14 @@ namespace Melia.Zone.Buffs.Handlers.Scouts.Linker
 			buff.SetUpdateTime(UpdateIntervalMs);
 
 			if (buff.Target.Map != null)
-				buff.Vars.Set("Melia.Link.MapId", buff.Target.Map.Id);
+				buff.Vars.Set("GuiltineSin.Link.MapId", buff.Target.Map.Id);
 
-			buff.Vars.Set("Melia.Link.ProcessedBuffs", new HashSet<int>());
+			buff.Vars.Set("GuiltineSin.Link.ProcessedBuffs", new HashSet<int>());
 		}
 
 		public override void WhileActive(Buff buff)
 		{
-			var isCaster = buff.Vars.GetBool("Melia.Link.IsCaster");
+			var isCaster = buff.Vars.GetBool("GuiltineSin.Link.IsCaster");
 
 			// Chain breaking logic
 			if (isCaster)
@@ -120,7 +120,7 @@ namespace Melia.Zone.Buffs.Handlers.Scouts.Linker
 					return;
 				}
 
-				var storedMapId = buff.Vars.GetInt("Melia.Link.MapId", 0);
+				var storedMapId = buff.Vars.GetInt("GuiltineSin.Link.MapId", 0);
 				if (buff.Target.Map == null || buff.Target.Map.Id != storedMapId)
 				{
 					this.RemoveAllChains(buff);
@@ -138,7 +138,7 @@ namespace Melia.Zone.Buffs.Handlers.Scouts.Linker
 					return;
 				}
 
-				var storedMapId = buff.Vars.GetInt("Melia.Link.MapId", 0);
+				var storedMapId = buff.Vars.GetInt("GuiltineSin.Link.MapId", 0);
 				if (buff.Target.Map == null || buff.Target.Map.Id != storedMapId)
 				{
 					this.RemoveMemberChain(buff);
@@ -187,10 +187,10 @@ namespace Melia.Zone.Buffs.Handlers.Scouts.Linker
 
 		private void ProcessBuffSharing(Buff buff)
 		{
-			if (!buff.Vars.TryGet<List<int>>("Melia.Link.Members", out var memberHandles))
+			if (!buff.Vars.TryGet<List<int>>("GuiltineSin.Link.Members", out var memberHandles))
 				return;
 
-			var processedBuffs = buff.Vars.Get<HashSet<int>>("Melia.Link.ProcessedBuffs", new HashSet<int>());
+			var processedBuffs = buff.Vars.Get<HashSet<int>>("GuiltineSin.Link.ProcessedBuffs", new HashSet<int>());
 			var skillLevel = buff.NumArg1;
 			var durationMultiplier = 0.10f + 0.02f * skillLevel;
 
@@ -233,7 +233,7 @@ namespace Melia.Zone.Buffs.Handlers.Scouts.Linker
 						continue;
 
 					// Skip if this buff was propagated from another member
-					if (memberBuff.Vars.GetBool("Melia.Link.Propagated"))
+					if (memberBuff.Vars.GetBool("GuiltineSin.Link.Propagated"))
 					{
 						processedBuffs.Add(memberBuff.Handle);
 						continue;
@@ -286,18 +286,18 @@ namespace Melia.Zone.Buffs.Handlers.Scouts.Linker
 						);
 
 						if (newBuff != null)
-							newBuff.Vars.Set("Melia.Link.Propagated", true);
+							newBuff.Vars.Set("GuiltineSin.Link.Propagated", true);
 					}
 				}
 			}
 
-			buff.Vars.Set("Melia.Link.ProcessedBuffs", processedBuffs);
+			buff.Vars.Set("GuiltineSin.Link.ProcessedBuffs", processedBuffs);
 		}
 
 		private void RemoveMemberChain(Buff buff)
 		{
-			if (buff.Vars.TryGet<int>("Melia.Link.Id", out var linkId) &&
-				buff.Vars.TryGet<List<int>>("Melia.Link.Members", out var memberHandles) &&
+			if (buff.Vars.TryGet<int>("GuiltineSin.Link.Id", out var linkId) &&
+				buff.Vars.TryGet<List<int>>("GuiltineSin.Link.Members", out var memberHandles) &&
 				buff.Caster != null)
 			{
 				var memberIndex = memberHandles.IndexOf(buff.Target.Handle);
@@ -310,7 +310,7 @@ namespace Melia.Zone.Buffs.Handlers.Scouts.Linker
 
 		private void RemoveAllChains(Buff buff)
 		{
-			if (!buff.Vars.TryGet<List<int>>("Melia.Link.Members", out var memberHandles))
+			if (!buff.Vars.TryGet<List<int>>("GuiltineSin.Link.Members", out var memberHandles))
 			{
 				buff.Target.StopBuff(BuffId.Link_Party);
 				return;
@@ -325,13 +325,13 @@ namespace Melia.Zone.Buffs.Handlers.Scouts.Linker
 
 		public override void OnEnd(Buff buff)
 		{
-			if (buff.Vars.GetBool("Melia.Link.IsCaster"))
+			if (buff.Vars.GetBool("GuiltineSin.Link.IsCaster"))
 			{
-				buff.Target.RemoveEffect("Melia.Link.Chain");
+				buff.Target.RemoveEffect("GuiltineSin.Link.Chain");
 
-				if (buff.Vars.TryGet<int>("Melia.Link.Id", out var linkId) && linkId != 0)
+				if (buff.Vars.TryGet<int>("GuiltineSin.Link.Id", out var linkId) && linkId != 0)
 				{
-					if (buff.Vars.TryGet<List<int>>("Melia.Link.Members", out var members))
+					if (buff.Vars.TryGet<List<int>>("GuiltineSin.Link.Members", out var members))
 					{
 						for (var i = 1; i < members.Count; i++)
 							buff.Caster?.RemoveEffect($"Link_{linkId}_{i}");

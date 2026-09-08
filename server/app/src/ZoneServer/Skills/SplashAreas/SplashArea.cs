@@ -1,8 +1,8 @@
-﻿using Melia.Shared.Data.Database;
-using Melia.Shared.World;
+﻿using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.World;
 using Yggdrasil.Geometry;
 
-namespace Melia.Zone.Skills.SplashAreas
+namespace GuiltineSin.Zone.Skills.SplashAreas
 {
 	/// <summary>
 	/// Represents the area of effect for a skill.

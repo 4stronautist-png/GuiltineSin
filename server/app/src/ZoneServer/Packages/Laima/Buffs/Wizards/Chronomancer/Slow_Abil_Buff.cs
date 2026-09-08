@@ -1,14 +1,14 @@
 using System;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Scripting.ScriptableEvents;
-using Melia.Zone.Skills;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.World.Actors;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Scripting.ScriptableEvents;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.World.Actors;
 using Yggdrasil.Util;
 
-namespace Melia.Zone.Buffs.HandlersOverrides.Wizards.Chronomancer
+namespace GuiltineSin.Zone.Buffs.HandlersOverrides.Wizards.Chronomancer
 {
 	[Package("laima")]
 	[BuffHandler(BuffId.Slow_Abil_Buff)]

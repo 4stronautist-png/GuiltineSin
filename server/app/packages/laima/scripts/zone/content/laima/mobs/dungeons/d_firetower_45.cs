@@ -1,14 +1,14 @@
-//--- Melia Script -----------------------------------------------------------
+//--- GuiltineSin Script -----------------------------------------------------------
 // Mage Tower 5F Spawns
 //--- Description -----------------------------------------------------------
 // Sets up monster spawners for 'd_firetower_45'.
 //---------------------------------------------------------------------------
 
 using System;
-using Melia.Zone.Scripting;
-using Melia.Shared.Game.Const;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Shared.Game.Const;
 using Yggdrasil.Util;
-using static Melia.Zone.Scripting.Shortcuts;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
 public class DFiretower45MobScript : GeneralScript
 {

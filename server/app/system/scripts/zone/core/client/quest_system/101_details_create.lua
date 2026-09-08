@@ -1,7 +1,7 @@
 local lastQuestObjectId = -1
 
 function M_QUESTS_CLICK_INFO(frame, control, argStr, argNum)
-	local quest = Melia.Quests.Get(argStr)
+	local quest = GuiltineSin.Quests.Get(argStr)
 	if quest == nil then
 		return
 	end
@@ -54,7 +54,7 @@ function M_QUESTS_DETAILS_INFO_REBUILD(quest)
 	M_QUESTS_DETAILS_SET_TITLE(frame, quest)
 	y = y + M_QUESTS_DETAILS_ADD_SUMMARY(gbBody, x, y, quest) + spaceY
 
-	if Melia.Conf.GetBool("display_quest_objectives") then
+	if GuiltineSin.Conf.GetBool("display_quest_objectives") then
 		y = y + M_QUESTS_DETAILS_ADD_OBJECTIVES(gbBody, x, y, quest) + spaceY
 	end
 

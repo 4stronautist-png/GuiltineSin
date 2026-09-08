@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Melia.Shared.Versioning;
+using GuiltineSin.Shared.Versioning;
 using Yggdrasil.Logging;
 
-namespace Melia.Shared.Network
+namespace GuiltineSin.Shared.Network
 {
 	public enum NormalOpType
 	{

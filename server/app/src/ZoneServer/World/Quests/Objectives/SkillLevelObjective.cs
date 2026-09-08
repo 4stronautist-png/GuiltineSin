@@ -1,7 +1,7 @@
-﻿using Melia.Shared.Game.Const;
-using Melia.Zone.Events.Arguments;
+﻿using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Events.Arguments;
 
-namespace Melia.Zone.World.Quests.Objectives
+namespace GuiltineSin.Zone.World.Quests.Objectives
 {
 	/// <summary>
 	/// An objective to reach a certain level on a skill.

@@ -1,21 +1,21 @@
-Melia.Conf = {}
-Melia.Conf.Options = {}
+GuiltineSin.Conf = {}
+GuiltineSin.Conf.Options = {}
 
-Melia.Conf.Init = function(optionTable)
+GuiltineSin.Conf.Init = function(optionTable)
 	for k, v in pairs(optionTable) do
-		Melia.Conf.Options[k] = v
+		GuiltineSin.Conf.Options[k] = v
 	end
 end
 
-Melia.Conf.Get = function(optionName)
-	return Melia.Conf.Options[optionName]
+GuiltineSin.Conf.Get = function(optionName)
+	return GuiltineSin.Conf.Options[optionName]
 end
 
-Melia.Conf.GetInt = function(optionName)
-	return tonumber(Melia.Conf.Options[optionName])
+GuiltineSin.Conf.GetInt = function(optionName)
+	return tonumber(GuiltineSin.Conf.Options[optionName])
 end
 
-Melia.Conf.GetBool = function(optionName)
-	local val = Melia.Conf.Options[optionName]
+GuiltineSin.Conf.GetBool = function(optionName)
+	local val = GuiltineSin.Conf.Options[optionName]
 	return val == "true" or val == "1" or val == "yes"
 end

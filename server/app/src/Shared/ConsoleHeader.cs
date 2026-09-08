@@ -1,8 +1,8 @@
-﻿namespace Melia.Shared
+﻿namespace GuiltineSin.Shared
 {
 	public static class ConsoleHeader
 	{
-		public const string ProjectName = "Melia";
+		public const string ProjectName = "GuiltineSin";
 
 		public static readonly string[] Logo = new string[]
 		{

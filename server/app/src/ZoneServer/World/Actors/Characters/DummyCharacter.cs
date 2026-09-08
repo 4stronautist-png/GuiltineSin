@@ -1,12 +1,12 @@
 using System;
 using System.Threading;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Network;
-using Melia.Zone.Network;
-using Melia.Zone.Network.Helpers;
-using Melia.Zone.Skills.Combat;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Network;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Network.Helpers;
+using GuiltineSin.Zone.Skills.Combat;
 
-namespace Melia.Zone.World.Actors.Characters
+namespace GuiltineSin.Zone.World.Actors.Characters
 {
 	/// <summary>
 	/// Represents a dummy character.

@@ -1,19 +1,19 @@
 using System;
 using System.Collections.Generic;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Buffs.Handlers.Monster;
-using Melia.Zone.Network;
-using Melia.Zone.Skills;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Monsters;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Buffs.Handlers.Monster;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Monsters;
 using Yggdrasil.Util;
-using static Melia.Zone.Skills.SkillUseFunctions;
-using static Melia.Zone.Skills.Helpers.SkillDamageHelper;
+using static GuiltineSin.Zone.Skills.SkillUseFunctions;
+using static GuiltineSin.Zone.Skills.Helpers.SkillDamageHelper;
 
-namespace Melia.Zone.Buffs.Handlers.Laima.Monster
+namespace GuiltineSin.Zone.Buffs.Handlers.Laima.Monster
 {
 	/// <summary>
 	/// Handler for Mythic_Bomb_Buff.
@@ -24,7 +24,7 @@ namespace Melia.Zone.Buffs.Handlers.Laima.Monster
 	[BuffHandler(BuffId.Mythic_Bomb_Buff)]
 	public class Mythic_Bomb_BuffOverride : BuffHandler
 	{
-		private const string DeathSubscribedVar = "Melia.Mythic.BombDeath";
+		private const string DeathSubscribedVar = "GuiltineSin.Mythic.BombDeath";
 		private const int BombIntervalMs = 10000;
 		private const float BombApplyRange = 120f;
 		private const int BombDebuffDurationSec = 15;

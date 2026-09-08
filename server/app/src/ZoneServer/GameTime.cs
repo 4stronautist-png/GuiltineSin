@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading;
 
-namespace Melia.Zone
+namespace GuiltineSin.Zone
 {
 	public class GameTime : IFormattable
 	{

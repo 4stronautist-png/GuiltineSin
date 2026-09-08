@@ -4,16 +4,16 @@ using System.Linq;
 using System.Reflection.Emit;
 using System.Threading;
 using System.Threading.Tasks;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Database;
-using Melia.Shared.L10N;
-using Melia.Shared.Network;
-using Melia.Shared.Network.Inter.Messages;
-using Melia.Zone.Network;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Database;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Shared.Network;
+using GuiltineSin.Shared.Network.Inter.Messages;
+using GuiltineSin.Zone.Network;
 using Yggdrasil.Logging;
 using Yggdrasil.Util.Commands;
 
-namespace Melia.Zone.Util
+namespace GuiltineSin.Zone.Util
 {
 	public class ZoneConsoleCommands : ConsoleCommands
 	{

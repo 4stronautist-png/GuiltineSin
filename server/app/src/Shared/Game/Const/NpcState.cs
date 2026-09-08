@@ -1,4 +1,4 @@
-﻿namespace Melia.Shared.Game.Const
+﻿namespace GuiltineSin.Shared.Game.Const
 {
 	/// <summary>
 	/// Defines a NPC's state.

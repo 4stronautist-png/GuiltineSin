@@ -1,4 +1,4 @@
-﻿namespace Melia.Zone.World.Maps
+﻿namespace GuiltineSin.Zone.World.Maps
 {
 	/// <summary>
 	/// Information about a player's exploration progress on a map.

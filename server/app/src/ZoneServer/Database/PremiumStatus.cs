@@ -1,8 +1,8 @@
 ﻿using System;
-using Melia.Shared.Game;
-using Melia.Shared.Game.Const;
+using GuiltineSin.Shared.Game;
+using GuiltineSin.Shared.Game.Const;
 
-namespace Melia.Zone.Database
+namespace GuiltineSin.Zone.Database
 {
 	public class PremiumStatus
 	{

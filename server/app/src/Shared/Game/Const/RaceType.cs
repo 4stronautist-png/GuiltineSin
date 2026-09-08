@@ -1,4 +1,4 @@
-﻿namespace Melia.Shared.Game.Const
+﻿namespace GuiltineSin.Shared.Game.Const
 {
 	public enum RaceType
 	{
@@ -38,7 +38,7 @@
 		Item = 6, // value guessed
 
 		// The client has some demons as "Velnais" instead of "Velnias".
-		// For Melia we corrected these typos and hence disabled this
+		// For GuiltineSin we corrected these typos and hence disabled this
 		// value.
 		//Velnais,
 

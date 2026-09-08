@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Melia.Shared.World;
-using Melia.Zone.Data.Spawning;
-using Melia.Zone.Scripting.Dialogues;
-using Melia.Zone.World.Maps;
-using Melia.Zone.World.Actors.Monsters;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Data.Spawning;
+using GuiltineSin.Zone.Scripting.Dialogues;
+using GuiltineSin.Zone.World.Maps;
+using GuiltineSin.Zone.World.Actors.Monsters;
 using Newtonsoft.Json;
 using Yggdrasil.Logging;
 using Yggdrasil.Util;
 
-namespace Melia.Zone.Spawning
+namespace GuiltineSin.Zone.Spawning
 {
 	public class NpcSpawnManager
 	{

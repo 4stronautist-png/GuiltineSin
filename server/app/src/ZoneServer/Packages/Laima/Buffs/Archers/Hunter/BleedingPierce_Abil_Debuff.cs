@@ -1,9 +1,9 @@
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Network;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Network;
 
-namespace Melia.Zone.Buffs.Handlers.Archers.Hunter
+namespace GuiltineSin.Zone.Buffs.Handlers.Archers.Hunter
 {
 	/// <summary>
 	/// Handler for the BleedingPierce Ability Debuff (with Hunter25 ability).

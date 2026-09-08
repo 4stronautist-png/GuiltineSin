@@ -1,13 +1,13 @@
 using System;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Events.Arguments;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Items;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Events.Arguments;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Items;
 
-namespace Melia.Zone.Services
+namespace GuiltineSin.Zone.Services
 {
 	/// <summary>
 	/// Service that listens to global server events and awards achievement points.
@@ -102,7 +102,7 @@ namespace Melia.Zone.Services
 			var beneficiary = killer;
 
 			// Handle pets/summons - master gets the credit
-			if (beneficiary.Components.TryGet<Melia.Zone.World.Actors.CombatEntities.Components.AiComponent>(out var aiComponent))
+			if (beneficiary.Components.TryGet<GuiltineSin.Zone.World.Actors.CombatEntities.Components.AiComponent>(out var aiComponent))
 			{
 				if (aiComponent.Script.GetMaster() is Character master)
 					beneficiary = master;

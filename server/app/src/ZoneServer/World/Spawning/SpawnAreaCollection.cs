@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
-using Melia.Shared.World;
-using Melia.Zone.World.Maps;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.World.Maps;
 using Yggdrasil.Geometry;
 using Yggdrasil.Util;
 
-namespace Melia.Zone.World.Spawning
+namespace GuiltineSin.Zone.World.Spawning
 {
 	/// <summary>
 	/// A collection of spawn areas, grouped by a common identifier.

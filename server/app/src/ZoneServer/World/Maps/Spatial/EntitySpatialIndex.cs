@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Threading;
-using Melia.Shared.World;
-using Melia.Zone.Skills.SplashAreas;
-using Melia.Zone.World.Actors;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Skills.SplashAreas;
+using GuiltineSin.Zone.World.Actors;
 using Yggdrasil.Geometry;
 using Yggdrasil.Geometry.Shapes;
 
-namespace Melia.Zone.World.Maps.Spatial
+namespace GuiltineSin.Zone.World.Maps.Spatial
 {
 	/// <summary>
 	/// A spatial index for combat entities using a simple grid.

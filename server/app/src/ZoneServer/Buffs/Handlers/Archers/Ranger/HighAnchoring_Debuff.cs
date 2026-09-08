@@ -1,7 +1,7 @@
-﻿using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
+﻿using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
 
-namespace Melia.Zone.Buffs.Handlers.Archers.Ranger
+namespace GuiltineSin.Zone.Buffs.Handlers.Archers.Ranger
 {
 	/// <summary>
 	/// Handle for the HighAnchoring_Debuff, which reduces Crit Dodge

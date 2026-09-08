@@ -1,15 +1,15 @@
-﻿using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Shared.L10N;
-using Melia.Shared.World;
-using Melia.Zone.Network;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.Skills.Handlers.Base;
-using Melia.Zone.World.Actors;
-using static Melia.Zone.Skills.Helpers.SkillDamageHelper;
-using Melia.Zone.Skills.Handlers;
+﻿using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.Skills.Handlers.Base;
+using GuiltineSin.Zone.World.Actors;
+using static GuiltineSin.Zone.Skills.Helpers.SkillDamageHelper;
+using GuiltineSin.Zone.Skills.Handlers;
 
-namespace Melia.Zone.Skills.HandlersOverrides.Wizards.Psychokino
+namespace GuiltineSin.Zone.Skills.HandlersOverrides.Wizards.Psychokino
 {
 	/// <summary>
 	/// Handler for the Psychokino skill Psychic Pressure.

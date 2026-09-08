@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Melia.Shared.Game.Const
+namespace GuiltineSin.Shared.Game.Const
 {
 	/// <summary>
 	/// A bitmask used to specify the options for resurrecting a character.

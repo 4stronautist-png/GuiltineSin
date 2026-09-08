@@ -2,11 +2,11 @@
 using System.Threading.Tasks;
 using EmbedIO;
 using EmbedIO.Routing;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Network.Inter.Messages;
-using Melia.Web.Const;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Network.Inter.Messages;
+using GuiltineSin.Web.Const;
 
-namespace Melia.Web.Controllers.Api
+namespace GuiltineSin.Web.Controllers.Api
 {
 	/// <summary>
 	/// Controller with API endpoints that provide information about the servers

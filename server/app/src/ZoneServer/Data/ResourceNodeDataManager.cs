@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Melia.Zone.Data.Spawning;
+using GuiltineSin.Zone.Data.Spawning;
 using Newtonsoft.Json;
 using Yggdrasil.Logging;
 
-namespace Melia.Zone.Data
+namespace GuiltineSin.Zone.Data
 {
 	/// <summary>
 	/// Loads and manages definitions for different types of resource nodes.

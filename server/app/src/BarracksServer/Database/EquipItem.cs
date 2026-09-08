@@ -1,8 +1,8 @@
 ﻿using System;
-using Melia.Shared.Game.Const;
-using Melia.Shared.ObjectProperties;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.ObjectProperties;
 
-namespace Melia.Barracks.Database
+namespace GuiltineSin.Barracks.Database
 {
 	/// <summary>
 	/// Represents an equipped item.

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Melia.Zone.Scripting;
-using static Melia.Shared.Util.TaskHelper;
+using GuiltineSin.Zone.Scripting;
+using static GuiltineSin.Shared.Util.TaskHelper;
 
-namespace Melia.Zone.World.Dungeons.Stages
+namespace GuiltineSin.Zone.World.Dungeons.Stages
 {
 	public class WaveSurvivalStage : DungeonStage
 	{

@@ -1,7 +1,7 @@
-﻿using Melia.Shared.Game.Const;
-using Melia.Zone.World.Actors.Characters;
+﻿using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.World.Actors.Characters;
 
-namespace Melia.Zone.World.Quests.Prerequisites
+namespace GuiltineSin.Zone.World.Quests.Prerequisites
 {
 	public class EquipSlotPrerequisite : QuestPrerequisite
 	{

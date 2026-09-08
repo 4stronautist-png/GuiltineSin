@@ -21,3 +21,6 @@ client/release/
 *.bak
 *.pyc
 __pycache__/
+
+# graphify knowledge graph (regenerate locally, do not commit large artifacts)
+graphify-out/

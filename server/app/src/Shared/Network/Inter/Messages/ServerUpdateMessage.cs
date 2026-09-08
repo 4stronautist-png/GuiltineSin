@@ -1,8 +1,8 @@
 ﻿using System;
-using Melia.Shared.Data.Database;
+using GuiltineSin.Shared.Data.Database;
 using Yggdrasil.Network.Communication;
 
-namespace Melia.Shared.Network.Inter.Messages
+namespace GuiltineSin.Shared.Network.Inter.Messages
 {
 	/// <summary>
 	/// Contains updated information about a server.

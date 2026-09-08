@@ -1,5 +1,5 @@
 param(
-    [string]$Destination = "C:\CloverTOS-Local",
+    [string]$Destination = "C:\GuiltineSin",
     [string]$HostName = "127.0.0.1",
     [int]$WebPort = 8080,
     [int]$BarracksPort = 2000,
@@ -7,6 +7,8 @@ param(
     [string]$ServerName = "Clover",
     [string]$SteamTosPath = "",
     [string]$ExpectedRevision = "402595",
+    [switch]$SkipVersionCheck,
+    [switch]$SkipServerListTest,
     [switch]$SkipPrerequisites
 )
 
@@ -34,12 +36,12 @@ function Test-SourceClientVersion {
         throw @"
 Versao do Tree of Savior incompativel.
 
-O servidor CloverTOS deste repositorio foi validado com o client release $ExpectedRevision.
+O servidor GuiltineSin deste repositorio foi validado com o client release $ExpectedRevision.
 O Tree of Savior instalado neste PC esta no release $revision.
 
 Isso causa exatamente os bugs de Barracks/personagem: criar personagem trava, personagem aparece estranho ao relogar, textos/UI ficam fora do esperado, e o botao de entrar pode sumir.
 
-Corrija instalando/selecionando no Steam a mesma revisao do client usada pelo ambiente CloverTOS, ou atualize o servidor CloverTOS para suportar o release $revision antes de instalar o client.
+Corrija instalando/selecionando no Steam a mesma revisao do client usada pelo ambiente GuiltineSin, ou atualize o servidor GuiltineSin para suportar o release $revision antes de instalar o client.
 "@
     }
 
@@ -60,7 +62,7 @@ Corrija instalando/selecionando no Steam a mesma revisao do client usada pelo am
         $actualLength = (Get-Item -LiteralPath $path).Length
         $expectedLength = $expectedFiles[$relativePath]
         if ($actualLength -ne $expectedLength) {
-            throw "Arquivo do client incompativel para release ${ExpectedRevision}: $relativePath tem $actualLength bytes, esperado $expectedLength. Use a mesma instalacao/revisao de client do ambiente CloverTOS."
+            throw "Arquivo do client incompativel para release ${ExpectedRevision}: $relativePath tem $actualLength bytes, esperado $expectedLength. Use a mesma instalacao/revisao de client do ambiente GuiltineSin."
         }
     }
 
@@ -98,7 +100,7 @@ function Invoke-Installer {
         [string[]]$Arguments
     )
 
-    $tempDir = Join-Path $env:TEMP "CloverTOS-Prereqs"
+    $tempDir = Join-Path $env:TEMP "GuiltineSin-Prereqs"
     New-Item -ItemType Directory -Force -Path $tempDir | Out-Null
 
     $installerPath = Join-Path $tempDir $FileName
@@ -272,7 +274,7 @@ start "$ServerName" "%~dp0Client_tos_x64.exe" -SERVICE
 
     Set-Content -LiteralPath (Join-Path $ReleasePath "client.xml") -Value $clientXml -Encoding UTF8
     Set-Content -LiteralPath (Join-Path $ReleasePath "serverlist_recent.xml") -Value $serverList -Encoding UTF8
-    Set-Content -LiteralPath (Join-Path $ReleasePath "Start-CloverTOS-Local.bat") -Value $launcher -Encoding ASCII
+    Set-Content -LiteralPath (Join-Path $ReleasePath "Start-GuiltineSin.bat") -Value $launcher -Encoding ASCII
 }
 
 function Apply-ClientPatches {
@@ -285,11 +287,65 @@ function Apply-ClientPatches {
         throw "Patch de loadscreen nao encontrado em $patchReleasePath."
     }
 
-    Write-Step "Aplicando patch do client: loading screen CloverTOS"
+    Write-Step "Aplicando patch do client: loading screen GuiltineSin"
     Get-ChildItem -LiteralPath $patchReleasePath -Force | Copy-Item -Destination $ReleasePath -Recurse -Force
     Write-Ok "Patch de loading screen aplicado"
 }
 
+function New-GuiltineSinDesktopShortcut {
+    param([string]$ReleasePath)
+
+    $desktop = [Environment]::GetFolderPath('Desktop')
+    if (-not $desktop) {
+        Write-Host "Nao consegui localizar o Desktop do usuario atual; atalho nao criado." -ForegroundColor Yellow
+        return
+    }
+
+    $target = Join-Path $ReleasePath "Start-GuiltineSin.bat"
+    $icon = Join-Path $ReleasePath "assets\guiltinesin.ico"
+    $link = Join-Path $desktop "GuiltineSin.lnk"
+
+    if (-not (Test-Path -LiteralPath $target)) {
+        throw "Launcher nao encontrado para criar atalho: $target"
+    }
+
+    $shell = New-Object -ComObject WScript.Shell
+    $shortcut = $shell.CreateShortcut($link)
+    $shortcut.TargetPath = $target
+    $shortcut.WorkingDirectory = $ReleasePath
+    $shortcut.Description = "GuiltineSin Tree of Savior local client"
+    if (Test-Path -LiteralPath $icon) {
+        $shortcut.IconLocation = "$icon,0"
+    }
+    $shortcut.Save()
+
+    Write-Ok "Atalho criado no Desktop: $link"
+}
+function Link-PatchIpfsToData {
+    param([string]$ClientRoot)
+
+    $dataPath = Join-Path $ClientRoot "data"
+    $patchPath = Join-Path $ClientRoot "patch"
+
+    if (-not (Test-Path -LiteralPath $dataPath) -or -not (Test-Path -LiteralPath $patchPath)) {
+        return
+    }
+
+    $created = 0
+    $existing = 0
+    Get-ChildItem -LiteralPath $patchPath -Filter "*.ipf" -File | ForEach-Object {
+        $dest = Join-Path $dataPath $_.Name
+        if (Test-Path -LiteralPath $dest) {
+            $existing++
+            return
+        }
+
+        New-Item -ItemType HardLink -Path $dest -Target $_.FullName | Out-Null
+        $created++
+    }
+
+    Write-Ok "Patch IPFs disponiveis em data: $created hardlinks criados, $existing existentes"
+}
 function Disable-Reshade {
     param([string]$ReleasePath)
 
@@ -344,7 +400,12 @@ function Test-ClientServerList {
 Write-Step "Localizando Tree of Savior instalado pela Steam"
 $source = Find-TreeOfSaviorPath -ExplicitPath $SteamTosPath
 Write-Ok "Origem: $source"
-Test-SourceClientVersion -SourcePath $source
+if (-not $SkipVersionCheck) {
+    Test-SourceClientVersion -SourcePath $source
+}
+else {
+    Write-Host "Pulando validacao de revisao/tamanho do client por causa de -SkipVersionCheck." -ForegroundColor Yellow
+}
 
 if (-not $SkipPrerequisites) {
     Write-Step "Verificando pre-requisitos do Windows"
@@ -392,10 +453,17 @@ Write-ClientConfig -ReleasePath $releasePath
 Disable-Reshade -ReleasePath $releasePath
 Reset-ClientState -ReleasePath $releasePath
 Write-ClientConfig -ReleasePath $releasePath
+Link-PatchIpfsToData -ClientRoot $Destination
 Apply-ClientPatches -ReleasePath $releasePath
-Test-ClientServerList -ReleasePath $releasePath
+New-GuiltineSinDesktopShortcut -ReleasePath $releasePath
+if (-not $SkipServerListTest) {
+    Test-ClientServerList -ReleasePath $releasePath
+}
+else {
+    Write-Host "Pulando validacao de ServerListURL por causa de -SkipServerListTest." -ForegroundColor Yellow
+}
 Write-Ok "Configuracao aplicada"
 
 Write-Step "Finalizado"
 Write-Host "Abra o jogo por:"
-Write-Host "  $releasePath\Start-CloverTOS-Local.bat" -ForegroundColor Yellow
+Write-Host "  $releasePath\Start-GuiltineSin.bat" -ForegroundColor Yellow

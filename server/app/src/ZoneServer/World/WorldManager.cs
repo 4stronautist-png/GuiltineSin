@@ -7,20 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Melia.Shared.Network;
-using Melia.Shared.Scripting;
-using Melia.Zone.Events;
-using Melia.Zone.Services;
-using Melia.Zone.Spawning;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Items;
-using Melia.Zone.World.Maps;
-using Melia.Zone.World.Spawning;
+using GuiltineSin.Shared.Network;
+using GuiltineSin.Shared.Scripting;
+using GuiltineSin.Zone.Events;
+using GuiltineSin.Zone.Services;
+using GuiltineSin.Zone.Spawning;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Items;
+using GuiltineSin.Zone.World.Maps;
+using GuiltineSin.Zone.World.Spawning;
 using Yggdrasil.Logging;
 using Yggdrasil.Scheduling;
 
-namespace Melia.Zone.World
+namespace GuiltineSin.Zone.World
 {
 	/// <summary>
 	/// Manages the world, including maps and the heartbeat update loop.

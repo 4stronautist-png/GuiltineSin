@@ -1,6 +1,6 @@
 using System;
 
-namespace Melia.Shared.Packages
+namespace GuiltineSin.Shared.Packages
 {
 	/// <summary>
 	/// Marks a handler class as belonging to a specific package.

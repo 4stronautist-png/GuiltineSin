@@ -1,4 +1,4 @@
-﻿namespace Melia.Shared.Database
+﻿namespace GuiltineSin.Shared.Database
 {
 	/// <summary>
 	/// Specifies whether a character is logged in and which type of server

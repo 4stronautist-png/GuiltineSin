@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Versioning;
-using Melia.Zone.Events.Arguments;
-using Melia.Zone.Items.Effects;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Items;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Versioning;
+using GuiltineSin.Zone.Events.Arguments;
+using GuiltineSin.Zone.Items.Effects;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Items;
 using Yggdrasil.Logging;
 
-namespace Melia.Zone.World.Actors.Characters.Components
+namespace GuiltineSin.Zone.World.Actors.Characters.Components
 {
 	/// <summary>
 	/// Represents a character's inventory.
@@ -1112,7 +1112,7 @@ namespace Melia.Zone.World.Actors.Characters.Components
 				return;
 
 			var conditionScript = cardData.ConditionScript;
-			var metadata = new Melia.Zone.Items.Effects.CardMetadata
+			var metadata = new GuiltineSin.Zone.Items.Effects.CardMetadata
 			{
 				ConditionFunction = conditionScript?.Function ?? "",
 				ConditionArg = conditionScript?.StrArg ?? "",
@@ -1405,9 +1405,9 @@ namespace Melia.Zone.World.Actors.Characters.Components
 				}
 
 				if (hair != this.Character.Hair)
-					this.Character.Variables.Perm.SetInt("Melia.DisplayHair", hair);
+					this.Character.Variables.Perm.SetInt("GuiltineSin.DisplayHair", hair);
 				else
-					this.Character.Variables.Perm.Remove("Melia.DisplayHair");
+					this.Character.Variables.Perm.Remove("GuiltineSin.DisplayHair");
 			}
 
 			this.Character.UpdateStance();

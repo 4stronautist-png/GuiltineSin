@@ -1,4 +1,4 @@
-﻿namespace Melia.Shared.Game.Const
+﻿namespace GuiltineSin.Shared.Game.Const
 {
 	public class SessionObjectId
 	{

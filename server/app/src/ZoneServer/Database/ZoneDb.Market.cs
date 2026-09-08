@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using Melia.Shared.Database;
-using Melia.Shared.Game.Const;
+using GuiltineSin.Shared.Database;
+using GuiltineSin.Shared.Game.Const;
 using Yggdrasil.Db.MySql.SimpleCommands;
-using Melia.Shared.Game.Const.Web;
-using Melia.Shared.ObjectProperties;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Items;
+using GuiltineSin.Shared.Game.Const.Web;
+using GuiltineSin.Shared.ObjectProperties;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Items;
 using MySqlConnector;
 using Yggdrasil.Logging;
 
-namespace Melia.Zone.Database
+namespace GuiltineSin.Zone.Database
 {
 	/// <summary>
 	/// Contains methods related to the Market persistence.
@@ -187,7 +187,7 @@ namespace Melia.Zone.Database
 
 		/// <summary>
 		/// Load a full Game Item object from the market (used for retrieving items to inventory).
-		/// This returns Melia.Zone.World.Items.Item, NOT the DTO.
+		/// This returns GuiltineSin.Zone.World.Items.Item, NOT the DTO.
 		/// </summary>
 		/// <param name="character"></param>
 		/// <returns></returns>

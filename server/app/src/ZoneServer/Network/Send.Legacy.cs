@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Network;
-using Melia.Shared.Network.Helpers;
-using Melia.Zone.Network.Helpers;
-using Melia.Zone.Skills;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Monsters;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Network;
+using GuiltineSin.Shared.Network.Helpers;
+using GuiltineSin.Zone.Network.Helpers;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Monsters;
 
-namespace Melia.Zone.Network
+namespace GuiltineSin.Zone.Network
 {
 	public static partial class Send
 	{

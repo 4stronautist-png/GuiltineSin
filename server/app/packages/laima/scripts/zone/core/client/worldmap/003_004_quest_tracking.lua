@@ -165,11 +165,11 @@ local function M_DRAW_QUEST_TRACKING_POINT(parent, prefix, quest, idx, point, ma
 end
 
 local function M_DRAW_QUEST_TRACKING(parent, prefix, mapName, mapProp, mapWidth, mapHeight, offsetX, offsetY)
-	if Melia == nil or Melia.Quests == nil or Melia.Quests.GetAll == nil then
+	if GuiltineSin == nil or GuiltineSin.Quests == nil or GuiltineSin.Quests.GetAll == nil then
 		return
 	end
 
-	local quests = Melia.Quests.GetAll()
+	local quests = GuiltineSin.Quests.GetAll()
 	if quests == nil then
 		return
 	end
@@ -188,7 +188,7 @@ local function M_DRAW_QUEST_TRACKING(parent, prefix, mapName, mapProp, mapWidth,
 	end
 end
 
-Melia.Hook("UPDATE_MINIMAP", function(original, result, frame)
+GuiltineSin.Hook("UPDATE_MINIMAP", function(original, result, frame)
 	local mapName = session.GetMapName()
 	local mapProp = geMapTable.GetMapProp(mapName)
 	local npcList = frame:GetChild("npclist")
@@ -201,7 +201,7 @@ Melia.Hook("UPDATE_MINIMAP", function(original, result, frame)
 	return result
 end)
 
-Melia.Hook("MAKE_MAP_NPC_ICONS", function(original, result, frame, mapName, mapWidth, mapHeight, offsetX, offsetY)
+GuiltineSin.Hook("MAKE_MAP_NPC_ICONS", function(original, result, frame, mapName, mapWidth, mapHeight, offsetX, offsetY)
 	local mapProp = geMapTable.GetMapProp(mapName)
 	M_DRAW_QUEST_TRACKING(frame, "_M_QUEST_MAP", mapName, mapProp, mapWidth, mapHeight, offsetX, offsetY)
 	return result

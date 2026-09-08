@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Melia.Shared.Game.Const;
-using Melia.Shared.L10N;
-using Melia.Shared.World;
-using Melia.Zone.Network;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.Skills.Handlers.Base;
-using Melia.Zone.World.Actors;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.Skills.Handlers.Base;
+using GuiltineSin.Zone.World.Actors;
 using Yggdrasil.Extensions;
-using static Melia.Zone.Skills.Helpers.SkillDamageHelper;
-using static Melia.Zone.Skills.Helpers.SkillResultHelper;
-using Melia.Zone.Skills.Helpers;
+using static GuiltineSin.Zone.Skills.Helpers.SkillDamageHelper;
+using static GuiltineSin.Zone.Skills.Helpers.SkillResultHelper;
+using GuiltineSin.Zone.Skills.Helpers;
 
-namespace Melia.Zone.Skills.Handlers.Monsters
+namespace GuiltineSin.Zone.Skills.Handlers.Monsters
 {
 	[SkillHandler(SkillId.Mon_boss_Achat_Skill_2)]
 	public class MonBossAchatSkill2 : ITargetSkillHandler

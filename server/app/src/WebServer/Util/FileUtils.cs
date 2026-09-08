@@ -4,9 +4,9 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 using System.Xml;
-using static Melia.Web.Controllers.LaunchController;
+using static GuiltineSin.Web.Controllers.LaunchController;
 
-namespace Melia.Web.Util
+namespace GuiltineSin.Web.Util
 {
 	/// <summary>
 	/// Utility class for file operations.

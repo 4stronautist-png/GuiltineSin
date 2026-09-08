@@ -1,9 +1,9 @@
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.World.Actors;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.World.Actors;
 
-namespace Melia.Zone.Buffs.HandlersOverrides.Scouts.Rogue
+namespace GuiltineSin.Zone.Buffs.HandlersOverrides.Scouts.Rogue
 {
 	/// <summary>
 	/// Handler for the Evasion buff. Increases evasion rate.

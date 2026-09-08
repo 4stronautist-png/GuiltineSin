@@ -1,10 +1,10 @@
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
 
-namespace Melia.Zone.Buffs.Handlers.Scouts.Corsair
+namespace GuiltineSin.Zone.Buffs.Handlers.Scouts.Corsair
 {
 	/// <summary>
 	/// Handler for the Jolly Roger Buff.
@@ -22,8 +22,8 @@ namespace Melia.Zone.Buffs.Handlers.Scouts.Corsair
 			if (buff.Target != buff.Caster)
 				return;
 
-			caster.Variables.Temp.Remove("Melia.Buff.JollyRoger");
-			caster.Variables.Temp.Remove("Melia.Buff.JollyRoger.FeverStartTime");
+			caster.Variables.Temp.Remove("GuiltineSin.Buff.JollyRoger");
+			caster.Variables.Temp.Remove("GuiltineSin.Buff.JollyRoger.FeverStartTime");
 		}
 	}
 }

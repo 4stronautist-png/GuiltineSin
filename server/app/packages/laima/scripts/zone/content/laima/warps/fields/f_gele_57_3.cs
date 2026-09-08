@@ -1,11 +1,11 @@
-//--- Melia Script ----------------------------------------------------------
+//--- GuiltineSin Script ----------------------------------------------------------
 // Warps
 //--- Description -----------------------------------------------------------
 // Sets up warps in Nefritas Cliff
 //---------------------------------------------------------------------------
 
-using Melia.Zone.Scripting;
-using static Melia.Zone.Scripting.Shortcuts;
+using GuiltineSin.Zone.Scripting;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
 public class f_gele_57_3WarpsScript : GeneralScript
 {
@@ -16,6 +16,9 @@ public class f_gele_57_3WarpsScript : GeneralScript
 
 		// Nefritas Cliff to Vieta Gorge
 		AddWarp(3, "GELE573_TO_HUEVILLAGE_58_2", 315, From("f_gele_57_3", -1400, -809), To("f_huevillage_58_2", 1457, 1086));
+
+		// Nefritas Cliff to the Hidden Sanctum route
+		AddWarp(4, "GELE573_TO_HUE581", 315, From("f_gele_57_3", -1307, -684), To("f_huevillage_58_1", 1562, -1188));
 
 		// Nefritas Cliff to Tenet Garden
 		AddWarp(2, "GELE573_TO_GELE574", 180, From("f_gele_57_3", 199.4143, 1157.455), To("f_gele_57_4", -833, -48));

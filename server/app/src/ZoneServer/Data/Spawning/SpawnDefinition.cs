@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using Melia.Shared.World;
+using GuiltineSin.Shared.World;
 using Newtonsoft.Json;
 
-namespace Melia.Zone.Data.Spawning
+namespace GuiltineSin.Zone.Data.Spawning
 {
 	// Represents the top-level structure (a list of map definitions)
 	// The JSON file itself will be deserialized into List<MapSpawnDefinition>

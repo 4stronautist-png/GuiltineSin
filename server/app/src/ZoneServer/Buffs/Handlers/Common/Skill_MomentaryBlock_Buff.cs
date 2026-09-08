@@ -1,12 +1,12 @@
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Scripting.ScriptableEvents;
-using Melia.Zone.Skills;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.World.Actors;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Scripting.ScriptableEvents;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.World.Actors;
 
-namespace Melia.Zone.Buffs.Handlers.Common
+namespace GuiltineSin.Zone.Buffs.Handlers.Common
 {
 	/// <summary>
 	/// Handler for the Momentary Block Buff
@@ -18,7 +18,7 @@ namespace Melia.Zone.Buffs.Handlers.Common
 	[BuffHandler(BuffId.Skill_MomentaryBlock_Buff)]
 	public class Skill_MomentaryBlock_Buff : BuffHandler
 	{
-		private const string VarName = "Melia.BlockedAttack";
+		private const string VarName = "GuiltineSin.BlockedAttack";
 		private const float BlkBonus = 300f;
 		private const float BlkBonusPerLevel = 40f;
 
@@ -48,7 +48,7 @@ namespace Melia.Zone.Buffs.Handlers.Common
 			if (!entity.TryGetBuff(BuffId.Skill_MomentaryBlock_Buff, out var buff))
 				return false;
 
-			if (!buff.Vars.TryGetBool("Melia.BlockedAttack", out var value))
+			if (!buff.Vars.TryGetBool("GuiltineSin.BlockedAttack", out var value))
 				return false;
 
 			return value;

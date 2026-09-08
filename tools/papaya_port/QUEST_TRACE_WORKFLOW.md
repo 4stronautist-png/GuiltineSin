@@ -8,13 +8,13 @@ Use this when Clover quest behavior must be copied from the Papaya test client/s
 2. Start capture:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File "\\wsl.localhost\Ubuntu-20.04\home\z3ck\Melia-TOS-Server\CloverTOS\tools\papaya_port\Start-QuestTrace.ps1" -Name "papaya-west-siauliai-new-character" -Note "New character through West Siauliai handoff"
+powershell -ExecutionPolicy Bypass -File "\\wsl.localhost\Ubuntu-20.04\home\z3ck\GuiltineSin-TOS-Server\GuiltineSin\tools\papaya_port\Start-QuestTrace.ps1" -Name "papaya-west-siauliai-new-character" -Note "New character through West Siauliai handoff"
 ```
 
 3. Launch the Papaya test client and play the target quest segment.
 4. Stop capture with the exact command printed by the start script.
 
-The output goes to `C:\CloverTOS-Captures\quest-traces\<timestamp>-<name>` and includes:
+The output goes to `C:\GuiltineSin-Captures\quest-traces\<timestamp>-<name>` and includes:
 
 - `*.etl` and `capture.pcapng`
 - packet text from PktMon

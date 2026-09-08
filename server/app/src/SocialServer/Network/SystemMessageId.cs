@@ -1,4 +1,4 @@
-﻿namespace Melia.Social.Network
+﻿namespace GuiltineSin.Social.Network
 {
 	public static class SystemMessageId
 	{

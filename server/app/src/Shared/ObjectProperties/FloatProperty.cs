@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Melia.Shared.ObjectProperties
+namespace GuiltineSin.Shared.ObjectProperties
 {
 	public class FloatProperty : Properties.FloatVariable, IProperty
 	{

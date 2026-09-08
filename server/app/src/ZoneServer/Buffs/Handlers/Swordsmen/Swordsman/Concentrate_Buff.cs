@@ -1,11 +1,11 @@
-﻿using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Scripting.ScriptableEvents;
-using Melia.Zone.Skills;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.World.Actors;
+﻿using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Scripting.ScriptableEvents;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.World.Actors;
 
-namespace Melia.Zone.Buffs.Handlers.Swordsmen.Swordsman
+namespace GuiltineSin.Zone.Buffs.Handlers.Swordsmen.Swordsman
 {
 	/// <summary>
 	/// Handle for the Concentrate Buff, which increases the damage of a
@@ -18,7 +18,7 @@ namespace Melia.Zone.Buffs.Handlers.Swordsmen.Swordsman
 	[BuffHandler(BuffId.Concentrate_Buff)]
 	public class Concentrate_Buff : BuffHandler
 	{
-		private const string HitsVarName = "Melia.HitsLeft";
+		private const string HitsVarName = "GuiltineSin.HitsLeft";
 
 		/// <summary>
 		/// Called every time the buff is activated, including overbuff.

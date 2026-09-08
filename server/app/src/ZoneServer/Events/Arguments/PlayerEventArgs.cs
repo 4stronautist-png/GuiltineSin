@@ -1,10 +1,10 @@
 ﻿using System;
-using Melia.Zone.Skills;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Items;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Items;
 
-namespace Melia.Zone.Events.Arguments
+namespace GuiltineSin.Zone.Events.Arguments
 {
 	/// <summary>
 	/// Arguments for events related to a player character.

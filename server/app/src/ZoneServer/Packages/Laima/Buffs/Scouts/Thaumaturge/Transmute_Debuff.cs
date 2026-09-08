@@ -1,12 +1,12 @@
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Network;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Effects;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Effects;
 using Yggdrasil.Util;
 
-namespace Melia.Zone.Buffs.Handlers.Scouts.Thaumaturge
+namespace GuiltineSin.Zone.Buffs.Handlers.Scouts.Thaumaturge
 {
 	[Package("laima")]
 	[BuffHandler(BuffId.Transmute_Debuff)]

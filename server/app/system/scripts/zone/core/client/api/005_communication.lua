@@ -1,12 +1,12 @@
-Melia.Comm = {}
+GuiltineSin.Comm = {}
 
 local cache = {}
 
-Melia.Comm.BeginRecv = function(key)
+GuiltineSin.Comm.BeginRecv = function(key)
 	cache[key] = { ['key'] = key, ['data'] = {} }
 end
 
-Melia.Comm.Recv = function(key, dataset)
+GuiltineSin.Comm.Recv = function(key, dataset)
 	local obj = cache[key]
 	
 	if obj then
@@ -20,7 +20,7 @@ Melia.Comm.Recv = function(key, dataset)
 	end
 end
 
-Melia.Comm.Exec = function(key, callback)
+GuiltineSin.Comm.Exec = function(key, callback)
 	local obj = cache[key]
 	
 	if obj then
@@ -28,7 +28,7 @@ Melia.Comm.Exec = function(key, callback)
 	end
 end
 
-Melia.Comm.ExecData = function(key, callback)
+GuiltineSin.Comm.ExecData = function(key, callback)
 	local obj = cache[key]
 	
 	if obj then
@@ -36,6 +36,6 @@ Melia.Comm.ExecData = function(key, callback)
 	end
 end
 
-Melia.Comm.EndRecv = function(key)
+GuiltineSin.Comm.EndRecv = function(key)
 	cache[key] = nil
 end

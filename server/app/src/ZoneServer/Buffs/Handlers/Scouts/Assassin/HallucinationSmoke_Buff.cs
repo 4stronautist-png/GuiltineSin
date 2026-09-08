@@ -1,7 +1,7 @@
-﻿using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
+﻿using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
 
-namespace Melia.Zone.Buffs.Handlers.Scouts.Assassin
+namespace GuiltineSin.Zone.Buffs.Handlers.Scouts.Assassin
 {
 	/// <summary>
 	/// Handler for Hallucination Smoke Buff, which raises crit rate

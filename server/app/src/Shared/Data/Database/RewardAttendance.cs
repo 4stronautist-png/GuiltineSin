@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Melia.Shared.Game.Const.Web;
+using GuiltineSin.Shared.Game.Const.Web;
 using Newtonsoft.Json.Linq;
 using Yggdrasil.Data.JSON;
 
-namespace Melia.Shared.Data.Database
+namespace GuiltineSin.Shared.Data.Database
 {
 	[Serializable]
 	public class RewardAttendanceData

@@ -1,7 +1,7 @@
-﻿using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
+﻿using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
 
-namespace Melia.Zone.Buffs.Handlers.Scouts.OutLaw
+namespace GuiltineSin.Zone.Buffs.Handlers.Scouts.OutLaw
 {
 	/// <summary>
 	/// Handler for Sprinkle Sands Debuff, which reduces Accuracy and Evasion.

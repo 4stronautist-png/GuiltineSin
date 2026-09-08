@@ -1,10 +1,10 @@
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Network;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.World.Actors.Characters;
 
-namespace Melia.Zone.Buffs.HandlersOverrides.Clerics.Dievdirbys
+namespace GuiltineSin.Zone.Buffs.HandlersOverrides.Clerics.Dievdirbys
 {
 	/// <summary>
 	/// Handler override for Scud buff - Movement speed boost from Vakarine statue

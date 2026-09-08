@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Game.Const.Web;
-using Melia.Shared.Network;
-using Melia.Shared.Util;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Game.Const.Web;
+using GuiltineSin.Shared.Network;
+using GuiltineSin.Shared.Util;
+using GuiltineSin.Zone.World.Actors.Characters;
 
-namespace Melia.Zone.Network
+namespace GuiltineSin.Zone.Network
 {
 	public partial class Send
 	{

@@ -2,22 +2,22 @@ using System;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Database;
-using Melia.Shared.Network;
-using Melia.Zone.Database;
-using Melia.Zone.Scripting.Dialogues;
-using Melia.Zone.Services;
-using Melia.Zone.World;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Characters.Components;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-// using Melia.Zone.World.Houses; // Removed: Houses namespace deleted
-using Melia.Zone.World.Trades;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Database;
+using GuiltineSin.Shared.Network;
+using GuiltineSin.Zone.Database;
+using GuiltineSin.Zone.Scripting.Dialogues;
+using GuiltineSin.Zone.Services;
+using GuiltineSin.Zone.World;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Characters.Components;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+// using GuiltineSin.Zone.World.Houses; // Removed: Houses namespace deleted
+using GuiltineSin.Zone.World.Trades;
 using Yggdrasil.Logging;
 using Yggdrasil.Network.TCP;
 
-namespace Melia.Zone.Network
+namespace GuiltineSin.Zone.Network
 {
 	/// <summary>
 	/// A connection from the client to the zone server.

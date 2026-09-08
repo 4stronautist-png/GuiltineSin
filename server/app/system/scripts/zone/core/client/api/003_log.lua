@@ -1,22 +1,22 @@
-Melia.Log = {}
+GuiltineSin.Log = {}
 
-Melia.Log.Info = function(format, ...)
-	Melia.Log.Write("INFO_NORMAL", format, ...)
+GuiltineSin.Log.Info = function(format, ...)
+	GuiltineSin.Log.Write("INFO_NORMAL", format, ...)
 end
 
-Melia.Log.Error = function(format, ...)
-	Melia.Log.Write("ERROR_LOGIC", format, ...)
+GuiltineSin.Log.Error = function(format, ...)
+	GuiltineSin.Log.Write("ERROR_LOGIC", format, ...)
 end
 
-Melia.Log.Warning = function(format, ...)
-	Melia.Log.Write("WARNING_DEBUG", format, ...)
+GuiltineSin.Log.Warning = function(format, ...)
+	GuiltineSin.Log.Write("WARNING_DEBUG", format, ...)
 end
 
-Melia.Log.Write = function(errorCode, format, ...)
+GuiltineSin.Log.Write = function(errorCode, format, ...)
 	local argCount = select("#", ...)
 	
 	if argCount == 0 then
-		IMC_LOG(errorCode, Melia.Util.Serialize(format))
+		IMC_LOG(errorCode, GuiltineSin.Util.Serialize(format))
 		return
 	end
 
@@ -24,7 +24,7 @@ Melia.Log.Write = function(errorCode, format, ...)
 
 	for i = 1, argCount do
 		local indexStr = "{" .. (i - 1) .. "}"
-		local replacement = Melia.Util.Serialize(select(i, ...))
+		local replacement = GuiltineSin.Util.Serialize(select(i, ...))
 
 		text = string.gsub(text, indexStr, replacement)
 	end

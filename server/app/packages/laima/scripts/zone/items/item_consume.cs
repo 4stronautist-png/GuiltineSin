@@ -1,9 +1,9 @@
 ﻿using System;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Items;
-using static Melia.Zone.Scripting.Shortcuts;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Items;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
 public class StatBoostItemScripts : GeneralScript
 {
@@ -13,9 +13,9 @@ public class StatBoostItemScripts : GeneralScript
 	private const int MaxStatPotionPoints = 100; // +1 stat point per use = 100 max
 
 	// Variable names for tracking usage
-	private const string HpPotionUsesVar = "Melia.HpPotionUses";
-	private const string SpPotionUsesVar = "Melia.SpPotionUses";
-	private const string StatPotionPointsVar = "Melia.StatPotionPoints";
+	private const string HpPotionUsesVar = "GuiltineSin.HpPotionUses";
+	private const string SpPotionUsesVar = "GuiltineSin.SpPotionUses";
+	private const string StatPotionPointsVar = "GuiltineSin.StatPotionPoints";
 
 	private ItemUseResult IncreaseStatBonus(Character character, string propertyName, float amount, string effect = null)
 	{

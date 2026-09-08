@@ -49,4 +49,4 @@ SELECT
   NULL,
   'English',
   NULL
-FROM `melia`.`accounts`;
+FROM `guiltinesin`.`accounts`;

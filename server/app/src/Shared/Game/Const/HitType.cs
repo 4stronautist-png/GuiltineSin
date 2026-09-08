@@ -1,4 +1,4 @@
-namespace Melia.Shared.Game.Const
+namespace GuiltineSin.Shared.Game.Const
 {
 	/// <summary>
 	/// A skill's hit type, which determines certain skill hit values.

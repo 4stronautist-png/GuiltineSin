@@ -1,4 +1,4 @@
-Melia.Hook("WORLDMAP2_SUBMAP_DRAW_ZONE", function(original, result, frame, cls)
+GuiltineSin.Hook("WORLDMAP2_SUBMAP_DRAW_ZONE", function(original, result, frame, cls)
 
 	local mapName = cls.MapName
 
@@ -20,7 +20,7 @@ Melia.Hook("WORLDMAP2_SUBMAP_DRAW_ZONE", function(original, result, frame, cls)
 
 end)
 
-Melia.Hook("WORLDMAP2_MINIMAP_INFO_SETTING", function(original, result, frame)
+GuiltineSin.Hook("WORLDMAP2_MINIMAP_INFO_SETTING", function(original, result, frame)
 
 	local hideChildren = {
 		"minimap_level_text",
@@ -52,7 +52,7 @@ Melia.Hook("WORLDMAP2_MINIMAP_INFO_SETTING", function(original, result, frame)
 
 end)
 
-Melia.Hook("MAP_OPEN", function(original, result, frame)
+GuiltineSin.Hook("MAP_OPEN", function(original, result, frame)
 
     local imgMap = GET_CHILD_RECURSIVELY(frame, "map")
     imgMap:GetChild("mapRank"):ShowWindow(0)

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Drawing;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Versioning;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Versioning;
 
-namespace Melia.Shared.Network.Helpers
+namespace GuiltineSin.Shared.Network.Helpers
 {
 	/// <summary>
 	/// Contains extension methods to write data about a characters'

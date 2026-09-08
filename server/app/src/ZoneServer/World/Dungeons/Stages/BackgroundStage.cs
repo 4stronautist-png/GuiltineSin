@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Melia.Zone.Scripting;
+using GuiltineSin.Zone.Scripting;
 using Yggdrasil.Logging;
 
-namespace Melia.Zone.World.Dungeons.Stages
+namespace GuiltineSin.Zone.World.Dungeons.Stages
 {
 	/// <summary>
 	/// Base class for background stages that run in parallel with the main stage progression.

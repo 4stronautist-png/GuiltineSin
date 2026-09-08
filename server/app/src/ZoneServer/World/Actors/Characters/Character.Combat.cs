@@ -3,21 +3,21 @@
 // ===================================================================
 using System;
 using System.Collections.Generic;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Handlers;
-using Melia.Zone.Buffs.Handlers.Common;
-using Melia.Zone.Buffs.Handlers.Scout.Assassin;
-using Melia.Zone.Events.Arguments;
-using Melia.Zone.Items.Effects;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting.AI;
-using Melia.Zone.World.Actors.Characters.Components;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Actors.Components;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Items;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Handlers;
+using GuiltineSin.Zone.Buffs.Handlers.Common;
+using GuiltineSin.Zone.Buffs.Handlers.Scout.Assassin;
+using GuiltineSin.Zone.Events.Arguments;
+using GuiltineSin.Zone.Items.Effects;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting.AI;
+using GuiltineSin.Zone.World.Actors.Characters.Components;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.Components;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Items;
 
-namespace Melia.Zone.World.Actors.Characters
+namespace GuiltineSin.Zone.World.Actors.Characters
 {
 	public partial class Character
 	{
@@ -119,7 +119,7 @@ namespace Melia.Zone.World.Actors.Characters
 			if (this.IsDead)
 				return true;
 
-			if (this.Variables.Temp.GetBool("Melia.Commands.GodMode", false))
+			if (this.Variables.Temp.GetBool("GuiltineSin.Commands.GodMode", false))
 				return false;
 
 			if (this.IsLocked(LockType.GetDamaged))

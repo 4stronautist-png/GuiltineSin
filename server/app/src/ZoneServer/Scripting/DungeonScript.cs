@@ -4,23 +4,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Shared.World;
-using Melia.Zone.Events.Arguments;
-using Melia.Zone.Network;
-using Melia.Zone.World;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Actors.Effects;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Dungeons;
-using Melia.Zone.World.Dungeons.Stages;
-using Melia.Zone.World.Quests.Objectives;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Events.Arguments;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.World;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.Effects;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Dungeons;
+using GuiltineSin.Zone.World.Dungeons.Stages;
+using GuiltineSin.Zone.World.Quests.Objectives;
 using Yggdrasil.Logging;
-using static Melia.Shared.Util.TaskHelper;
+using static GuiltineSin.Shared.Util.TaskHelper;
 
-namespace Melia.Zone.Scripting
+namespace GuiltineSin.Zone.Scripting
 {
 	/// <summary>
 	/// Script for managing instanced dungeons with stages.
@@ -31,13 +31,13 @@ namespace Melia.Zone.Scripting
 		#region Constants
 
 		/// <summary>Variable name for storing the active instance dungeon script ID.</summary>
-		public const string ActiveInstanceVarName = "Melia.Dungeon.ActiveInstanceDungeonId";
+		public const string ActiveInstanceVarName = "GuiltineSin.Dungeon.ActiveInstanceDungeonId";
 
 		/// <summary>Instance variable name for storing dungeon completion time.</summary>
-		private const string CompletionTimeVarName = "Melia.Dungeon.CompletionTime";
+		private const string CompletionTimeVarName = "GuiltineSin.Dungeon.CompletionTime";
 
 		/// <summary>Instance variable name for storing when the instance became empty.</summary>
-		private const string EmptyStartTimeVarName = "Melia.Dungeon.EmptyStartTime";
+		private const string EmptyStartTimeVarName = "GuiltineSin.Dungeon.EmptyStartTime";
 
 		/// <summary>Interval in milliseconds for checking instance timeout.</summary>
 		private const int InstanceTimeoutCheckIntervalMs = 5000;

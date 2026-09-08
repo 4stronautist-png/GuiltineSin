@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections;
-using Melia.Shared.World;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Actors.Components;
-using Melia.Zone.World.Actors.Monsters;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.Components;
+using GuiltineSin.Zone.World.Actors.Monsters;
 using Yggdrasil.Logging;
 using Yggdrasil.Util; // For RandomProvider
 
-namespace Melia.Zone.Scripting.AI
+namespace GuiltineSin.Zone.Scripting.AI
 {
 	public abstract partial class AiScript
 	{

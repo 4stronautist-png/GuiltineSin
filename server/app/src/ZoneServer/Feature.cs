@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Melia.Zone
+namespace GuiltineSin.Zone
 {
 	/// <summary>
 	/// Easy access method for feature options checks and modification.

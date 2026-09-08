@@ -2,18 +2,18 @@
 using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Shared.L10N;
-using Melia.Shared.World;
-using Melia.Zone.Network;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.Skills.Handlers.Base;
-using Melia.Zone.Skills.SplashAreas;
-using Melia.Zone.World.Actors;
-using static Melia.Zone.Skills.SkillUseFunctions;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.Skills.Handlers.Base;
+using GuiltineSin.Zone.Skills.SplashAreas;
+using GuiltineSin.Zone.World.Actors;
+using static GuiltineSin.Zone.Skills.SkillUseFunctions;
 
-namespace Melia.Zone.Skills.Handlers.Swordsmen.Swordsman
+namespace GuiltineSin.Zone.Skills.Handlers.Swordsmen.Swordsman
 {
 	/// <summary>
 	/// Handler for the Swordsman skill Thrust.
@@ -63,7 +63,7 @@ namespace Melia.Zone.Skills.Handlers.Swordsmen.Swordsman
 			// appears to be be the hit delay, but while the hit delay
 			// for Thrust is 200, the packets look more like a 50~100ms
 			// delay. However, the hit comes too early with either value
-			// on Melia. One value that appears to work well is 300ms,
+			// on GuiltineSin. One value that appears to work well is 300ms,
 			// so we'll use that for now.
 			// 
 			// Update: I don't know what changed, but testing this again

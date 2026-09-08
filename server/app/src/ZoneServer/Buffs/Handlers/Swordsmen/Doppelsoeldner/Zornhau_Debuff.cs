@@ -1,10 +1,10 @@
-﻿using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Network;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.World.Actors;
+﻿using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.World.Actors;
 
-namespace Melia.Zone.Buffs.Handlers.Swordsmen.Doppelsoeldner
+namespace GuiltineSin.Zone.Buffs.Handlers.Swordsmen.Doppelsoeldner
 {
 	/// <summary>
 	/// Buff handler for Zornhau: Lasting Shock, which reduces Block and Evasion,

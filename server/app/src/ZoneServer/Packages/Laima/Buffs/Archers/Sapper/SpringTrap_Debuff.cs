@@ -1,12 +1,12 @@
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Skills;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Components;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Components;
 
-namespace Melia.Zone.Buffs.HandlersOverrides.Archers.Sapper
+namespace GuiltineSin.Zone.Buffs.HandlersOverrides.Archers.Sapper
 {
 	/// <summary>
 	/// Handler for the SpringTrap_Debuff, which immobilizes the target

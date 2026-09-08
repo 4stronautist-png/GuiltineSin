@@ -44,7 +44,7 @@ function M_SET_CUSTOM_PROPERTY_SHOP(items, shopName, pointScript)
 end
 
 -- Intercept gePropertyShop.Get to serve registered shops.
-Melia.OverrideIn(gePropertyShop, "Get", function(original, shopName)
+GuiltineSin.OverrideIn(gePropertyShop, "Get", function(original, shopName)
 	local custom = M_CUSTOM_PROPERTY_SHOPS[shopName]
 	if custom ~= nil then return custom end
 	return original(shopName)

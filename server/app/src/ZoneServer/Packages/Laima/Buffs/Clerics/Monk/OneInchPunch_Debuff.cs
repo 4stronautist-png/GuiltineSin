@@ -1,9 +1,9 @@
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.World.Actors.Characters;
 
-namespace Melia.Zone.Buffs.Handlers.Clerics.Monk
+namespace GuiltineSin.Zone.Buffs.Handlers.Clerics.Monk
 {
 	/// <summary>
 	/// Handle for the OneInchPunch_Debuff, which prevents natural SP regeneration.

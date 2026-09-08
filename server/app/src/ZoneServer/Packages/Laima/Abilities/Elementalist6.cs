@@ -1,9 +1,9 @@
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Skills;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.World.Actors.Characters;
 
-namespace Melia.Zone.Abilities.Handlers
+namespace GuiltineSin.Zone.Abilities.Handlers
 {
 	/// <summary>
 	/// Elementalist: Resistance ability.

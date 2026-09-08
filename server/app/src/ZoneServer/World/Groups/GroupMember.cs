@@ -1,9 +1,9 @@
-﻿using Melia.Shared.Game.Const;
-using Melia.Shared.ObjectProperties;
-using Melia.Shared.World;
-using Melia.Zone.World.Actors.Characters;
+﻿using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.ObjectProperties;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.World.Actors.Characters;
 
-namespace Melia.Zone.World.Groups
+namespace GuiltineSin.Zone.World.Groups
 {
 	public abstract class GroupMember : IMember
 	{

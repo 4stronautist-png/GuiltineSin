@@ -1,11 +1,11 @@
-Melia = {}
+GuiltineSin = {}
 
-Melia.Backup = function(original)
-	return Melia.BackupIn(_G, original)
+GuiltineSin.Backup = function(original)
+	return GuiltineSin.BackupIn(_G, original)
 end
 
-Melia.BackupIn = function(parent, original)
-	local backupName = "MeliaBackup__" .. original;
+GuiltineSin.BackupIn = function(parent, original)
+	local backupName = "GuiltineSinBackup__" .. original;
 	local backup = parent[backupName]
 	
 	if not backup then
@@ -16,13 +16,13 @@ Melia.BackupIn = function(parent, original)
 	return backup
 end
 
-Melia.Override = function (original, override)
-	return Melia.OverrideIn(_G, original, override)
+GuiltineSin.Override = function (original, override)
+	return GuiltineSin.OverrideIn(_G, original, override)
 end
 
 
-Melia.OverrideIn = function (parent, original, override)
-	local backup = Melia.BackupIn(parent, original)
+GuiltineSin.OverrideIn = function (parent, original, override)
+	local backup = GuiltineSin.BackupIn(parent, original)
 	
 	parent[original] = function(...)
 		return override(backup, ...)
@@ -31,24 +31,24 @@ Melia.OverrideIn = function (parent, original, override)
 	return backup
 end
 
-MELIA_HOOKS = {}
+GUILTINESIN_HOOKS = {}
 
-Melia.Hook = function(originalName, hook)
+GuiltineSin.Hook = function(originalName, hook)
 	local listName = "_G_." .. originalName
 
-	local list = MELIA_HOOKS[listName]
+	local list = GUILTINESIN_HOOKS[listName]
 	local listExisted = list ~= nil
 
 	if list == nil then
 		list = {}
-		MELIA_HOOKS[listName] = list
+		GUILTINESIN_HOOKS[listName] = list
 	end
 
 	table.insert(list, hook)
 
 	if not listExisted then
-		Melia.Override(originalName, function(original, ...)
-			local list = MELIA_HOOKS[listName]
+		GuiltineSin.Override(originalName, function(original, ...)
+			local list = GUILTINESIN_HOOKS[listName]
 		
 			local result = original(...)
 		
