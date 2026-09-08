@@ -1,11 +1,11 @@
 ﻿using System;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Scripting.ScriptableEvents;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.Skills.Handlers.Base;
-using Melia.Zone.World.Actors;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Scripting.ScriptableEvents;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.Skills.Handlers.Base;
+using GuiltineSin.Zone.World.Actors;
 
-namespace Melia.Zone.Skills.Handlers.Swordsmen.Barbarian
+namespace GuiltineSin.Zone.Skills.Handlers.Swordsmen.Barbarian
 {
 	/// <summary>
 	/// Handler for the passive Barbarian skill Frenzy.

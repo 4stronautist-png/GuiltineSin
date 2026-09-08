@@ -1,8 +1,8 @@
 ﻿using System;
-using Melia.Shared.Game.Const;
-using Melia.Shared.ObjectProperties;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.ObjectProperties;
 
-namespace Melia.Social.Database
+namespace GuiltineSin.Social.Database
 {
 	/// <summary>
 	/// Represents a user's character.

@@ -1,4 +1,4 @@
-﻿namespace Melia.Shared.Game.Const
+﻿namespace GuiltineSin.Shared.Game.Const
 {
 	/// <summary>
 	/// Specifies a type of thema that may be bought or set with the buy

@@ -1,4 +1,4 @@
-Melia SQL Updates
+GuiltineSin SQL Updates
 =============================================================================
 
 This folder contains updates to the MySQL database that are automatically

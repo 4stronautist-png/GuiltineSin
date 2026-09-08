@@ -2,21 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
-using Melia.Shared;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Network.Inter.Messages;
-using Melia.Shared.ObjectProperties;
-using Melia.Social.Commands;
-using Melia.Social.Database;
-using Melia.Social.Network;
-using Melia.Social.World;
+using GuiltineSin.Shared;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Network.Inter.Messages;
+using GuiltineSin.Shared.ObjectProperties;
+using GuiltineSin.Social.Commands;
+using GuiltineSin.Social.Database;
+using GuiltineSin.Social.Network;
+using GuiltineSin.Social.World;
 using Yggdrasil.Logging;
 using Yggdrasil.Network.Communication;
 using Yggdrasil.Network.TCP;
 using Yggdrasil.Util;
 using Yggdrasil.Util.Commands;
 
-namespace Melia.Social
+namespace GuiltineSin.Social
 {
 	/// <summary>
 	/// Represents a social server.

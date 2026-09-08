@@ -1,15 +1,15 @@
 using System;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting.ScriptableEvents;
-using Melia.Zone.Skills;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting.ScriptableEvents;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
 
-namespace Melia.Zone.Buffs.Handlers.Scouts.Corsair
+namespace GuiltineSin.Zone.Buffs.Handlers.Scouts.Corsair
 {
 	/// <summary>
 	/// Handler for the Jolly Roger Enemy Debuff.
@@ -77,23 +77,23 @@ namespace Melia.Zone.Buffs.Handlers.Scouts.Corsair
 		private void IncrementCombo(Character caster)
 		{
 			var now = DateTime.Now;
-			var feverStartTime = caster.Variables.Temp.Get<DateTime>("Melia.Buff.JollyRoger.FeverStartTime", DateTime.MinValue);
+			var feverStartTime = caster.Variables.Temp.Get<DateTime>("GuiltineSin.Buff.JollyRoger.FeverStartTime", DateTime.MinValue);
 			var timeSinceFever = (now - feverStartTime).TotalMilliseconds;
 
-			var comboCount = caster.Variables.Temp.GetInt("Melia.Buff.JollyRoger");
+			var comboCount = caster.Variables.Temp.GetInt("GuiltineSin.Buff.JollyRoger");
 
 			// If we're in Fever mode and 5 seconds passed, reset combo
 			if (comboCount >= ComboThreshold && timeSinceFever > FeverDurationMs)
 			{
 				comboCount = 0;
-				caster.Variables.Temp.Remove("Melia.Buff.JollyRoger.FeverStartTime");
+				caster.Variables.Temp.Remove("GuiltineSin.Buff.JollyRoger.FeverStartTime");
 			}
 
 			// Only increment and show combo if not at threshold
 			if (comboCount < ComboThreshold)
 			{
 				comboCount++;
-				caster.Variables.Temp.SetInt("Melia.Buff.JollyRoger", comboCount);
+				caster.Variables.Temp.SetInt("GuiltineSin.Buff.JollyRoger", comboCount);
 
 				if (caster.HasParty)
 				{
@@ -108,7 +108,7 @@ namespace Melia.Zone.Buffs.Handlers.Scouts.Corsair
 				// Just reached threshold, start Fever and record time
 				if (comboCount >= ComboThreshold)
 				{
-					caster.Variables.Temp.Set("Melia.Buff.JollyRoger.FeverStartTime", now);
+					caster.Variables.Temp.Set("GuiltineSin.Buff.JollyRoger.FeverStartTime", now);
 
 					var skillLevel = caster.TryGetSkill(SkillId.Corsair_JollyRoger, out var jollySkill) ? jollySkill.Level : 1;
 

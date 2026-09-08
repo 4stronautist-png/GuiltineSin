@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Melia.Shared.IES;
+using GuiltineSin.Shared.IES;
 
-namespace Melia.Shared.Network.Helpers
+namespace GuiltineSin.Shared.Network.Helpers
 {
 	public static class IesHelper
 	{

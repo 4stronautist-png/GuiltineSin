@@ -44,10 +44,10 @@ end
 
 function M_QUESTS_COMPLETE(frame, control, argStr, argNum)
 	local questObjectId = argStr
-	Melia.Quests.RequestComplete(questObjectId)
+	GuiltineSin.Quests.RequestComplete(questObjectId)
 end
 
 function M_QUESTS_CANCEL(frame, control, argStr, argNum)
 	local questObjectId = argStr
-	Melia.Quests.RequestCancel(questObjectId)
+	GuiltineSin.Quests.RequestCancel(questObjectId)
 end

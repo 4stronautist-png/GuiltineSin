@@ -1,6 +1,6 @@
 using Yggdrasil.Configuration;
 
-namespace Melia.Shared.Configuration.Files
+namespace GuiltineSin.Shared.Configuration.Files
 {
 	/// <summary>
 	/// Represents packages.conf.

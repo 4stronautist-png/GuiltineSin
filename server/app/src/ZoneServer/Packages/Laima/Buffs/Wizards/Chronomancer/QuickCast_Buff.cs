@@ -1,12 +1,12 @@
 using System;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Skills;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Skills;
 
-using Melia.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors;
 
-namespace Melia.Zone.Buffs.HandlersOverrides.Wizards.Chronomancer
+namespace GuiltineSin.Zone.Buffs.HandlersOverrides.Wizards.Chronomancer
 {
 	/// <summary>
 	/// Handler for QuickCast_Buff.

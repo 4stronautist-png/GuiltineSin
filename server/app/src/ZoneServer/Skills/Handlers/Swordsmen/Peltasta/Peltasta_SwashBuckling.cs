@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Linq;
-using Melia.Shared.L10N;
-using Melia.Shared.Game.Const;
-using Melia.Shared.World;
-using Melia.Zone.Network;
-using Melia.Zone.Skills.Handlers.Base;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Shared.Data.Database;
-using Melia.Zone.Scripting.AI;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Skills.Handlers.Base;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Zone.Scripting.AI;
 
-namespace Melia.Zone.Skills.Handlers.Swordsmen.Peltasta
+namespace GuiltineSin.Zone.Skills.Handlers.Swordsmen.Peltasta
 {
 	/// <summary>
 	/// Handler for the Peltasta skill Swash Buckling.

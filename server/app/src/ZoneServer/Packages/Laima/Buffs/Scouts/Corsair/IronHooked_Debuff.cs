@@ -1,12 +1,12 @@
 using System.Collections.Generic;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Components;
-using Melia.Zone.World.Actors.Effects;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Components;
+using GuiltineSin.Zone.World.Actors.Effects;
 
-namespace Melia.Zone.Buffs.Handlers.Scouts.Corsair
+namespace GuiltineSin.Zone.Buffs.Handlers.Scouts.Corsair
 {
 	/// <summary>
 	/// Handler for the Iron Hooked debuff on the target.
@@ -35,7 +35,7 @@ namespace Melia.Zone.Buffs.Handlers.Scouts.Corsair
 			if (!caster.TryGetBuff(BuffId.IronHook, out var casterBuff))
 				return;
 
-			if (!casterBuff.Vars.TryGet<List<ICombatEntity>>("Melia.IronHook.Targets", out var targets))
+			if (!casterBuff.Vars.TryGet<List<ICombatEntity>>("GuiltineSin.IronHook.Targets", out var targets))
 				return;
 
 			var allTargetsGone = true;

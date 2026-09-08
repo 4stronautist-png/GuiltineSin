@@ -1,4 +1,4 @@
-﻿namespace Melia.Zone.Scripting.Extensions.Keywords
+﻿namespace GuiltineSin.Zone.Scripting.Extensions.Keywords
 {
 	/// <summary>
 	/// Provides shortcuts for managing keywords.

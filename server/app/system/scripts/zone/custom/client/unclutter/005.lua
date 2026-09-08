@@ -1,4 +1,4 @@
-Melia.Override("TARGETBUFF_ON_MSG", function(original, frame, msg, argStr, argNum)
+GuiltineSin.Override("TARGETBUFF_ON_MSG", function(original, frame, msg, argStr, argNum)
 	original(frame, msg, argStr, argNum)
 
 	-- After the original did its thing, we toggle the button off if the target

@@ -6,22 +6,22 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Threading;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Versioning;
-using Melia.Shared.World;
-using Melia.Zone.Items.Effects;
-using Melia.Zone.Network;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Actors.Components;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Actors.Pads;
-using Melia.Zone.World.Maps;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Versioning;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Items.Effects;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.Components;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Actors.Pads;
+using GuiltineSin.Zone.World.Maps;
 using Yggdrasil.Logging;
 using Yggdrasil.Util;
 
-namespace Melia.Zone.World.Actors.Characters
+namespace GuiltineSin.Zone.World.Actors.Characters
 {
 	public partial class Character
 	{
@@ -142,15 +142,15 @@ namespace Melia.Zone.World.Actors.Characters
 		{
 			MapData mapData;
 
-			if (this.Variables.Perm.Has("Melia.CityReturnLocation.Map"))
+			if (this.Variables.Perm.Has("GuiltineSin.CityReturnLocation.Map"))
 			{
-				var mapName = this.Variables.Perm.GetString("Melia.CityReturnLocation.Map");
+				var mapName = this.Variables.Perm.GetString("GuiltineSin.CityReturnLocation.Map");
 
 				if (!string.IsNullOrEmpty(mapName) && ZoneServer.Instance.Data.MapDb.TryFind(mapName, out mapData))
 				{
-					var x = this.Variables.Perm.GetFloat("Melia.CityReturnLocation.X", 0);
-					var y = this.Variables.Perm.GetFloat("Melia.CityReturnLocation.Y", 0);
-					var z = this.Variables.Perm.GetFloat("Melia.CityReturnLocation.Z", 0);
+					var x = this.Variables.Perm.GetFloat("GuiltineSin.CityReturnLocation.X", 0);
+					var y = this.Variables.Perm.GetFloat("GuiltineSin.CityReturnLocation.Y", 0);
+					var z = this.Variables.Perm.GetFloat("GuiltineSin.CityReturnLocation.Z", 0);
 
 					if (x == 0 && y == 0 && z == 0)
 					{
@@ -181,10 +181,10 @@ namespace Melia.Zone.World.Actors.Characters
 			if (!ZoneServer.Instance.Data.MapDb.TryFind(location.MapId, out var mapData))
 				throw new ArgumentException($"Map '{location.MapId}' not found in data.");
 
-			this.Variables.Perm.SetString("Melia.CityReturnLocation.Map", mapData.ClassName);
-			this.Variables.Perm.SetFloat("Melia.CityReturnLocation.X", location.X);
-			this.Variables.Perm.SetFloat("Melia.CityReturnLocation.Y", location.Y);
-			this.Variables.Perm.SetFloat("Melia.CityReturnLocation.Z", location.Z);
+			this.Variables.Perm.SetString("GuiltineSin.CityReturnLocation.Map", mapData.ClassName);
+			this.Variables.Perm.SetFloat("GuiltineSin.CityReturnLocation.X", location.X);
+			this.Variables.Perm.SetFloat("GuiltineSin.CityReturnLocation.Y", location.Y);
+			this.Variables.Perm.SetFloat("GuiltineSin.CityReturnLocation.Z", location.Z);
 		}
 		#endregion
 
@@ -351,7 +351,7 @@ namespace Melia.Zone.World.Actors.Characters
 				: null;
 			this.Components.Get<BuffComponent>()?.StopTempBuffs(excludeFromTempBuffs);
 			if (wasRiding)
-				this.Variables.Perm.SetBool("Melia.WasRidingOnWarp", true);
+				this.Variables.Perm.SetBool("GuiltineSin.WasRidingOnWarp", true);
 
 			Log.Info($"Character '{this.Name}' (ID: {this.DbId}) finalizing warp to Map {destinationMapId}. Saving...");
 

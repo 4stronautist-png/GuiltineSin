@@ -1,10 +1,10 @@
 using System;
-using Melia.Shared.World;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Quests;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Quests;
 using Yggdrasil.Logging;
 
-namespace Melia.Zone.World.Quests.Objectives
+namespace GuiltineSin.Zone.World.Quests.Objectives
 {
 	public class VisitLocationObjective : QuestObjective
 	{

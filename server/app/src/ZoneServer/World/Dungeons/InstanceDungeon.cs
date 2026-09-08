@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Shared.World;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Dungeons.Stages;
-using Melia.Zone.World.Maps;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Dungeons.Stages;
+using GuiltineSin.Zone.World.Maps;
 using Yggdrasil.Logging;
 using Yggdrasil.Util;
 
-namespace Melia.Zone.World.Dungeons
+namespace GuiltineSin.Zone.World.Dungeons
 {
 	/// <summary>
 	/// Represents the lifecycle state of a dungeon instance.
@@ -55,10 +55,10 @@ namespace Melia.Zone.World.Dungeons
 		#region Constants
 
 		/// <summary>Instance variable name for storing dungeon start time.</summary>
-		private const string StartTimeVarName = "Melia.Dungeon.StartTime";
+		private const string StartTimeVarName = "GuiltineSin.Dungeon.StartTime";
 
 		/// <summary>Instance variable name for tracking if entry count was already incremented.</summary>
-		public const string EntryCountIncrementedVarName = "Melia.Dungeon.EntryCountIncremented";
+		public const string EntryCountIncrementedVarName = "GuiltineSin.Dungeon.EntryCountIncremented";
 
 		#endregion
 

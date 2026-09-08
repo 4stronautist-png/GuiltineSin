@@ -1,28 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Melia.Shared.Network;
-using Melia.Shared.Network.Inter.Messages;
-using Melia.Shared.ObjectProperties;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Game.Properties;
-using Melia.Zone.Network;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Groups;
-// using Melia.Zone.World.Houses; // Removed: Houses namespace deleted
-using Melia.Zone.World.Items;
-using Melia.Zone.World.Maps;
+using GuiltineSin.Shared.Network;
+using GuiltineSin.Shared.Network.Inter.Messages;
+using GuiltineSin.Shared.ObjectProperties;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Game.Properties;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Groups;
+// using GuiltineSin.Zone.World.Houses; // Removed: Houses namespace deleted
+using GuiltineSin.Zone.World.Items;
+using GuiltineSin.Zone.World.Maps;
 using Yggdrasil.Extensions;
 using Yggdrasil.Network.Communication;
 using Yggdrasil.Scheduling;
 using Yggdrasil.Util;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Yggdrasil.Geometry.Shapes;
-using Melia.Zone.Events.Arguments;
-using Melia.Shared.Util;
+using GuiltineSin.Zone.Events.Arguments;
+using GuiltineSin.Shared.Util;
 
-namespace Melia.Zone.World
+namespace GuiltineSin.Zone.World
 {
 	public class Party : Group
 	{

@@ -1,4 +1,4 @@
-﻿//--- Melia Script ----------------------------------------------------------
+﻿//--- GuiltineSin Script ----------------------------------------------------------
 // Kill Events
 //--- Description -----------------------------------------------------------
 // Events that occur when certain entites are killed.
@@ -6,15 +6,15 @@
 
 using System;
 using System.Threading.Tasks;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Scripting;
-using Melia.Zone.Events.Arguments;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Monsters;
-using static Melia.Shared.Util.TaskHelper;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Scripting;
+using GuiltineSin.Zone.Events.Arguments;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using static GuiltineSin.Shared.Util.TaskHelper;
 
 public class KillEventsScript : GeneralScript
 {

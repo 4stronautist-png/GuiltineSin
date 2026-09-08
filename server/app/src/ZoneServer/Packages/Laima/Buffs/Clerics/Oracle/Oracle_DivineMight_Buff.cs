@@ -1,10 +1,10 @@
-using Melia.Shared.Game.Const;
-using Melia.Shared.Packages;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Network;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.World.Actors.Characters;
 
-namespace Melia.Zone.Buffs.Handlers.Clerics.Oracle
+namespace GuiltineSin.Zone.Buffs.Handlers.Clerics.Oracle
 {
 	/// <summary>
 	/// Handle for the Divine Might buff, which temporarily increases

@@ -2,18 +2,18 @@
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Network;
-using Melia.Shared.World;
-using Melia.Zone.Network;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Components;
-using Melia.Zone.World.Actors.Effects;
-using Melia.Zone.World.Actors.Prerequisites;
-using Melia.Zone.World.Maps;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Network;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Components;
+using GuiltineSin.Zone.World.Actors.Effects;
+using GuiltineSin.Zone.World.Actors.Prerequisites;
+using GuiltineSin.Zone.World.Maps;
 using Yggdrasil.Composition;
 
-namespace Melia.Zone.World.Actors
+namespace GuiltineSin.Zone.World.Actors
 {
 	/// <summary>
 	/// An object that can be placed on a map.

@@ -4,14 +4,14 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
-using Melia.Zone.Network;
-using Melia.Zone.World.Actors.Characters.Components;
-using Melia.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.World.Actors.Characters.Components;
+using GuiltineSin.Zone.World.Actors.Monsters;
 using Yggdrasil.Geometry.Shapes;
 using Yggdrasil.Logging;
 using Yggdrasil.Scheduling;
 
-namespace Melia.Zone.World.Actors.Effects
+namespace GuiltineSin.Zone.World.Actors.Effects
 {
 	public class DirectionAPC : Effect, IUpdateable
 	{

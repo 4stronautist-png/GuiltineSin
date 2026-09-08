@@ -1,27 +1,27 @@
-//--- Melia Script ----------------------------------------------------------
+//--- GuiltineSin Script ----------------------------------------------------------
 // Klaipeda Quest NPCs
 //--- Description -----------------------------------------------------------
 // Quest NPCs in Klaipeda for post-demon war storyline.
 //---------------------------------------------------------------------------
 
 using System;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Quests;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Characters.Components;
-using Melia.Zone.World.Quests.Objectives;
-using Melia.Zone.World.Quests.Prerequisites;
-using Melia.Zone.World.Quests.Rewards;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Quests;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Characters.Components;
+using GuiltineSin.Zone.World.Quests.Objectives;
+using GuiltineSin.Zone.World.Quests.Prerequisites;
+using GuiltineSin.Zone.World.Quests.Rewards;
 using Yggdrasil.Logging;
-using static Melia.Zone.Scripting.Shortcuts;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
 
 public class KlaipeQuestNpcsScript : GeneralScript
 {
 	protected override void Load()
 	{
-		Log.Info("Laima quest NPC load: Klaipeda custom side quest NPCs are disabled while Clover follows the official main quest chain.");
+		Log.Info("Laima quest NPC load: Klaipeda custom side quest NPCs are disabled while GuiltineSin follows the official main quest chain.");
 		return;
 
 		// Withered Branch Collection Helper
@@ -487,7 +487,7 @@ public class KlaipeCaravanEscortQuest : QuestScript
 		SetAutoTracked(true);
 
 		SetReceive(QuestReceiveType.Manual);
-		AddPrerequisite(new CompletedPrerequisite("CloverFlow", 65535));
+		AddPrerequisite(new CompletedPrerequisite("GuiltineSinFlow", 65535));
 		SetCancelable(true);
 		SetUnlock(QuestUnlockType.AllAtOnce);
 		AddQuestGiver(L("[Caravan Master] Marcus"), "c_Klaipe");
@@ -521,7 +521,7 @@ public class KlaipeRiverCorruptionQuest : QuestScript
 		SetAutoTracked(true);
 
 		SetReceive(QuestReceiveType.Manual);
-		AddPrerequisite(new CompletedPrerequisite("CloverFlow", 65535));
+		AddPrerequisite(new CompletedPrerequisite("GuiltineSinFlow", 65535));
 		SetCancelable(true);
 		SetUnlock(QuestUnlockType.AllAtOnce);
 		AddQuestGiver(L("[River Warden] Elara"), "c_Klaipe");
@@ -588,7 +588,7 @@ public class KlaipeReconstructionQuest : QuestScript
 		SetAutoTracked(true);
 
 		SetReceive(QuestReceiveType.Manual);
-		AddPrerequisite(new CompletedPrerequisite("CloverFlow", 65535));
+		AddPrerequisite(new CompletedPrerequisite("GuiltineSinFlow", 65535));
 		SetCancelable(true);
 		SetUnlock(QuestUnlockType.AllAtOnce);
 		AddQuestGiver(L("[Reconstruction Coordinator] Viktor"), "c_Klaipe");
@@ -643,7 +643,7 @@ public class KlaipeMerchantGuildQuest : QuestScript
 		SetAutoTracked(true);
 
 		SetReceive(QuestReceiveType.Manual);
-		AddPrerequisite(new CompletedPrerequisite("CloverFlow", 65535));
+		AddPrerequisite(new CompletedPrerequisite("GuiltineSinFlow", 65535));
 		SetCancelable(true);
 		SetUnlock(QuestUnlockType.AllAtOnce);
 		AddQuestGiver(L("[Merchant Guild] Anastasia"), "c_Klaipe");
@@ -706,7 +706,7 @@ public class KlaipeCursedRefugeeQuest : QuestScript
 		SetAutoTracked(true);
 
 		SetReceive(QuestReceiveType.Manual);
-		AddPrerequisite(new CompletedPrerequisite("CloverFlow", 65535));
+		AddPrerequisite(new CompletedPrerequisite("GuiltineSinFlow", 65535));
 		SetCancelable(true);
 		SetUnlock(QuestUnlockType.AllAtOnce);
 		AddQuestGiver(L("[Cursed Refugee] Aldric"), "c_voodoo");

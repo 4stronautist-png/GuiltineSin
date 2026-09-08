@@ -1,18 +1,18 @@
 ﻿using System;
-using Melia.Shared.Packages;
-using Melia.Shared.L10N;
-using Melia.Shared.Game.Const;
-using Melia.Shared.World;
-using Melia.Zone.Buffs;
-using Melia.Zone.Network;
-using Melia.Zone.Skills.Handlers.Base;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using static Melia.Zone.Skills.Helpers.SkillDamageHelper;
-using Melia.Zone.Scripting;
-using Melia.Zone.Skills.Combat;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Buffs;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Skills.Handlers.Base;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using static GuiltineSin.Zone.Skills.Helpers.SkillDamageHelper;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Skills.Combat;
 
-namespace Melia.Zone.Skills.Handlers.Kriwi
+namespace GuiltineSin.Zone.Skills.Handlers.Kriwi
 {
 	/// <summary>
 	/// Handler for the Kriwi skill Zalciai.

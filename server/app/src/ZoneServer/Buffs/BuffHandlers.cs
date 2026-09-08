@@ -3,18 +3,18 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Packages;
-using Melia.Zone.Abilities;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Scripting;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.Skills;
-using Melia.Zone.World.Actors;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Zone.Abilities;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.World.Actors;
 using Yggdrasil.Logging;
 using Yggdrasil.Extensions;
 
-namespace Melia.Zone.Buffs
+namespace GuiltineSin.Zone.Buffs
 {
 	/// <summary>
 	/// Buff handler collection and manager.

@@ -1,8 +1,8 @@
-﻿using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.World.Actors.Characters.Components;
+﻿using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.World.Actors.Characters.Components;
 
-namespace Melia.Zone.Buffs.Handlers.Swordsmen.Peltasta
+namespace GuiltineSin.Zone.Buffs.Handlers.Swordsmen.Peltasta
 {
 	/// <summary>
 	/// Handle for the Hard Shield Buff, which increases defense

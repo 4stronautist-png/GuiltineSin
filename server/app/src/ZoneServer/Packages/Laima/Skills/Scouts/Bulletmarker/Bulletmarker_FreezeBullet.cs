@@ -1,14 +1,14 @@
 using System;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Packages;
-using Melia.Shared.World;
-using Melia.Zone.Buffs;
-using Melia.Zone.Network;
-using Melia.Zone.Skills.Handlers.Base;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Buffs;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Skills.Handlers.Base;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
 
-namespace Melia.Zone.Skills.Handlers.Scouts.Bulletmarker
+namespace GuiltineSin.Zone.Skills.Handlers.Scouts.Bulletmarker
 {
 	[Package("laima")]
 	[SkillHandler(SkillId.Bulletmarker_FreezeBullet)]

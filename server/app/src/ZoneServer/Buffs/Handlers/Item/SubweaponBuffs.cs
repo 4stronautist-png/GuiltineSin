@@ -1,11 +1,11 @@
-﻿using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Monsters;
+﻿using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Monsters;
 
-namespace Melia.Zone.Buffs.Handlers
+namespace GuiltineSin.Zone.Buffs.Handlers
 {
 	/// <summary>
 	/// Handle for subweapon_metaldetector, which scans for hidden triggers nearby.
@@ -42,8 +42,8 @@ namespace Melia.Zone.Buffs.Handlers
 	[BuffHandler(BuffId.subweapon_dumbbell)]
 	public class subweapon_dumbbell : BuffHandler
 	{
-		private const string VarAddStr = "Melia.Subweapon.Dumbbell.AddStr";
-		private const string VarAddSta = "Melia.Subweapon.Dumbbell.AddSta";
+		private const string VarAddStr = "GuiltineSin.Subweapon.Dumbbell.AddStr";
+		private const string VarAddSta = "GuiltineSin.Subweapon.Dumbbell.AddSta";
 
 		public override void OnActivate(Buff buff, ActivationType activationType)
 		{

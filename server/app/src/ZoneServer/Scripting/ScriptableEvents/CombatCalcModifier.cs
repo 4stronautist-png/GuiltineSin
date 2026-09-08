@@ -1,7 +1,7 @@
 using System;
-using Melia.Shared.Game.Const;
+using GuiltineSin.Shared.Game.Const;
 
-namespace Melia.Zone.Scripting.ScriptableEvents
+namespace GuiltineSin.Zone.Scripting.ScriptableEvents
 {
 	/// <summary>
 	/// Declares a method as a combat calculation modification handler for

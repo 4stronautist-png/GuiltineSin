@@ -2,17 +2,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
-using Melia.Shared.Database;
-using Melia.Shared.Game.Const;
+using GuiltineSin.Shared.Database;
+using GuiltineSin.Shared.Game.Const;
 using Yggdrasil.Db.MySql.SimpleCommands;
-using Melia.Shared.ObjectProperties;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Items;
+using GuiltineSin.Shared.ObjectProperties;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Items;
 using MySqlConnector;
 using Yggdrasil.Logging;
 using Yggdrasil.Util;
 
-namespace Melia.Zone.Database
+namespace GuiltineSin.Zone.Database
 {
 	/// <summary>
 	/// Comprehensive rollback system for character and account state management.

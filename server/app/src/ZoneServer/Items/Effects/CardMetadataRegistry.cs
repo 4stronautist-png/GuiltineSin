@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Melia.Zone.Items.Effects
+namespace GuiltineSin.Zone.Items.Effects
 {
 	/// <summary>
 	/// Stores metadata for card items that doesn't fit in the item's Properties.

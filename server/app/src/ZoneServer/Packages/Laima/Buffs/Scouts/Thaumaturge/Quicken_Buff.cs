@@ -1,12 +1,12 @@
 using System;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Network;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
 
-namespace Melia.Zone.Buffs.Handlers.Scouts.Thaumaturge
+namespace GuiltineSin.Zone.Buffs.Handlers.Scouts.Thaumaturge
 {
 	[Package("laima")]
 	[BuffHandler(BuffId.Quicken_Buff)]
@@ -20,7 +20,7 @@ namespace Melia.Zone.Buffs.Handlers.Scouts.Thaumaturge
 
 			var skillLevel = buff.NumArg1;
 
-			if (buff.Vars.TryGetFloat("Melia.Skill.Quicken.PadLevel", out var padLevel))
+			if (buff.Vars.TryGetFloat("GuiltineSin.Skill.Quicken.PadLevel", out var padLevel))
 			{
 				skillLevel = padLevel;
 			}

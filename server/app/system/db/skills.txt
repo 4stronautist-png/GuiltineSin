@@ -1,4 +1,4 @@
-// Melia
+// GuiltineSin
 // Database file
 // 
 // Values: skillId, className, name, activationType, useType, attackType, attribute, classType, [tags], [basicSp], [basicStamina], enableAngle, maxRange, waveLength, splashType, splashRange, splashHeight, splashAngle, splashRate, factor, factorByLevel, atkAdd, atkAddByLevel, hitCount, multiHitCount, defaultHitDelay, deadHitDelay, shootTime, delayTime, cancelTime, hitTime, holdTime, speedRate, speedRateAffectedByDex, speedRateAffectedByBuff, enableCastMove, [knockDownType], [knockDownVelocity], [knockDownHAngle], [knockDownVAngle], [reinforceAbility], [hiddenReinforceAbility], [hiddenReinforceAbilityFactorByLevel], [cooldownGroup], [cooldownTime], [overheat], [overheatDelay], [overheatGroup]

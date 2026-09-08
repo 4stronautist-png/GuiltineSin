@@ -1,7 +1,7 @@
 ﻿using System;
-using Melia.Shared.Network;
+using GuiltineSin.Shared.Network;
 
-namespace Melia.Shared.Util
+namespace GuiltineSin.Shared.Util
 {
 	public static class DateTimeUtils
 	{

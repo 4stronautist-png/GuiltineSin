@@ -1,9 +1,9 @@
-﻿using Melia.Barracks.Database;
-using Melia.Shared.Database;
-using Melia.Shared.Network;
+﻿using GuiltineSin.Barracks.Database;
+using GuiltineSin.Shared.Database;
+using GuiltineSin.Shared.Network;
 using Yggdrasil.Network.TCP;
 
-namespace Melia.Barracks.Network
+namespace GuiltineSin.Barracks.Network
 {
 	/// <summary>
 	/// A connection from the client to the barracks server.

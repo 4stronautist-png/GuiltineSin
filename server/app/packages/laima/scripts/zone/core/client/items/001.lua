@@ -1,5 +1,5 @@
 -- Override the draw equip function, in case we want custom grades.
-local function CLOVER_HAIR_RANK_TEXT(hairRank)
+local function GUILTINESIN_HAIR_RANK_TEXT(hairRank)
 	if hairRank == 1 then
 		return '{@st41b}{#FF4040}Avançado{/}{/}'
 	elseif hairRank == 2 then
@@ -11,7 +11,7 @@ local function CLOVER_HAIR_RANK_TEXT(hairRank)
 	return '{@st41b}{#8B5A2B}Comum{/}{/}'
 end
 
-local function CLOVER_REPLACE_HAIR_RATING_TEXT(ctrl, rankText)
+local function GUILTINESIN_REPLACE_HAIR_RATING_TEXT(ctrl, rankText)
 	if ctrl == nil then
 		return
 	end
@@ -34,33 +34,33 @@ local function CLOVER_REPLACE_HAIR_RATING_TEXT(ctrl, rankText)
 		pcall(function()
 			child = ctrl:GetChildByIndex(i)
 		end)
-		CLOVER_REPLACE_HAIR_RATING_TEXT(child, rankText)
+		GUILTINESIN_REPLACE_HAIR_RATING_TEXT(child, rankText)
 	end
 end
 
-local function CLOVER_FIX_HAIR_TOOLTIP_TEXT(tooltipframe, rankText)
-	CLOVER_REPLACE_HAIR_RATING_TEXT(tooltipframe, rankText)
+local function GUILTINESIN_FIX_HAIR_TOOLTIP_TEXT(tooltipframe, rankText)
+	GUILTINESIN_REPLACE_HAIR_RATING_TEXT(tooltipframe, rankText)
 	pcall(function()
-		ReserveScript(string.format("CLOVER_REPLACE_VISIBLE_HAIR_RATING('%s')", rankText), 0.01)
+		ReserveScript(string.format("GUILTINESIN_REPLACE_VISIBLE_HAIR_RATING('%s')", rankText), 0.01)
 	end)
 end
 
-function CLOVER_REPLACE_VISIBLE_HAIR_RATING(rankText)
+function GUILTINESIN_REPLACE_VISIBLE_HAIR_RATING(rankText)
 	local tooltip = ui.GetFrame('wholeitem')
-	CLOVER_REPLACE_HAIR_RATING_TEXT(tooltip, rankText)
+	GUILTINESIN_REPLACE_HAIR_RATING_TEXT(tooltip, rankText)
 
 	tooltip = ui.GetFrame('inventory')
-	CLOVER_REPLACE_HAIR_RATING_TEXT(tooltip, rankText)
+	GUILTINESIN_REPLACE_HAIR_RATING_TEXT(tooltip, rankText)
 end
 
-Melia.Override('DRAW_EQUIP_COMMON_TOOLTIP_SMALL_IMG', function (original, tooltipframe, invitem, mainframename, isForgery)
+GuiltineSin.Override('DRAW_EQUIP_COMMON_TOOLTIP_SMALL_IMG', function (original, tooltipframe, invitem, mainframename, isForgery)
     local result = original(tooltipframe, invitem, mainframename, isForgery)
 
     local gBox = GET_CHILD(tooltipframe, mainframename,'ui::CGroupBox')
-    --Melia.Log.Info('{0}', gBox)
+    --GuiltineSin.Log.Info('{0}', gBox)
 
     local equipCommonCSet = GET_CHILD_RECURSIVELY(tooltipframe, 'equip_common_cset', 'ui::CControlSet')
-    --Melia.Log.Info('{0}', equipCommonCSet)
+    --GuiltineSin.Log.Info('{0}', equipCommonCSet)
 	tolua.cast(equipCommonCSet, "ui::CControlSet");
 
 	local itemObj = GetIES(invitem:GetObject())
@@ -68,8 +68,8 @@ Melia.Override('DRAW_EQUIP_COMMON_TOOLTIP_SMALL_IMG', function (original, toolti
 	local className = TryGetProp(itemObj, 'ClassName', 'None')
 	local hairRank = TryGetProp(itemObj, 'EnchantItemRank', -1)
 	if hairRank >= 0 and (equipType == 'Hat' or string.find(className, 'Hat') ~= nil) then
-		local rankText = CLOVER_HAIR_RANK_TEXT(hairRank)
-		CLOVER_FIX_HAIR_TOOLTIP_TEXT(tooltipframe, rankText)
+		local rankText = GUILTINESIN_HAIR_RANK_TEXT(hairRank)
+		GUILTINESIN_FIX_HAIR_TOOLTIP_TEXT(tooltipframe, rankText)
 
 		local gradeName = GET_CHILD_RECURSIVELY(equipCommonCSet, 'gradeName')
 		gradeName:SetText(rankText)
@@ -83,7 +83,7 @@ Melia.Override('DRAW_EQUIP_COMMON_TOOLTIP_SMALL_IMG', function (original, toolti
 	if score > 0 then
 		score_text = ' (' .. score .. ')'
 	end
-	--Melia.Log.Info('Grade: {0} Score {1}', grade, score);
+	--GuiltineSin.Log.Info('Grade: {0} Score {1}', grade, score);
     local gradeText = equipCommonCSet:GetUserConfig("GRADE_TEXT_FONT")
 	if grade == 1 then
 		gradeText = gradeText .. equipCommonCSet:GetUserConfig("NORMAL_GRADE_TEXT")

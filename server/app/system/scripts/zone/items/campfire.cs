@@ -1,4 +1,4 @@
-﻿//--- Melia Script ----------------------------------------------------------
+﻿//--- GuiltineSin Script ----------------------------------------------------------
 // Campfire (Bonfire)
 //--- Description -----------------------------------------------------------
 // Handles the creation of campfires and the buff they give.
@@ -8,16 +8,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Melia.Shared.Game.Const;
-using Melia.Shared.L10N;
-using Melia.Shared.World;
-using Melia.Zone.Scripting;
-using Melia.Zone.Skills.SplashAreas;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Maps;
-using static Melia.Shared.Util.TaskHelper;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Skills.SplashAreas;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Maps;
+using static GuiltineSin.Shared.Util.TaskHelper;
 
 public class CampfireActionScript : GeneralScript
 {
@@ -80,7 +80,7 @@ public class CampfireActionScript : GeneralScript
 
 	private static void CreateCampfire(Character creator, Position pos)
 	{
-		var campfireHandle = creator.Variables.Temp.GetInt("Melia.CampFire.Handle");
+		var campfireHandle = creator.Variables.Temp.GetInt("GuiltineSin.CampFire.Handle");
 		if (campfireHandle != 0 && creator.Map.TryGetMonster(campfireHandle, out var previousCampfire))
 		{
 			creator.Map.RemoveMonster(previousCampfire);
@@ -95,11 +95,11 @@ public class CampfireActionScript : GeneralScript
 		campfire.AttachEffect("F_bg_fire003", 1);
 		campfire.OnDisappear += () =>
 		{
-			creator.Variables.Temp.SetInt("Melia.CampFire.Handle", 0);
+			creator.Variables.Temp.SetInt("GuiltineSin.CampFire.Handle", 0);
 		};
 
 		creator.Map.AddMonster(campfire);
-		creator.Variables.Temp.SetInt("Melia.CampFire.Handle", campfire.Handle);
+		creator.Variables.Temp.SetInt("GuiltineSin.CampFire.Handle", campfire.Handle);
 
 		CallSafe(ApplyBuff(creator, campfire));
 	}

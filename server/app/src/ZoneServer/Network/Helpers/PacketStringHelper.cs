@@ -1,7 +1,7 @@
 ﻿using System;
-using Melia.Shared.Network;
+using GuiltineSin.Shared.Network;
 
-namespace Melia.Zone.Network.Helpers
+namespace GuiltineSin.Zone.Network.Helpers
 {
 	/// <summary>
 	/// Packet string related helper methods.

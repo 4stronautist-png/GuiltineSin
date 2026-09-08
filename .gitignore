@@ -22,3 +22,6 @@ client/release/
 *.pyc
 __pycache__/
 server/app/src/graphify-out/
+
+# graphify knowledge graph (regenerate locally, do not commit large artifacts)
+graphify-out/

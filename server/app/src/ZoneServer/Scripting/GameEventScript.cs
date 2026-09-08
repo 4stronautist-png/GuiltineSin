@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Timers;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Network;
-// using Melia.Zone.World.GameEvents; // Removed: GameEvents namespace deleted
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Network;
+// using GuiltineSin.Zone.World.GameEvents; // Removed: GameEvents namespace deleted
 using Yggdrasil.Logging;
-using static Melia.Zone.Scripting.Shortcuts;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
-namespace Melia.Zone.Scripting
+namespace GuiltineSin.Zone.Scripting
 {
 	/// <summary>
 	/// Script for in-game events, like Golden Fishing.
@@ -342,7 +342,7 @@ namespace Melia.Zone.Scripting
 		/// <param name="stock"></param>
 		protected void AddEventItemToShop(string shopName, int itemId, int amount = 1, int price = -1, int stock = -1)
 		{
-			// We do not have this in Melia but it's not a bad idea.
+			// We do not have this in GuiltineSin but it's not a bad idea.
 			//var shop = ZoneServer.Instance.ScriptManager.NpcShopScripts.Get(shopName);
 			//if (shop == null)
 			{

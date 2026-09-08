@@ -1,13 +1,13 @@
-using Melia.Shared.Game.Const;
-using Melia.Shared.Packages;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Scripting.ScriptableEvents;
-using Melia.Zone.Skills;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.Skills.Handlers.Scouts.Desperado;
-using Melia.Zone.World.Actors;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Scripting.ScriptableEvents;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.Skills.Handlers.Scouts.Desperado;
+using GuiltineSin.Zone.World.Actors;
 
-namespace Melia.Zone.Buffs.Handlers.Scouts.Desperado
+namespace GuiltineSin.Zone.Buffs.Handlers.Scouts.Desperado
 {
 	/// <summary>
 	/// Bad Guy: Death Approaching final damage bonus.

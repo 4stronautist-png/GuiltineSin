@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Melia.Shared.Game.Const;
-using Melia.Zone;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone;
 using MySqlConnector;
 using Yggdrasil.Db.MySql.SimpleCommands;
 
-namespace Melia.Zone.Database
+namespace GuiltineSin.Zone.Database
 {
 	public partial class ZoneDb
 	{

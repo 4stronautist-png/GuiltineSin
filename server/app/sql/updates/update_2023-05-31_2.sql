@@ -1,1 +1,1 @@
-DELETE FROM `vars` WHERE `name` = "Melia.QuickSlotList";
+DELETE FROM `vars` WHERE `name` = "GuiltineSin.QuickSlotList";

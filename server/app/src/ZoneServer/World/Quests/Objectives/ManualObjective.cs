@@ -1,4 +1,4 @@
-﻿namespace Melia.Zone.World.Quests.Objectives
+﻿namespace GuiltineSin.Zone.World.Quests.Objectives
 {
 	/// <summary>
 	/// Objective that is completed manually by a script.

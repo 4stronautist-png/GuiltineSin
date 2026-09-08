@@ -2,25 +2,25 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Xml.Linq;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Shared.World;
-using Melia.Zone.Network;
-using Melia.Zone.Pads;
-using Melia.Zone.Skills;
-using Melia.Zone.Skills.SplashAreas;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Components;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Actors.Pads.Components;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Pads;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.Skills.SplashAreas;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Components;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Actors.Pads.Components;
 using Yggdrasil.Composition;
 using Yggdrasil.Geometry;
 using Yggdrasil.Logging;
 using Yggdrasil.Scheduling;
 using Yggdrasil.Util;
 
-namespace Melia.Zone.World.Actors.Pads
+namespace GuiltineSin.Zone.World.Actors.Pads
 {
 	/// <summary>
 	/// Represents a pad, which are zones on the map that trigger events.
@@ -169,14 +169,14 @@ namespace Melia.Zone.World.Actors.Pads
 		{
 			get
 			{
-				return this.Variables.Get<Mob>("Melia.Pad.Monster");
+				return this.Variables.Get<Mob>("GuiltineSin.Pad.Monster");
 			}
 			set
 			{
 				if (value == null)
-					this.Variables.Remove("Melia.Pad.Monster");
+					this.Variables.Remove("GuiltineSin.Pad.Monster");
 				else
-					this.Variables.Set("Melia.Pad.Monster", value);
+					this.Variables.Set("GuiltineSin.Pad.Monster", value);
 			}
 		}
 
@@ -345,7 +345,7 @@ namespace Melia.Zone.World.Actors.Pads
 			this.Creator.Map?.AddPad(this);
 			if (this.Monster != null)
 				this.Map?.AddMonster(this.Monster);
-			this.Skill.Vars.SetInt($"Melia.{this.Skill.Id}.PadHandle", this.Handle);
+			this.Skill.Vars.SetInt($"GuiltineSin.{this.Skill.Id}.PadHandle", this.Handle);
 		}
 
 		public void SetBladedFanRange(int bladeCount, int bladeLength, int bladeWidth)

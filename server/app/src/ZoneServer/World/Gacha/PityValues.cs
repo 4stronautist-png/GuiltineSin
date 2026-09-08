@@ -1,4 +1,4 @@
-﻿namespace Melia.Zone.World.Gacha
+﻿namespace GuiltineSin.Zone.World.Gacha
 {
 	/// <summary>
 	/// Contains the soft and hard pity values for a gacha machine.

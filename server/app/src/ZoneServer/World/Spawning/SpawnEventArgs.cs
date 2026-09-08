@@ -1,7 +1,7 @@
 ﻿using System;
-using Melia.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Actors.Monsters;
 
-namespace Melia.Zone.World.Spawning
+namespace GuiltineSin.Zone.World.Spawning
 {
 	public class SpawnEventArgs : EventArgs
 	{

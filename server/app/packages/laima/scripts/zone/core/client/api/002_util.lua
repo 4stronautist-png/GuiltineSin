@@ -1,6 +1,6 @@
-Melia.Util = {}
+GuiltineSin.Util = {}
 
-Melia.Util.Serialize = function(obj)
+GuiltineSin.Util.Serialize = function(obj)
 	if obj == nil then
 		return "nil"
 	end
@@ -13,21 +13,21 @@ Melia.Util.Serialize = function(obj)
 
 	for k, v in pairs(obj) do
 		if type(k) ~= "number" then k = '"' .. k .. '"' end
-		s = s .. "["..k.."] = " .. Melia.Util.Serialize(v) .. ", "
+		s = s .. "["..k.."] = " .. GuiltineSin.Util.Serialize(v) .. ", "
 	end
 
 	return s .. "}"
 end
 
-Melia.Util.DicID = function(str)
+GuiltineSin.Util.DicID = function(str)
 	return "@dicID_^*$"..str.."$*^"
 end
 
 function DicID(str)
-	return Melia.Util.DicID(str)
+	return GuiltineSin.Util.DicID(str)
 end
 
-Melia.Util.Split = function(str, sep)
+GuiltineSin.Util.Split = function(str, sep)
 	if sep == '' then return {str} end
   
 	local res, from = {}, 1

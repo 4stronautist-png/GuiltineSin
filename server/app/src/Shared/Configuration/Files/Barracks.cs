@@ -1,9 +1,9 @@
 using System.IO;
-using Melia.Shared.World;
+using GuiltineSin.Shared.World;
 using Yggdrasil.Configuration;
 using Yggdrasil.Logging;
 
-namespace Melia.Shared.Configuration.Files
+namespace GuiltineSin.Shared.Configuration.Files
 {
 	/// <summary>
 	/// Represents barracks.conf.

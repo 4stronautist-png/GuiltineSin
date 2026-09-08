@@ -1,7 +1,7 @@
-﻿using Melia.Shared.Versioning;
-using Melia.Shared.World;
+﻿using GuiltineSin.Shared.Versioning;
+using GuiltineSin.Shared.World;
 
-namespace Melia.Shared.Network.Helpers
+namespace GuiltineSin.Shared.Network.Helpers
 {
 	public static class CommanderHelper
 	{

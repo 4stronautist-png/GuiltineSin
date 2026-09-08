@@ -1,8 +1,8 @@
-using Melia.Shared.Game.Const;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Monsters;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Monsters;
 
-namespace Melia.Zone.World.Actors
+namespace GuiltineSin.Zone.World.Actors
 {
 	/// <summary>
 	/// Extension methods for checking relations between entities.
@@ -203,7 +203,7 @@ namespace Melia.Zone.World.Actors
 
 		private static bool IsStaticQuestPrivateEncounter(IMonster monster)
 		{
-			return monster is Mob mob && mob.Vars.GetBool("Clover.StaticQuestPrivateEncounter", false);
+			return monster is Mob mob && mob.Vars.GetBool("GuiltineSin.StaticQuestPrivateEncounter", false);
 		}
 	}
 }

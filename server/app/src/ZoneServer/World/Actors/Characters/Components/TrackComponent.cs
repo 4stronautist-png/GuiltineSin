@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting;
-using Melia.Zone.Scripting.Dialogues;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Quests;
-using Melia.Zone.World.Tracks;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Scripting.Dialogues;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Quests;
+using GuiltineSin.Zone.World.Tracks;
 using Yggdrasil.Logging;
 
-namespace Melia.Zone.World.Actors.Characters.Components
+namespace GuiltineSin.Zone.World.Actors.Characters.Components
 {
 	public class TrackComponent : CharacterComponent
 	{

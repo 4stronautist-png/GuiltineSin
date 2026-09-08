@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using Yggdrasil.Logging;
 
-namespace Melia.Shared.Packages
+namespace GuiltineSin.Shared.Packages
 {
 	/// <summary>
 	/// Manages feature packages that extend the server with additional

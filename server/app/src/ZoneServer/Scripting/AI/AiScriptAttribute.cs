@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Melia.Zone.Scripting
+namespace GuiltineSin.Zone.Scripting
 {
 	/// <summary>
 	/// Used to decorate AI scripts, to register them as scripts for the

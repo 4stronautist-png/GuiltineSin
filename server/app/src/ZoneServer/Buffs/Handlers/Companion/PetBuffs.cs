@@ -1,12 +1,12 @@
 ﻿using System;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Actors.Components;
-using Melia.Zone.World.Actors.Monsters;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.Components;
+using GuiltineSin.Zone.World.Actors.Monsters;
 
-namespace Melia.Zone.Buffs.Handlers
+namespace GuiltineSin.Zone.Buffs.Handlers
 {
 	/// <summary>
 	/// Handle for the Pet_Dead buff, which puts a companion in an
@@ -42,7 +42,7 @@ namespace Melia.Zone.Buffs.Handlers
 	public class Pet_Heal : BuffHandler
 	{
 		private const float HealRate = 0.02f;
-		private const string VarHealAmount = "Melia.Pet.HealAmount";
+		private const string VarHealAmount = "GuiltineSin.Pet.HealAmount";
 		private static readonly TimeSpan AfterBuffDuration = TimeSpan.FromMinutes(10);
 
 		public override void OnActivate(Buff buff, ActivationType activationType)

@@ -1,12 +1,12 @@
-//--- Melia Script ----------------------------------------------------------
+//--- GuiltineSin Script ----------------------------------------------------------
 // Veja Ravine
 //--- Description -----------------------------------------------------------
 // NPCs found in and around Veja Ravine.
 //---------------------------------------------------------------------------
 
-using Melia.Shared.Game.Const;
-using Melia.Zone.Scripting;
-using static Melia.Zone.Scripting.Shortcuts;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Scripting;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
 public class FHuevillage581NpcScript : GeneralScript
 {
@@ -28,6 +28,7 @@ public class FHuevillage581NpcScript : GeneralScript
 		// Papaya main quest actors: Veja Ravine / Saule handoff
 		//-------------------------------------------------------------------------
 		AddNpc(100, 147390, "Villager", "f_huevillage_58_1", 975, 97, 951, 0, "HUEVILLAGE_58_1_MQ01_NPC", "", "");
+		AddNpc(106, 147385, "Goddess Saule", "f_huevillage_58_1", 930, 97, 951, 0, "HUEVILLAGE_58_1_SAULE_SEARCH", "", "");
 		AddNpc(101, 147390, "Villager", "f_huevillage_58_1", -988, 231, 1036, 0, "HUEVILLAGE_58_1_MQ02_NPC", "", "");
 		AddNpc(102, 147390, "Villager", "f_huevillage_58_1", -720, 231, 860, 0, "HUEVILLAGE_58_1_MQ03_NPC", "", "");
 		AddNpc(103, 20041, "", "f_huevillage_58_1", -640, 231, 820, 0, "HUEVILLAGE_58_1_PORTAL", "", "");

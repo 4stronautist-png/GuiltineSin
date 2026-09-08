@@ -12,18 +12,18 @@ $webPort = 8080
 $serverListUrl = "http://${serverHost}:${webPort}/toslive/patch/serverlist.xml"
 $staticConfigUrl = "http://${serverHost}:${webPort}/toslive/patch/"
 $registerUrl = "http://${serverHost}:${webPort}/register/index.html"
-$imagePath = Join-Path $clientDir "assets\tos-clover-loadscreen.png"
+$imagePath = Join-Path $clientDir "assets\guiltinesin-loadscreen.png"
 if (-not (Test-Path -LiteralPath $imagePath)) {
-    $imagePath = "C:\Users\Jean\Pictures\CloverTOS\tos-gs-loadscreen.png"
+    $imagePath = "C:\Users\Jean\Pictures\GuiltineSin\guiltinesin-loadscreen.png"
 }
 if (-not (Test-Path -LiteralPath $imagePath)) {
-    $imagePath = "C:\Users\Jean\Pictures\CloverTOS\tos-clover-loadscreen.png"
+    $imagePath = "C:\Users\Jean\Pictures\GuiltineSin\guiltinesin-loadscreen.png"
 }
 $fillSeconds = 32
 $minVisibleSeconds = 40
 $maxWaitSeconds = 75
 
-function Initialize-CloverClientSettings {
+function Initialize-GuiltineSinClientSettings {
     if (-not (Test-Path -LiteralPath $clientXml)) {
         return
     }
@@ -50,7 +50,7 @@ function Initialize-CloverClientSettings {
     }
 }
 
-function Write-CloverClientConfig {
+function Write-GuiltineSinClientConfig {
     $content = @"
 <?xml version="1.0" encoding="UTF-8"?>
 <client>
@@ -64,7 +64,7 @@ function Write-CloverClientConfig {
     [System.IO.File]::WriteAllText($clientXml, $content, [System.Text.UTF8Encoding]::new($false))
 }
 
-function Test-CloverTcpPort {
+function Test-GuiltineSinTcpPort {
     param(
         [string]$HostName,
         [int]$Port
@@ -83,7 +83,7 @@ function Test-CloverTcpPort {
     }
 }
 
-function Test-CloverServer {
+function Test-GuiltineSinServer {
     $response = Invoke-WebRequest -UseBasicParsing -TimeoutSec 8 -Uri $serverListUrl
     if ($response.Content -notmatch 'Server0_IP="([^"]+)"') {
         throw "serverlist nao contem Server0_IP"
@@ -95,37 +95,37 @@ function Test-CloverServer {
         $script:serverPort = [int]$Matches[1]
     }
 
-    Test-CloverTcpPort -HostName $serverHost -Port $serverPort
+    Test-GuiltineSinTcpPort -HostName $serverHost -Port $serverPort
+    [System.IO.File]::WriteAllText($serverListCache, $response.Content, [System.Text.UTF8Encoding]::new($true))
 }
 
-Initialize-CloverClientSettings
-Write-CloverClientConfig
-Remove-Item -LiteralPath $serverListCache -Force -ErrorAction SilentlyContinue
+Initialize-GuiltineSinClientSettings
+Write-GuiltineSinClientConfig
 
 try {
-    Test-CloverServer
+    Test-GuiltineSinServer
 }
 catch {
-    [System.Windows.MessageBox]::Show("Clover local nao respondeu em $serverHost. Suba o servidor CloverTOS e tente novamente.`n`n$($_.Exception.Message)", "CloverTOS")
+    [System.Windows.MessageBox]::Show("GuiltineSin local nao respondeu em $serverHost. Suba o servidor GuiltineSin e tente novamente.`n`n$($_.Exception.Message)", "GuiltineSin")
     exit 1
 }
 
 if (-not (Test-Path -LiteralPath $clientExe)) {
-    [System.Windows.MessageBox]::Show("Client_tos_x64.exe nao encontrado em $clientDir", "CloverTOS")
+    [System.Windows.MessageBox]::Show("Client_tos_x64.exe nao encontrado em $clientDir", "GuiltineSin")
     exit 1
 }
 
 if (-not (Test-Path -LiteralPath $imagePath)) {
-    [System.Windows.MessageBox]::Show("Imagem de loading nao encontrada em $imagePath", "CloverTOS")
+    [System.Windows.MessageBox]::Show("Imagem de loading nao encontrada em $imagePath", "GuiltineSin")
     exit 1
 }
 
 $window = New-Object System.Windows.Window
-$window.Title = "CloverTOS"
-$window.WindowStyle = "None"
-$window.ResizeMode = "NoResize"
+$window.Title = "GuiltineSin"
+$window.WindowStyle = "SingleBorderWindow"
+$window.ResizeMode = "CanMinimize"
 $window.WindowStartupLocation = "CenterScreen"
-$window.Topmost = $true
+$window.Topmost = $false
 $window.ShowInTaskbar = $true
 $window.Background = [System.Windows.Media.Brushes]::Black
 $window.SizeToContent = "WidthAndHeight"
@@ -189,10 +189,10 @@ $closing = $false
 
 $window.Add_SourceInitialized({
     try {
-        $script:started = Start-Process -FilePath $script:clientExe -ArgumentList "-SERVICE", "GLOBAL" -WorkingDirectory $script:clientDir -PassThru
+        $script:started = Start-Process -FilePath $script:clientExe -ArgumentList "-SERVICE", "GLOBAL", "-LANGUAGE", "English" -WorkingDirectory $script:clientDir -PassThru
     }
     catch {
-        [System.Windows.MessageBox]::Show($_.Exception.Message, "CloverTOS")
+        [System.Windows.MessageBox]::Show($_.Exception.Message, "GuiltineSin")
         $script:window.Close()
     }
 })

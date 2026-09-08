@@ -1,11 +1,11 @@
-﻿//--- Melia Script ----------------------------------------------------------
+﻿//--- GuiltineSin Script ----------------------------------------------------------
 // Stat Fixes
 //--- Description -----------------------------------------------------------
 // Applies various client-side fixes for character stats.
 //---------------------------------------------------------------------------
 
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors.Characters;
 
 public class StatFixesClientScript : ClientScript
 {

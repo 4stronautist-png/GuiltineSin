@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
-using Melia.Zone.Scripting.Dialogues;
+using GuiltineSin.Zone.Scripting.Dialogues;
 
-namespace Melia.Zone.Scripting.Hooking
+namespace GuiltineSin.Zone.Scripting.Hooking
 {
 	/// <summary>
 	/// A hook that can be executed during dialog.

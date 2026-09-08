@@ -1,6 +1,6 @@
-﻿using Melia.Shared.World;
+﻿using GuiltineSin.Shared.World;
 
-namespace Melia.Shared.Network.Helpers
+namespace GuiltineSin.Shared.Network.Helpers
 {
 	/// <summary>
 	/// Helper extension methods for reading and writing positions and

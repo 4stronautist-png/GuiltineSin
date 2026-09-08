@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Melia.Shared.IES
+namespace GuiltineSin.Shared.IES
 {
 	/// <summary>
 	/// A property of a class and its modifications.

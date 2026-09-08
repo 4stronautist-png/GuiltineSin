@@ -1,4 +1,4 @@
-﻿namespace Melia.Shared.ObjectProperties
+﻿namespace GuiltineSin.Shared.ObjectProperties
 {
 	/// <summary>
 	/// Represents an object with properties.

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Network.Inter.Messages;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Network.Inter.Messages;
 
-namespace Melia.Shared.Network
+namespace GuiltineSin.Shared.Network
 {
 	/// <summary>
 	/// Server list manager.

@@ -55,7 +55,7 @@ Get-Process |
 		}
 	}
 
-$clientRoots += "C:\CloverTOS-Local\release"
+$clientRoots += "C:\GuiltineSin\release"
 $clientRoots = $clientRoots | Where-Object { $_ -and (Test-Path -LiteralPath $_) } | Sort-Object -Unique
 
 $logsDir = Join-Path $TraceDir "client-logs"

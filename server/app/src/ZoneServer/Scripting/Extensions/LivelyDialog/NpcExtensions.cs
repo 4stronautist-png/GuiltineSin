@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Melia.Shared.L10N;
-using Melia.Zone.Scripting.Dialogues;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Monsters;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Zone.Scripting.Dialogues;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Monsters;
 using Yggdrasil.Util;
 
-namespace Melia.Zone.Scripting.Extensions.LivelyDialog
+namespace GuiltineSin.Zone.Scripting.Extensions.LivelyDialog
 {
 	public static class NpcExtensions
 	{
@@ -288,7 +288,7 @@ namespace Melia.Zone.Scripting.Extensions.LivelyDialog
 		/// <param name="valueName"></param>
 		/// <returns></returns>
 		private static string GetRelationVarPrefix(Npc npc, string valueName)
-			=> $"Melia.Npcs.{npc.UniqueName}.Relation.{valueName}";
+			=> $"GuiltineSin.Npcs.{npc.UniqueName}.Relation.{valueName}";
 
 		/// <summary>
 		/// Returns the current value for the given relation value.

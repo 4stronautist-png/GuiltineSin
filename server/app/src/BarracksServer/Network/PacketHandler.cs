@@ -2,24 +2,24 @@
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
-using Melia.Barracks.Database;
-using Melia.Barracks.Events;
-using Melia.Shared.Database;
-using Melia.Shared.Game.Const;
-using Melia.Shared.L10N;
-using Melia.Shared.Network;
-using Melia.Shared.Network.Helpers;
-using Melia.Shared.Network.Inter.Messages;
-using Melia.Shared.World;
+using GuiltineSin.Barracks.Database;
+using GuiltineSin.Barracks.Events;
+using GuiltineSin.Shared.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Shared.Network;
+using GuiltineSin.Shared.Network.Helpers;
+using GuiltineSin.Shared.Network.Inter.Messages;
+using GuiltineSin.Shared.World;
 using Yggdrasil.Logging;
 using Yggdrasil.Security.Hashing;
 
-namespace Melia.Barracks.Network
+namespace GuiltineSin.Barracks.Network
 {
 	public class PacketHandler : PacketHandler<IBarracksConnection>
 	{
-		private static readonly Position CloverStartPosition = new(-599, 260, -1377);
-		private const string CloverStartMap = "f_siauliai_west";
+		private static readonly Position GuiltineSinStartPosition = new(-599, 260, -1377);
+		private const string GuiltineSinStartMap = "f_siauliai_west";
 
 		/// <summary>
 		/// Sent when clicking [Enter] on login screen.
@@ -37,9 +37,11 @@ namespace Melia.Barracks.Network
 			var ip = packet.GetInt();
 			var unk1 = packet.GetBin(405); // [i389072 (2024-09-12)] Increased by 4
 			var serviceNation = packet.GetString(64); // [i373230 (2023-05-10)] Might've been added before
+			var remoteAddress = (conn as Connection)?.Address?.ToString() ?? "<unknown>";
 
 			Send.BC_LOGIN_PACKET_RECEIVED(conn);
 			Send.BC_DISCONNECT_PACKET_LOG_COUNT(conn);
+			Log.Info("Login attempt from '{0}' as '{1}' service='{2}'.", remoteAddress, string.IsNullOrWhiteSpace(accountName) ? "<empty>" : accountName, serviceNation);
 
 			// If TAIWAN is set as the service nation, the client doesn't
 			// send the account name and password, but something else.
@@ -48,6 +50,7 @@ namespace Melia.Barracks.Network
 			// us the login packet we expect.
 			if (serviceNation == "TAIWAN")
 			{
+				Log.Warning("Login rejected for '{0}': unsupported service nation '{1}'.", accountName, serviceNation);
 				Send.BC_MESSAGE(conn, "The TAIWAN service nation login is currently not supported. Please use the GLOBAL service nation instead.");
 				conn.Close(100);
 				return;
@@ -59,6 +62,7 @@ namespace Melia.Barracks.Network
 			// without an account name.
 			if (accountName == "")
 			{
+				Log.Warning("Login rejected from '{0}': empty account name, likely bad client static config.", remoteAddress);
 				Send.BC_MESSAGE(conn, "It appears like your client is not configured incorrectly. Please check your static configuration.");
 				conn.Close(100);
 				return;
@@ -78,6 +82,7 @@ namespace Melia.Barracks.Network
 			// Check account
 			if (!BarracksServer.Instance.Database.AccountExists(accountName))
 			{
+				Log.Warning("Login rejected for '{0}': account does not exist.", accountName);
 				Send.BC_MESSAGE(conn, MsgType.UsernameOrPasswordIncorrect1);
 				conn.Close(100);
 				return;
@@ -87,6 +92,7 @@ namespace Melia.Barracks.Network
 			var account = Account.LoadFromDb(accountName);
 			if (!BCrypt.CheckPassword(password, account.Password))
 			{
+				Log.Warning("Login rejected for '{0}': password mismatch.", accountName);
 				Send.BC_MESSAGE(conn, MsgType.UsernameOrPasswordIncorrect2);
 				conn.Close(100);
 				return;
@@ -95,6 +101,7 @@ namespace Melia.Barracks.Network
 			// Check login state
 			if (BarracksServer.Instance.Database.IsLoggedIn(account.Id))
 			{
+				Log.Warning("Login rejected for '{0}': account is already marked logged in; forced logout requested.", accountName);
 				BarracksServer.Instance.Communicator.Broadcast("AllServers", new ForceLogOutMessage(account.Id));
 				BarracksServer.Instance.Database.UpdateLoginState(account.Id, 0, LoginState.LoggedOut);
 
@@ -379,8 +386,8 @@ namespace Melia.Barracks.Network
 			}
 
 			// Get map data
-			var startMapName = CloverStartMap;
-			var startPosition = CloverStartPosition;
+			var startMapName = GuiltineSinStartMap;
+			var startPosition = GuiltineSinStartPosition;
 
 			if (!BarracksServer.Instance.Data.MapDb.TryFind(startMapName, out var startMapData))
 			{

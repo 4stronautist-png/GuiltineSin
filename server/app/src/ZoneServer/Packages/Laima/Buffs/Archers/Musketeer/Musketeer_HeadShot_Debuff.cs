@@ -1,11 +1,11 @@
 using System;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Packages;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Network;
-using Melia.Zone.World.Actors;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.World.Actors;
 
-namespace Melia.Zone.Buffs.Handlers.Archers.Musketeer
+namespace GuiltineSin.Zone.Buffs.Handlers.Archers.Musketeer
 {
 	[Package("laima")]
 	[BuffHandler(BuffId.HeadShot_Debuff)]

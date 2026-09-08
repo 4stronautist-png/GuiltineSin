@@ -2,7 +2,7 @@
 using Yggdrasil.Logging;
 using Yggdrasil.Util;
 
-namespace Melia.Web
+namespace GuiltineSin.Web
 {
 	class Program
 	{

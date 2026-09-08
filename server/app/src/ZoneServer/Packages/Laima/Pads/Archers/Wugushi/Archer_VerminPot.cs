@@ -1,18 +1,18 @@
 using System;
 using System.Linq;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Network;
-using Melia.Zone.Pads.Handlers;
-using Melia.Zone.Skills;
-using Melia.Zone.Skills.Handlers.Base;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Actors.Pads;
-using static Melia.Zone.Pads.Helpers.PadHelper;
-using static Melia.Zone.Skills.SkillUseFunctions;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Pads.Handlers;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.Skills.Handlers.Base;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Actors.Pads;
+using static GuiltineSin.Zone.Pads.Helpers.PadHelper;
+using static GuiltineSin.Zone.Skills.SkillUseFunctions;
 
-namespace Melia.Zone.Pads.HandlersOverride.Archers.Wugushi
+namespace GuiltineSin.Zone.Pads.HandlersOverride.Archers.Wugushi
 {
 	[Package("laima")]
 	[PadHandler(PadName.Archer_VerminPot)]
@@ -101,9 +101,9 @@ namespace Melia.Zone.Pads.HandlersOverride.Archers.Wugushi
 				return;
 
 			var now = DateTime.Now;
-			if (pad.Variables.Has("Melia.BossCard.NextFire"))
+			if (pad.Variables.Has("GuiltineSin.BossCard.NextFire"))
 			{
-				var nextFire = pad.Variables.Get<DateTime>("Melia.BossCard.NextFire");
+				var nextFire = pad.Variables.Get<DateTime>("GuiltineSin.BossCard.NextFire");
 				if (now < nextFire)
 					return;
 			}
@@ -138,7 +138,7 @@ namespace Melia.Zone.Pads.HandlersOverride.Archers.Wugushi
 				? skillData.ShootTime
 				: TimeSpan.FromMilliseconds(1000);
 
-			pad.Variables.Set("Melia.BossCard.NextFire", now + shootTime);
+			pad.Variables.Set("GuiltineSin.BossCard.NextFire", now + shootTime);
 
 			var bossSkill = new Skill(padMonster, skillId);
 			handler.Handle(bossSkill, padMonster, firstTarget);

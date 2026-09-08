@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Melia.Shared.Game;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Network.Helpers;
-using Melia.Shared.ObjectProperties;
-using Melia.Shared.Scripting;
-using Melia.Zone.World;
-using Melia.Zone.World.Actors.Characters.Components;
-using Melia.Zone.World.Maps;
-using Melia.Zone.World.Storages;
+using GuiltineSin.Shared.Game;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Network.Helpers;
+using GuiltineSin.Shared.ObjectProperties;
+using GuiltineSin.Shared.Scripting;
+using GuiltineSin.Zone.World;
+using GuiltineSin.Zone.World.Actors.Characters.Components;
+using GuiltineSin.Zone.World.Maps;
+using GuiltineSin.Zone.World.Storages;
 
-namespace Melia.Zone.Database
+namespace GuiltineSin.Zone.Database
 {
 	/// <summary>
 	/// A player's account.

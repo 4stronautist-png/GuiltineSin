@@ -1,4 +1,4 @@
-Melia.Override("INVENTORY_OPEN", function(original, frame)
+GuiltineSin.Override("INVENTORY_OPEN", function(original, frame)
 	original(frame)
 	
 	local function disable(frame, name)

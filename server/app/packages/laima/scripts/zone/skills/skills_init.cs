@@ -1,15 +1,15 @@
-﻿//--- Melia Script ----------------------------------------------------------
+﻿//--- GuiltineSin Script ----------------------------------------------------------
 // Skill Initialization
 //--- Description -----------------------------------------------------------
 // Grants skills specific buffs on learning a skill.
 //---------------------------------------------------------------------------
 
 using System;
-using Melia.Shared.Scripting;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Events.Arguments;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors;
+using GuiltineSin.Shared.Scripting;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Events.Arguments;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors;
 
 public class SkillInitializationScript : GeneralScript
 {

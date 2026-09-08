@@ -1,9 +1,9 @@
-using Melia.Shared.Game.Const;
-using Melia.Shared.Packages;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Network;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Network;
 
-namespace Melia.Zone.Buffs.Handlers.Archers.Falconer
+namespace GuiltineSin.Zone.Buffs.Handlers.Archers.Falconer
 {
 	/// <summary>
 	/// Handle for the Aiming buff applied to enemies.

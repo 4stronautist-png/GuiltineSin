@@ -1,9 +1,9 @@
 Web Server
 =============================================================================
 
-For ease of use, Melia comes with its own, simple web server, because the
+For ease of use, GuiltineSin comes with its own, simple web server, because the
 game client requires certain files to be served to it via HTTP on lauch.
-With this, Melia is practically plug-and-play, though you are free to
+With this, GuiltineSin is practically plug-and-play, though you are free to
 use your own web server. In fact, for actual production usage, we would
 very much recommend a mature and widely used server, such as Apache or
 NGINX, but our web server is perfectly capable of doing the job in less
@@ -17,13 +17,13 @@ The web server is started together with the other servers and runs on
 port 80 by default, which means that you can access it by navigating
 your browser to http://127.0.0.1 if you're running it on your computer.
 If everything is working as expected, you should see a page saying
-something along the lines of "Melia Web Server".
+something along the lines of "GuiltineSin Web Server".
 
 However, it's possible other applications are already using port 80,
 in which case the web server will display an error and you won't be
 seeing the aforementioned website when navigating there. In this case,
 you have to either close the other application, reconfigure it to use
-a different port, or change the port Melia's web server is running on.
+a different port, or change the port GuiltineSin's web server is running on.
 This can be accomplished in the file `conf/web.conf`.
 
 If you change the port of the web server, you have to append the custom
@@ -36,9 +36,9 @@ Client Launch
 
 The two primary resources the web server serves clients are the files
 `serverlist.xml` and `static__Config.txt`, which are generated internally
-and can't be found directly in Melia's file structure. They are vital in
+and can't be found directly in GuiltineSin's file structure. They are vital in
 telling the client where to connect to and how, to be able to log into
-your Melia server. By default, these files can be viewed under the following
+your GuiltineSin server. By default, these files can be viewed under the following
 addresses.
 
 - http://127.0.0.1/toslive/patch/serverlist.xml

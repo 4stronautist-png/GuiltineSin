@@ -1,14 +1,14 @@
 ﻿using System;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Network;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
 using Yggdrasil.Scheduling;
 using Yggdrasil.Util;
 
-namespace Melia.Zone.Buffs
+namespace GuiltineSin.Zone.Buffs
 {
 	/// <summary>
 	/// Buff
@@ -312,7 +312,7 @@ namespace Melia.Zone.Buffs
 
 			foreach (var propertyName in mspdProperties)
 			{
-				var varName = "Melia.Modifier." + propertyName;
+				var varName = "GuiltineSin.Modifier." + propertyName;
 				if (this.Vars.TryGetFloat(varName, out _))
 					return true;
 			}

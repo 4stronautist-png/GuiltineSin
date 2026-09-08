@@ -1,19 +1,19 @@
 using System;
 using System.Collections.Generic;
-using Melia.Shared.Packages;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting;
-using Melia.Zone.Scripting.ScriptableEvents;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.Skills;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Effects;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Scripting.ScriptableEvents;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Effects;
 
-namespace Melia.Zone.Buffs.Handlers.Clerics.Sadhu
+namespace GuiltineSin.Zone.Buffs.Handlers.Clerics.Sadhu
 {
 	/// <summary>
 	/// Handler for the OOBE_Soulmaster_Buff which indicates spirit form.
@@ -32,7 +32,7 @@ namespace Melia.Zone.Buffs.Handlers.Clerics.Sadhu
 			buff.SetUpdateTime(500);
 
 			var currentSp = casterCharacter.Properties.GetFloat(PropertyName.SP);
-			buff.Vars.SetFloat("Melia.OOBE.InitialSP", currentSp);
+			buff.Vars.SetFloat("GuiltineSin.OOBE.InitialSP", currentSp);
 
 			AddPropertyModifier(buff, casterCharacter, PropertyName.MSPD_BM, 20);
 
@@ -120,7 +120,7 @@ namespace Melia.Zone.Buffs.Handlers.Clerics.Sadhu
 			if (!character.TryGetSkillLevel(SkillId.Sadhu_Prakriti, out var prakritiLevel))
 				return;
 
-			var initialSp = oobeBuff.Vars.GetFloat("Melia.OOBE.InitialSP");
+			var initialSp = oobeBuff.Vars.GetFloat("GuiltineSin.OOBE.InitialSP");
 			var currentSp = character.Properties.GetFloat(PropertyName.SP);
 			var spLost = Math.Max(0, initialSp - currentSp);
 
@@ -217,11 +217,11 @@ namespace Melia.Zone.Buffs.Handlers.Clerics.Sadhu
 
 			var linkId = ZoneServer.Instance.World.CreateLinkHandle();
 			var linkEffect = new LinkerVisualEffect(linkId, "OOBE", true, handles, 0.3f, "None", 1f, "None");
-			casterCharacter.AddEffect("Melia.OOBE.Link", linkEffect);
+			casterCharacter.AddEffect("GuiltineSin.OOBE.Link", linkEffect);
 
 			var linkIdBg = ZoneServer.Instance.World.CreateLinkHandle();
 			var linkEffectBg = new LinkerVisualEffect(linkIdBg, "OOBE_Bg", true, handles, 0.3f, "I_cleric_oobe_loop_connect", 0.2f, "None");
-			casterCharacter.AddEffect("Melia.OOBE.LinkBg", linkEffectBg);
+			casterCharacter.AddEffect("GuiltineSin.OOBE.LinkBg", linkEffectBg);
 		}
 
 		/// <summary>
@@ -229,8 +229,8 @@ namespace Melia.Zone.Buffs.Handlers.Clerics.Sadhu
 		/// </summary>
 		private void RemoveLinkEffect(Character casterCharacter)
 		{
-			casterCharacter.RemoveEffect("Melia.OOBE.Link");
-			casterCharacter.RemoveEffect("Melia.OOBE.LinkBg");
+			casterCharacter.RemoveEffect("GuiltineSin.OOBE.Link");
+			casterCharacter.RemoveEffect("GuiltineSin.OOBE.LinkBg");
 		}
 
 		[CombatCalcModifier(CombatCalcPhase.AfterCalc, BuffId.OOBE_Soulmaster_Buff)]

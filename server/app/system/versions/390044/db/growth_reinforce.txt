@@ -1,4 +1,4 @@
-// Melia
+// GuiltineSin
 // Database file
 // 
 // Values: id, className, addAtk, addTHAtk, addTrkAtk, addDef, addBodyDef, addShdDef, basicAtk, basicTHAtk, basicTrkAtk, basicAccAtk, basicDef, basicBodyDef, basicShdDef, [count], material

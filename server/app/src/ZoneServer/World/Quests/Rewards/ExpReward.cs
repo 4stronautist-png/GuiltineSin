@@ -1,7 +1,7 @@
-﻿using Melia.Shared.L10N;
-using Melia.Zone.World.Actors.Characters;
+﻿using GuiltineSin.Shared.L10N;
+using GuiltineSin.Zone.World.Actors.Characters;
 
-namespace Melia.Zone.World.Quests.Rewards
+namespace GuiltineSin.Zone.World.Quests.Rewards
 {
 	/// <summary>
 	/// A reward that gives experience.

@@ -1,13 +1,13 @@
-﻿//--- Melia Script ----------------------------------------------------------
+﻿//--- GuiltineSin Script ----------------------------------------------------------
 // Ability Point Cost
 //--- Description -----------------------------------------------------------
 // Modifies the client's ability point cost function to return the server's
 // configured value.
 //---------------------------------------------------------------------------
 
-using Melia.Zone;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Zone;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors.Characters;
 
 public class AbilityPointCostClientScript : ClientScript
 {
@@ -16,7 +16,7 @@ public class AbilityPointCostClientScript : ClientScript
 		var exchangeRate = ZoneServer.Instance.Conf.World.AbilityPointCost;
 
 		this.SendRawLuaScript(character, $@"
-			Melia.Override(""GET_SILVER_BY_ONE_ABILITY_POINT_CALC"", function(original)
+			GuiltineSin.Override(""GET_SILVER_BY_ONE_ABILITY_POINT_CALC"", function(original)
 				return {exchangeRate};
 			end)
 		");

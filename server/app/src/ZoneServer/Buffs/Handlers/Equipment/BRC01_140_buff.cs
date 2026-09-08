@@ -1,9 +1,9 @@
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Network;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.World.Actors.Characters;
 
-namespace Melia.Zone.Buffs.Handlers
+namespace GuiltineSin.Zone.Buffs.Handlers
 {
 	/// <summary>
 	/// Handle for the Bracelet of Protection - Darkness,
@@ -12,7 +12,7 @@ namespace Melia.Zone.Buffs.Handlers
 	[BuffHandler(BuffId.BRC01_140_buff)]
 	public class BRC01_140_buff : BuffHandler
 	{
-		private const string VarName = "Melia.DarkDefModifier";
+		private const string VarName = "GuiltineSin.DarkDefModifier";
 		private const float BuffBonus = 2.5f;
 
 		/// <summary>

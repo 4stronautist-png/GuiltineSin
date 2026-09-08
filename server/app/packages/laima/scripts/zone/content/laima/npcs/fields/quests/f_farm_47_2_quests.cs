@@ -1,4 +1,4 @@
-//--- Melia Script ----------------------------------------------------------
+//--- GuiltineSin Script ----------------------------------------------------------
 // Aqueduct Bridge Area - Quest NPCs
 //--- Description -----------------------------------------------------------
 // Quest NPCs and content for f_farm_47_2 map. Front-line farm next to the
@@ -6,17 +6,17 @@
 //---------------------------------------------------------------------------
 
 using System;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Characters.Components;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Quests;
-using Melia.Zone.World.Quests.Objectives;
-using Melia.Zone.World.Quests.Prerequisites;
-using Melia.Zone.World.Quests.Rewards;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Characters.Components;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Quests;
+using GuiltineSin.Zone.World.Quests.Objectives;
+using GuiltineSin.Zone.World.Quests.Prerequisites;
+using GuiltineSin.Zone.World.Quests.Rewards;
 using Yggdrasil.Util;
-using static Melia.Zone.Scripting.Shortcuts;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
 public class FFarm472QuestNpcsScript : GeneralScript
 {

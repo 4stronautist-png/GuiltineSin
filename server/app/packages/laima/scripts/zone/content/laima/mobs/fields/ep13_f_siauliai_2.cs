@@ -1,14 +1,14 @@
-//--- Melia Script -----------------------------------------------------------
+//--- GuiltineSin Script -----------------------------------------------------------
 // Woods of the Linked Bridges Spawns
 //--- Description -----------------------------------------------------------
 // Sets up monster spawners for 'ep13_f_siauliai_2'.
 //---------------------------------------------------------------------------
 
 using System;
-using Melia.Zone.Scripting;
-using Melia.Shared.Game.Const;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Shared.Game.Const;
 using Yggdrasil.Util;
-using static Melia.Zone.Scripting.Shortcuts;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
 public class Ep13FSiauliai2MobScript : GeneralScript
 {

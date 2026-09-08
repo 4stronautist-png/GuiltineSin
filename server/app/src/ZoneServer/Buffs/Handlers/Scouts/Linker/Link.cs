@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Network;
-using Melia.Zone.Skills;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.World.Actors;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.World.Actors;
 
-namespace Melia.Zone.Buffs.Handlers
+namespace GuiltineSin.Zone.Buffs.Handlers
 {
 	/// <summary>
 	/// Handler for the Link (de)buff, which links targets together to receive
@@ -34,7 +34,7 @@ namespace Melia.Zone.Buffs.Handlers
 				// any existing links they might have
 				if (target.TryGetBuff(BuffId.Link, out var existingLink))
 				{
-					if (existingLink.Vars.TryGet<List<int>>("Melia.Link.Members", out var existingHandles) && target.Map != null)
+					if (existingLink.Vars.TryGet<List<int>>("GuiltineSin.Link.Members", out var existingHandles) && target.Map != null)
 					{
 						foreach (var handle in existingHandles)
 						{
@@ -48,7 +48,7 @@ namespace Melia.Zone.Buffs.Handlers
 				var linkBuff = target.StartBuff(BuffId.Link, 0, 0, duration, caster);
 				if (linkBuff != null)
 				{
-					linkBuff.Vars.Set("Melia.Link.Members", memberHandles);
+					linkBuff.Vars.Set("GuiltineSin.Link.Members", memberHandles);
 
 					Send.ZC_NORMAL.PlayTextEffect(target, caster, "SHOW_BUFF_TEXT", (float)BuffId.Link, null, "Item");
 				}
@@ -69,7 +69,7 @@ namespace Melia.Zone.Buffs.Handlers
 			// now, since I don't feel like writing a workaround for locking
 			// this shared target list to remove one of them.
 
-			if (linkBuff.Vars.TryGet<List<int>>("Melia.Link.Members", out var memberHandles) && target.Map != null)
+			if (linkBuff.Vars.TryGet<List<int>>("GuiltineSin.Link.Members", out var memberHandles) && target.Map != null)
 			{
 				foreach (var handle in memberHandles)
 				{
@@ -90,7 +90,7 @@ namespace Melia.Zone.Buffs.Handlers
 		/// <param name="skillHitResult"></param>
 		public void OnDefenseAfterCalc(Buff buff, ICombatEntity attacker, ICombatEntity target, Skill skill, SkillModifier modifier, SkillHitResult skillHitResult)
 		{
-			if (!buff.Vars.TryGet<List<int>>("Melia.Link.Members", out var memberHandles))
+			if (!buff.Vars.TryGet<List<int>>("GuiltineSin.Link.Members", out var memberHandles))
 				return;
 
 			var linkTargets = new List<ICombatEntity>();
@@ -126,7 +126,7 @@ namespace Melia.Zone.Buffs.Handlers
 		{
 			// The link is visually tied to its unique ID and caster.
 			// When the buff ends, we need to tell the clients to destroy the visual link.
-			if (buff.Caster != null && buff.Vars.TryGet<int>("Melia.Link.Id", out var linkId) && linkId != 0)
+			if (buff.Caster != null && buff.Vars.TryGet<int>("GuiltineSin.Link.Id", out var linkId) && linkId != 0)
 			{
 				Send.ZC_NORMAL.DestroyLinker(buff.Caster, linkId);
 			}

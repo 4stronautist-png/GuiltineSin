@@ -1,15 +1,15 @@
 ﻿using System;
-using Melia.Shared.Packages;
-using Melia.Shared.L10N;
-using Melia.Shared.Game.Const;
-using Melia.Shared.World;
-using Melia.Zone.Network;
-using Melia.Zone.Skills.Handlers.Base;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.Skills.Handlers;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Skills.Handlers.Base;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.Skills.Handlers;
 
-namespace Melia.Zone.Skills.HandlersOverrides.Swordsmen.Swordsman
+namespace GuiltineSin.Zone.Skills.HandlersOverrides.Swordsmen.Swordsman
 {
 	/// <summary>
 	/// Handler for the Swordman skill Bear.

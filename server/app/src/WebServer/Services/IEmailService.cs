@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace Melia.Web.Services
+namespace GuiltineSin.Web.Services
 {
 	/// <summary>
 	/// Defines a contract for a service that sends emails.

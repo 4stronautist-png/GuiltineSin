@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading;
-using Melia.Shared.Data.Database;
-using Melia.Shared.ObjectProperties;
-using Melia.Zone.Scripting;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.ObjectProperties;
+using GuiltineSin.Zone.Scripting;
 
-namespace Melia.Zone.World.Quests
+namespace GuiltineSin.Zone.World.Quests
 {
 	/// <summary>
 	/// Represents a quest that was taken on by a character.

@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Buffers;
 using System.Net.Sockets;
-using Melia.Shared.Network;
-using Melia.Social.World;
+using GuiltineSin.Shared.Network;
+using GuiltineSin.Social.World;
 using Yggdrasil.Logging;
 using Yggdrasil.Network.TCP;
 
-namespace Melia.Social.Network
+namespace GuiltineSin.Social.Network
 {
 	/// <summary>
 	/// A connection from the client to the social server.

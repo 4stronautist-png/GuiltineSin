@@ -1,4 +1,4 @@
-// Melia
+// GuiltineSin
 // Buff Override Database
 // 
 // This file contains buff overrides that differ from the base system buffs
@@ -53,7 +53,7 @@
 { id: 138, className: "SwiftStep_Buff" },
 { id: 148, className: "Cloaking_Buff", tags: ["Cloaking"] },
 { id: 160, className: "Zalciai_Buff", updateTime: 1000 },
-{ id: 165, className: "Quicken_Buff", save: true },
+{ id: 165, className: "Quicken_Buff", save: false },
 { id: 167, className: "Transpose_Buff", save: true },
 { id: 168, className: "SteadyAim_Buff" },
 { id: 170, className: "ResistElements_Buff", save: true },

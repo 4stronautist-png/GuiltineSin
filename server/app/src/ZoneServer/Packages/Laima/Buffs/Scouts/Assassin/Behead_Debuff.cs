@@ -1,8 +1,8 @@
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
 
-namespace Melia.Zone.Buffs.Handlers.Scouts.Assassin
+namespace GuiltineSin.Zone.Buffs.Handlers.Scouts.Assassin
 {
 	/// <summary>
 	/// Buff handler for Behead: Bleeding, which deals bleed damage in regular intervals.

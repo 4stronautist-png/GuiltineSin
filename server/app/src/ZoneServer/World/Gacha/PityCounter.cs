@@ -1,6 +1,6 @@
-﻿using Melia.Zone.World.Actors.Characters;
+﻿using GuiltineSin.Zone.World.Actors.Characters;
 
-namespace Melia.Zone.World.Gacha
+namespace GuiltineSin.Zone.World.Gacha
 {
 	/// <summary>
 	/// Tracks a character's pity values.
@@ -37,8 +37,8 @@ namespace Melia.Zone.World.Gacha
 		/// <param name="character"></param>
 		public void Load(Character character)
 		{
-			this.Rare.PullsSince = character.Variables.Perm.GetInt($"Melia.Gacha.RarePity.{this.ClassName}", 0);
-			this.SuperRare.PullsSince = character.Variables.Perm.GetInt($"Melia.Gacha.SuperRarePity.{this.ClassName}", 0);
+			this.Rare.PullsSince = character.Variables.Perm.GetInt($"GuiltineSin.Gacha.RarePity.{this.ClassName}", 0);
+			this.SuperRare.PullsSince = character.Variables.Perm.GetInt($"GuiltineSin.Gacha.SuperRarePity.{this.ClassName}", 0);
 		}
 
 		/// <summary>
@@ -47,8 +47,8 @@ namespace Melia.Zone.World.Gacha
 		/// <param name="character"></param>
 		public void Save(Character character)
 		{
-			character.Variables.Perm.SetInt($"Melia.Gacha.RarePity.{this.ClassName}", this.Rare.PullsSince);
-			character.Variables.Perm.SetInt($"Melia.Gacha.SuperRarePity.{this.ClassName}", this.SuperRare.PullsSince);
+			character.Variables.Perm.SetInt($"GuiltineSin.Gacha.RarePity.{this.ClassName}", this.Rare.PullsSince);
+			character.Variables.Perm.SetInt($"GuiltineSin.Gacha.SuperRarePity.{this.ClassName}", this.SuperRare.PullsSince);
 		}
 	}
 

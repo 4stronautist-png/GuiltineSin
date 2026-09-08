@@ -1,8 +1,8 @@
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
 
-namespace Melia.Zone.Buffs.Handlers.Rodelero
+namespace GuiltineSin.Zone.Buffs.Handlers.Rodelero
 {
 	/// <summary>
 	/// Handler for ShieldCharge_Buff.

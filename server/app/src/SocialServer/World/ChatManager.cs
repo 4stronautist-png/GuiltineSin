@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
-using Melia.Social.Database;
-using Melia.Social.Network;
+using GuiltineSin.Social.Database;
+using GuiltineSin.Social.Network;
 
-namespace Melia.Social.World
+namespace GuiltineSin.Social.World
 {
 	public class ChatManager
 	{

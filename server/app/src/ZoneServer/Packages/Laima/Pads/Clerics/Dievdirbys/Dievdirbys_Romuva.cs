@@ -1,15 +1,15 @@
 using System;
 using System.Threading.Tasks;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Network;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Actors.Pads;
-using static Melia.Zone.Pads.Helpers.PadHelper;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Actors.Pads;
+using static GuiltineSin.Zone.Pads.Helpers.PadHelper;
 
-namespace Melia.Zone.Pads.Handlers
+namespace GuiltineSin.Zone.Pads.Handlers
 {
 	[Package("laima")]
 	[PadHandler(PadName.Cleric_Romuva)]
@@ -27,7 +27,7 @@ namespace Melia.Zone.Pads.Handlers
 
 			// Check if Dievdirbys31 ability (Grieztas - damage mode) is active
 			var isDamageMode = creator.IsAbilityActive(AbilityId.Dievdirbys31);
-			pad.Variables.Set("Melia.RomuvaDamageMode", isDamageMode);
+			pad.Variables.Set("GuiltineSin.RomuvaDamageMode", isDamageMode);
 
 			// Match statue lifetime: 15 + (skill.Level * 2) seconds, or 20 seconds with Dievdirbys31 ability
 			var lifeTime = 15 + skill.Level * 2;
@@ -50,7 +50,7 @@ namespace Melia.Zone.Pads.Handlers
 			Send.ZC_NORMAL.PadUpdate(pad, false);
 
 			// Only remove silence buff if not in damage mode
-			var isDamageMode = pad.Variables.GetBool("Melia.RomuvaDamageMode");
+			var isDamageMode = pad.Variables.GetBool("GuiltineSin.RomuvaDamageMode");
 			if (!isDamageMode)
 			{
 				// Remove silence buff from all enemies when pad is destroyed
@@ -69,7 +69,7 @@ namespace Melia.Zone.Pads.Handlers
 			if (!creator.IsEnemy(initiator)) return;
 
 			// Check if in damage mode - if so, damage is dealt in Update, not on entry
-			var isDamageMode = pad.Variables.GetBool("Melia.RomuvaDamageMode");
+			var isDamageMode = pad.Variables.GetBool("GuiltineSin.RomuvaDamageMode");
 			if (isDamageMode)
 				return;
 
@@ -88,7 +88,7 @@ namespace Melia.Zone.Pads.Handlers
 			if (!creator.IsEnemy(initiator)) return;
 
 			// Check if in damage mode - if so, no buff to remove
-			var isDamageMode = pad.Variables.GetBool("Melia.RomuvaDamageMode");
+			var isDamageMode = pad.Variables.GetBool("GuiltineSin.RomuvaDamageMode");
 			if (isDamageMode)
 				return;
 
@@ -103,7 +103,7 @@ namespace Melia.Zone.Pads.Handlers
 			var skill = pad.Skill;
 
 			// Check if in damage mode
-			var isDamageMode = pad.Variables.GetBool("Melia.RomuvaDamageMode");
+			var isDamageMode = pad.Variables.GetBool("GuiltineSin.RomuvaDamageMode");
 
 			if (isDamageMode)
 			{

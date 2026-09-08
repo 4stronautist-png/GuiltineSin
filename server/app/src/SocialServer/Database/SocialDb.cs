@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Melia.Shared.Database;
-using Melia.Shared.Game.Const;
-using Melia.Shared.ObjectProperties;
-using Melia.Social.World;
+using GuiltineSin.Shared.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.ObjectProperties;
+using GuiltineSin.Social.World;
 using MySqlConnector;
 using Yggdrasil.Db.MySql.SimpleCommands;
 
-namespace Melia.Social.Database
+namespace GuiltineSin.Social.Database
 {
-	public class SocialDb : MeliaDb
+	public class SocialDb : GuiltineSinDb
 	{
 		/// <summary>
 		/// Returns account with given name, or null if it doesn't exist.

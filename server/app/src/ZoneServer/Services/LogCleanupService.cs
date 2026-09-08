@@ -1,10 +1,10 @@
 using System;
 using System.Threading;
-using Melia.Zone.Database;
+using GuiltineSin.Zone.Database;
 using MySqlConnector;
 using Yggdrasil.Logging;
 
-namespace Melia.Zone.Services
+namespace GuiltineSin.Zone.Services
 {
 	/// <summary>
 	/// Periodically trims log/snapshot tables to prevent unbounded growth

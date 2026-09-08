@@ -1,5 +1,5 @@
 -- Override the socket pricing function, in case we want different prices.
-Melia.Override("GET_MAKE_SOCKET_PRICE", function(original, itemlv, grade, curcnt, taxRate)
+GuiltineSin.Override("GET_MAKE_SOCKET_PRICE", function(original, itemlv, grade, curcnt, taxRate)
 
 	local clslist, cnt = GetClassList("socketprice");
     local gradRatio = { 1.2, 1, 0.5, 0.4, 0.3, 0.1 }

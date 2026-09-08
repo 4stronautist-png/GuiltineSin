@@ -8,13 +8,13 @@ using System.Threading;
 using System.Threading.Tasks;
 using EmbedIO;
 using EmbedIO.Routing;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Game.Const.Web;
-using Melia.Web.Const;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Game.Const.Web;
+using GuiltineSin.Web.Const;
 using Newtonsoft.Json;
 
-namespace Melia.Web.Controllers
+namespace GuiltineSin.Web.Controllers
 {
 	/// <summary>
 	/// Handles the classic client's market web calls.

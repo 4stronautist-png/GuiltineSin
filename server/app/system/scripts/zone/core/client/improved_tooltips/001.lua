@@ -1,4 +1,4 @@
-Melia.Override("INVENTORY_ON_MSG", function(original, frame, msg, argStr, argNum)
+GuiltineSin.Override("INVENTORY_ON_MSG", function(original, frame, msg, argStr, argNum)
 
 	original(frame, msg, argStr, argNum)
 

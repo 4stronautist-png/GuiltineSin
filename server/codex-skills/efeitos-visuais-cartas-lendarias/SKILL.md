@@ -1,11 +1,11 @@
 ---
 name: efeitos-visuais-cartas-lendarias
-description: Add or adjust CloverTOS legendary card visual effects. Use when the user wants to map legendary card IDs to cosmetic item IDs, change an existing legendary card visual, add doll/wing/hair/effect costume visuals, preserve the ON/OFF switch behavior in the F2 Card Album, or fix conflicts between card visuals and real equipped items.
+description: Add or adjust GuiltineSin legendary card visual effects. Use when the user wants to map legendary card IDs to cosmetic item IDs, change an existing legendary card visual, add doll/wing/hair/effect costume visuals, preserve the ON/OFF switch behavior in the F2 Card Album, or fix conflicts between card visuals and real equipped items.
 ---
 
 # Efeitos Visuais Das Cartas Lendarias
 
-Use this skill to add or change visual effects granted by legendary cards in CloverTOS.
+Use this skill to add or change visual effects granted by legendary cards in GuiltineSin.
 
 ## Core Files
 
@@ -63,12 +63,12 @@ dotnet build ./app/src/BarracksServer/BarracksServer.csproj --no-restore
 If server restart is needed, use:
 
 ```bash
-cd /home/an/CloverTOS/server && scripts/down.sh
-cd /home/an/CloverTOS/server/app && LOCAL_HOST=172.31.136.69 ./start-server.sh
+cd /home/an/GuiltineSin/server && scripts/down.sh
+cd /home/an/GuiltineSin/server/app && LOCAL_HOST=172.31.136.69 ./start-server.sh
 ```
 
 After restarting, tell the user to close the game completely and reopen:
 
 ```text
-C:\CloverTOS-Local\release\Start-CloverTOS-Local.bat
+C:\GuiltineSin\release\Start-GuiltineSin.bat
 ```

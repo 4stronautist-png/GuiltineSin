@@ -17,9 +17,9 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[2]
-MELIA_ROOT = ROOT.parent
-PAPAYA_IES = MELIA_ROOT / "tools" / "ipf_extract_work" / "extract" / "ies.ipf"
-MONGEN_IES = MELIA_ROOT / "tools" / "ipf_work" / "extract" / "ies_mongen.ipf"
+GUILTINESIN_ROOT = ROOT.parent
+PAPAYA_IES = GUILTINESIN_ROOT / "tools" / "ipf_extract_work" / "extract" / "ies.ipf"
+MONGEN_IES = GUILTINESIN_ROOT / "tools" / "ipf_work" / "extract" / "ies_mongen.ipf"
 DB_ROOT = ROOT / "server" / "app" / "system" / "db"
 REPORT_PATH = ROOT / "server" / "app" / "system" / "db" / "papaya_quest_pack_report.md"
 

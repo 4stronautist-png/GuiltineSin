@@ -1,24 +1,24 @@
-//--- Melia Script ----------------------------------------------------------
+//--- GuiltineSin Script ----------------------------------------------------------
 // Laima Starter Map
 //--- Description -----------------------------------------------------------
 // New character starts here and learns about the game and lore.
 //---------------------------------------------------------------------------
 
-using Melia.Zone;
-using Melia.Zone.Scripting;
-using static Melia.Zone.Scripting.Shortcuts;
-using Melia.Zone.Network;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Shared.World;
+using GuiltineSin.Zone;
+using GuiltineSin.Zone.Scripting;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Shared.World;
 using System.Threading.Tasks;
-using Melia.Shared.Game.Const;
-using Melia.Zone.World.Items;
-using Melia.Zone.Events.Arguments;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.World.Items;
+using GuiltineSin.Zone.Events.Arguments;
 using System;
-using Melia.Shared.Scripting;
+using GuiltineSin.Shared.Scripting;
 using Yggdrasil.Logging;
-using Melia.Zone.World;
-using Melia.Zone.World.Actors;
+using GuiltineSin.Zone.World;
+using GuiltineSin.Zone.World.Actors;
 
 public class LaimaStarterMapNpcScript : GeneralScript
 {

@@ -1,12 +1,12 @@
 using System.Collections.Generic;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Network;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Components;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Components;
 
-namespace Melia.Zone.Buffs.Handlers.Scouts.Corsair
+namespace GuiltineSin.Zone.Buffs.Handlers.Scouts.Corsair
 {
 	/// <summary>
 	/// Handler for the Iron Hook buff on the caster.
@@ -23,7 +23,7 @@ namespace Melia.Zone.Buffs.Handlers.Scouts.Corsair
 
 			caster.Interrupt();
 
-			if (buff.Vars.TryGet<List<ICombatEntity>>("Melia.IronHook.Targets", out var targets))
+			if (buff.Vars.TryGet<List<ICombatEntity>>("GuiltineSin.IronHook.Targets", out var targets))
 			{
 				foreach (var target in targets)
 				{
@@ -32,7 +32,7 @@ namespace Melia.Zone.Buffs.Handlers.Scouts.Corsair
 
 					target.RemoveBuff(BuffId.IronHooked);
 				}
-				buff.Vars.Remove("Melia.IronHook.Targets");
+				buff.Vars.Remove("GuiltineSin.IronHook.Targets");
 			}
 		}
 	}

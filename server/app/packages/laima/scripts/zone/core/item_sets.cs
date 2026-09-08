@@ -1,4 +1,4 @@
-//--- Melia Script ----------------------------------------------------------
+//--- GuiltineSin Script ----------------------------------------------------------
 // Item Set Functions
 //--- Description -----------------------------------------------------------
 // Scriptable functions that handle item set bonus effects.
@@ -7,10 +7,10 @@
 //---------------------------------------------------------------------------
 
 using System;
-using Melia.Shared.Data.Database;
-using Melia.Zone;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Zone;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors.Characters;
 
 public class ItemSetFunctionsScript : GeneralScript
 {

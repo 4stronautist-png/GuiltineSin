@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
-using Melia.Shared.Database;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Game.Const.Web;
+using GuiltineSin.Shared.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Game.Const.Web;
 using MySqlConnector;
 
-namespace Melia.Web.Database
+namespace GuiltineSin.Web.Database
 {
 	public partial class WebDb
 	{

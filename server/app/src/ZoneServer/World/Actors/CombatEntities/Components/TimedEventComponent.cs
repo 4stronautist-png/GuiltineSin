@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Melia.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
 using Yggdrasil.Composition;
 using Yggdrasil.Logging;
 using Yggdrasil.Scheduling;
 
-namespace Melia.Zone.World.Actors.Components
+namespace GuiltineSin.Zone.World.Actors.Components
 {
 	/// <summary>
 	/// An event that occurs or reccurs 

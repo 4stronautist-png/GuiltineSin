@@ -1,6 +1,6 @@
 ﻿using nettext;
 
-namespace Melia.Shared.L10N
+namespace GuiltineSin.Shared.L10N
 {
 	/// <summary>
 	/// Manages the localization of strings.

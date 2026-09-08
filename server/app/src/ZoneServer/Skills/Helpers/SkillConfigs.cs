@@ -1,6 +1,6 @@
-using Melia.Zone.Skills.Combat;
+using GuiltineSin.Zone.Skills.Combat;
 
-namespace Melia.Zone.Skills.Helpers
+namespace GuiltineSin.Zone.Skills.Helpers
 {
 	/// <summary>
 	/// Groups visual effect parameters used across skill helper methods.

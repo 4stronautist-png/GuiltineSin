@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using Melia.Shared.ObjectProperties;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Network.Inter.Messages;
-using Melia.Zone.Network;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Shared.ObjectProperties;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Network.Inter.Messages;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.World.Actors.Characters;
 using Yggdrasil.Network.Communication;
 
-namespace Melia.Zone.World
+namespace GuiltineSin.Zone.World
 {
 	public class PartyManager
 	{

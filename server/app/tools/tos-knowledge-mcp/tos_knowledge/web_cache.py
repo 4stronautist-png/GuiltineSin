@@ -53,7 +53,7 @@ def cache_url(app_root: Path, url: str) -> dict[str, str | int]:
     body_path = cache_dir / f"{digest}.html"
     meta_path = cache_dir / f"{digest}.json"
 
-    request = Request(url, headers={"User-Agent": "CloverTOS-TosKnowledgeMCP/0.1"})
+    request = Request(url, headers={"User-Agent": "GuiltineSin-TosKnowledgeMCP/0.1"})
     with urlopen(request, timeout=30) as response:
         body = response.read()
         content_type = response.headers.get("Content-Type", "")

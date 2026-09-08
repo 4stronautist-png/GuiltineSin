@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
-using Melia.Shared.Game.Const;
-using Melia.Shared.World;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Scripting;
-using Melia.Zone.Skills;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Monsters;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Monsters;
 using Yggdrasil.Util;
-using static Melia.Zone.Skills.Helpers.SkillDamageHelper;
+using static GuiltineSin.Zone.Skills.Helpers.SkillDamageHelper;
 
-namespace Melia.Zone.Buffs.Handlers.Monster
+namespace GuiltineSin.Zone.Buffs.Handlers.Monster
 {
 	/// <summary>
 	/// Shared helper for mythic monster buffs.
@@ -20,7 +20,7 @@ namespace Melia.Zone.Buffs.Handlers.Monster
 		private const float ShieldHpRate = 20f;
 		private const int MinionCount = 5;
 		private const int RespawnDelayMs = 30000;
-		private const string RespawnTimeVar = "Melia.Mythic.RespawnTime";
+		private const string RespawnTimeVar = "GuiltineSin.Mythic.RespawnTime";
 		/// <summary>
 		/// Applies mythic stat boosts to a monster (size, rank, HP/SP/ATK/DEF/speed).
 		/// </summary>
@@ -74,8 +74,8 @@ namespace Melia.Zone.Buffs.Handlers.Monster
 			monster.Properties.Modify(PropertyName.SDR_BM, 2);
 
 			// 30% faster skill usage
-			monster.Vars.Set("Melia.ShootTimeMultiplier", 0.7f);
-			monster.Vars.Set("Melia.Mythic.IsMythic", true);
+			monster.Vars.Set("GuiltineSin.ShootTimeMultiplier", 0.7f);
+			monster.Vars.Set("GuiltineSin.Mythic.IsMythic", true);
 			monster.Heal(newMaxHP - prevMaxHP, 0);
 			monster.InvalidateProperties();
 

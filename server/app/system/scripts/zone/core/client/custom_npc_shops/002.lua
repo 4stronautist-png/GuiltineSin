@@ -1,6 +1,6 @@
 -- Reroute the request for the shop item list of the current shop, so we
 -- can return our custom shop list instead.
-Melia.OverrideIn(session, "GetShopItemList", function(original)
+GuiltineSin.OverrideIn(session, "GetShopItemList", function(original)
 
 	local shopName = session.GetCurrentShopName()
 	if shopName ~= M_CUSTOM_SHOP_NAME then

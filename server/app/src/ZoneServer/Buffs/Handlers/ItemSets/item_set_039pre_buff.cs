@@ -1,12 +1,12 @@
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Scripting.ScriptableEvents;
-using Melia.Zone.Skills;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.World.Actors;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Scripting.ScriptableEvents;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.World.Actors;
 using Yggdrasil.Util;
 
-namespace Melia.Zone.Buffs.Handlers.ItemSets
+namespace GuiltineSin.Zone.Buffs.Handlers.ItemSets
 {
 	/// <summary>
 	/// Handler for the Varpas/Verijo Set 3-piece bonus buff.
@@ -15,7 +15,7 @@ namespace Melia.Zone.Buffs.Handlers.ItemSets
 	[BuffHandler(BuffId.item_set_039pre_buff)]
 	public class item_set_039pre_buff : BuffHandler
 	{
-		private const string AttackCountVar = "Melia.Set039.AttackCount";
+		private const string AttackCountVar = "GuiltineSin.Set039.AttackCount";
 		private const int RequiredAttacks = 5;
 		private const float BonusDamageRatio = 0.1f;
 		private const int MinBaseDamage = 1000;

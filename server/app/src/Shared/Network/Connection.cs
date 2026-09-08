@@ -2,12 +2,12 @@
 using System.Buffers;
 using System.Net.Sockets;
 using System.Threading.Tasks;
-using Melia.Shared.Network.Crypto;
+using GuiltineSin.Shared.Network.Crypto;
 using Yggdrasil.Logging;
 using Yggdrasil.Network.TCP;
 using Yggdrasil.Util;
 
-namespace Melia.Shared.Network
+namespace GuiltineSin.Shared.Network
 {
 	/// <summary>
 	/// A connection from the client to the server.

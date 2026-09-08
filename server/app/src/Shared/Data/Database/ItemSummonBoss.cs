@@ -5,7 +5,7 @@ using Newtonsoft.Json.Linq;
 using Yggdrasil.Data.JSON;
 using Yggdrasil.Util;
 
-namespace Melia.Shared.Data.Database
+namespace GuiltineSin.Shared.Data.Database
 {
 	[Serializable]
 	public class ItemSummonBossData

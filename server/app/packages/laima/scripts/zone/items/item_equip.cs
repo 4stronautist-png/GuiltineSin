@@ -1,4 +1,4 @@
-﻿//--- Melia Script ----------------------------------------------------------
+﻿//--- GuiltineSin Script ----------------------------------------------------------
 // Equip Items
 //--- Description -----------------------------------------------------------
 // Item scripts that handle on-equip and on-unequip effects including
@@ -7,15 +7,15 @@
 
 using System;
 using System.Linq;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Zone;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting;
-using Melia.Zone.Skills;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Items;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Items;
 using Yggdrasil.Logging;
 
 public class ItemEquipScript : GeneralScript
@@ -227,8 +227,8 @@ public class ItemEquipScript : GeneralScript
 		{
 			var rhp = character.Properties.GetFloat(PropertyName.RHP);
 			var bonus = (float)Math.Floor(rhp * 0.4f);
-			character.Variables.Temp.SetFloat("Melia.NECK04_103.CrtMAtk", bonus);
-			character.Variables.Temp.SetFloat("Melia.NECK04_103.Rhp", rhp);
+			character.Variables.Temp.SetFloat("GuiltineSin.NECK04_103.CrtMAtk", bonus);
+			character.Variables.Temp.SetFloat("GuiltineSin.NECK04_103.Rhp", rhp);
 			character.Properties.Modify(PropertyName.CRTMATK_BM, bonus);
 			character.Properties.Modify(PropertyName.RHP_BM, -rhp);
 		}
@@ -250,12 +250,12 @@ public class ItemEquipScript : GeneralScript
 		// NECK04_103: reverse the HP recovery conversion
 		if (item.Data.ClassName == "NECK04_103")
 		{
-			var bonus = character.Variables.Temp.GetFloat("Melia.NECK04_103.CrtMAtk");
-			var rhp = character.Variables.Temp.GetFloat("Melia.NECK04_103.Rhp");
+			var bonus = character.Variables.Temp.GetFloat("GuiltineSin.NECK04_103.CrtMAtk");
+			var rhp = character.Variables.Temp.GetFloat("GuiltineSin.NECK04_103.Rhp");
 			character.Properties.Modify(PropertyName.CRTMATK_BM, -bonus);
 			character.Properties.Modify(PropertyName.RHP_BM, rhp);
-			character.Variables.Temp.Remove("Melia.NECK04_103.CrtMAtk");
-			character.Variables.Temp.Remove("Melia.NECK04_103.Rhp");
+			character.Variables.Temp.Remove("GuiltineSin.NECK04_103.CrtMAtk");
+			character.Variables.Temp.Remove("GuiltineSin.NECK04_103.Rhp");
 		}
 
 		// Refresh skill UI if this item provides skill level bonuses

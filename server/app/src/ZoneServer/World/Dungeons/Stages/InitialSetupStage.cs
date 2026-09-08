@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Dungeons;
-using Melia.Zone.World.Dungeons.Stages;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Dungeons;
+using GuiltineSin.Zone.World.Dungeons.Stages;
 
-namespace Melia.Zone.World.Dungeons.Stages
+namespace GuiltineSin.Zone.World.Dungeons.Stages
 {
 	/// <summary>
 	/// A special stage that runs once at the beginning of a dungeon to perform initial setup.

@@ -1,32 +1,32 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Shared.L10N;
-using Melia.Shared.World;
-using Melia.Zone.Network;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.Skills.Handlers.Base;
-using Melia.Zone.World.Actors;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.Skills.Handlers.Base;
+using GuiltineSin.Zone.World.Actors;
 using Yggdrasil.Geometry.Shapes;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Actors.Components;
-using Melia.Zone.World.Actors.Characters;
-using static Melia.Zone.Skills.SkillUseFunctions;
-using static Melia.Zone.Skills.Helpers.SkillDamageHelper;
-using static Melia.Zone.Skills.Helpers.SkillResultHelper;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Actors.Components;
+using GuiltineSin.Zone.World.Actors.Characters;
+using static GuiltineSin.Zone.Skills.SkillUseFunctions;
+using static GuiltineSin.Zone.Skills.Helpers.SkillDamageHelper;
+using static GuiltineSin.Zone.Skills.Helpers.SkillResultHelper;
 using Yggdrasil.Logging;
 using Yggdrasil.Util;
-using Melia.Zone.Skills.Handlers;
-using Melia.Zone.Skills.SplashAreas;
+using GuiltineSin.Zone.Skills.Handlers;
+using GuiltineSin.Zone.Skills.SplashAreas;
 using System.Collections.Generic;
-using Melia.Shared.Data.Database;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World;
-using Melia.Zone.Skills.Handlers.Common;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World;
+using GuiltineSin.Zone.Skills.Handlers.Common;
 
-namespace Melia.Zone.Skills.HandlersOverrides.Wizards.Psychokino
+namespace GuiltineSin.Zone.Skills.HandlersOverrides.Wizards.Psychokino
 {
 	/// <summary>
 	/// Handler for the Psychokino skill Magnetic Force.
@@ -43,7 +43,7 @@ namespace Melia.Zone.Skills.HandlersOverrides.Wizards.Psychokino
 		}
 		public void Handle(Skill skill, ICombatEntity caster, Position originPos, Position farPos, ICombatEntity target)
 		{
-			if (!skill.Vars.TryGet<Position>("Melia.ToolGroundPos", out var targetPos))
+			if (!skill.Vars.TryGet<Position>("GuiltineSin.ToolGroundPos", out var targetPos))
 			{
 				caster.ServerMessage(Localization.Get("No target location specified."));
 				return;

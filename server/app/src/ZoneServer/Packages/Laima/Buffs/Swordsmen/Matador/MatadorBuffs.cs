@@ -1,9 +1,9 @@
-using Melia.Shared.Game.Const;
-using Melia.Shared.Packages;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.World.Actors.Characters;
 
-namespace Melia.Zone.Buffs.Handlers.Swordsmen.Matador
+namespace GuiltineSin.Zone.Buffs.Handlers.Swordsmen.Matador
 {
 	[Package("laima")]
 	[BuffHandler(BuffId.Capote_Buff)]

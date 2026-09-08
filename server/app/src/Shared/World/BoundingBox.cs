@@ -1,4 +1,4 @@
-﻿namespace Melia.Shared.World
+﻿namespace GuiltineSin.Shared.World
 {
 	/// <summary>
 	/// Represents a bounding box, defining a cube in 3D space.

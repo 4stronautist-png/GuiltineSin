@@ -4,7 +4,7 @@ Pads
 ## Introduction
 
 Pads are a form of AoE trigger manager and effect target in this game.
-Within Melia they're defined as an area on a map, with events informing
+Within GuiltineSin they're defined as an area on a map, with events informing
 the system about characters and monsters entering or leaving the area.
 They also provide events for when the pad is created or destroyed, as
 well as an update that occurs in regular intervals while the pad exists

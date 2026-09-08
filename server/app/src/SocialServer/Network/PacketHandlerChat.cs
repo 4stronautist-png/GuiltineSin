@@ -1,14 +1,14 @@
 using System;
 using System.Collections.Generic;
-using Melia.Shared.L10N;
-using Melia.Shared.Network;
-using Melia.Shared.Game.Const;
-using Melia.Shared.ObjectProperties;
-using Melia.Social.Database;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Shared.Network;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.ObjectProperties;
+using GuiltineSin.Social.Database;
 using Yggdrasil.Logging;
 using Yggdrasil.Security.Hashing;
 
-namespace Melia.Social.Network
+namespace GuiltineSin.Social.Network
 {
 	public class PacketHandlerChat : PacketHandler
 	{

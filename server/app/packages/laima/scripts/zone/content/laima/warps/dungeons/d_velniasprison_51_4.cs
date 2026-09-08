@@ -1,14 +1,14 @@
-//--- Melia Script ----------------------------------------------------------
+//--- GuiltineSin Script ----------------------------------------------------------
 // Warps
 //--- Description -----------------------------------------------------------
 // Sets up warps in Demon Prison District 4
 //---------------------------------------------------------------------------
 
-using Melia.Shared.Game.Const;
-using Melia.Shared.L10N;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Maps;
-using static Melia.Zone.Scripting.Shortcuts;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Maps;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
 public class DVelniasprison514WarpsScript : GeneralScript
 {

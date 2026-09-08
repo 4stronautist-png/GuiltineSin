@@ -1,4 +1,4 @@
-﻿namespace Melia.Shared.ObjectProperties
+﻿namespace GuiltineSin.Shared.ObjectProperties
 {
 	public interface IProperty : Properties.IVariable
 	{

@@ -1,4 +1,4 @@
-namespace Melia.Zone.Scripting.Dialogues
+namespace GuiltineSin.Zone.Scripting.Dialogues
 {
 	/// <summary>
 	/// Defines the type of response the dialog is expecting from the client.

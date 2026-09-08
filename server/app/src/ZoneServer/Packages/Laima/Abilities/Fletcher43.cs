@@ -1,13 +1,13 @@
 using System;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Skills;
-using Melia.Zone.Skills.Handlers.Archers.Fletcher;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.Skills.Handlers.Archers.Fletcher;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
 
-namespace Melia.Zone.Abilities.Handlers
+namespace GuiltineSin.Zone.Abilities.Handlers
 {
 	[Package("laima")]
 	[AbilityHandler(AbilityId.Fletcher43)]

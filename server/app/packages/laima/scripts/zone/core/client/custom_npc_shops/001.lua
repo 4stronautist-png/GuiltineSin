@@ -1,4 +1,4 @@
-M_CUSTOM_SHOP_NAME = "MeliaCustomShop"
+M_CUSTOM_SHOP_NAME = "GuiltineSinCustomShop"
 
 function ShopItemList_New(name)
 	local result = {}

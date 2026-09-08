@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Melia.Shared.Network;
+using GuiltineSin.Shared.Network;
 
-namespace Melia.Zone.Network
+namespace GuiltineSin.Zone.Network
 {
 	public partial class PacketHandler : PacketHandler<IZoneConnection>
 	{

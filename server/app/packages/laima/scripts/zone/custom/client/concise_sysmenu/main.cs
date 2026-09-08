@@ -1,12 +1,12 @@
-﻿//--- Melia Script ----------------------------------------------------------
+﻿//--- GuiltineSin Script ----------------------------------------------------------
 // Concise Sysmenu
 //--- Description -----------------------------------------------------------
 // Removes clutter from the system menu at the bottom right of the screen.
 //---------------------------------------------------------------------------
 
-using Melia.Shared.Versioning;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Shared.Versioning;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors.Characters;
 
 public class ConciseSysmenuClientScript : ClientScript
 {

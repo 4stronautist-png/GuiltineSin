@@ -1,9 +1,9 @@
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.World.Actors;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.World.Actors;
 
-namespace Melia.Zone.Buffs.HandlersOverrides.Clerics.Dievdirbys
+namespace GuiltineSin.Zone.Buffs.HandlersOverrides.Clerics.Dievdirbys
 {
 	/// <summary>
 	/// Handler override for Ausirine_Buff, which provides resistance to debuffs

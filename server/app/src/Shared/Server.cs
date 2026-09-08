@@ -13,17 +13,17 @@ using System.Text.Json;
 using System.Text.RegularExpressions;
 using System.Threading;
 using CodingSeb.ExpressionEvaluator;
-using Melia.Shared.Configuration;
-using Melia.Shared.Data;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Database;
-using Melia.Shared.Game.Properties;
-using Melia.Shared.L10N;
-using Melia.Shared.Network;
-using Melia.Shared.Network.Inter.Messages;
-using Melia.Shared.Packages;
-using Melia.Shared.Versioning;
-using Melia.Shared.Versioning.MEnums;
+using GuiltineSin.Shared.Configuration;
+using GuiltineSin.Shared.Data;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Database;
+using GuiltineSin.Shared.Game.Properties;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Shared.Network;
+using GuiltineSin.Shared.Network.Inter.Messages;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Versioning;
+using GuiltineSin.Shared.Versioning.MEnums;
 using Yggdrasil.Data;
 using Yggdrasil.Extensions;
 using Yggdrasil.Logging;
@@ -32,7 +32,7 @@ using Yggdrasil.Network.TCP;
 using Yggdrasil.Scripting;
 using Yggdrasil.Util;
 
-namespace Melia.Shared
+namespace GuiltineSin.Shared
 {
 	/// <summary>
 	/// Base class for server applications.
@@ -52,7 +52,7 @@ namespace Melia.Shared
 		/// <summary>
 		/// Returns a reference to the server's loaded data.
 		/// </summary>
-		public MeliaData Data { get; } = new MeliaData();
+		public GuiltineSinData Data { get; } = new GuiltineSinData();
 
 		/// <summary>
 		/// Returns a reference to the server's script loader.
@@ -220,7 +220,7 @@ namespace Melia.Shared
 		/// <summary>
 		/// Initializes database connection with data from Conf.
 		/// </summary>
-		protected void InitDatabase(MeliaDb db, ConfFiles conf)
+		protected void InitDatabase(GuiltineSinDb db, ConfFiles conf)
 		{
 			try
 			{
@@ -932,7 +932,7 @@ namespace Melia.Shared
 		/// <param name="conn"></param>
 		/// <param name="database"></param>
 		/// <returns></returns>
-		protected ConnectionCheck CheckConnection(TcpConnection conn, MeliaDb database)
+		protected ConnectionCheck CheckConnection(TcpConnection conn, GuiltineSinDb database)
 		{
 			if (database.CheckIpBan(conn.Address))
 				return new ConnectionCheck(ConnectionCheckResult.Reject, "IP banned");

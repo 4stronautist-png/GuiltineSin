@@ -1,9 +1,9 @@
 ﻿using System;
-using Melia.Shared.Data.Database;
-using Melia.Zone.Skills.SplashAreas;
-using Melia.Zone.World.Actors;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Zone.Skills.SplashAreas;
+using GuiltineSin.Zone.World.Actors;
 
-namespace Melia.Zone.Skills.Handlers.Base
+namespace GuiltineSin.Zone.Skills.Handlers.Base
 {
 	/// <summary>
 	/// A base class for skills that can be handled entirely by their

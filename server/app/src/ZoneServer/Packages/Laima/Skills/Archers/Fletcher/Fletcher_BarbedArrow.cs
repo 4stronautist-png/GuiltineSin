@@ -1,11 +1,11 @@
 using System;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.World.Actors;
-using Melia.Zone.Skills.Handlers.Base;
-using Melia.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.Skills.Handlers.Base;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
 
-namespace Melia.Zone.Skills.Handlers.Archers.Fletcher
+namespace GuiltineSin.Zone.Skills.Handlers.Archers.Fletcher
 {
 	/// <summary>
 	/// Handler for the Fletcher skill Barbed Arrow.

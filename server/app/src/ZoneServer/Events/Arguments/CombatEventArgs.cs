@@ -1,7 +1,7 @@
 ﻿using System;
-using Melia.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors;
 
-namespace Melia.Zone.Events.Arguments
+namespace GuiltineSin.Zone.Events.Arguments
 {
 	/// <summary>
 	/// Arguments for a combat event involging two entites.

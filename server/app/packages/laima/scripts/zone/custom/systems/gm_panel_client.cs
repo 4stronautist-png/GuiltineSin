@@ -1,4 +1,4 @@
-//--- SoulSociety Script ----------------------------------------------------
+//--- GuiltineSin Script ----------------------------------------------------
 // GM Panel Client
 //--- Description -----------------------------------------------------------
 // Sends a GM-only client panel that builds chat commands from UI fields.
@@ -8,24 +8,24 @@ using System.Globalization;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using Melia.Shared.Game.Const;
-using Melia.Zone;
-using Melia.Zone.Commands;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Items;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone;
+using GuiltineSin.Zone.Commands;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Items;
 using Yggdrasil.Util.Commands;
-using static Melia.Zone.Scripting.Shortcuts;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
-public class CloverGmPanelClientScript : ClientScript
+public class GuiltineSinGmPanelClientScript : ClientScript
 {
 	private const int ClientChunkSize = 1500;
 	private string _panelLua = "";
 
 	protected override void Load()
 	{
-		AddChatCommand("gmpanel", "", "Opens the SoulSociety GM command panel.", 50, 99, HandleGmPanel);
+		AddChatCommand("gmpanel", "", "Opens the GuiltineSin GM command panel.", 50, 99, HandleGmPanel);
 		AddChatCommand("pos", "", "Copies the current GM position to the clipboard.", 50, 99, HandlePosition);
 		AddChatCommand("itemcard", "<player> <card id> <level>", "Creates a leveled monster card.", 50, 99, HandleItemCard);
 		AddChatCommand("size", "<player> <scale>", "Changes a player's visual scale.", 50, 99, HandleSize);

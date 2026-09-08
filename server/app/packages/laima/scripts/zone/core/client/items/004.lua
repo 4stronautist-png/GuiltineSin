@@ -1,4 +1,4 @@
-Melia.Override("GET_APPRAISAL_PRICE", function(original, item, SellPrice, taxRate)
+GuiltineSin.Override("GET_APPRAISAL_PRICE", function(original, item, SellPrice, taxRate)
     SellPrice = TryGetProp(item,"SellPrice");
     local lv = TryGetProp(item,"UseLv");
     local grade = TryGetProp(item,"ItemGrade")

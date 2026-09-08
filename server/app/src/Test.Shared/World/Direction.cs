@@ -1,7 +1,7 @@
-﻿using Melia.Shared.World;
+﻿using GuiltineSin.Shared.World;
 using Xunit;
 
-namespace Melia.Test.Shared.World
+namespace GuiltineSin.Test.Shared.World
 {
 	public class DirectionTests
 	{

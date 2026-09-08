@@ -1,11 +1,11 @@
-﻿//--- Melia Script ----------------------------------------------------------
+﻿//--- GuiltineSin Script ----------------------------------------------------------
 // Klaipeda NPCs
 //--- Description -----------------------------------------------------------
 // NPCs found in and around Klaipeda.
 //---------------------------------------------------------------------------
 
-using Melia.Zone.Scripting;
-using static Melia.Zone.Scripting.Shortcuts;
+using GuiltineSin.Zone.Scripting;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
 public class CKlaipeNpcTestScript : GeneralScript
 {

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Melia.Shared.Game.Const;
+using GuiltineSin.Shared.Game.Const;
 
-namespace Melia.Zone.World.Storages
+namespace GuiltineSin.Zone.World.Storages
 {
 	/// <summary>
 	/// This class represents a silver transaction for a storage.

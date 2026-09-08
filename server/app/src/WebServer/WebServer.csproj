@@ -2,7 +2,7 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Melia.Web</RootNamespace>
+    <RootNamespace>GuiltineSin.Web</RootNamespace>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <AssemblyTitle>WebServer</AssemblyTitle>
     <Product>WebServer</Product>

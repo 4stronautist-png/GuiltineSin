@@ -1,15 +1,15 @@
-using Melia.Shared.Game.Const;
-using Melia.Shared.Packages;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Network;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.Skills.Helpers;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.Skills;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.Skills.Helpers;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.Skills;
 
-namespace Melia.Zone.Buffs.Handlers.Archers.Falconer
+namespace GuiltineSin.Zone.Buffs.Handlers.Archers.Falconer
 {
 	/// <summary>
 	/// Handler for the Hanging Shot buff - character hanging from hawk companion.

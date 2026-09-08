@@ -1,25 +1,25 @@
 using System;
 using System.Collections.Generic;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Network;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.Skills.SplashAreas;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Actors.Components;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Actors.Pads;
-using static Melia.Zone.Pads.Helpers.PadHelper;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.Skills.SplashAreas;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.Components;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Actors.Pads;
+using static GuiltineSin.Zone.Pads.Helpers.PadHelper;
 
-namespace Melia.Zone.Pads.Handlers.Clerics.Paladin
+namespace GuiltineSin.Zone.Pads.Handlers.Clerics.Paladin
 {
 	[Package("laima")]
 	[PadHandler(PadName.Cleric_Barrier_PC)]
 	public class Cleric_Barrier_PCOverride : ICreatePadHandler, IDestroyPadHandler, IEnterPadHandler, ILeavePadHandler, IUpdatePadHandler
 	{
 		private const int MaxTrackedEnemies = 25;
-		private const string TrackedEnemiesKey = "Melia.Barrier.TrackedEnemies";
+		private const string TrackedEnemiesKey = "GuiltineSin.Barrier.TrackedEnemies";
 		private static readonly TimeSpan ExpirationTime = TimeSpan.FromSeconds(2);
 
 		public void Created(object sender, PadTriggerArgs args)

@@ -1,19 +1,19 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Packages;
-using Melia.Shared.World;
-using Melia.Zone.Network;
-using Melia.Zone.Network.Helpers;
-using Melia.Zone.Skills;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.Skills.Handlers.Base;
-using Melia.Zone.World.Actors;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Network.Helpers;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.Skills.Handlers.Base;
+using GuiltineSin.Zone.World.Actors;
 using Yggdrasil.Geometry;
-using static Melia.Zone.Skills.SkillUseFunctions;
+using static GuiltineSin.Zone.Skills.SkillUseFunctions;
 
-namespace Melia.Zone.Skills.Handlers.Scouts.BlitzHunter
+namespace GuiltineSin.Zone.Skills.Handlers.Scouts.BlitzHunter
 {
 	[Package("laima")]
 	[SkillHandler(SkillId.BlitzHunter_ElectricSurge_Scout)]
@@ -63,7 +63,7 @@ namespace Melia.Zone.Skills.Handlers.Scouts.BlitzHunter
 		private const float ImpactSyncStart = 1f;
 		private const float ImpactSyncEnd = 0f;
 		private const float ImpactEffectSyncEnd = 0.1f;
-		private const string SuppressDeathSkillCancelVar = "Melia.SuppressDeathSkillCancel";
+		private const string SuppressDeathSkillCancelVar = "GuiltineSin.SuppressDeathSkillCancel";
 
 		public void Handle(Skill skill, ICombatEntity caster, Position originPos, Position farPos, ICombatEntity target)
 		{

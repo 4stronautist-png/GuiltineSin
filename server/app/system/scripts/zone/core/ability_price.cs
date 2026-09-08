@@ -1,4 +1,4 @@
-﻿//--- Melia Script ----------------------------------------------------------
+﻿//--- GuiltineSin Script ----------------------------------------------------------
 // Ability Price/Time Calculation Functions
 //--- Description -----------------------------------------------------------
 // Scriptable functions that calculate the prices and times in minutes
@@ -6,10 +6,10 @@
 //---------------------------------------------------------------------------
 
 using System;
-using Melia.Shared.Data.Database;
-using Melia.Zone;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Zone;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors.Characters;
 using Yggdrasil.Util;
 
 internal class AbilityPriceTimeFunctionsScript : GeneralScript

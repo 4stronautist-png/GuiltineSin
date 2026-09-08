@@ -1,7 +1,7 @@
 ﻿using System;
 using Yggdrasil.Scheduling;
 
-namespace Melia.Zone.World.Spawning
+namespace GuiltineSin.Zone.World.Spawning
 {
 	public interface ISpawner : IUpdateable
 	{

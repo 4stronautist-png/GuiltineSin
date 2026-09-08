@@ -4,40 +4,40 @@ using System.Globalization;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Database;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Game.Const.Web;
-using Melia.Shared.Game.Properties;
-using Melia.Shared.L10N;
-using Melia.Shared.Network.Helpers;
-using Melia.Shared.ObjectProperties;
-using Melia.Shared.Scripting;
-using Melia.Shared.Versioning;
-using Melia.Shared.World;
-using Melia.Zone.Buffs.Handlers.Common;
-using Melia.Zone.Buffs.Handlers.Scouts.Assassin;
-using Melia.Zone.Database;
-using Melia.Zone.Events.Arguments;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting;
-using Melia.Zone.Scripting.AI;
-using Melia.Zone.Scripting.Dialogues;
-using Melia.Zone.Skills;
-using Melia.Zone.World.Actors.Characters.Components;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Actors.Components;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Actors.Pads;
-using Melia.Zone.World.Items;
-using Melia.Zone.World.Maps;
-using Melia.Zone.World.Storages;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Game.Const.Web;
+using GuiltineSin.Shared.Game.Properties;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Shared.Network.Helpers;
+using GuiltineSin.Shared.ObjectProperties;
+using GuiltineSin.Shared.Scripting;
+using GuiltineSin.Shared.Versioning;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Buffs.Handlers.Common;
+using GuiltineSin.Zone.Buffs.Handlers.Scouts.Assassin;
+using GuiltineSin.Zone.Database;
+using GuiltineSin.Zone.Events.Arguments;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Scripting.AI;
+using GuiltineSin.Zone.Scripting.Dialogues;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.World.Actors.Characters.Components;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.Components;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Actors.Pads;
+using GuiltineSin.Zone.World.Items;
+using GuiltineSin.Zone.World.Maps;
+using GuiltineSin.Zone.World.Storages;
 using Yggdrasil.Logging;
 using Yggdrasil.Scheduling;
 using Yggdrasil.Util;
-using static Melia.Shared.Util.TaskHelper;
+using static GuiltineSin.Shared.Util.TaskHelper;
 
-namespace Melia.Zone.World.Actors.Characters
+namespace GuiltineSin.Zone.World.Actors.Characters
 {
 	/// <summary>
 	/// Represents a player character.
@@ -183,7 +183,7 @@ namespace Melia.Zone.World.Actors.Characters
 			{
 				var hair = this.Hair;
 
-				if (this.Variables.Perm.TryGetInt("Melia.DisplayHair", out var displayHair))
+				if (this.Variables.Perm.TryGetInt("GuiltineSin.DisplayHair", out var displayHair))
 					hair = displayHair;
 
 				return hair;
@@ -451,8 +451,8 @@ namespace Melia.Zone.World.Actors.Characters
 		/// </summary>
 		public Storages.Storage CurrentStorage
 		{
-			get => this.Variables.Temp.Get<Storages.Storage>("Melia.Storage") ?? this.PersonalStorage;
-			set => this.Variables.Temp.Set("Melia.Storage", value);
+			get => this.Variables.Temp.Get<Storages.Storage>("GuiltineSin.Storage") ?? this.PersonalStorage;
+			set => this.Variables.Temp.Set("GuiltineSin.Storage", value);
 		}
 		#endregion
 
@@ -665,7 +665,7 @@ namespace Melia.Zone.World.Actors.Characters
 						}
 					}
 
-					this.Variables.Perm.SetInt("Melia.ResurrectOptions", (int)options);
+					this.Variables.Perm.SetInt("GuiltineSin.ResurrectOptions", (int)options);
 
 					Send.ZC_RESURRECT_DIALOG(this, options);
 					_resurrectDialogTimer = ResurrectDialogDelay;

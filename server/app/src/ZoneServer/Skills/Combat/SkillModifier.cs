@@ -1,7 +1,7 @@
-﻿using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
+﻿using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
 
-namespace Melia.Zone.Skills.Combat
+namespace GuiltineSin.Zone.Skills.Combat
 {
 	/// <summary>
 	/// A class for properties that can modify the damage calculation for a skill.

@@ -1,9 +1,9 @@
-﻿using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Skills.Handlers.Archers.Ranger;
-using Melia.Zone.World.Actors;
+﻿using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Skills.Handlers.Archers.Ranger;
+using GuiltineSin.Zone.World.Actors;
 
-namespace Melia.Zone.Buffs.Handlers.Archers.Ranger
+namespace GuiltineSin.Zone.Buffs.Handlers.Archers.Ranger
 {
 	/// <summary>
 	/// Buff handler for TimeBombArrow_Debuff, which deals damage

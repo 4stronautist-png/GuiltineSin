@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using Melia.Shared.Database;
-using Melia.Shared.Game.Const;
+using GuiltineSin.Shared.Database;
+using GuiltineSin.Shared.Game.Const;
 using Yggdrasil.Db.MySql.SimpleCommands;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Items;
-using Melia.Zone.World.Storages;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Items;
+using GuiltineSin.Zone.World.Storages;
 using MySqlConnector;
 using Yggdrasil.Logging;
 
-namespace Melia.Zone.Database
+namespace GuiltineSin.Zone.Database
 {
 	/// <summary>
 	/// Contains methods related to Item and Storage persistence.

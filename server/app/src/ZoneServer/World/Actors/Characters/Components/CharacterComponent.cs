@@ -1,6 +1,6 @@
 ﻿using Yggdrasil.Composition;
 
-namespace Melia.Zone.World.Actors.Characters.Components
+namespace GuiltineSin.Zone.World.Actors.Characters.Components
 {
 	/// <summary>
 	/// A component for a character.

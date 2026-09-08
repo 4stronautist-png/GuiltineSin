@@ -1,19 +1,19 @@
-//--- Melia Script ----------------------------------------------------------
+//--- GuiltineSin Script ----------------------------------------------------------
 // Demon Prison District 2 - Quest NPCs
 //--- Description -----------------------------------------------------------
 // Demon hunter NPC with powder shop and repeatable collection quest.
 //---------------------------------------------------------------------------
 
 using System.Threading.Tasks;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Scripting;
-using Melia.Zone.Scripting.Dialogues;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Characters.Components;
-using Melia.Zone.World.Quests;
-using Melia.Zone.World.Quests.Objectives;
-using Melia.Zone.World.Quests.Rewards;
-using static Melia.Zone.Scripting.Shortcuts;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Scripting.Dialogues;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Characters.Components;
+using GuiltineSin.Zone.World.Quests;
+using GuiltineSin.Zone.World.Quests.Objectives;
+using GuiltineSin.Zone.World.Quests.Rewards;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
 public class DVelniasprison512QuestNpcsScript : GeneralScript
 {

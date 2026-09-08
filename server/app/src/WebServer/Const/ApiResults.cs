@@ -1,4 +1,4 @@
-﻿namespace Melia.Web.Const
+﻿namespace GuiltineSin.Web.Const
 {
 	/// <summary>
 	/// Represents the result of an API call.

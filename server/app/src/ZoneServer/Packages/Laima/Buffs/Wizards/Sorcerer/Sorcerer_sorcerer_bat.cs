@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Network;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Characters.Components;
-using Melia.Zone.World.Actors.Monsters;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Characters.Components;
+using GuiltineSin.Zone.World.Actors.Monsters;
 
-namespace Melia.Zone.Buffs.Handlers.Wizards.Sorcerer
+namespace GuiltineSin.Zone.Buffs.Handlers.Wizards.Sorcerer
 {
 	/// <summary>
 	/// Handler for the Summon Familiar buff (sorcerer_bat).
@@ -20,7 +20,7 @@ namespace Melia.Zone.Buffs.Handlers.Wizards.Sorcerer
 	[BuffHandler(BuffId.sorcerer_bat)]
 	public class sorcerer_batOverride : BuffHandler
 	{
-		private const string BatListKey = "Melia.SorcererBatList";
+		private const string BatListKey = "GuiltineSin.SorcererBatList";
 
 		/// <summary>
 		/// Called when the buff is activated.

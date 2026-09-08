@@ -9,7 +9,7 @@ goes over the functions added by the scripts.
 
 Functions to override client-defined functions and behavior.
 
-### Melia.Backup
+### GuiltineSin.Backup
 
 Creates a backup of the given global referece and returns it. This happens
 only once, the backed up value does not change on repeat calls.
@@ -20,7 +20,7 @@ Parameters:
 Returns:
 - (function): A reference to the original function.
 
-### Melia.BackupIn
+### GuiltineSin.BackupIn
 
 Creates a backup of the given global referece and returns it. This happens
 only once, the backed up value does not change on repeat calls.
@@ -32,7 +32,7 @@ Parameters:
 Returns:
 - (function): A reference to the original function.
 
-### Melia.Override
+### GuiltineSin.Override
 
 Overrides the original global function with the given name. The override
 receives an additional first argument containing a reference to the
@@ -46,7 +46,7 @@ Parameters:
 Returns:
 - (function): A reference to the original function.
 
-### Melia.OverrideIn
+### GuiltineSin.OverrideIn
 
 Overrides the original global function with the given name. The override
 receives an additional first argument containing a reference to the
@@ -59,7 +59,7 @@ Parameters:
 Returns:
 - (function): A reference to the original function.
 
-### Melia.Hook
+### GuiltineSin.Hook
 
 Hooks a global function to allow the modification of its natural result.
 This is accomplished via an override on the original function, which
@@ -74,7 +74,7 @@ Parameters:
 
 Miscellaneous utility functions.
 
-### Melia.Util.Serialize
+### GuiltineSin.Util.Serialize
 
 Serializes the given object into a string. Supports serializing tables.
 
@@ -84,7 +84,7 @@ Parameters:
 Returns:
 - (string): The serialized string.
 
-### Melia.Util.DicID
+### GuiltineSin.Util.DicID
 
 Wraps the given dictionary ID in dicID markup.
 
@@ -98,7 +98,7 @@ Returns:
 
 Functions to log message using the client's loggin system.
 
-### Melia.Info
+### GuiltineSin.Info
 
 Logs message using the client's logging system.
 
@@ -106,7 +106,7 @@ Parameters:
 - format (string): The message text or format string.
 - ... (any): Arguments to be used in the potential string formatting.
 
-### Melia.Error
+### GuiltineSin.Error
 
 Logs message using the client's logging system.
 
@@ -114,7 +114,7 @@ Parameters:
 - format (string): The message text or format string.
 - ... (any): Arguments to be used in the potential string formatting.
 
-### Melia.Warning
+### GuiltineSin.Warning
 
 Logs message using the client's logging system.
 
@@ -126,7 +126,7 @@ Parameters:
 
 Functions related to executing Lua code.
 
-### Melia.DoString
+### GuiltineSin.DoString
 
 Executes the given chunk of Lua code.
 
@@ -141,14 +141,14 @@ Returns:
 Functions to simplify communication between server and client.
 The receival functions are primarily called by the server.
 
-### Melia.Comm.BeginRecv
+### GuiltineSin.Comm.BeginRecv
 
 Initiates receival of data from the server.
 
 Parameters:
 - key (any): The key used to identify this transaction.
 
-### Melia.Comm.Recv
+### GuiltineSin.Comm.Recv
 
 Caches a chunk of data received from the server.
 
@@ -156,7 +156,7 @@ Parameters:
 - key (any) The key used to identify this transaction.
 - data (any) The data received from the server.
 
-### Melia.Comm.Exec
+### GuiltineSin.Comm.Exec
 
 Calls the callback with the data object collected under the key.
 
@@ -169,7 +169,7 @@ The object passed to the callback has the following format:
 { ['key'] = ..., ['data'] = { ... } }
 ```
 
-### Melia.Comm.ExecData
+### GuiltineSin.Comm.ExecData
 
 Calls the callback with the data collected under the key.
 
@@ -182,7 +182,7 @@ The object passed to the callback has the following format:
 { ... }
 ```
 
-### Melia.Comm.EndRecv
+### GuiltineSin.Comm.EndRecv
 
 Ends receival of data from the server and clears the data collected
 under the key.
@@ -194,7 +194,7 @@ Parameters:
 
 Functions for customizing the UI.
 
-### Melia.Ui.SysMenu.AddButton
+### GuiltineSin.Ui.SysMenu.AddButton
 
 Adds a button to the button menu on the bottom right of the screen.
 
@@ -204,7 +204,7 @@ Parameters:
 - tooltip (string): The tooltip to display when hovering over the button.
 - callback (string): The function to call when the button is clicked.
 
-### Melia.Ui.SysMenu.InsertButton
+### GuiltineSin.Ui.SysMenu.InsertButton
 
 Inserts a button into the button menu on the bottom right of the screen.
 
@@ -215,7 +215,7 @@ Parameters:
 - tooltip (string): The tooltip to display when hovering over the button.
 - callback (string): The function to call when the button is clicked.
 
-### Melia.Ui.SysMenu.RemoveButton
+### GuiltineSin.Ui.SysMenu.RemoveButton
 
 Removes a button from the button menu on the bottom right of the screen.
 
@@ -240,14 +240,14 @@ Default Buttons:
 - BtnGuildPromo
 - BtnPcBang
 
-### Melia.Ui.SysMenu.Clear
+### GuiltineSin.Ui.SysMenu.Clear
 
 Removes all buttons from the button menu on the bottom right of the screen.
 
 Parameters:
 - None
 
-### Melia.Ui.SysMenu.SuspendRefresh
+### GuiltineSin.Ui.SysMenu.SuspendRefresh
 
 Temporarily suspends the refresh of the menu. This is reccomended for
 when multiple buttons are added or removed at once, as every change
@@ -256,7 +256,7 @@ requires a removal and recreation of the entire menu.
 Parameters:
 - None
 
-### Melia.Ui.SysMenu.ResumeRefresh
+### GuiltineSin.Ui.SysMenu.ResumeRefresh
 
 Enables refreshes of the menu again and executes one right away.
 
@@ -267,7 +267,7 @@ Parameters:
 
 Functions for modifying IES data.
 
-### Melia.Ies.AddClass
+### GuiltineSin.Ies.AddClass
 
 Adds an object that is returned by the class getter functions. The objects can
 consist of new or old data, replacing or adding to the existing data.
@@ -276,9 +276,9 @@ Parameters:
 - idSpace (string): The id space to add the object to.
 - cls (any): The object to add.
 
-### Melia.Ies.GetClassById
+### GuiltineSin.Ies.GetClassById
 
-Returns the custom object with the given id added by `Melia.Ies.AddClass`.
+Returns the custom object with the given id added by `GuiltineSin.Ies.AddClass`.
 
 Parameters:
 - idSpace (string): The id space to add the object to.
@@ -287,9 +287,9 @@ Parameters:
 Returns:
 - (any): The custom class object.
 
-### Melia.Ies.GetClassByName
+### GuiltineSin.Ies.GetClassByName
 
-Returns the custom object with the given name added by `Melia.Ies.AddClass`.
+Returns the custom object with the given name added by `GuiltineSin.Ies.AddClass`.
 
 Parameters:
 - idSpace (string): The id space to add the object to.
@@ -298,7 +298,7 @@ Parameters:
 Returns:
 - (any): The custom class object.
 
-### Melia.Ies.GetIdSpace
+### GuiltineSin.Ies.GetIdSpace
 
 Attempts to look up the id space of the given class list.
 

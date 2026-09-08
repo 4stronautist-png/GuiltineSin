@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Melia.Shared.Data.Database;
-using Melia.Zone.Scripting.Dialogues;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Zone.Scripting.Dialogues;
 
-namespace Melia.Zone.Scripting.Shared
+namespace GuiltineSin.Zone.Scripting.Shared
 {
 	public class DialogFunctions
 	{

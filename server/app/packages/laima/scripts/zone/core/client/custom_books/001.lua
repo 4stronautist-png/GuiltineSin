@@ -1,4 +1,4 @@
-Melia.Override("VIEW_BOOKITEM_PAGE", function(original, frame, page)
+GuiltineSin.Override("VIEW_BOOKITEM_PAGE", function(original, frame, page)
 
 	if string.find(g_bookClassName, "CUSTOM:") ~= 1 then
 		return original(frame, page)
@@ -18,7 +18,7 @@ Melia.Override("VIEW_BOOKITEM_PAGE", function(original, frame, page)
 	local leftPage = ""
 	local rightPage = ""
 	
-	local pages = Melia.Util.Split(bookText, "{np}")
+	local pages = GuiltineSin.Util.Split(bookText, "{np}")
 
 	if page > #pages then
 		page = #pages

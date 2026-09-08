@@ -4,10 +4,10 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Melia.Shared.World;
+using GuiltineSin.Shared.World;
 using Yggdrasil.Logging;
 
-namespace Melia.Zone.World.Maps.Pathfinding
+namespace GuiltineSin.Zone.World.Maps.Pathfinding
 {
 	public class HybridPathfinder : IPathfinder
 	{

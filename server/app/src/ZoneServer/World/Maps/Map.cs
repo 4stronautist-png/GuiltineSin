@@ -3,30 +3,30 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Network;
-using Melia.Shared.World;
-using Melia.Zone.Events.Arguments;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting;
-using Melia.Zone.Scripting.AI;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Actors.Components;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Actors.Pads;
-using Melia.Zone.World.Maps.Pathfinding;
-using Melia.Zone.Skills.SplashAreas;
-using Melia.Zone.World.Maps.Spatial;
-using Melia.Zone.World.Spawning;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Network;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Events.Arguments;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Scripting.AI;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.Components;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Actors.Pads;
+using GuiltineSin.Zone.World.Maps.Pathfinding;
+using GuiltineSin.Zone.Skills.SplashAreas;
+using GuiltineSin.Zone.World.Maps.Spatial;
+using GuiltineSin.Zone.World.Spawning;
 using Yggdrasil.Geometry;
 using Yggdrasil.Geometry.Shapes;
 using Yggdrasil.Logging;
 using Yggdrasil.Scheduling;
 
-namespace Melia.Zone.World.Maps
+namespace GuiltineSin.Zone.World.Maps
 {
 	public class Map : IUpdateable
 	{
@@ -298,7 +298,7 @@ namespace Melia.Zone.World.Maps
 		{
 			var now = DateTime.Now;
 
-			// Process monster disappearances (like base Melia)
+			// Process monster disappearances (like base GuiltineSin)
 			var toDisappear = new List<IMonster>();
 			lock (_monsters)
 			{
@@ -1467,7 +1467,7 @@ namespace Melia.Zone.World.Maps
 		/// <returns></returns>
 		public List<ICombatEntity> GetAttackableEnemiesIn(ICombatEntity attacker, IShapeF shape, int maxTargets = 0, SkillHitType? hitType = null)
 		{
-			if (attacker is Character rangePreviewCharacter && rangePreviewCharacter.Variables.Temp.GetBool("Melia.RangePreview"))
+			if (attacker is Character rangePreviewCharacter && rangePreviewCharacter.Variables.Temp.GetBool("GuiltineSin.RangePreview"))
 				Debug.ShowShape(this, shape, TimeSpan.FromSeconds(1));
 
 			var queryBuffer = _spatialShapeQueryBuffer ??= new List<ICombatEntity>();
@@ -1510,7 +1510,7 @@ namespace Melia.Zone.World.Maps
 		/// </summary>
 		public List<ICombatEntity> GetAttackableEnemiesIn(ICombatEntity attacker, IShapeF shape, int maxTargets, ICombatEntity exclude1, SkillHitType? hitType = null)
 		{
-			if (attacker is Character rangePreviewCharacter && rangePreviewCharacter.Variables.Temp.GetBool("Melia.RangePreview"))
+			if (attacker is Character rangePreviewCharacter && rangePreviewCharacter.Variables.Temp.GetBool("GuiltineSin.RangePreview"))
 				Debug.ShowShape(this, shape, TimeSpan.FromSeconds(1));
 
 			var queryBuffer = _spatialShapeQueryBuffer ??= new List<ICombatEntity>();

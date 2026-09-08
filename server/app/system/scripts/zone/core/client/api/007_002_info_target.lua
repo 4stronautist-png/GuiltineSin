@@ -16,7 +16,7 @@ local function getInfoNum(name)
 	return info and info[name] or 0
 end
 
-Melia.Info.Target = {
+GuiltineSin.Info.Target = {
 	GetHandle = function() return session.GetTargetHandle() end,
 
 	GetName = function() return info.GetName(handle) end,

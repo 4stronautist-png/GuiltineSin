@@ -1,4 +1,4 @@
-﻿//--- Melia Script ----------------------------------------------------------
+﻿//--- GuiltineSin Script ----------------------------------------------------------
 // Skill Calculation Script
 //--- Description -----------------------------------------------------------
 // Functions that calculate skill-related values, such as properties.
@@ -6,16 +6,16 @@
 
 using System;
 using System.Reflection.Emit;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Zone;
-using Melia.Zone.Scripting;
-using Melia.Zone.Skills;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Characters.Components;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Actors.Monsters;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Characters.Components;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.Monsters;
 using Yggdrasil.Logging;
 using static g4.RoundRectGenerator;
 
@@ -479,7 +479,7 @@ public class SkillCalculationsScript : GeneralScript
 
 		var result = (float)(baseValue / sklSpdRate);
 
-		if (skill.Owner is Mob mob && mob.Vars.TryGet<float>("Melia.ShootTimeMultiplier", out var mult))
+		if (skill.Owner is Mob mob && mob.Vars.TryGet<float>("GuiltineSin.ShootTimeMultiplier", out var mult))
 			result *= mult;
 
 		return result;

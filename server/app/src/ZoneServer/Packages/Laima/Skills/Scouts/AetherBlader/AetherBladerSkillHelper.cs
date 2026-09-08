@@ -1,21 +1,21 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Shared.L10N;
-using Melia.Shared.World;
-using Melia.Zone.Network;
-using Melia.Zone.Network.Helpers;
-using Melia.Zone.Pads;
-using Melia.Zone.Skills;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.Skills.SplashAreas;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Pads;
-using static Melia.Zone.Skills.SkillUseFunctions;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Network.Helpers;
+using GuiltineSin.Zone.Pads;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.Skills.SplashAreas;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Pads;
+using static GuiltineSin.Zone.Skills.SkillUseFunctions;
 
-namespace Melia.Zone.Skills.Handlers.Scouts.AetherBlader
+namespace GuiltineSin.Zone.Skills.Handlers.Scouts.AetherBlader
 {
 	public static class AetherBladerSkillHelper
 	{
@@ -30,7 +30,7 @@ namespace Melia.Zone.Skills.Handlers.Scouts.AetherBlader
 		public const string AetherBladeEffect = "aetherblader_blade";
 		public const string AetherIceBladeEffect = "aetherblader_blade_blue";
 		public const string AetherElectricBladeEffect = "aetherblader_blade_yellow";
-		public const string SuppressDeathSkillCancelVar = "Melia.SuppressDeathSkillCancel";
+		public const string SuppressDeathSkillCancelVar = "GuiltineSin.SuppressDeathSkillCancel";
 		public static readonly TimeSpan PuddleDuration = TimeSpan.FromSeconds(15);
 		public static readonly TimeSpan DrenchedDuration = TimeSpan.FromSeconds(10);
 		public static readonly TimeSpan FrozenDuration = TimeSpan.FromSeconds(3);

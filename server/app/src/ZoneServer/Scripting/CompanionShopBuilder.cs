@@ -1,7 +1,7 @@
 using System;
-using Melia.Shared.Data.Database;
+using GuiltineSin.Shared.Data.Database;
 
-namespace Melia.Zone.Scripting
+namespace GuiltineSin.Zone.Scripting
 {
 	/// <summary>
 	/// A builder for creating companion shop data.

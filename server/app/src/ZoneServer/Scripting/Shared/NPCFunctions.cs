@@ -2,28 +2,29 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Game.Properties;
-using Melia.Shared.ObjectProperties;
-using Melia.Shared.Util;
-using Melia.Shared.Versioning;
-using Melia.Shared.World;
-using Melia.Zone.Buffs;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting.Dialogues;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters.Components;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Items;
-using Melia.Zone.World.Maps;
-using Melia.Zone.World.Quests;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Game.Properties;
+using GuiltineSin.Shared.ObjectProperties;
+using GuiltineSin.Shared.Util;
+using GuiltineSin.Shared.Versioning;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Buffs;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting.Dialogues;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters.Components;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Items;
+using GuiltineSin.Zone.World.Maps;
+using GuiltineSin.Zone.World.Quests;
+using GuiltineSin.Zone.World.Quests.Objectives;
 using Yggdrasil.Logging;
 using Yggdrasil.Util.Commands;
-using static Melia.Zone.Scripting.Shortcuts;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
-namespace Melia.Zone.Scripting.Shared
+namespace GuiltineSin.Zone.Scripting.Shared
 {
 	public static partial class NPCFunctions
 	{
@@ -34,6 +35,12 @@ namespace Melia.Zone.Scripting.Shared
 			await dialog.HooksByDialogName("BeforeStart");
 			if (dialog.Npc != null)
 				await ShowStaticQuestDialog(dialog, dialog.Npc.DialogName, beforeAdvance: true);
+
+			if (dialog.Npc != null && await dialog.Player.Quests.TryHandlePapayaObjectiveInteractionAsync(dialog.Npc.DialogName, dialog))
+			{
+				RefreshStaticQuestStateAfterDialog(dialog.Player);
+				return true;
+			}
 
 			if (dialog.Npc != null && ShouldDeferStaticQuestAdvanceUntilDialogClosed(dialog))
 			{
@@ -102,7 +109,7 @@ namespace Melia.Zone.Scripting.Shared
 
 			var changed = false;
 
-			Log.Info($"Clover main quest repair: checking Klaipeda Uska chain for character '{character.Name}'.");
+			Log.Info($"GuiltineSin main quest repair: checking Klaipeda Uska chain for character '{character.Name}'.");
 
 			changed |= SyncCompletedWestSiauliaiRoadToKlapedaQuests(character);
 
@@ -115,7 +122,7 @@ namespace Melia.Zone.Scripting.Shared
 			if (!changed)
 				return false;
 
-			Log.Info($"Clover main quest repair: synced stale Klaipeda handoff state for character '{character.Name}'.");
+			Log.Info($"GuiltineSin main quest repair: synced stale Klaipeda handoff state for character '{character.Name}'.");
 			character.Quests.SyncStaticQuestNpcStates();
 			character.Quests.UpdateClient();
 			character.RestoreCoreHudState(true, true);
@@ -148,7 +155,7 @@ namespace Melia.Zone.Scripting.Shared
 
 				quest.CompleteObjectives();
 				character.Quests.Complete(quest);
-				Log.Info($"Clover main quest repair: synced completed West Siauliai road quest {quest.QuestStaticData?.ClassName ?? quest.Data.Id.ToString()} for '{character.Name}' after Klaipeda handoff.");
+				Log.Info($"GuiltineSin main quest repair: synced completed West Siauliai road quest {quest.QuestStaticData?.ClassName ?? quest.Data.Id.ToString()} for '{character.Name}' after Klaipeda handoff.");
 				changed = true;
 			}
 
@@ -190,7 +197,7 @@ namespace Melia.Zone.Scripting.Shared
 			if (!character.Quests.TryGetById(new QuestId(20236), out var eastPrepare) || !eastPrepare.InProgress)
 				return changed;
 
-			Log.Info($"Clover main quest repair: advanced Klaipeda Uska handoff to EAST_PREPARE for '{character.Name}'.");
+			Log.Info($"GuiltineSin main quest repair: advanced Klaipeda Uska handoff to EAST_PREPARE for '{character.Name}'.");
 			character.Quests.SyncStaticQuestNpcStates();
 			character.Quests.UpdateClient();
 			character.Quests.TrackQuestInClientSlot("EAST_PREPARE");
@@ -213,7 +220,7 @@ namespace Melia.Zone.Scripting.Shared
 
 			quest.CompleteObjectives();
 			character.Quests.Complete(quest);
-			Log.Info($"Clover main quest repair: completed Klaipeda recovery handoff quest {questClassName} for '{character.Name}'.");
+			Log.Info($"GuiltineSin main quest repair: completed Klaipeda recovery handoff quest {questClassName} for '{character.Name}'.");
 			return true;
 		}
 
@@ -262,7 +269,7 @@ namespace Melia.Zone.Scripting.Shared
 		private static async Task ReturnToWestSiauliaiRoad(Dialog dialog, string message, float x, float y, float z)
 		{
 			var character = dialog.Player;
-			Log.Info($"Clover main quest repair: returning '{character.Name}' from Klaipeda to West Siauliai road chain.");
+			Log.Info($"GuiltineSin main quest repair: returning '{character.Name}' from Klaipeda to West Siauliai road chain.");
 			await dialog.Msg(L(message));
 			dialog.Close();
 			character.Warp("f_siauliai_west", x, y, z);
@@ -279,7 +286,7 @@ namespace Melia.Zone.Scripting.Shared
 				return false;
 
 			SyncCompletedWestSiauliaiRoadToKlapedaQuests(character);
-			Log.Info($"Clover main quest repair: refreshed EAST_PREPARE tracker from Uska for '{character.Name}'.");
+			Log.Info($"GuiltineSin main quest repair: refreshed EAST_PREPARE tracker from Uska for '{character.Name}'.");
 			character.Quests.SyncStaticQuestNpcStates();
 			character.Quests.UpdateClient();
 			character.Quests.TrackQuestInClientSlot("EAST_PREPARE");
@@ -3149,7 +3156,7 @@ namespace Melia.Zone.Scripting.Shared
 
 			if (character.Quests.HasCompleted(8350) && !character.Quests.IsActive(1020) && !character.Quests.HasCompleted(1020))
 			{
-				character.Variables.Perm.SetBool("Clover.WestSiauliai.Soldier3Accepted", true);
+				character.Variables.Perm.SetBool("GuiltineSin.WestSiauliai.Soldier3Accepted", true);
 				await character.Quests.Start("SIAUL_WEST_SOLDIER3");
 			}
 
@@ -4566,6 +4573,13 @@ namespace Melia.Zone.Scripting.Shared
 			await COMMON_QUEST_HANDLER(dialog);
 		}
 
+		[DialogFunction("HUEVILLAGE_58_1_SAULE_SEARCH")]
+		public static async Task HUEVILLAGE_58_1_SAULE_SEARCH(Dialog dialog)
+		{
+			await dialog.Msg("HUEVILLAGE_58_4_SAULE_BEFORE_basic01");
+			await COMMON_QUEST_HANDLER(dialog);
+		}
+
 		[DialogFunction("HUEVILLAGE_58_1_MQ02_NPC")]
 		public static async Task HUEVILLAGE_58_1_MQ02_NPC(Dialog dialog)
 		{
@@ -4666,13 +4680,93 @@ namespace Melia.Zone.Scripting.Shared
 		[DialogFunction("HUEVILLAGE_58_2_MQ02_BUCKET01")]
 		public static async Task HUEVILLAGE_58_2_MQ02_BUCKET01(Dialog dialog)
 		{
+			await TryCollectVietaWhiteOakSap(dialog, "01");
 			await COMMON_QUEST_HANDLER(dialog);
 		}
 
 		[DialogFunction("HUEVILLAGE_58_2_MQ02_BUCKET02")]
 		public static async Task HUEVILLAGE_58_2_MQ02_BUCKET02(Dialog dialog)
 		{
+			await TryCollectVietaWhiteOakSap(dialog, "02");
 			await COMMON_QUEST_HANDLER(dialog);
+		}
+
+		[DialogFunction("HUEVILLAGE_58_2_MQ02_BUCKET03")]
+		public static async Task HUEVILLAGE_58_2_MQ02_BUCKET03(Dialog dialog)
+		{
+			await TryCollectVietaWhiteOakSap(dialog, "03");
+			await COMMON_QUEST_HANDLER(dialog);
+		}
+
+		private static async Task<bool> TryCollectVietaWhiteOakSap(Dialog dialog, string bucketId)
+		{
+			var character = dialog?.Player;
+			if (character == null)
+				return false;
+
+			Log.Info("Vieta Gorge: player '{0}' activated Tree Sap Collection Container bucket {1}.", character.Name, bucketId);
+
+			if (!character.Quests.IsActive(new QuestId(20277)))
+			{
+				Log.Info("Vieta Gorge: bucket {0} ignored for '{1}' because quest HUEVILLAGE_58_2_MQ02 is not active.", bucketId, character.Name);
+				return false;
+			}
+
+			var sapItemId = 650617;
+			var syncedCount = -1;
+			var targetCount = 3;
+			character.Quests.UpdateObjectives<CollectItemObjective>((quest, objective, progress) =>
+			{
+				if (quest.Data.Id.Value != 20277 || objective.ItemId != sapItemId)
+					return;
+
+				targetCount = objective.TargetCount;
+				syncedCount = Math.Min(objective.TargetCount, character.Inventory.CountItem(objective.ItemId));
+				progress.Count = syncedCount;
+				progress.Done = progress.Count >= objective.TargetCount;
+			});
+
+			if (syncedCount >= targetCount)
+			{
+				character.Quests.UpdateClient();
+				character.Quests.SyncStaticQuestNpcStates();
+				character.RestoreCoreHudState(true, true);
+				Log.Info("Vieta Gorge: repaired White Oak Sap objective for '{0}' from inventory count {1}/{2}.", character.Name, syncedCount, targetCount);
+				return true;
+			}
+
+			var key = $"GuiltineSin.Huevillage58_2.MQ02.Bucket{bucketId}";
+			if (character.Variables.Temp.GetBool(key, false))
+			{
+				character.Quests.UpdateClient();
+				character.Quests.SyncStaticQuestNpcStates();
+				character.RestoreCoreHudState(true, true);
+				Log.Info("Vieta Gorge: bucket {0} already collected for '{1}'; synced objective from inventory count {2}/{3}.", bucketId, character.Name, syncedCount, targetCount);
+				return true;
+			}
+
+			var result = await dialog.TimeAction("Collecting White Oak Sap", "COLLECT", TimeSpan.FromSeconds(1.4));
+			if (result != TimeActionResult.Completed)
+			{
+				Log.Info("Vieta Gorge: bucket {0} collection for '{1}' ended with {2}.", bucketId, character.Name, result);
+				return false;
+			}
+
+			character.Variables.Temp.SetBool(key, true);
+			character.AddItem(sapItemId, 1, "HUEVILLAGE_58_2_MQ02_BUCKET");
+			character.Quests.UpdateObjectives<CollectItemObjective>((quest, objective, progress) =>
+			{
+				if (quest.Data.Id.Value != 20277 || objective.ItemId != sapItemId)
+					return;
+
+				progress.Count = Math.Min(objective.TargetCount, character.Inventory.CountItem(objective.ItemId));
+				progress.Done = progress.Count >= objective.TargetCount;
+			});
+			character.Quests.UpdateClient();
+			character.Quests.SyncStaticQuestNpcStates();
+			character.RestoreCoreHudState(true, true);
+			Log.Info("Vieta Gorge: collected White Oak Sap from bucket {0} for '{1}'.", bucketId, character.Name);
+			return true;
 		}
 
 		[DialogFunction("HUEVILLAGE_58_2_MQ03_NPC")]

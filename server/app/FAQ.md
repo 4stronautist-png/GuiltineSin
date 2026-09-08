@@ -1,20 +1,20 @@
 FAQ
 =============================================================================
 
-How can I register for and play on the Melia server?
+How can I register for and play on the GuiltineSin server?
 -----------------------------------------------------------------------------
 
-Melia is not a server to play on, but a software designed to operate
+GuiltineSin is not a server to play on, but a software designed to operate
 as a server that you can set up on your own machine and then log into.
-There are no official servers operated by the Melia team.
+There are no official servers operated by the GuiltineSin team.
 
 
-Can I run a server for my friends using Melia?
+Can I run a server for my friends using GuiltineSin?
 -----------------------------------------------------------------------------
 
-Yes, you can set up your own server using Melia and play on it,
+Yes, you can set up your own server using GuiltineSin and play on it,
 either alone or with other players. But please keep in mind that
-Melia is still early in development and might not yet offer the
+GuiltineSin is still early in development and might not yet offer the
 experience you're looking for.
 
 For instructions, check the getting started guide in the doc folder.
@@ -26,7 +26,7 @@ Is feature X implemented yet?
 Due to the amount of content and features that are to be implemented,
 it's difficult to keep an accurate list of things that are or are
 not working. The easiest way to find out if a given feature works
-is to set up a Melia server and check. Alternatively, you may ask
+is to set up a GuiltineSin server and check. Alternatively, you may ask
 in our Discord chat.
 
 
@@ -35,14 +35,14 @@ Where can I download the client?
 
 The server is network compatible with the latest international ToS
 client available on Steam. Check the getting started guide in the doc
-folder for more information on how to connect to a Melia server.
+folder for more information on how to connect to a GuiltineSin server.
 
-Please keep both the server and your designated Melia client up-to-date,
+Please keep both the server and your designated GuiltineSin client up-to-date,
 but be patient just after client patches, as it may take a few hours for
 us to update compatibility.
 
 
-Does Melia run on Linux?
+Does GuiltineSin run on Linux?
 -----------------------------------------------------------------------------
 
 It is supposed to, but truth be told, most testing takes place on Windows.
@@ -96,13 +96,13 @@ functions, and finally, you can always ask on our Discord server.
 Why are you (not) using library/framework/pattern X?
 -----------------------------------------------------------------------------
 
-All design decisions made in Melia were carefully deliberated and chosen
+All design decisions made in GuiltineSin were carefully deliberated and chosen
 on purpose for one reason or another. Not everybody will agree with all
 of them, but rest assured that they were not made lightly.
 
 If you have suggestions on how to improve the project and its code, we'd
 be happy to hear from you, but know in advance that we have strong feelings
-about Melia's design.
+about GuiltineSin's design.
 
 
 We winning, friends?

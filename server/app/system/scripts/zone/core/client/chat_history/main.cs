@@ -1,4 +1,4 @@
-﻿//--- Melia Script ----------------------------------------------------------
+﻿//--- GuiltineSin Script ----------------------------------------------------------
 // Chat History
 //--- Description -----------------------------------------------------------
 // Modifies chat frame to add a history of the previous sent messages
@@ -11,8 +11,8 @@
 // The list of messages is extended whenever the player sends a message.
 //---------------------------------------------------------------------------
 
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors.Characters;
 
 public class ChatHistoryClientScript : ClientScript
 {

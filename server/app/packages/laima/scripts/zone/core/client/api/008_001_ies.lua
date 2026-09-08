@@ -1,9 +1,9 @@
-Melia.Ies = {}
+GuiltineSin.Ies = {}
 
-MELIA_IES_DB = {}
+GUILTINESIN_IES_DB = {}
 
-Melia.Ies.AddClass = function(idSpace, cls)
-	local list = MELIA_IES_DB[idSpace]
+GuiltineSin.Ies.AddClass = function(idSpace, cls)
+	local list = GUILTINESIN_IES_DB[idSpace]
 
 	if not list then
 		list = {}
@@ -11,7 +11,7 @@ Melia.Ies.AddClass = function(idSpace, cls)
 		list["ById"] = {}
 		list["ByName"] = {}
 
-		MELIA_IES_DB[idSpace] = list
+		GUILTINESIN_IES_DB[idSpace] = list
 	end
 
 	table.insert(list["Entries"], cls)
@@ -19,8 +19,8 @@ Melia.Ies.AddClass = function(idSpace, cls)
 	list["ByName"][cls.ClassName] = cls
 end
 
-Melia.Ies.GetClassById = function(idSpace, clsId)
-	local list = MELIA_IES_DB[idSpace]
+GuiltineSin.Ies.GetClassById = function(idSpace, clsId)
+	local list = GUILTINESIN_IES_DB[idSpace]
 
 	if list then
 		local cls = list["ById"][clsId]
@@ -32,8 +32,8 @@ Melia.Ies.GetClassById = function(idSpace, clsId)
 	return nil
 end
 
-Melia.Ies.GetClassByName = function(idSpace, clsName)
-	local list = MELIA_IES_DB[idSpace]
+GuiltineSin.Ies.GetClassByName = function(idSpace, clsName)
+	local list = GUILTINESIN_IES_DB[idSpace]
 
 	if list then
 		local cls = list["ByName"][clsName]
@@ -45,7 +45,7 @@ Melia.Ies.GetClassByName = function(idSpace, clsName)
 	return nil
 end
 
-Melia.Ies.GetIdSpace = function(clsList)
+GuiltineSin.Ies.GetIdSpace = function(clsList)
 	local first = GetClassByIndexFromList(clsList, 0)
 	return GetIDSpace(first)
 end

@@ -1,8 +1,8 @@
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.World.Actors.Characters;
 
-namespace Melia.Zone.Buffs.Handlers.ItemSets
+namespace GuiltineSin.Zone.Buffs.Handlers.ItemSets
 {
 	/// <summary>
 	/// Handler for the Legwyn Family Set buff (item_set_016_buff).

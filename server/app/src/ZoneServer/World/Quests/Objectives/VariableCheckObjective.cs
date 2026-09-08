@@ -1,7 +1,7 @@
 using System;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Characters;
 
-namespace Melia.Zone.World.Quests.Objectives
+namespace GuiltineSin.Zone.World.Quests.Objectives
 {
 	/// <summary>
 	/// Objective to check for a character variable reaching a certain value.

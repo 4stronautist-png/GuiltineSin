@@ -6,7 +6,7 @@ using System.IO.Compression;
 using Yggdrasil.Data.Binary;
 using Yggdrasil.Geometry;
 
-namespace Melia.Shared.Data.Database
+namespace GuiltineSin.Shared.Data.Database
 {
 	public class NavGraphData
 	{

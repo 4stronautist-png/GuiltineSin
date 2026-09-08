@@ -1,9 +1,9 @@
 ﻿using System;
-using Melia.Shared.World;
-using Melia.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
 using Yggdrasil.Scheduling;
 
-namespace Melia.Zone.World.Actors.Components
+namespace GuiltineSin.Zone.World.Actors.Components
 {
 	/// <summary>
 	/// A component that controls an actor's movement.

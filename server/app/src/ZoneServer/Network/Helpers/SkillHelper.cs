@@ -1,8 +1,8 @@
-﻿using Melia.Zone.Skills;
-using Melia.Shared.Network;
-using Melia.Shared.Network.Helpers;
+﻿using GuiltineSin.Zone.Skills;
+using GuiltineSin.Shared.Network;
+using GuiltineSin.Shared.Network.Helpers;
 
-namespace Melia.Zone.Network.Helpers
+namespace GuiltineSin.Zone.Network.Helpers
 {
 	public static class SkillHelper
 	{

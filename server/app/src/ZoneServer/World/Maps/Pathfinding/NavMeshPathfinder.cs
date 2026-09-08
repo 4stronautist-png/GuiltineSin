@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Shared.World;
-using Melia.Zone.World.Maps;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.World.Maps;
 
-namespace Melia.Zone.World.Maps.Pathfinding
+namespace GuiltineSin.Zone.World.Maps.Pathfinding
 {
 	/// <summary>
 	/// A pathfinder that operates on the mesh the ground is made up of,

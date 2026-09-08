@@ -1,13 +1,13 @@
 using System.Threading.Tasks;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Scripting;
-using Melia.Zone.Scripting.Dialogues;
-using Melia.Zone.World.Actors.Effects;
-using Melia.Zone.World.Quests;
-using Melia.Zone.World.Quests.Objectives;
-using Melia.Zone.World.Quests.Rewards;
-using static Melia.Zone.Scripting.Shortcuts;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Scripting.Dialogues;
+using GuiltineSin.Zone.World.Actors.Effects;
+using GuiltineSin.Zone.World.Quests;
+using GuiltineSin.Zone.World.Quests.Objectives;
+using GuiltineSin.Zone.World.Quests.Rewards;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
+using GuiltineSin.Zone.World.Actors.Characters;
 
 public class GhostHeadbandQuestScript : QuestScript
 {

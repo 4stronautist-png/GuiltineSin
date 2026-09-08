@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Melia.Shared.Game.Const;
-using Melia.Shared.World;
-using Melia.Zone.Buffs;
-using Melia.Zone.Network;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Effects;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Buffs;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Effects;
 using Yggdrasil.Geometry.Shapes;
-using static Melia.Zone.Skills.Helpers.SkillTargetHelper;
-using static Melia.Zone.Skills.SkillUseFunctions;
+using static GuiltineSin.Zone.Skills.Helpers.SkillTargetHelper;
+using static GuiltineSin.Zone.Skills.SkillUseFunctions;
 
-namespace Melia.Zone.Skills.Helpers
+namespace GuiltineSin.Zone.Skills.Helpers
 {
 	/// <summary>
 	/// Defines the visual topology for link effects.
@@ -168,19 +168,19 @@ namespace Melia.Zone.Skills.Helpers
 					var buff = entity.StartBuff(buffId, skill.Level, 0, maxTime, caster, skill.Id);
 					if (buff != null)
 					{
-						buff.Vars.Set("Melia.Link.Id", linkId);
-						buff.Vars.Set("Melia.Link.Caster", caster.Handle);
-						buff.Vars.Set("Melia.Link.Members", handles);
-						buff.Vars.Set("Melia.Link.Topology", (int)LinkTopology.Chain);
+						buff.Vars.Set("GuiltineSin.Link.Id", linkId);
+						buff.Vars.Set("GuiltineSin.Link.Caster", caster.Handle);
+						buff.Vars.Set("GuiltineSin.Link.Members", handles);
+						buff.Vars.Set("GuiltineSin.Link.Topology", (int)LinkTopology.Chain);
 						if (entity.Handle == firstTarget.Handle)
 						{
-							buff.Vars.Set("Melia.Link.IsAnchor", true);
-							firstTarget.AddEffect("Melia.Link.Chain", new AttachEffect("I_chain004_mash_loop_multi", 2, EffectLocation.Bottom));
+							buff.Vars.Set("GuiltineSin.Link.IsAnchor", true);
+							firstTarget.AddEffect("GuiltineSin.Link.Chain", new AttachEffect("I_chain004_mash_loop_multi", 2, EffectLocation.Bottom));
 						}
 						if (hitCount > 0)
 						{
-							buff.Vars.Set("Melia.HitCount", hitCount);
-							buff.Vars.Set("Melia.RemainingHits", hitCount);
+							buff.Vars.Set("GuiltineSin.HitCount", hitCount);
+							buff.Vars.Set("GuiltineSin.RemainingHits", hitCount);
 						}
 						entity.SetTempVar("LINK_BUFF", buffId.ToString());
 					}
@@ -313,10 +313,10 @@ namespace Melia.Zone.Skills.Helpers
 			// and allies won't appear in GetAttackableEntities.
 			if (caster.TryGetBuff(buffId, out var casterBuff) && casterBuff.Vars != null)
 			{
-				if (casterBuff.Vars.TryGet<int>("Melia.Link.Id", out var linkId))
+				if (casterBuff.Vars.TryGet<int>("GuiltineSin.Link.Id", out var linkId))
 					processedLinkIds.Add(linkId);
 
-				if (casterBuff.Vars.TryGet<List<int>>("Melia.Link.Members", out var casterMembers))
+				if (casterBuff.Vars.TryGet<List<int>>("GuiltineSin.Link.Members", out var casterMembers))
 				{
 					var members = new List<ICombatEntity>();
 					foreach (var handle in casterMembers)
@@ -334,13 +334,13 @@ namespace Melia.Zone.Skills.Helpers
 			{
 				if (actor.TryGetBuff(buffId, out var buff) && buff.Caster?.Handle == caster.Handle && buff.Vars != null)
 				{
-					if (buff.Vars.TryGet<int>("Melia.Link.Id", out var linkId) && processedLinkIds.Contains(linkId))
+					if (buff.Vars.TryGet<int>("GuiltineSin.Link.Id", out var linkId) && processedLinkIds.Contains(linkId))
 						continue;
 
-					if (buff.Vars.TryGet<int>("Melia.Link.Id", out var lid))
+					if (buff.Vars.TryGet<int>("GuiltineSin.Link.Id", out var lid))
 						processedLinkIds.Add(lid);
 
-					if (buff.Vars.TryGet<List<int>>("Melia.Link.Members", out var memberHandles))
+					if (buff.Vars.TryGet<List<int>>("GuiltineSin.Link.Members", out var memberHandles))
 					{
 						var members = new List<ICombatEntity>();
 						var success = true;

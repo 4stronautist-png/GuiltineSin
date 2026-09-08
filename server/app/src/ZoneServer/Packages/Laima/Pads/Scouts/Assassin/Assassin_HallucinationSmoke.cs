@@ -1,18 +1,18 @@
 using System;
 using System.Threading.Tasks;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Shared.World;
-using Melia.Zone.Network;
-using Melia.Zone.Skills;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Actors.Pads;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Actors.Pads;
 using Yggdrasil.Logging;
 
-namespace Melia.Zone.Pads.Handlers.Scouts.Assassin
+namespace GuiltineSin.Zone.Pads.Handlers.Scouts.Assassin
 {
 	/// <summary>
 	/// Handler for the Assassin_HallucinationSmoke,
@@ -95,10 +95,10 @@ namespace Melia.Zone.Pads.Handlers.Scouts.Assassin
 			if (!this.HasAbility(creator, AbilityId.Assassin18))
 				return;
 
-			if (creator is not Character character || character.Variables.Temp.Has("Melia.AssassinationTarget"))
+			if (creator is not Character character || character.Variables.Temp.Has("GuiltineSin.AssassinationTarget"))
 				return;
 
-			character.Variables.Temp.SetInt("Melia.AssassinationTarget", target.Handle);
+			character.Variables.Temp.SetInt("GuiltineSin.AssassinationTarget", target.Handle);
 			target.StartBuff(BuffId.Assassin_Target_Debuff, skill.Level, 0, TimeSpan.FromSeconds(15), creator, skill.Id);
 		}
 

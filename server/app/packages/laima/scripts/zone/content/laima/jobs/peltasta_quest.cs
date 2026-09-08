@@ -1,4 +1,4 @@
-// --- Melia Script ----------------------------------------------------------
+// --- GuiltineSin Script ----------------------------------------------------------
 // Peltasta Advancement
 // --- Description -----------------------------------------------------------
 // Provides job advancement quest and npc.
@@ -7,22 +7,22 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Melia.Shared.Game.Const;
-using Melia.Shared.World;
-using Melia.Zone;
-using Melia.Zone.Scripting;
-using Melia.Zone.Scripting.Dialogues;
-using Melia.Zone.Scripting.Extensions.Keywords;
-using Melia.Zone.Scripting.Extensions.LivelyDialog;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Maps;
-using Melia.Zone.World.Quests;
-using Melia.Zone.World.Quests.Objectives;
-using static Melia.Zone.Scripting.Shortcuts;
-using static Melia.Zone.Scripting.Extensions.Keywords.Shortcuts;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Scripting.Dialogues;
+using GuiltineSin.Zone.Scripting.Extensions.Keywords;
+using GuiltineSin.Zone.Scripting.Extensions.LivelyDialog;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Maps;
+using GuiltineSin.Zone.World.Quests;
+using GuiltineSin.Zone.World.Quests.Objectives;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
+using static GuiltineSin.Zone.Scripting.Extensions.Keywords.Shortcuts;
 
 public class PeltastaMasterNpc : GeneralScript
 {

@@ -16,7 +16,7 @@ if (-not (Test-Path -LiteralPath $server)) {
     throw "TOS knowledge MCP server not found: $server"
 }
 
-$isWslUnc = $AppRoot -match '^\\\\wsl(?:\.localhost)?\\([^\\]+)\\(.+)$'
+$isWslUnc = $AppRoot -match '^\\\\wsl(?:\$|\.localhost)?\\([^\\]+)\\(.+)$'
 if ($isWslUnc) {
     $distro = $Matches[1]
     $linuxAppRoot = "/" + ($Matches[2] -replace '\\', '/')

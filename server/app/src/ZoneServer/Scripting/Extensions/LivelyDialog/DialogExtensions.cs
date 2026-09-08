@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
-using Melia.Zone.Scripting.Dialogues;
-using Melia.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.Scripting.Dialogues;
+using GuiltineSin.Zone.World.Actors.Monsters;
 
-namespace Melia.Zone.Scripting.Extensions.LivelyDialog
+namespace GuiltineSin.Zone.Scripting.Extensions.LivelyDialog
 {
 	public static class DialogExtensions
 	{
@@ -15,7 +15,7 @@ namespace Melia.Zone.Scripting.Extensions.LivelyDialog
 		/// <returns></returns>
 		public static async Task Intro(this Dialog dialog, string text)
 		{
-			var varName = $"Melia.Npcs.{dialog.Npc.UniqueName}.IntroSeen";
+			var varName = $"GuiltineSin.Npcs.{dialog.Npc.UniqueName}.IntroSeen";
 			var seenIntro = dialog.Player.Variables.Perm.GetBool(varName, false);
 
 			if (seenIntro)

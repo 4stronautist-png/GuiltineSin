@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Melia.Shared.Versioning
+namespace GuiltineSin.Shared.Versioning
 {
 	/// <summary>
 	/// Global game related variables.

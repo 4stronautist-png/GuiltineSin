@@ -1,18 +1,18 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Shared.L10N;
-using Melia.Shared.World;
-using Melia.Zone.Network;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.Skills.Handlers.Base;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Effects;
-using static Melia.Zone.Skills.SkillUseFunctions;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.Skills.Handlers.Base;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Effects;
+using static GuiltineSin.Zone.Skills.SkillUseFunctions;
 
-namespace Melia.Zone.Skills.Handlers.Scouts.Linker
+namespace GuiltineSin.Zone.Skills.Handlers.Scouts.Linker
 {
 	/// <summary>
 	/// Handler for the Linker skill Joint Penalty.
@@ -76,9 +76,9 @@ namespace Melia.Zone.Skills.Handlers.Scouts.Linker
 
 			if (firstTarget.TryGetBuff(BuffId.Link_Enemy, out var existingBuff))
 			{
-				if (existingBuff.Vars.TryGet<List<int>>("Melia.Link.Members", out var memberHandles))
+				if (existingBuff.Vars.TryGet<List<int>>("GuiltineSin.Link.Members", out var memberHandles))
 				{
-					existingLinkId = existingBuff.Vars.GetInt("Melia.Link.Id");
+					existingLinkId = existingBuff.Vars.GetInt("GuiltineSin.Link.Id");
 
 					foreach (var handle in memberHandles)
 					{
@@ -87,7 +87,7 @@ namespace Melia.Zone.Skills.Handlers.Scouts.Linker
 							existingMembers.Add(member);
 
 							if (member.TryGetBuff(BuffId.Link_Enemy, out var memberBuff) &&
-								memberBuff.Vars.GetBool("Melia.Link.IsAnchor"))
+								memberBuff.Vars.GetBool("GuiltineSin.Link.IsAnchor"))
 							{
 								existingAnchor = member;
 							}
@@ -172,7 +172,7 @@ namespace Melia.Zone.Skills.Handlers.Scouts.Linker
 			{
 				if (entity.TryGetBuff(BuffId.Link_Enemy, out var buff))
 				{
-					buff.Vars.Set("Melia.Link.Members", handles);
+					buff.Vars.Set("GuiltineSin.Link.Members", handles);
 				}
 			}
 
@@ -182,10 +182,10 @@ namespace Melia.Zone.Skills.Handlers.Scouts.Linker
 				var buff = entity.StartBuff(BuffId.Link_Enemy, skill.Level, 0, duration, caster, skill.Id);
 				if (buff != null)
 				{
-					buff.Vars.Set("Melia.Link.Id", linkId);
-					buff.Vars.Set("Melia.Link.Caster", caster.Handle);
-					buff.Vars.Set("Melia.Link.Members", handles);
-					buff.Vars.Set("Melia.Link.Topology", 1); // 1 = Star topology
+					buff.Vars.Set("GuiltineSin.Link.Id", linkId);
+					buff.Vars.Set("GuiltineSin.Link.Caster", caster.Handle);
+					buff.Vars.Set("GuiltineSin.Link.Members", handles);
+					buff.Vars.Set("GuiltineSin.Link.Topology", 1); // 1 = Star topology
 
 					entity.SetTempVar("LINK_BUFF", BuffId.Link_Enemy.ToString());
 				}
@@ -197,13 +197,13 @@ namespace Melia.Zone.Skills.Handlers.Scouts.Linker
 				var buff = firstTarget.StartBuff(BuffId.Link_Enemy, skill.Level, 0, duration, caster, skill.Id);
 				if (buff != null)
 				{
-					buff.Vars.Set("Melia.Link.Id", linkId);
-					buff.Vars.Set("Melia.Link.Caster", caster.Handle);
-					buff.Vars.Set("Melia.Link.Members", handles);
-					buff.Vars.Set("Melia.Link.Topology", 1);
-					buff.Vars.Set("Melia.Link.IsAnchor", true);
+					buff.Vars.Set("GuiltineSin.Link.Id", linkId);
+					buff.Vars.Set("GuiltineSin.Link.Caster", caster.Handle);
+					buff.Vars.Set("GuiltineSin.Link.Members", handles);
+					buff.Vars.Set("GuiltineSin.Link.Topology", 1);
+					buff.Vars.Set("GuiltineSin.Link.IsAnchor", true);
 
-					firstTarget.AddEffect("Melia.Link.Chain", new AttachEffect("I_chain004_mash_loop_multi", 2, EffectLocation.Bottom));
+					firstTarget.AddEffect("GuiltineSin.Link.Chain", new AttachEffect("I_chain004_mash_loop_multi", 2, EffectLocation.Bottom));
 					firstTarget.SetTempVar("LINK_BUFF", BuffId.Link_Enemy.ToString());
 				}
 			}

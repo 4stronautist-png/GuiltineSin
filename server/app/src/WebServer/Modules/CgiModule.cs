@@ -7,10 +7,10 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using EmbedIO;
 using EmbedIO.Files;
-using Melia.Web.Const;
+using GuiltineSin.Web.Const;
 using Yggdrasil.Logging;
 
-namespace Melia.Web.Modules
+namespace GuiltineSin.Web.Modules
 {
 	/// <summary>
 	/// Handles requests that are handled by external CGI processes, such as PHP.
@@ -331,7 +331,7 @@ namespace Melia.Web.Modules
 			if (_serverSoftware != null)
 				return _serverSoftware;
 
-			var meliaCommitHash = "unknown";
+			var guiltinesinCommitHash = "unknown";
 			var processorVersion = "unknown";
 			var embedioVersion = typeof(WebModuleBase).Assembly.GetName().Version.ToString(3);
 			var processorName = this.ProcessorName ?? "unknown";
@@ -346,11 +346,11 @@ namespace Melia.Web.Modules
 					var refFilePath = Path.Combine(".git", refPath);
 
 					if (File.Exists(refFilePath))
-						meliaCommitHash = File.ReadAllText(refFilePath).Trim().Substring(0, 7);
+						guiltinesinCommitHash = File.ReadAllText(refFilePath).Trim().Substring(0, 7);
 				}
 				else
 				{
-					meliaCommitHash = headContent.Substring(0, 7);
+					guiltinesinCommitHash = headContent.Substring(0, 7);
 				}
 			}
 
@@ -360,7 +360,7 @@ namespace Melia.Web.Modules
 				processorVersion = fileVersionInfo.FileVersion ?? "unknown";
 			}
 
-			return _serverSoftware = $"Melia/{meliaCommitHash} EmbedIO/{embedioVersion} {processorName}/{processorVersion}";
+			return _serverSoftware = $"GuiltineSin/{guiltinesinCommitHash} EmbedIO/{embedioVersion} {processorName}/{processorVersion}";
 		}
 
 		/// <summary>

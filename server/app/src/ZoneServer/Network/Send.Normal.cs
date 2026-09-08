@@ -5,33 +5,33 @@ using System.Net.Sockets;
 using System.Numerics;
 using System.Reflection.Emit;
 using System.Security.Cryptography;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Game.Const.Web;
-using Melia.Shared.Network;
-using Melia.Shared.Network.Helpers;
-using Melia.Shared.ObjectProperties;
-using Melia.Shared.Util;
-using Melia.Shared.Versioning;
-using Melia.Shared.World;
-using Melia.Zone.Network.Helpers;
-using Melia.Zone.Skills;
-using Melia.Zone.World;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Characters.Components;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Actors.Effects;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Actors.Pads;
-using Melia.Zone.World.Groups;
-using Melia.Zone.World.Items;
-using Melia.Zone.World.Maps;
-using Melia.Zone.World.Storages;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Game.Const.Web;
+using GuiltineSin.Shared.Network;
+using GuiltineSin.Shared.Network.Helpers;
+using GuiltineSin.Shared.ObjectProperties;
+using GuiltineSin.Shared.Util;
+using GuiltineSin.Shared.Versioning;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Network.Helpers;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.World;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Characters.Components;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.Effects;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Actors.Pads;
+using GuiltineSin.Zone.World.Groups;
+using GuiltineSin.Zone.World.Items;
+using GuiltineSin.Zone.World.Maps;
+using GuiltineSin.Zone.World.Storages;
 using Yggdrasil.Geometry.Shapes;
 using Yggdrasil.Logging;
 
-namespace Melia.Zone.Network
+namespace GuiltineSin.Zone.Network
 {
 	public static partial class Send
 	{

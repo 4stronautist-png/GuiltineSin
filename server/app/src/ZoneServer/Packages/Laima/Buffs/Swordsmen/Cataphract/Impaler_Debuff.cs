@@ -1,11 +1,11 @@
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Network;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Components;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Components;
 
-namespace Melia.Zone.Buffs.HandlersOverrides.Swordsmen.Cataphract
+namespace GuiltineSin.Zone.Buffs.HandlersOverrides.Swordsmen.Cataphract
 {
 	/// <summary>
 	/// Handler for the Impaler Debuff. Pins the target to the caster's spear

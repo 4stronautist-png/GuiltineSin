@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Melia.Zone.World.Maps
+namespace GuiltineSin.Zone.World.Maps
 {
 	public class DynamicMap : Map
 	{

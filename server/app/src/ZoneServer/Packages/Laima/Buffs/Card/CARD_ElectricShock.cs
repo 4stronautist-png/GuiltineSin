@@ -1,8 +1,8 @@
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
 
-namespace Melia.Zone.Buffs.Handlers.Card
+namespace GuiltineSin.Zone.Buffs.Handlers.Card
 {
 	/// <summary>
 	/// Handler for the CARD_ElectricShock debuff from monster cards.

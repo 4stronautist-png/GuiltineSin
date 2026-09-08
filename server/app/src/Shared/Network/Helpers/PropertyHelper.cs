@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Melia.Shared.Game.Properties;
-using Melia.Shared.ObjectProperties;
-using Melia.Shared.Versioning;
+using GuiltineSin.Shared.Game.Properties;
+using GuiltineSin.Shared.ObjectProperties;
+using GuiltineSin.Shared.Versioning;
 using Yggdrasil.Logging;
 
-namespace Melia.Shared.Network.Helpers
+namespace GuiltineSin.Shared.Network.Helpers
 {
 	public static class PropertyHelper
 	{

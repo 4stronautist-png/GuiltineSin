@@ -1,17 +1,17 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting.ScriptableEvents;
-using Melia.Zone.Skills;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting.ScriptableEvents;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
 
-namespace Melia.Zone.Buffs.Handlers.Scouts.Linker
+namespace GuiltineSin.Zone.Buffs.Handlers.Scouts.Linker
 {
 	/// <summary>
 	/// Handler for the Link_Physical buff.
@@ -36,7 +36,7 @@ namespace Melia.Zone.Buffs.Handlers.Scouts.Linker
 
 			// Store the map ID when buff starts for map change detection
 			if (buff.Target.Map != null)
-				buff.Vars.Set("Melia.Link.MapId", buff.Target.Map.Id);
+				buff.Vars.Set("GuiltineSin.Link.MapId", buff.Target.Map.Id);
 		}
 
 		/// <summary>
@@ -49,7 +49,7 @@ namespace Melia.Zone.Buffs.Handlers.Scouts.Linker
 			if (!target.TryGetBuff(BuffId.Link_Physical, out var buff))
 				return;
 
-			if (!buff.Vars.TryGet<List<int>>("Melia.Link.Members", out var memberHandles))
+			if (!buff.Vars.TryGet<List<int>>("GuiltineSin.Link.Members", out var memberHandles))
 				return;
 
 			var linkTargets = new List<ICombatEntity>();
@@ -178,7 +178,7 @@ namespace Melia.Zone.Buffs.Handlers.Scouts.Linker
 		/// </summary>
 		public override void WhileActive(Buff buff)
 		{
-			var isCaster = buff.Vars.GetBool("Melia.Link.IsCaster");
+			var isCaster = buff.Vars.GetBool("GuiltineSin.Link.IsCaster");
 
 			// Check if this is the caster's buff
 			if (isCaster)
@@ -191,7 +191,7 @@ namespace Melia.Zone.Buffs.Handlers.Scouts.Linker
 				}
 
 				// Caster changed map → break ALL chains
-				var storedMapId = buff.Vars.GetInt("Melia.Link.MapId", 0);
+				var storedMapId = buff.Vars.GetInt("GuiltineSin.Link.MapId", 0);
 				if (buff.Target.Map == null || buff.Target.Map.Id != storedMapId)
 				{
 					this.RemoveAllChains(buff);
@@ -217,7 +217,7 @@ namespace Melia.Zone.Buffs.Handlers.Scouts.Linker
 				}
 
 				// Member changed map → break that member's chain only
-				var storedMapId = buff.Vars.GetInt("Melia.Link.MapId", 0);
+				var storedMapId = buff.Vars.GetInt("GuiltineSin.Link.MapId", 0);
 				if (buff.Target.Map == null || buff.Target.Map.Id != storedMapId)
 				{
 					this.RemoveMemberChain(buff);
@@ -247,8 +247,8 @@ namespace Melia.Zone.Buffs.Handlers.Scouts.Linker
 		private void RemoveMemberChain(Buff buff)
 		{
 			// Remove visual effect for this member (star topology: Link_{linkId}_{memberIndex})
-			if (buff.Vars.TryGet<int>("Melia.Link.Id", out var linkId) &&
-				buff.Vars.TryGet<List<int>>("Melia.Link.Members", out var memberHandles) &&
+			if (buff.Vars.TryGet<int>("GuiltineSin.Link.Id", out var linkId) &&
+				buff.Vars.TryGet<List<int>>("GuiltineSin.Link.Members", out var memberHandles) &&
 				buff.Caster != null)
 			{
 				var memberIndex = memberHandles.IndexOf(buff.Target.Handle);
@@ -266,7 +266,7 @@ namespace Melia.Zone.Buffs.Handlers.Scouts.Linker
 		/// </summary>
 		private void RemoveAllChains(Buff buff)
 		{
-			if (!buff.Vars.TryGet<List<int>>("Melia.Link.Members", out var memberHandles))
+			if (!buff.Vars.TryGet<List<int>>("GuiltineSin.Link.Members", out var memberHandles))
 			{
 				buff.Target.StopBuff(BuffId.Link_Physical);
 				return;
@@ -288,14 +288,14 @@ namespace Melia.Zone.Buffs.Handlers.Scouts.Linker
 		public override void OnEnd(Buff buff)
 		{
 			// Only the caster removes all visual effects
-			if (buff.Vars.GetBool("Melia.Link.IsCaster"))
+			if (buff.Vars.GetBool("GuiltineSin.Link.IsCaster"))
 			{
-				buff.Target.RemoveEffect("Melia.Link.Chain");
+				buff.Target.RemoveEffect("GuiltineSin.Link.Chain");
 
-				if (buff.Vars.TryGet<int>("Melia.Link.Id", out var linkId) && linkId != 0)
+				if (buff.Vars.TryGet<int>("GuiltineSin.Link.Id", out var linkId) && linkId != 0)
 				{
 					// Star topology: remove all visual links (Link_{linkId}_1, Link_{linkId}_2, etc.)
-					if (buff.Vars.TryGet<List<int>>("Melia.Link.Members", out var members))
+					if (buff.Vars.TryGet<List<int>>("GuiltineSin.Link.Members", out var members))
 					{
 						for (var i = 1; i < members.Count; i++)
 						{

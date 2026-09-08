@@ -1,17 +1,17 @@
 ﻿using System;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting;
-using Melia.Zone.Scripting.ScriptableEvents;
-using Melia.Zone.Skills;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Items;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Scripting.ScriptableEvents;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Items;
 using Yggdrasil.Util;
 
-namespace Melia.Zone.Buffs.Handlers
+namespace GuiltineSin.Zone.Buffs.Handlers
 {
 	/// <summary>
 	/// Handle for item_cmine_red_buff, which provides attack bonuses.
@@ -123,7 +123,7 @@ namespace Melia.Zone.Buffs.Handlers
 	[BuffHandler(BuffId.item_set_013_buff)]
 	public class item_set_013_buff : BuffHandler
 	{
-		private const string VarOverbuff = "Melia.ItemSet.Set013.Overbuff";
+		private const string VarOverbuff = "GuiltineSin.ItemSet.Set013.Overbuff";
 
 		public override void OnActivate(Buff buff, ActivationType activationType)
 		{
@@ -429,7 +429,7 @@ namespace Melia.Zone.Buffs.Handlers
 	[BuffHandler(BuffId.item_effigyCount)]
 	public class item_effigyCount : BuffHandler
 	{
-		private const string VarEffigyBonus = "Melia.Item.EffigyCount.Bonus";
+		private const string VarEffigyBonus = "GuiltineSin.Item.EffigyCount.Bonus";
 
 		public override void OnActivate(Buff buff, ActivationType activationType)
 		{
@@ -623,7 +623,7 @@ namespace Melia.Zone.Buffs.Handlers
 	[BuffHandler(BuffId.TSW03_111_Buff)]
 	public class TSW03_111_Buff : BuffHandler
 	{
-		private const string ShieldValueKey = "Melia.Item.TSW03_111.Shield";
+		private const string ShieldValueKey = "GuiltineSin.Item.TSW03_111.Shield";
 		private const float ShieldAmount = 2380f;
 
 		public override void OnActivate(Buff buff, ActivationType activationType)
@@ -694,8 +694,8 @@ namespace Melia.Zone.Buffs.Handlers
 	[BuffHandler(BuffId.Common_Rotten)]
 	public class Common_Rotten : BuffHandler
 	{
-		private const string VarMaxHp = "Melia.Item.Common_Rotten.MaxHP";
-		private const string VarRemoved = "Melia.Item.Common_Rotten.Removed";
+		private const string VarMaxHp = "GuiltineSin.Item.Common_Rotten.MaxHP";
+		private const string VarRemoved = "GuiltineSin.Item.Common_Rotten.Removed";
 
 		public override void OnActivate(Buff buff, ActivationType activationType)
 		{

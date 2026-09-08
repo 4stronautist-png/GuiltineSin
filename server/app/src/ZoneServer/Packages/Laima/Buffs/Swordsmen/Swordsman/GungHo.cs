@@ -1,10 +1,10 @@
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors;
 
-namespace Melia.Zone.Buffs.HandlersOverrides.Swordsmen.Swordsman
+namespace GuiltineSin.Zone.Buffs.HandlersOverrides.Swordsmen.Swordsman
 {
 	/// <summary>
 	/// Handle for the Gung Ho Buff, which increases the target's attack.

@@ -1,11 +1,11 @@
-﻿using Melia.Shared.Game.Const;
-using Melia.Zone.Scripting.ScriptableEvents;
-using Melia.Zone.Skills;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters.Components;
+﻿using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Scripting.ScriptableEvents;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters.Components;
 
-namespace Melia.Zone.Abilities.Handlers.Swordsmen.Swordsman
+namespace GuiltineSin.Zone.Abilities.Handlers.Swordsmen.Swordsman
 {
 	/// <summary>
 	/// Handler for the Swordsman ability "Shield Mastery: Swordsman",

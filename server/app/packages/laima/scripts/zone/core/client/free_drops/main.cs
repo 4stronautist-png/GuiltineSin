@@ -1,4 +1,4 @@
-﻿//--- Melia Script ----------------------------------------------------------
+﻿//--- GuiltineSin Script ----------------------------------------------------------
 // Free Drops
 //--- Description -----------------------------------------------------------
 // This client script modifies the item drop/destroy restrictions, so you
@@ -7,8 +7,8 @@
 // able to get rid of otherwise undestroyable and unstorable items.
 //---------------------------------------------------------------------------
 
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors.Characters;
 
 public class FreeDropsClientScript : ClientScript
 {

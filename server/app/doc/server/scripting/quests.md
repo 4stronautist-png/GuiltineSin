@@ -1,7 +1,7 @@
 Quest Scripts
 =============================================================================
 
-Melia uses a custom quest system that allows the creation of quests with
+GuiltineSin uses a custom quest system that allows the creation of quests with
 a wide variety of objectives, rewards, and prerequisites. The system
 aims to support any type of quest available in the original game and more,
 in such a way that quests can be created with ease and flexibility, and
@@ -18,7 +18,7 @@ public class KillOnions1TestQuestScript : QuestScript
 {
 	protected override void Load()
 	{
-		SetId("Melia.Test", 1);
+		SetId("GuiltineSin.Test", 1);
 		SetName("Onions Must Die");
 		SetDescription("Slice, dice, and make these onion-shaped bastards cry for a change!");
 
@@ -48,7 +48,7 @@ be sure to choose a namespace unique to you, your project or the category
 of quests you're working on, while incrementing the ids within.
 
 ```cs
-SetId("Melia.Test", 1);
+SetId("GuiltineSin.Test", 1);
 ```
 
 Internally, the id is handled as a 64 bit integer, where 48 bit represent
@@ -112,10 +112,10 @@ Additionally, there are helpers to give more options:
 
 ```cs
 // Player will automatically receive the quest once they completed
-// Melia.Test quest 1 and reached level 3.
+// GuiltineSin.Test quest 1 and reached level 3.
 SetReceive(QuestReceiveType.Auto);
 AddPrerequisite(new LevelPrerequisite(3));
-AddPrerequisite(new CompletedPrerequisite("Melia.Test", 1));
+AddPrerequisite(new CompletedPrerequisite("GuiltineSin.Test", 1));
 ```
 
 To create a new quest prerequisite type, create a new class that inherits

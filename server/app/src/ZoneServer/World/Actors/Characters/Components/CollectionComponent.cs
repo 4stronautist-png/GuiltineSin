@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Melia.Shared.Data.Database;
-using Melia.Zone.Network;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Zone.Network;
 using Yggdrasil.Network.Communication;
 
-namespace Melia.Zone.World.Actors.Characters.Components
+namespace GuiltineSin.Zone.World.Actors.Characters.Components
 {
 	/// <summary>
 	/// A character's collection manager.
@@ -306,7 +306,7 @@ namespace Melia.Zone.World.Actors.Characters.Components
 				character.Properties.Modify(propertyName, value);
 			}
 
-			character.Variables.Perm.SetBool("Melia.Collections.GotProperties_" + this.Id, true);
+			character.Variables.Perm.SetBool("GuiltineSin.Collections.GotProperties_" + this.Id, true);
 
 			character.Properties.InvalidateAll();
 			Send.ZC_OBJECT_PROPERTY(character);
@@ -330,7 +330,7 @@ namespace Melia.Zone.World.Actors.Characters.Components
 				account.Properties.Modify(propertyName, value);
 			}
 
-			account.Variables.Perm.SetBool("Melia.Collections.GotProperties_" + this.Id, true);
+			account.Variables.Perm.SetBool("GuiltineSin.Collections.GotProperties_" + this.Id, true);
 
 			account.Properties.InvalidateAll();
 			Send.ZC_NORMAL.AccountProperties(character);
@@ -363,7 +363,7 @@ namespace Melia.Zone.World.Actors.Characters.Components
 		/// <returns></returns>
 		public bool GotPropertyBonuses(Character character)
 		{
-			return character.Variables.Perm.GetBool("Melia.Collections.GotProperties_" + this.Id);
+			return character.Variables.Perm.GetBool("GuiltineSin.Collections.GotProperties_" + this.Id);
 		}
 
 		/// <summary>
@@ -374,7 +374,7 @@ namespace Melia.Zone.World.Actors.Characters.Components
 		/// <returns></returns>
 		public bool GotAccountPropertyBonuses(Character character)
 		{
-			return character.Connection.Account.Variables.Perm.GetBool("Melia.Collections.GotProperties_" + this.Id);
+			return character.Connection.Account.Variables.Perm.GetBool("GuiltineSin.Collections.GotProperties_" + this.Id);
 		}
 	}
 }

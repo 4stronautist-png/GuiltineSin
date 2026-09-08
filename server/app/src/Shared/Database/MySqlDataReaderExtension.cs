@@ -1,7 +1,7 @@
 using System;
 using MySqlConnector;
 
-namespace Melia.Shared.Database
+namespace GuiltineSin.Shared.Database
 {
 	/// <summary>
 	/// Extensions for the MySqlDataReader.

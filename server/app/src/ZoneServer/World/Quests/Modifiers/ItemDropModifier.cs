@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Events.Arguments;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Monsters;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Events.Arguments;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Monsters;
 using Yggdrasil.Util;
 
-namespace Melia.Zone.World.Quests.Modifiers
+namespace GuiltineSin.Zone.World.Quests.Modifiers
 {
 	/// <summary>
 	/// A modifier that gives a chance to add drops to a monster.

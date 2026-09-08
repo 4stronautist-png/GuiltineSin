@@ -1,13 +1,13 @@
-//--- Melia Script ----------------------------------------------------------
+//--- GuiltineSin Script ----------------------------------------------------------
 // Fedimian
 //--- Description -----------------------------------------------------------
 // NPCs found in and around Fedimian.
 //---------------------------------------------------------------------------
 
-using Melia.Shared.Game.Const;
-using Melia.Zone.Scripting;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Scripting;
 using Yggdrasil.Util;
-using static Melia.Zone.Scripting.Shortcuts;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
 public class CFedimianNpcScript : GeneralScript
 {

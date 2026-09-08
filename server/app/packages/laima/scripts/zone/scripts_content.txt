@@ -1,5 +1,12 @@
-// Melia
+// GuiltineSin
 // Script List File
 //---------------------------------------------------------------------------
 
-require "content/laima/scripts.txt"
+// GuiltineSin keeps the Laima package enabled for skill/buff/database compatibility,
+// but its content scripts spawn Laima-specific custom NPCs, mobs, quests, tracks,
+// and warps that diverge from the Papaya baseline. The system script list already
+// loads the R1/Papaya-like content before package scripts are included, so this
+// file intentionally does not require content/laima/scripts.txt.
+
+// Required by custom/systems/mixing_table.cs; this item-system script is safe to load without enabling Laima map content.
+content/laima/items/card_album_boss_rewards.cs

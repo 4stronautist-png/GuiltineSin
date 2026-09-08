@@ -1,13 +1,13 @@
-﻿//--- Melia Script ----------------------------------------------------------
+﻿//--- GuiltineSin Script ----------------------------------------------------------
 // Special Class Vouchers
 //--- Description -----------------------------------------------------------
 // Item scripts that handle unlocking special classes via vouchers.
 //---------------------------------------------------------------------------
 
-using Melia.Zone.Network;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Items;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Items;
 
 public class SpecialClassVouchersItemScript : GeneralScript
 {

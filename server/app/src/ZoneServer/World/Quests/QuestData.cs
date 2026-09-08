@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using Melia.Zone.Scripting;
+using GuiltineSin.Zone.Scripting;
 using Yggdrasil.Util;
 
-namespace Melia.Zone.World.Quests
+namespace GuiltineSin.Zone.World.Quests
 {
 	/// <summary>
 	/// Represents a quest's data, as defined by a script.

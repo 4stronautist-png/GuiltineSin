@@ -1,12 +1,12 @@
 using System;
 using System.Linq;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Network;
-using Melia.Shared.Network.Inter.Messages;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Network;
+using GuiltineSin.Shared.Network.Inter.Messages;
 using Yggdrasil.Logging;
 using Yggdrasil.Util.Commands;
 
-namespace Melia.Barracks.Util
+namespace GuiltineSin.Barracks.Util
 {
 	public class BarracksConsoleCommands : ConsoleCommands
 	{

@@ -1,8 +1,8 @@
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Skills.Handlers.Base;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Skills.Handlers.Base;
 
-namespace Melia.Zone.Skills.Handlers.Scouts.Corsair
+namespace GuiltineSin.Zone.Skills.Handlers.Scouts.Corsair
 {
 	/// <summary>
 	/// Handler for the passive Corsair skill Brutality.

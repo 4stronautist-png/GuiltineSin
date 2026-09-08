@@ -2,7 +2,7 @@ using System;
 using Yggdrasil.Geometry;
 using Yggdrasil.Geometry.Shapes;
 
-namespace Melia.Zone.Skills.SplashAreas
+namespace GuiltineSin.Zone.Skills.SplashAreas
 {
 	/// <summary>
 	/// Extension methods for IShapeF to support radius-aware hit detection.

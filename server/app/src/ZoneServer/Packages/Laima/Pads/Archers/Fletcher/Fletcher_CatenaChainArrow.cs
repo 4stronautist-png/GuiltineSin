@@ -1,13 +1,13 @@
 using System;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Network;
-using Melia.Zone.Pads.Handlers;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Actors.Pads;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Pads.Handlers;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Actors.Pads;
 
-namespace Melia.Zone.Pads.HandlersOverride.Archers.Fletcher
+namespace GuiltineSin.Zone.Pads.HandlersOverride.Archers.Fletcher
 {
 	[Package("laima")]
 	[PadHandler(PadName.Fletcher_CatenaChainArrow_PAD)]
@@ -28,15 +28,15 @@ namespace Melia.Zone.Pads.HandlersOverride.Archers.Fletcher
 			var pad = args.Trigger;
 			var creator = args.Creator;
 
-			if (pad.Variables.TryGet<Npc>("Melia.Pad.CatenaAnchor", out var anchor))
+			if (pad.Variables.TryGet<Npc>("GuiltineSin.Pad.CatenaAnchor", out var anchor))
 				anchor.DisappearTime = DateTime.Now;
 
-			creator.RemoveEffect("Melia.Skill.CatenaChainLink");
+			creator.RemoveEffect("GuiltineSin.Skill.CatenaChainLink");
 			creator.StopBuff(BuffId.Fletcher_CatenaChainArrow_Buff);
 
 			var skill = pad.Skill;
 			if (skill != null)
-				skill.Vars.SetInt("Melia.Skill.CatenaPadHandle", 0);
+				skill.Vars.SetInt("GuiltineSin.Skill.CatenaPadHandle", 0);
 
 			Send.ZC_NORMAL.PadUpdate(pad, false);
 		}

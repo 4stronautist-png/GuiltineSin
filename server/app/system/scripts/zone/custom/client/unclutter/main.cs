@@ -1,4 +1,4 @@
-﻿//--- Melia Script ----------------------------------------------------------
+﻿//--- GuiltineSin Script ----------------------------------------------------------
 // Unclutterer
 //--- Description -----------------------------------------------------------
 // Removes some of the clutter from the UI, such as cash shop buttons.
@@ -11,8 +11,8 @@
 // 006.lua: Removes (currently) unused inventory features.
 //---------------------------------------------------------------------------
 
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors.Characters;
 
 public class UnclutterClientScript : ClientScript
 {

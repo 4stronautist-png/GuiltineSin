@@ -1,7 +1,7 @@
 -- Socket tooltip hooks for sell shop items
-if SET_SHOP_ITEM_TOOLTIP ~= nil and _G._MELIA_SHOP_TOOLTIP_HOOKED == nil then
-	_G._MELIA_SHOP_TOOLTIP_HOOKED = true
-	_G._MELIA_ORIG_SET_SHOP_ITEM_TOOLTIP = SET_SHOP_ITEM_TOOLTIP
+if SET_SHOP_ITEM_TOOLTIP ~= nil and _G._GUILTINESIN_SHOP_TOOLTIP_HOOKED == nil then
+	_G._GUILTINESIN_SHOP_TOOLTIP_HOOKED = true
+	_G._GUILTINESIN_ORIG_SET_SHOP_ITEM_TOOLTIP = SET_SHOP_ITEM_TOOLTIP
 	SET_SHOP_ITEM_TOOLTIP = function(icon, shopItem)
 		if shopItem ~= nil and shopItem.type ~= nil then
 			local strArg = "inven"
@@ -23,6 +23,6 @@ if SET_SHOP_ITEM_TOOLTIP ~= nil and _G._MELIA_SHOP_TOOLTIP_HOOKED == nil then
 			icon:SetUserValue("SHOPCLSID", shopItem.classID)
 			return
 		end
-		_G._MELIA_ORIG_SET_SHOP_ITEM_TOOLTIP(icon, shopItem)
+		_G._GUILTINESIN_ORIG_SET_SHOP_ITEM_TOOLTIP(icon, shopItem)
 	end
 end

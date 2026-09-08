@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using MySqlConnector;
 
-namespace Melia.Shared.Database
+namespace GuiltineSin.Shared.Database
 {
 	public class BatchInsertCommand : IDisposable
 	{

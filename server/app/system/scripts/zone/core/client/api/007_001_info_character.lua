@@ -1,4 +1,4 @@
-Melia.Info = {}
+GuiltineSin.Info = {}
 
 local handle = session.GetMyHandle()
 
@@ -6,7 +6,7 @@ local function getStat()
 	return info.GetStat(handle)
 end
 
-Melia.Info.Character = {
+GuiltineSin.Info.Character = {
 	GetHandle = function() return handle end,
 
 	GetName = function() return info.GetName(handle) end,

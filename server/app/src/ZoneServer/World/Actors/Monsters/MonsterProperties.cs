@@ -1,12 +1,12 @@
 ﻿using System;
-using Melia.Shared.Game.Const;
-using Melia.Shared.ObjectProperties;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.Buffs;
-using Melia.Zone.Network;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.ObjectProperties;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.Buffs;
+using GuiltineSin.Zone.Network;
 
-namespace Melia.Zone.World.Actors.Monsters
+namespace GuiltineSin.Zone.World.Actors.Monsters
 {
 	/// <summary>
 	/// Represents a monster's properties.

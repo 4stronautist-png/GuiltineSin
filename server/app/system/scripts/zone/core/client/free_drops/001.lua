@@ -1,5 +1,5 @@
 -- Hook GetClassByType to mark all items as destroyable.
-Melia.Hook("GetClassByType", function(original, result, idSpace, classId)
+GuiltineSin.Hook("GetClassByType", function(original, result, idSpace, classId)
 
 	if result ~= nil and idSpace == "Item" then
 		result.Destroyable = "YES"
@@ -21,7 +21,7 @@ end
 -- reflect the position the player wants to drop the item "at". We don't
 -- have world positions, but we can use this to determine the direction
 -- to drop items in.
-Melia.Override("INVENTORY_DELETE", function(original, itemIESID, itemType)
+GuiltineSin.Override("INVENTORY_DELETE", function(original, itemIESID, itemType)
 
 	ui.Chat(string.format("/updatemouse %f %f %f %f", mouse.GetX(), mouse.GetY(), option.GetClientWidth(), option.GetClientHeight()))
 	original(itemIESID, itemType)

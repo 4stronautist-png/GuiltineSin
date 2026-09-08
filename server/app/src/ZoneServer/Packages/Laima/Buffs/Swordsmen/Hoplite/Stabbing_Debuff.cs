@@ -1,9 +1,9 @@
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Buffs.Handlers;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Buffs.Handlers;
 
-namespace Melia.Zone.Buffs.HandlersOverrides.Swordsmen.Hoplite
+namespace GuiltineSin.Zone.Buffs.HandlersOverrides.Swordsmen.Hoplite
 {
 	/// <summary>
 	/// Handler override for the Stabbing Debuff.

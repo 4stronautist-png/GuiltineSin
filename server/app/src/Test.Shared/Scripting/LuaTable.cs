@@ -1,7 +1,7 @@
-﻿using Melia.Shared.Scripting;
+﻿using GuiltineSin.Shared.Scripting;
 using Xunit;
 
-namespace Melia.Test.Shared.Scripting
+namespace GuiltineSin.Test.Shared.Scripting
 {
 	public class LuaTableTests
 	{

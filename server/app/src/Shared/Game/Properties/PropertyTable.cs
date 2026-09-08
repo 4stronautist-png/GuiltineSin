@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Melia.Shared.Data.Database;
+using GuiltineSin.Shared.Data.Database;
 
-namespace Melia.Shared.Game.Properties
+namespace GuiltineSin.Shared.Game.Properties
 {
 	/// <summary>
 	/// A table of all properties in the game and the namespaces they

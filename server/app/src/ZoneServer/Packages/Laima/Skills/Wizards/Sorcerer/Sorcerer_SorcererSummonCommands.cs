@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Melia.Shared.Game.Const;
-using Melia.Shared.World;
-using Melia.Zone.Buffs;
-using Melia.Zone.Network;
-using Melia.Zone.Skills.Helpers;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Characters.Components;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Actors.Monsters;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Buffs;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Skills.Helpers;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Characters.Components;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.Monsters;
 
-namespace Melia.Zone.Skills.Handlers.Wizards.Sorcerer
+namespace GuiltineSin.Zone.Skills.Handlers.Wizards.Sorcerer
 {
 	/// <summary>
 	/// Helper class for Sorcerer summon commands.
@@ -22,8 +22,8 @@ namespace Melia.Zone.Skills.Handlers.Wizards.Sorcerer
 	/// </summary>
 	public static class SorcererSummonCommands
 	{
-		private const string OrderScriptKey = "Melia.OrderScript";
-		private const string OrderCancellationKey = "Melia.OrderCancellation";
+		private const string OrderScriptKey = "GuiltineSin.OrderScript";
+		private const string OrderCancellationKey = "GuiltineSin.OrderCancellation";
 
 		/// <summary>
 		/// Gets all valid sorcerer summons for the caster (main boss card summon and evocation summon).

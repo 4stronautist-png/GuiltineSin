@@ -1,13 +1,13 @@
 using System;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Monsters;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Monsters;
 
-namespace Melia.Zone.Buffs.Handlers.Monster
+namespace GuiltineSin.Zone.Buffs.Handlers.Monster
 {
 	/// <summary>
 	/// Handle for the Elite Buff, An enormous monster, like the leader of the group..
@@ -64,7 +64,7 @@ namespace Melia.Zone.Buffs.Handlers.Monster
 			monster.Properties.Modify(PropertyName.SDR_BM, 1);
 
 			// 20% faster skill usage
-			monster.Vars.Set("Melia.ShootTimeMultiplier", 0.8f);
+			monster.Vars.Set("GuiltineSin.ShootTimeMultiplier", 0.8f);
 			monster.Heal(newMaxHP - prevMaxHP, 0);
 			monster.InvalidateProperties();
 		}

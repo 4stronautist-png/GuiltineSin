@@ -1,15 +1,15 @@
-﻿//--- Melia Script ----------------------------------------------------------
+﻿//--- GuiltineSin Script ----------------------------------------------------------
 // Item Boxes (Costume box)
 //--- Description -----------------------------------------------------------
 // Item scripts that adds specific items to the inventory on use.
 //---------------------------------------------------------------------------
 
 using System;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Items;
-using static Melia.Zone.Scripting.Shortcuts;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Items;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
 public class ItemBoxScript : GeneralScript
 {

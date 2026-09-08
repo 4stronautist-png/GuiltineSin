@@ -11,7 +11,7 @@ uses the translated lines. If a line is not translated, it uses the
 original, English version instead.
 
 Since we frequently add and change lines in both the core and scripts, the
-files that come with Melia might not always be up-to-date, and we might
+files that come with GuiltineSin might not always be up-to-date, and we might
 also not be able to support all languages ourselves. You can edit and
 generate new files from the source files yourself though using various
 tools. We recommand the free "Poedit": http://poedit.net/
@@ -27,7 +27,7 @@ Here's a short description on how to create a new translation using Poedit.
   translation. The name of the file is what you put as "language" in
   localization.conf, in this case "de-DE".
 * Click "Extract from sources"
-* Select Melia's root folder as the base path and add the "src" and
+* Select GuiltineSin's root folder as the base path and add the "src" and
   "system" folders in the first list, of paths to include.
 * Switch to the "Translation properties", enter any project name, and
   select "UTF-8" as source code charset.
@@ -48,7 +48,7 @@ Here's a short description on how to create a new translation using Poedit.
   Once it's done searching you can start translating, by selecting a line
   and adding the translation at the bottom.
 * Finally, save the file and you're done. It should now use the strings
-  in that file after you told Melia to use it in localization.conf.
+  in that file after you told GuiltineSin to use it in localization.conf.
   You can also create a "en-US.po" file to replace default phrases
   without changing the language.
 

@@ -1,7 +1,7 @@
-﻿using Melia.Shared.Game.Const;
-using Melia.Zone.World.Actors;
+﻿using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.World.Actors;
 
-namespace Melia.Zone.Abilities.Handlers.Swordsmen.Peltasta
+namespace GuiltineSin.Zone.Abilities.Handlers.Swordsmen.Peltasta
 {
 	/// <summary>
 	/// Contains code related to the "Peltasta: Shield Attack" ability,

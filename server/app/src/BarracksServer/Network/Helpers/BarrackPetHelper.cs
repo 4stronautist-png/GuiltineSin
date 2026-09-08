@@ -1,8 +1,8 @@
 using System;
-using Melia.Barracks.Database;
-using Melia.Shared.Network;
+using GuiltineSin.Barracks.Database;
+using GuiltineSin.Shared.Network;
 
-namespace Melia.Barracks.Network.Helpers
+namespace GuiltineSin.Barracks.Network.Helpers
 {
 	/// <summary>
 	/// Contains extensions for writing companion data to packets.

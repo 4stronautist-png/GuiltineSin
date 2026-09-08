@@ -1,20 +1,20 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Network;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.CombatEntities.Components;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Actors.Pads;
-using static Melia.Zone.Pads.Helpers.PadHelper;
-using static Melia.Zone.Skills.SkillUseFunctions;
-using Melia.Zone.Pads;
-using Melia.Zone.Pads.Handlers;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Actors.Pads;
+using static GuiltineSin.Zone.Pads.Helpers.PadHelper;
+using static GuiltineSin.Zone.Skills.SkillUseFunctions;
+using GuiltineSin.Zone.Pads;
+using GuiltineSin.Zone.Pads.Handlers;
 
-namespace Melia.Zone.Packages.Laima.Pads.Scouts.Thaumaturge
+namespace GuiltineSin.Zone.Packages.Laima.Pads.Scouts.Thaumaturge
 {
 	[Package("laima")]
 	[PadHandler(PadName.Thaumaturge_ShrinkBody)]
@@ -46,10 +46,10 @@ namespace Melia.Zone.Packages.Laima.Pads.Scouts.Thaumaturge
 			var creator = args.Creator;
 			var skill = pad.Skill;
 
-			if (pad.Variables.GetBool("Melia.Applied"))
+			if (pad.Variables.GetBool("GuiltineSin.Applied"))
 				return;
 
-			pad.Variables.SetBool("Melia.Applied", true);
+			pad.Variables.SetBool("GuiltineSin.Applied", true);
 
 			var maxTargets = (int)(3 + skill.Level * 0.5);
 			var enemies = pad.Trigger.GetAttackableEntities(creator);

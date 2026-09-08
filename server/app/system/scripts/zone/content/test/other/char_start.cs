@@ -1,13 +1,13 @@
-﻿//--- Melia Script ----------------------------------------------------------
+﻿//--- GuiltineSin Script ----------------------------------------------------------
 // Custom Character Start
 //--- Description -----------------------------------------------------------
 // Moves characters to a different starting area on their first login if
 // they aren't there yet.
 //---------------------------------------------------------------------------
 
-using Melia.Shared.Scripting;
-using Melia.Zone.Events.Arguments;
-using Melia.Zone.Scripting;
+using GuiltineSin.Shared.Scripting;
+using GuiltineSin.Zone.Events.Arguments;
+using GuiltineSin.Zone.Scripting;
 
 public class CustomCharacterStartScript : GeneralScript
 {
@@ -16,7 +16,7 @@ public class CustomCharacterStartScript : GeneralScript
 	{
 		var character = e.Character;
 
-		//if (character.Variables.Perm.ActivateOnce("Melia.CustomStart"))
+		//if (character.Variables.Perm.ActivateOnce("GuiltineSin.CustomStart"))
 		//{
 		//	if (character.Map.Name != "opening_zone_1")
 		//	{

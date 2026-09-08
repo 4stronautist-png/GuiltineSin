@@ -1,8 +1,8 @@
 ﻿using System;
-using Melia.Social.Database;
-using Melia.Social.Network;
+using GuiltineSin.Social.Database;
+using GuiltineSin.Social.Network;
 
-namespace Melia.Social.World
+namespace GuiltineSin.Social.World
 {
 	/// <summary>
 	/// Represents a user connected to a social server.

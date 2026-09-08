@@ -1,4 +1,4 @@
-﻿//--- Melia Script ----------------------------------------------------------
+﻿//--- GuiltineSin Script ----------------------------------------------------------
 // Dialog Portraits
 //--- Description -----------------------------------------------------------
 // Custom dialogues have certain restrictions, such as being unable
@@ -7,8 +7,8 @@
 // responsible for this, to give scripters more freedom.
 //---------------------------------------------------------------------------
 
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors.Characters;
 
 public class DialogPortraitsClientScript : ClientScript
 {

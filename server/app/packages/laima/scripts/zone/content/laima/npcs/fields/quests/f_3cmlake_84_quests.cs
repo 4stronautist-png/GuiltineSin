@@ -1,4 +1,4 @@
-//--- Melia Script ----------------------------------------------------------
+//--- GuiltineSin Script ----------------------------------------------------------
 // Absenta Reservoir Quest NPCs
 //--- Description -----------------------------------------------------------
 // Quest NPCs in Absenta Reservoir — brackish shrine-water that overflows
@@ -6,18 +6,18 @@
 //---------------------------------------------------------------------------
 
 using System;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Quests;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Characters.Components;
-using Melia.Zone.World.Quests.Objectives;
-using Melia.Zone.World.Quests.Prerequisites;
-using Melia.Zone.World.Quests.Rewards;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Quests;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Characters.Components;
+using GuiltineSin.Zone.World.Quests.Objectives;
+using GuiltineSin.Zone.World.Quests.Prerequisites;
+using GuiltineSin.Zone.World.Quests.Rewards;
 using Yggdrasil.Util;
-using static Melia.Zone.Scripting.Shortcuts;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Monsters;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Monsters;
 
 public class F3Cmlake84QuestNpcsScript : GeneralScript
 {

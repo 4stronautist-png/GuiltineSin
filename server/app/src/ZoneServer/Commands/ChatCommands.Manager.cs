@@ -1,10 +1,10 @@
 ﻿using System;
-using Melia.Shared.L10N;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Zone.World.Actors.Characters;
 using Yggdrasil.Logging;
 using Yggdrasil.Util.Commands;
 
-namespace Melia.Zone.Commands
+namespace GuiltineSin.Zone.Commands
 {
 	/// <summary>
 	/// The chat command manager, holding the commands and executing them.

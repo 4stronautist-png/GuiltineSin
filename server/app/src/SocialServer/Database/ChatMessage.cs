@@ -1,7 +1,7 @@
 using System;
-using Melia.Social.World;
+using GuiltineSin.Social.World;
 
-namespace Melia.Social.Database
+namespace GuiltineSin.Social.Database
 {
 	/// <summary>
 	/// Represents a message in a chat room.

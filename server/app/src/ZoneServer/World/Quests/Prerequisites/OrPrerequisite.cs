@@ -1,6 +1,6 @@
-﻿using Melia.Zone.World.Actors.Characters;
+﻿using GuiltineSin.Zone.World.Actors.Characters;
 
-namespace Melia.Zone.World.Quests.Prerequisites
+namespace GuiltineSin.Zone.World.Quests.Prerequisites
 {
 	/// <summary>
 	/// A prerequisite that's met if at least one of its prerequisites

@@ -3,7 +3,7 @@ using System.Globalization;
 using Yggdrasil.Geometry;
 using Yggdrasil.Util;
 
-namespace Melia.Shared.World
+namespace GuiltineSin.Shared.World
 {
 	public struct Position
 	{

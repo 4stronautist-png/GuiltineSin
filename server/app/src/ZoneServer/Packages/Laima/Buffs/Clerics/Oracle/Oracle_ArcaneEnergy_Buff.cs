@@ -1,9 +1,9 @@
 using System;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Packages;
-using Melia.Zone.Buffs.Base;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Zone.Buffs.Base;
 
-namespace Melia.Zone.Buffs.Handlers.Clerics.Oracle
+namespace GuiltineSin.Zone.Buffs.Handlers.Clerics.Oracle
 {
 	/// <summary>
 	/// Handle for the Arcane Energy buff, which increases MSP and

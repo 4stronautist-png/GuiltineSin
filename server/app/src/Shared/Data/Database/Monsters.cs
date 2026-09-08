@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Melia.Shared.Game.Const;
-using Melia.Shared.World;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.World;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Yggdrasil.Data;
 using Yggdrasil.Data.JSON;
 
-namespace Melia.Shared.Data.Database
+namespace GuiltineSin.Shared.Data.Database
 {
 	[Serializable]
 	public class MonsterData : PropertizedData

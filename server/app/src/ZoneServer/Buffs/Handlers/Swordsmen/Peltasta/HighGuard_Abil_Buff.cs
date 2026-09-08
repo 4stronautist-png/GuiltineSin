@@ -1,8 +1,8 @@
-﻿using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Network;
+﻿using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Network;
 
-namespace Melia.Zone.Buffs.Handlers.Swordsmen.Peltasta
+namespace GuiltineSin.Zone.Buffs.Handlers.Swordsmen.Peltasta
 {
 	/// <summary>
 	/// Handler for the High Guard ability buff.

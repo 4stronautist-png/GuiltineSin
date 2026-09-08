@@ -1,6 +1,6 @@
-﻿using Melia.Zone.World.Actors.Characters;
+﻿using GuiltineSin.Zone.World.Actors.Characters;
 
-namespace Melia.Zone.World.Quests
+namespace GuiltineSin.Zone.World.Quests
 {
 	/// <summary>
 	/// A prerequisite to receive a quest automatically.

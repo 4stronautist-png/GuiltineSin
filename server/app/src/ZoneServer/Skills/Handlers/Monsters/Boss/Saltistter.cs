@@ -1,24 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Shared.L10N;
-using Melia.Shared.World;
-using Melia.Zone.Network;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.Skills.Handlers.Base;
-using Melia.Zone.World.Actors;
-using static Melia.Zone.Skills.Helpers.MonsterSkillHelper;
-using static Melia.Zone.Skills.Helpers.SkillDamageHelper;
-using static Melia.Zone.Skills.Helpers.SkillResultHelper;
-using static Melia.Zone.Skills.Helpers.SkillTargetHelper;
-using static Melia.Zone.Skills.Helpers.SkillUseHelper;
-using static Melia.Zone.Skills.Helpers.SkillUtilHelper;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.Skills.Handlers.Base;
+using GuiltineSin.Zone.World.Actors;
+using static GuiltineSin.Zone.Skills.Helpers.MonsterSkillHelper;
+using static GuiltineSin.Zone.Skills.Helpers.SkillDamageHelper;
+using static GuiltineSin.Zone.Skills.Helpers.SkillResultHelper;
+using static GuiltineSin.Zone.Skills.Helpers.SkillTargetHelper;
+using static GuiltineSin.Zone.Skills.Helpers.SkillUseHelper;
+using static GuiltineSin.Zone.Skills.Helpers.SkillUtilHelper;
 using Yggdrasil.Util;
-using Melia.Zone.Skills.Helpers;
+using GuiltineSin.Zone.Skills.Helpers;
 
-namespace Melia.Zone.Skills.Handlers.Monsters.Boss
+namespace GuiltineSin.Zone.Skills.Handlers.Monsters.Boss
 {
 	/// <summary>
 	/// Handler for boss_Saltistter Skill 1.

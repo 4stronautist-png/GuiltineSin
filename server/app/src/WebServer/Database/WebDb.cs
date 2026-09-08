@@ -1,11 +1,11 @@
-﻿using Melia.Shared.Database;
+﻿using GuiltineSin.Shared.Database;
 
-namespace Melia.Web.Database
+namespace GuiltineSin.Web.Database
 {
 	/// <summary>
 	/// Provides access to the database.
 	/// </summary>
-	public partial class WebDb : MeliaDb
+	public partial class WebDb : GuiltineSinDb
 	{
 	}
 }

@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Linq;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Network;
-using Melia.Shared.Network.Helpers;
-using Melia.Shared.ObjectProperties;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Network;
+using GuiltineSin.Shared.Network.Helpers;
+using GuiltineSin.Shared.ObjectProperties;
 
-namespace Melia.Barracks.Network.Helpers
+namespace GuiltineSin.Barracks.Network.Helpers
 {
 	/// <summary>
 	/// Contains extensions for writing barracks character data to packets.

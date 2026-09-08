@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Threading;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Shared.ObjectProperties;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.ObjectProperties;
 using Yggdrasil.Util;
 
-namespace Melia.Zone.Skills
+namespace GuiltineSin.Zone.Skills
 {
 	/// <summary>
 	/// A character's ability.

@@ -1,4 +1,4 @@
-﻿//--- Melia Script ----------------------------------------------------------
+﻿//--- GuiltineSin Script ----------------------------------------------------------
 // Custom NPC Shops Enabler
 //--- Description -----------------------------------------------------------
 // This client script allows the server to send custom NPC shops to the
@@ -10,8 +10,8 @@
 // simply be empty.
 //---------------------------------------------------------------------------
 
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors.Characters;
 
 public class CustomNpcShopsClientScript : ClientScript
 {

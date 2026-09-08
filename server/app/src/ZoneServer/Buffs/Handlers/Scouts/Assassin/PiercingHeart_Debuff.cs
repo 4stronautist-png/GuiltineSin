@@ -1,8 +1,8 @@
-﻿using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.World.Actors;
+﻿using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.World.Actors;
 
-namespace Melia.Zone.Buffs.Handlers.Scouts.Assassin
+namespace GuiltineSin.Zone.Buffs.Handlers.Scouts.Assassin
 {
 	/// <summary>
 	/// Handle for the Piercing Heart debuff, which prevents healing

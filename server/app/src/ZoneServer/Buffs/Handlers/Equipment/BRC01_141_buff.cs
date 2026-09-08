@@ -1,9 +1,9 @@
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Network;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.World.Actors.Characters;
 
-namespace Melia.Zone.Buffs.Handlers
+namespace GuiltineSin.Zone.Buffs.Handlers
 {
 	/// <summary>
 	/// Handle for the Bracelet of Protection - Frost, Receive 2.5% less Ice property damage per stack..
@@ -11,7 +11,7 @@ namespace Melia.Zone.Buffs.Handlers
 	[BuffHandler(BuffId.BRC01_141_buff)]
 	public class BRC01_141_buff : BuffHandler
 	{
-		private const string VarName = "Melia.IceDefModifier";
+		private const string VarName = "GuiltineSin.IceDefModifier";
 		private const float BuffBonus = 2.5f;
 
 		/// <summary>

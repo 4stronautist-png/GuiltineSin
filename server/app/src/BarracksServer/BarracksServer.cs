@@ -2,22 +2,22 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Melia.Barracks.Database;
-using Melia.Barracks.Events;
-using Melia.Barracks.Network;
-using Melia.Barracks.Util;
-using Melia.Shared;
-using Melia.Shared.Data.Database;
-using Melia.Shared.IES;
-using Melia.Shared.Network;
-using Melia.Shared.Network.Inter.Messages;
+using GuiltineSin.Barracks.Database;
+using GuiltineSin.Barracks.Events;
+using GuiltineSin.Barracks.Network;
+using GuiltineSin.Barracks.Util;
+using GuiltineSin.Shared;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.IES;
+using GuiltineSin.Shared.Network;
+using GuiltineSin.Shared.Network.Inter.Messages;
 using Yggdrasil.Logging;
 using Yggdrasil.Network.Communication;
 using Yggdrasil.Network.Communication.Messages;
 using Yggdrasil.Network.TCP;
 using Yggdrasil.Util;
 
-namespace Melia.Barracks
+namespace GuiltineSin.Barracks
 {
 	/// <summary>
 	/// Represents the barracks server.

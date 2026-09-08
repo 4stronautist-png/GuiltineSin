@@ -1,16 +1,16 @@
-//--- SoulSociety Script ----------------------------------------------------
+//--- GuiltineSin Script ----------------------------------------------------
 // Legend Card Visual Toggle
 //--- Description -----------------------------------------------------------
 // Adds a small ON/OFF switch for legend card visuals in the card album UI.
 //---------------------------------------------------------------------------
 
-using Melia.Zone;
-using Melia.Zone.Commands;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Zone;
+using GuiltineSin.Zone.Commands;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors.Characters;
 using Yggdrasil.Util.Commands;
-using static Melia.Zone.Scripting.Shortcuts;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
 public class LegendCardVisualToggleClientScript : ClientScript
 {

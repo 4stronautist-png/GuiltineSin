@@ -1,6 +1,6 @@
-﻿using Melia.Zone.Scripting.Dialogues;
+﻿using GuiltineSin.Zone.Scripting.Dialogues;
 
-namespace Melia.Zone.Scripting.Extensions.LivelyDialog
+namespace GuiltineSin.Zone.Scripting.Extensions.LivelyDialog
 {
 	/// <summary>
 	/// Rates the current relationship between an NPC and a player.

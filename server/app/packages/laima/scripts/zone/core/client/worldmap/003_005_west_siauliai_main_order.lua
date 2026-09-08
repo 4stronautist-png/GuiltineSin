@@ -199,12 +199,12 @@ local function M_WEST_SIAULIAI_SUPPRESS_BLOCKED_MAP_STATE(frame, mapName)
 	M_WEST_SIAULIAI_HIDE_BLOCKED_CONTROLS(frame)
 end
 
-Melia.Hook("UPDATE_MINIMAP", function(original, result, frame)
+GuiltineSin.Hook("UPDATE_MINIMAP", function(original, result, frame)
 	M_WEST_SIAULIAI_SUPPRESS_BLOCKED_MAP_STATE(frame, nil)
 	return result
 end)
 
-Melia.Hook("MAKE_MAP_NPC_ICONS", function(original, result, frame, mapName, mapWidth, mapHeight, offsetX, offsetY)
+GuiltineSin.Hook("MAKE_MAP_NPC_ICONS", function(original, result, frame, mapName, mapWidth, mapHeight, offsetX, offsetY)
 	M_WEST_SIAULIAI_SUPPRESS_BLOCKED_MAP_STATE(frame, mapName)
 	return result
 end)

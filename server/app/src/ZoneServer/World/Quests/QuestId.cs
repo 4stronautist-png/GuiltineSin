@@ -2,7 +2,7 @@
 using System.Text;
 using Yggdrasil.Security.Hashing;
 
-namespace Melia.Zone.World.Quests
+namespace GuiltineSin.Zone.World.Quests
 {
 	/// <summary>
 	/// Namespaced quest id type.

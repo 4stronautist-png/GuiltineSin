@@ -1,10 +1,10 @@
-﻿using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Buffs;
-using Melia.Zone.World.Actors.Components;
-using Melia.Zone.World.Actors;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.Skills;
+﻿using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Buffs;
+using GuiltineSin.Zone.World.Actors.Components;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.Skills;
 
 /// <summary>
 /// Handle for the Frozen, Frozen solid..

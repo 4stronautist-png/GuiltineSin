@@ -1,4 +1,4 @@
-﻿//--- Melia Script ----------------------------------------------------------
+﻿//--- GuiltineSin Script ----------------------------------------------------------
 // Trade Select Item
 //--- Description -----------------------------------------------------------
 // Item scripts that handle boxes that let you select items, such as
@@ -7,10 +7,10 @@
 
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Items;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Items;
 using Yggdrasil.Logging;
 
 public class TradeSelectItemScript : GeneralScript

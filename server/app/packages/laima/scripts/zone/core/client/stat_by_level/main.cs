@@ -1,4 +1,4 @@
-﻿//--- Melia Script ----------------------------------------------------------
+﻿//--- GuiltineSin Script ----------------------------------------------------------
 // Stat by Level
 //--- Description -----------------------------------------------------------
 // Officials removed the StatByLevel property from the stat point
@@ -6,9 +6,9 @@
 // adds it again.
 //---------------------------------------------------------------------------
 
-using Melia.Zone;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Zone;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors.Characters;
 
 public class StatByLevelClientScript : ClientScript
 {

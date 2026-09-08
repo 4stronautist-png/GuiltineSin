@@ -1,20 +1,20 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Melia.Barracks.Network.Helpers;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Shared.ObjectProperties;
-using Melia.Shared.Scripting;
-using Melia.Shared.World;
+using GuiltineSin.Barracks.Network.Helpers;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.ObjectProperties;
+using GuiltineSin.Shared.Scripting;
+using GuiltineSin.Shared.World;
 
-namespace Melia.Barracks.Database
+namespace GuiltineSin.Barracks.Database
 {
 	/// <summary>
 	/// Represents a player's character.
 	/// </summary>
 	public class Character : IBarrackPc
 	{
-		private const string LegendCardVisualEnabledVar = "Clover.LegendCardVisual.Enabled";
+		private const string LegendCardVisualEnabledVar = "GuiltineSin.LegendCardVisual.Enabled";
 
 		private readonly struct LegendCardVisualEffect
 		{
@@ -129,7 +129,7 @@ namespace Melia.Barracks.Database
 			{
 				var hair = this.Hair;
 
-				if (this.Variables.Perm.TryGetInt("Melia.DisplayHair", out var displayHair))
+				if (this.Variables.Perm.TryGetInt("GuiltineSin.DisplayHair", out var displayHair))
 					hair = displayHair;
 
 				return hair;

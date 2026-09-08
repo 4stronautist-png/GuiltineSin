@@ -1,19 +1,19 @@
-//--- Melia Script ----------------------------------------------------------
+//--- GuiltineSin Script ----------------------------------------------------------
 // Klaipeda Quest NPCs
 //--- Description -----------------------------------------------------------
 // Quest NPCs in Klaipeda for post-demon war storyline.
 //---------------------------------------------------------------------------
 
 using System;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Quests;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Characters.Components;
-using Melia.Zone.World.Quests.Objectives;
-using Melia.Zone.World.Quests.Prerequisites;
-using Melia.Zone.World.Quests.Rewards;
-using static Melia.Zone.Scripting.Shortcuts;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Quests;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Characters.Components;
+using GuiltineSin.Zone.World.Quests.Objectives;
+using GuiltineSin.Zone.World.Quests.Prerequisites;
+using GuiltineSin.Zone.World.Quests.Rewards;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
 
 public class KlaipeQuestNpcsScript : GeneralScript
@@ -35,7 +35,7 @@ public class KlaipeQuestNpcsScript : GeneralScript
 					return;
 				}
 
-				var variableKey = $"Melia.Quests.Klaipeda.Quest1002.KlaipePlantSample{sampleNumber}";
+				var variableKey = $"GuiltineSin.Quests.Klaipeda.Quest1002.KlaipePlantSample{sampleNumber}";
 				var collected = character.Variables.Perm.GetBool(variableKey, false);
 
 				if (collected)
@@ -411,19 +411,19 @@ public class KlaipeRiverCorruptionQuest : QuestScript
 	public override void OnComplete(Character character, Quest quest)
 	{
 		// Unlock follow-up quest about purification ritual (future content)
-		character.Variables.Perm.Set("Melia.Quests.Klaipeda.Quest1002.KlaipeRiverQuestComplete", true);
+		character.Variables.Perm.Set("GuiltineSin.Quests.Klaipeda.Quest1002.KlaipeRiverQuestComplete", true);
 
 		// Remove quest items
 		character.Inventory.Remove(650427, character.Inventory.CountItem(650427),
 			InventoryItemRemoveMsg.Destroyed);
 
 		// Clear all collection flags so they can be reused if quest becomes repeatable
-		character.Variables.Perm.Remove("Melia.Quests.Klaipeda.Quest1002.KlaipePlantSample1");
-		character.Variables.Perm.Remove("Melia.Quests.Klaipeda.Quest1002.KlaipePlantSample2");
-		character.Variables.Perm.Remove("Melia.Quests.Klaipeda.Quest1002.KlaipePlantSample3");
-		character.Variables.Perm.Remove("Melia.Quests.Klaipeda.Quest1002.KlaipePlantSample4");
-		character.Variables.Perm.Remove("Melia.Quests.Klaipeda.Quest1002.KlaipePlantSample5");
-		character.Variables.Perm.Remove("Melia.Quests.Klaipeda.Quest1002.KlaipePlantSample6");
+		character.Variables.Perm.Remove("GuiltineSin.Quests.Klaipeda.Quest1002.KlaipePlantSample1");
+		character.Variables.Perm.Remove("GuiltineSin.Quests.Klaipeda.Quest1002.KlaipePlantSample2");
+		character.Variables.Perm.Remove("GuiltineSin.Quests.Klaipeda.Quest1002.KlaipePlantSample3");
+		character.Variables.Perm.Remove("GuiltineSin.Quests.Klaipeda.Quest1002.KlaipePlantSample4");
+		character.Variables.Perm.Remove("GuiltineSin.Quests.Klaipeda.Quest1002.KlaipePlantSample5");
+		character.Variables.Perm.Remove("GuiltineSin.Quests.Klaipeda.Quest1002.KlaipePlantSample6");
 	}
 
 	public override void OnCancel(Character character, Quest quest)
@@ -433,12 +433,12 @@ public class KlaipeRiverCorruptionQuest : QuestScript
 			InventoryItemRemoveMsg.Destroyed);
 
 		// Clear all collection flags so player can re-collect if they re-accept the quest
-		character.Variables.Perm.Remove("Melia.Quests.Klaipeda.Quest1002.KlaipePlantSample1");
-		character.Variables.Perm.Remove("Melia.Quests.Klaipeda.Quest1002.KlaipePlantSample2");
-		character.Variables.Perm.Remove("Melia.Quests.Klaipeda.Quest1002.KlaipePlantSample3");
-		character.Variables.Perm.Remove("Melia.Quests.Klaipeda.Quest1002.KlaipePlantSample4");
-		character.Variables.Perm.Remove("Melia.Quests.Klaipeda.Quest1002.KlaipePlantSample5");
-		character.Variables.Perm.Remove("Melia.Quests.Klaipeda.Quest1002.KlaipePlantSample6");
+		character.Variables.Perm.Remove("GuiltineSin.Quests.Klaipeda.Quest1002.KlaipePlantSample1");
+		character.Variables.Perm.Remove("GuiltineSin.Quests.Klaipeda.Quest1002.KlaipePlantSample2");
+		character.Variables.Perm.Remove("GuiltineSin.Quests.Klaipeda.Quest1002.KlaipePlantSample3");
+		character.Variables.Perm.Remove("GuiltineSin.Quests.Klaipeda.Quest1002.KlaipePlantSample4");
+		character.Variables.Perm.Remove("GuiltineSin.Quests.Klaipeda.Quest1002.KlaipePlantSample5");
+		character.Variables.Perm.Remove("GuiltineSin.Quests.Klaipeda.Quest1002.KlaipePlantSample6");
 	}
 }
 

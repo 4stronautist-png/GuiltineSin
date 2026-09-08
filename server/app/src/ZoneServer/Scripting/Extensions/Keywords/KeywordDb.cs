@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Melia.Zone.Scripting.Extensions.Keywords
+namespace GuiltineSin.Zone.Scripting.Extensions.Keywords
 {
 	/// <summary>
 	/// Global keyword database, storing the available keywords that

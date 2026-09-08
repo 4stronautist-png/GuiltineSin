@@ -1,14 +1,14 @@
-//--- Melia Script -----------------------------------------------------------
+//--- GuiltineSin Script -----------------------------------------------------------
 // Cathedral Mission Spawns
 //--- Description -----------------------------------------------------------
 // Sets up monster spawners for 'mission_chaple_01'.
 //---------------------------------------------------------------------------
 
 using System;
-using Melia.Zone.Scripting;
-using Melia.Shared.Game.Const;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Shared.Game.Const;
 using Yggdrasil.Util;
-using static Melia.Zone.Scripting.Shortcuts;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
 public class MissionChaple01MobScript : GeneralScript
 {

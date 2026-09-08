@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Melia.Shared.IES
+namespace GuiltineSin.Shared.IES
 {
 	/// <summary>
 	/// List of IES class property modifications.
@@ -66,7 +66,7 @@ namespace Melia.Shared.IES
 			else
 				this.Count++;
 
-			var change = new IesModPropertyChange(revision, oldValue, newValue, "Melia", DateTime.Now, "Change by server");
+			var change = new IesModPropertyChange(revision, oldValue, newValue, "GuiltineSin", DateTime.Now, "Change by server");
 			prop.Changes.Add(change);
 		}
 

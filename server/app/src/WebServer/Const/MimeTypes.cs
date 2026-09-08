@@ -1,4 +1,4 @@
-﻿namespace Melia.Web.Const
+﻿namespace GuiltineSin.Web.Const
 {
 	/// <summary>
 	/// Simple lookup table for common MIME types used in the web server.

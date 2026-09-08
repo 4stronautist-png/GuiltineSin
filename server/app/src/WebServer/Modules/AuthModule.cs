@@ -3,9 +3,9 @@ using System.Text;
 using System.Threading.Tasks;
 using EmbedIO;
 using EmbedIO.Utilities;
-using Melia.Web.Const;
+using GuiltineSin.Web.Const;
 
-namespace Melia.Web.Modules
+namespace GuiltineSin.Web.Modules
 {
 	public class AuthModule : WebModuleBase
 	{

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Melia.Shared.Network.Crypto
+namespace GuiltineSin.Shared.Network.Crypto
 {
 	/// <summary>
 	/// Encrypter/decrypter for the network protocol.

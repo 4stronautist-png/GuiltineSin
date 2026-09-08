@@ -1,6 +1,6 @@
-# CloverTOS Client
+# GuiltineSin Client
 
-Este pacote nao inclui os 50 GB do jogo. Ele reutiliza a instalacao oficial do Tree of Savior já existente no Windows, cria uma cópia local em `C:\CloverTOS-Local` e aplica a configuração do CloverTOS.
+Este pacote nao inclui os 50 GB do jogo. Ele reutiliza a instalacao oficial do Tree of Savior já existente no Windows, cria uma cópia local em `C:\GuiltineSin` e aplica a configuração do GuiltineSin.
 
 ## Requisitos
 
@@ -15,13 +15,13 @@ Este pacote nao inclui os 50 GB do jogo. Ele reutiliza a instalacao oficial do T
 3. Execute:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\tools\Install-CloverTOS-Local.ps1
+powershell -ExecutionPolicy Bypass -File .\tools\Install-GuiltineSin.ps1
 ```
 
 Se o Tree of Savior estiver fora da pasta padrao da Steam, informe o caminho:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\tools\Install-CloverTOS-Local.ps1 -SteamTosPath "D:\SteamLibrary\steamapps\common\TreeOfSavior"
+powershell -ExecutionPolicy Bypass -File .\tools\Install-GuiltineSin.ps1 -SteamTosPath "D:\SteamLibrary\steamapps\common\TreeOfSavior"
 ```
 
 ## Como abrir
@@ -29,7 +29,7 @@ powershell -ExecutionPolicy Bypass -File .\tools\Install-CloverTOS-Local.ps1 -St
 Depois da instalação, execute:
 
 ```txt
-C:\CloverTOS-Local\release\Start-CloverTOS-Local.bat
+C:\GuiltineSin\release\Start-GuiltineSin.bat
 ```
 
 ## O que o script faz
@@ -38,11 +38,11 @@ C:\CloverTOS-Local\release\Start-CloverTOS-Local.bat
 - Instala/verifica os pre-requisitos do Windows:
   - Microsoft Visual C++ Redistributable v14 x64/x86.
 - Microsoft DirectX End-User Runtime legado.
-- Copia os arquivos para `C:\CloverTOS-Local`.
+- Copia os arquivos para `C:\GuiltineSin`.
 - Valida se o client Steam esta na revisao compativel `402595`.
 - Configura o cliente para `127.0.0.1:8080`.
 - Aplica o patch de loading screen em `release`.
-- Cria `Start-CloverTOS-Local.bat` com a loadscreen CloverTOS.
+- Cria `Start-GuiltineSin.bat` com a loadscreen GuiltineSin.
 - Desativa ReShade se encontrar DLLs conhecidas como `dxgi.dll`.
 
 Se o script informar outra revisao, como `403892`, nao continue com esse client.

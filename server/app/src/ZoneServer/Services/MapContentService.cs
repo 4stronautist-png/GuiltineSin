@@ -1,18 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Zone.World.Spawning;
-using Melia.Zone.World;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.World.Spawning;
+using GuiltineSin.Zone.World;
 using Yggdrasil.Logging;
 using Yggdrasil.Util;
-using static Melia.Zone.Scripting.Shortcuts;
-using Melia.Zone.Data.Spawning;
-using Melia.Zone.Data;
-using Melia.Zone.Spawning;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
+using GuiltineSin.Zone.Data.Spawning;
+using GuiltineSin.Zone.Data;
+using GuiltineSin.Zone.Spawning;
 
-namespace Melia.Zone.Services
+namespace GuiltineSin.Zone.Services
 {
 	/// <summary>
 	/// Provides methods to query map-specific content like spawnable monsters

@@ -1,15 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Network.Inter.Messages;
-using Melia.Zone.Network;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Network.Inter.Messages;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors.Characters;
 using Yggdrasil.Logging;
 using Yggdrasil.Network.Communication;
 
-namespace Melia.Zone.World
+namespace GuiltineSin.Zone.World
 {
 	/// <summary>
 	/// Manages the lifecycle of Auto Match sessions for the zone server.
@@ -21,16 +21,16 @@ namespace Melia.Zone.World
 		#region Constants
 
 		/// <summary>Variable name for storing the auto-match session ID.</summary>
-		public const string SessionIdVarName = "Melia.AutoMatch.SessionId";
+		public const string SessionIdVarName = "GuiltineSin.AutoMatch.SessionId";
 
 		/// <summary>Variable name for storing the account ID (for disconnect cleanup).</summary>
-		public const string AccountIdVarName = "Melia.AutoMatch.AccountId";
+		public const string AccountIdVarName = "GuiltineSin.AutoMatch.AccountId";
 
 		/// <summary>Variable name for storing the active matchmaking dungeon ID.</summary>
-		public const string DungeonIdVarName = "Melia.AutoMatch.DungeonId";
+		public const string DungeonIdVarName = "GuiltineSin.AutoMatch.DungeonId";
 
 		/// <summary>Variable name for storing the player count in auto-match.</summary>
-		public const string PlayersCountVarName = "Melia.AutoMatch.PlayersCount";
+		public const string PlayersCountVarName = "GuiltineSin.AutoMatch.PlayersCount";
 
 		#endregion
 

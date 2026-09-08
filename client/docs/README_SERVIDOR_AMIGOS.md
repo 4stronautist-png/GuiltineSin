@@ -1,6 +1,6 @@
-# CloverTOS - guia rápido para outro PC
+# GuiltineSin - guia rápido para outro PC
 
-Este pacote acompanha o monorepo `CloverTOS` e foi pensado para quem quiser subir o ambiente completo em outro computador.
+Este pacote acompanha o monorepo `GuiltineSin` e foi pensado para quem quiser subir o ambiente completo em outro computador.
 
 ## Fluxo recomendado
 
@@ -14,13 +14,13 @@ cd server/scripts
 2. No Windows, instale a cópia leve do cliente:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\client\tools\Install-CloverTOS-Local.ps1
+powershell -ExecutionPolicy Bypass -File .\client\tools\Install-GuiltineSin.ps1
 ```
 
 3. Abra o cliente:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\client\tools\Start-CloverTOS-Client.ps1
+powershell -ExecutionPolicy Bypass -File .\client\tools\Start-GuiltineSin-Client.ps1
 ```
 
 ## Endpoints padrão

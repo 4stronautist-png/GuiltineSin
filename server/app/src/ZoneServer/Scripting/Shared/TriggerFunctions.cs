@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using Melia.Zone.Scripting.Dialogues;
-using Melia.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.Scripting.Dialogues;
+using GuiltineSin.Zone.World.Actors.Monsters;
 
-namespace Melia.Zone.Scripting.Shared
+namespace GuiltineSin.Zone.Scripting.Shared
 {
 	public class TriggerFunctions
 	{

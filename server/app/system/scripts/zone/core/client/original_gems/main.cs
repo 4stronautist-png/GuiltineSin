@@ -1,4 +1,4 @@
-﻿//--- Melia Script ----------------------------------------------------------
+﻿//--- GuiltineSin Script ----------------------------------------------------------
 // Original Gems
 //--- Description -----------------------------------------------------------
 // Changes the icons and names of skill gems to their original versions.
@@ -10,9 +10,9 @@
 
 using System.Collections.Generic;
 using System.Text;
-using Melia.Zone;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Zone;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors.Characters;
 
 public class OriginalGemsClientScript : ClientScript
 {

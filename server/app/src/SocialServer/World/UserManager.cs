@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Melia.Shared.Network;
-using Melia.Social.Database;
+using GuiltineSin.Shared.Network;
+using GuiltineSin.Social.Database;
 
-namespace Melia.Social.World
+namespace GuiltineSin.Social.World
 {
 	/// <summary>
 	/// Collection of users connected to the social server.

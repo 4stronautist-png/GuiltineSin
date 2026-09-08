@@ -1,4 +1,4 @@
-﻿namespace Melia.Zone.Scripting.Dialogues
+﻿namespace GuiltineSin.Zone.Scripting.Dialogues
 {
 	/// <summary>
 	/// Specifies an action that was taken during a dialog.

@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Melia.Shared.Database;
-using Melia.Shared.Game.Const;
+using GuiltineSin.Shared.Database;
+using GuiltineSin.Shared.Game.Const;
 using Yggdrasil.Db.MySql.SimpleCommands;
-using Melia.Shared.Game.Properties;
-using Melia.Shared.ObjectProperties;
-using Melia.Shared.World;
-using Melia.Zone.World;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Groups;
+using GuiltineSin.Shared.Game.Properties;
+using GuiltineSin.Shared.ObjectProperties;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.World;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Groups;
 using MySqlConnector;
 using Yggdrasil.Logging;
 
-namespace Melia.Zone.Database
+namespace GuiltineSin.Zone.Database
 {
 	/// <summary>
 	/// Contains methods related to Social (Party/Guild) persistence.

@@ -1,7 +1,7 @@
 using System;
 using Yggdrasil.Network.Communication;
 
-namespace Melia.Shared.Network.Inter.Messages
+namespace GuiltineSin.Shared.Network.Inter.Messages
 {
 	/// <summary>
 	/// Notifies SocialServer when a player joins or leaves a party.

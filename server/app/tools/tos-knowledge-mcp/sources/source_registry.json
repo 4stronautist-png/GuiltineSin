@@ -7,18 +7,18 @@
     "notes": "Highest-trust behavioral evidence captured from Papaya test/client traces. Store logs, screenshots, packet notes, and quest run notes here."
   },
   {
-    "id": "clover_local_data",
+    "id": "guiltinesin_local_data",
     "kind": "local_repo",
     "trust_rank": 20,
     "local_path": "system/db",
-    "notes": "CloverTOS authoritative server data currently used by Melia."
+    "notes": "GuiltineSin authoritative server data currently used by GuiltineSin."
   },
   {
-    "id": "clover_local_scripts",
+    "id": "guiltinesin_local_scripts",
     "kind": "local_repo",
     "trust_rank": 25,
     "local_path": "packages/laima/scripts",
-    "notes": "CloverTOS NPC, map, warp, track, and client script implementations."
+    "notes": "GuiltineSin NPC, map, warp, track, and client script implementations."
   },
   {
     "id": "extracted_client_ipf",

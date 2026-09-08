@@ -1,14 +1,14 @@
-//--- Melia Script -----------------------------------------------------------
+//--- GuiltineSin Script -----------------------------------------------------------
 // Crystal Mine 2F Spawns
 //--- Description -----------------------------------------------------------
 // Sets up monster spawners for 'd_cmine_02'.
 //---------------------------------------------------------------------------
 
 using System;
-using Melia.Zone.Scripting;
-using Melia.Shared.Game.Const;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Shared.Game.Const;
 using Yggdrasil.Util;
-using static Melia.Zone.Scripting.Shortcuts;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
 public class DCmine02MobScript : GeneralScript
 {

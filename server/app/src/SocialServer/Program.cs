@@ -2,7 +2,7 @@
 using Yggdrasil.Logging;
 using Yggdrasil.Util;
 
-namespace Melia.Social
+namespace GuiltineSin.Social
 {
 	internal class Program
 	{

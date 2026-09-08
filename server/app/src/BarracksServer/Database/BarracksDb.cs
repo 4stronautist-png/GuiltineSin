@@ -1,18 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Melia.Shared.Database;
-using Melia.Shared.Game.Const;
-using Melia.Shared.World;
+using GuiltineSin.Shared.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.World;
 using MySqlConnector;
 using Yggdrasil.Db.MySql.SimpleCommands;
 using Yggdrasil.Logging;
 using Yggdrasil.Security.Hashing;
 using Yggdrasil.Util;
 
-namespace Melia.Barracks.Database
+namespace GuiltineSin.Barracks.Database
 {
-	public class BarracksDb : MeliaDb
+	public class BarracksDb : GuiltineSinDb
 	{
 		/// <summary>
 		/// Normalizes/Updates the file names in the update db.

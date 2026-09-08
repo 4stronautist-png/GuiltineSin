@@ -29,4 +29,4 @@ into the login server's window. Just replace `accountname` with your
 account name, `level` with your desired authority level, and press
 return to execute it. Make sure you're not logged into your account
 while executing the command. By default, level 99 will give you access
-to all commands Melia has to offer.
+to all commands GuiltineSin has to offer.

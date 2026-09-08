@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
-using Melia.Zone.Database;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.Database;
+using GuiltineSin.Zone.World.Actors.Characters;
 using Yggdrasil.Logging;
 
-namespace Melia.Zone.Services
+namespace GuiltineSin.Zone.Services
 {
 	public class AutoSaveService : IDisposable
 	{

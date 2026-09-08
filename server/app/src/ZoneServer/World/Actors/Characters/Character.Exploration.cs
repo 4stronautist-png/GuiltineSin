@@ -2,11 +2,11 @@
 // Character.Exploration.cs - Map exploration and fog of war rewards
 // ===================================================================
 using System.Linq;
-using Melia.Shared.Game.Const;
-using Melia.Zone.World.Spawning;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.World.Spawning;
 using Yggdrasil.Logging;
 
-namespace Melia.Zone.World.Actors.Characters
+namespace GuiltineSin.Zone.World.Actors.Characters
 {
 	public partial class Character
 	{
@@ -42,7 +42,7 @@ namespace Melia.Zone.World.Actors.Characters
 			if (percentage < ExplorationRewardThreshold)
 				return false;
 
-			var rewardKey = $"Melia.MapExploration.Reward.{mapId}";
+			var rewardKey = $"GuiltineSin.MapExploration.Reward.{mapId}";
 
 			// Check if already rewarded for this map
 			if (this.Variables.Perm.GetBool(rewardKey))
@@ -81,7 +81,7 @@ namespace Melia.Zone.World.Actors.Characters
 		/// <returns>True if reward was already received.</returns>
 		public bool HasReceivedExplorationReward(int mapId)
 		{
-			var rewardKey = $"Melia.MapExploration.Reward.{mapId}";
+			var rewardKey = $"GuiltineSin.MapExploration.Reward.{mapId}";
 			return this.Variables.Perm.GetBool(rewardKey);
 		}
 

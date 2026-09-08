@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace Melia.Zone.World.Gacha
+namespace GuiltineSin.Zone.World.Gacha
 {
 	/// <summary>
 	/// Represents an entry in a gacha machine.

@@ -1,9 +1,9 @@
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Network;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Network;
 
-namespace Melia.Zone.Buffs.Handlers.Swordsmen.Cataphract
+namespace GuiltineSin.Zone.Buffs.Handlers.Swordsmen.Cataphract
 {
 	/// <summary>
 	/// Handler for the Trot Buff, which increases movement speed while riding a companion.

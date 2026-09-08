@@ -1,4 +1,4 @@
-//--- Melia Script ----------------------------------------------------------
+//--- GuiltineSin Script ----------------------------------------------------------
 // Siauliai Out (Miner's Village) Quest NPCs
 //--- Description -----------------------------------------------------------
 // Quest NPCs in Miner's Village for post-demon war storyline.
@@ -7,21 +7,21 @@
 
 using System;
 using System.Threading;
-using Melia.Shared.Game.Const;
-using Melia.Shared.World;
-using Melia.Zone;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Characters.Components;
-using Melia.Zone.World.Maps;
-using Melia.Zone.World.Quests;
-using Melia.Zone.World.Quests.Objectives;
-using Melia.Zone.World.Quests.Prerequisites;
-using Melia.Zone.World.Quests.Rewards;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Characters.Components;
+using GuiltineSin.Zone.World.Maps;
+using GuiltineSin.Zone.World.Quests;
+using GuiltineSin.Zone.World.Quests.Objectives;
+using GuiltineSin.Zone.World.Quests.Prerequisites;
+using GuiltineSin.Zone.World.Quests.Rewards;
 using Yggdrasil.Logging;
 using Yggdrasil.Util;
-using static Melia.Zone.Scripting.Shortcuts;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
 
 public class FSiauliaiOutQuestNpcsScript : GeneralScript
@@ -260,7 +260,7 @@ public class FSiauliaiOutQuestNpcsScript : GeneralScript
 					return;
 				}
 
-				var variableKey = $"Melia.Quests.f_siauliai_out.Quest1003.SwordPiece{pieceNumber}";
+				var variableKey = $"GuiltineSin.Quests.f_siauliai_out.Quest1003.SwordPiece{pieceNumber}";
 				var collected = character.Variables.Perm.GetBool(variableKey, false);
 
 				if (collected)
@@ -375,7 +375,7 @@ public class FSiauliaiOutQuestNpcsScript : GeneralScript
 		{
 			var character = dialog.Player;
 			var questId = new QuestId("f_siauliai_out", 1004);
-			var spawnedKey = $"Melia.Quests.f_siauliai_out.Quest1004.Pendant.Spawned";
+			var spawnedKey = $"GuiltineSin.Quests.f_siauliai_out.Quest1004.Pendant.Spawned";
 
 			if (!character.Quests.IsActive(questId))
 			{
@@ -615,9 +615,9 @@ public class FSiauliaiOutAncientRelicsQuest : QuestScript
 		character.Inventory.Remove(650522, character.Inventory.CountItem(650522), InventoryItemRemoveMsg.Destroyed);
 
 		// Clear collection flags
-		character.Variables.Perm.Remove("Melia.Quests.f_siauliai_out.Quest1003.SwordPiece1");
-		character.Variables.Perm.Remove("Melia.Quests.f_siauliai_out.Quest1003.SwordPiece2");
-		character.Variables.Perm.Remove("Melia.Quests.f_siauliai_out.Quest1003.SwordPiece3");
+		character.Variables.Perm.Remove("GuiltineSin.Quests.f_siauliai_out.Quest1003.SwordPiece1");
+		character.Variables.Perm.Remove("GuiltineSin.Quests.f_siauliai_out.Quest1003.SwordPiece2");
+		character.Variables.Perm.Remove("GuiltineSin.Quests.f_siauliai_out.Quest1003.SwordPiece3");
 	}
 
 	public override void OnCancel(Character character, Quest quest)
@@ -626,9 +626,9 @@ public class FSiauliaiOutAncientRelicsQuest : QuestScript
 		character.Inventory.Remove(650522, character.Inventory.CountItem(650522), InventoryItemRemoveMsg.Destroyed);
 
 		// Clear collection flags
-		character.Variables.Perm.Remove("Melia.Quests.f_siauliai_out.Quest1003.SwordPiece1");
-		character.Variables.Perm.Remove("Melia.Quests.f_siauliai_out.Quest1003.SwordPiece2");
-		character.Variables.Perm.Remove("Melia.Quests.f_siauliai_out.Quest1003.SwordPiece3");
+		character.Variables.Perm.Remove("GuiltineSin.Quests.f_siauliai_out.Quest1003.SwordPiece1");
+		character.Variables.Perm.Remove("GuiltineSin.Quests.f_siauliai_out.Quest1003.SwordPiece2");
+		character.Variables.Perm.Remove("GuiltineSin.Quests.f_siauliai_out.Quest1003.SwordPiece3");
 	}
 }
 

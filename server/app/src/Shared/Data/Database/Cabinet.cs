@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Linq;
-using Melia.Shared.Game.Const;
+using GuiltineSin.Shared.Game.Const;
 using Newtonsoft.Json.Linq;
 using Yggdrasil.Data.JSON;
 
-namespace Melia.Shared.Data.Database
+namespace GuiltineSin.Shared.Data.Database
 {
 	[Serializable]
 	public class CabinetData

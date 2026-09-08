@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Melia.Shared.L10N
+namespace GuiltineSin.Shared.L10N
 {
 	/// <summary>
 	/// Manages localization strings.

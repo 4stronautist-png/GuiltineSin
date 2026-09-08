@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-namespace Melia.Shared.World
+namespace GuiltineSin.Shared.World
 {
 	public readonly struct Location
 	{

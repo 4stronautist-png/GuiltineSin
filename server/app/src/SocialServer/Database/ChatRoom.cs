@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using System.Linq;
-using Melia.Shared.Network;
-using Melia.Social.Network;
-using Melia.Social.World;
+using GuiltineSin.Shared.Network;
+using GuiltineSin.Social.Network;
+using GuiltineSin.Social.World;
 using Yggdrasil.Logging;
 
-namespace Melia.Social.Database
+namespace GuiltineSin.Social.Database
 {
 	/// <summary>
 	/// Represents a chat room.

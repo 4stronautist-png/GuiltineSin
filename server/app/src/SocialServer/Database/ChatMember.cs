@@ -1,4 +1,4 @@
-﻿namespace Melia.Social.Database
+﻿namespace GuiltineSin.Social.Database
 {
 	/// <summary>
 	/// Represents a member of a chat room.

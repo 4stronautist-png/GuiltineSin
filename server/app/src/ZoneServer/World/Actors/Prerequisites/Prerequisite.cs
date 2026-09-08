@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Melia.Zone.World.Actors.Prerequisites
+namespace GuiltineSin.Zone.World.Actors.Prerequisites
 {
 	public abstract class Prerequisite
 	{

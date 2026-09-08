@@ -1,21 +1,21 @@
 using System;
 using System.Collections.Generic;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Network;
-using Melia.Zone.Pads;
-using Melia.Zone.Pads.Handlers;
-using Melia.Zone.Scripting;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Actors.Pads;
-using static Melia.Zone.Pads.Helpers.PadHelper;
-using static Melia.Zone.Skills.Helpers.SkillDamageHelper;
-using static Melia.Zone.Skills.SkillUseFunctions;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Pads;
+using GuiltineSin.Zone.Pads.Handlers;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Actors.Pads;
+using static GuiltineSin.Zone.Pads.Helpers.PadHelper;
+using static GuiltineSin.Zone.Skills.Helpers.SkillDamageHelper;
+using static GuiltineSin.Zone.Skills.SkillUseFunctions;
 
 
-namespace Melia.Zone.Pads.HandlersOverride.Archers.Sapper
+namespace GuiltineSin.Zone.Pads.HandlersOverride.Archers.Sapper
 {
 	/// <summary>
 	/// Handler for the Sapper Spring Trap pad.
@@ -29,8 +29,8 @@ namespace Melia.Zone.Pads.HandlersOverride.Archers.Sapper
 		private const int PadLifetimeMs = 120000;
 		private const int DebuffDurationMs = 1000;
 		private const float ReactivationDelayMs = 1000f;
-		private const string RevealedKey = "Melia.SpringTrap.Revealed";
-		private const string CooldownKey = "Melia.SpringTrap.Cooldown";
+		private const string RevealedKey = "GuiltineSin.SpringTrap.Revealed";
+		private const string CooldownKey = "GuiltineSin.SpringTrap.Cooldown";
 
 		public void Created(object sender, PadTriggerArgs args)
 		{

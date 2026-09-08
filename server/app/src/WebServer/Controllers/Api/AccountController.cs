@@ -5,13 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using EmbedIO;
 using EmbedIO.Routing;
-using Melia.Web.Const;
-using Melia.Web.Controllers.Api.Helpers;
-using Melia.Web.Controllers.Api.Objects;
+using GuiltineSin.Web.Const;
+using GuiltineSin.Web.Controllers.Api.Helpers;
+using GuiltineSin.Web.Controllers.Api.Objects;
 using Yggdrasil.Logging;
 using YggMd5 = Yggdrasil.Security.Hashing.MD5;
 
-namespace Melia.Web.Controllers.Api
+namespace GuiltineSin.Web.Controllers.Api
 {
 	/// <summary>
 	/// Controller with API endpoints that provide account-related functions.

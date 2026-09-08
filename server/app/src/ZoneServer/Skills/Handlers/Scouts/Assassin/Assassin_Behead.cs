@@ -2,20 +2,20 @@
 using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Game.Const;
-using Melia.Shared.L10N;
-using Melia.Shared.World;
-using Melia.Zone.Network;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.Skills.Handlers.Base;
-using Melia.Zone.Skills.SplashAreas;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using static Melia.Shared.Util.TaskHelper;
-using static Melia.Zone.Skills.SkillUseFunctions;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.Skills.Handlers.Base;
+using GuiltineSin.Zone.Skills.SplashAreas;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using static GuiltineSin.Shared.Util.TaskHelper;
+using static GuiltineSin.Zone.Skills.SkillUseFunctions;
 
-namespace Melia.Zone.Skills.Handlers.Scouts.Assassin
+namespace GuiltineSin.Zone.Skills.Handlers.Scouts.Assassin
 {
 	/// <summary>
 	/// Handler for the Assassin skill Behead.
@@ -46,9 +46,9 @@ namespace Melia.Zone.Skills.Handlers.Scouts.Assassin
 			// If the caster has an assassination target, it overrides
 			// the target for this attack and forces the jump attempt
 			// even if the target is a monster
-			if (caster is Character character && character.Variables.Temp.Has("Melia.AssassinationTarget"))
+			if (caster is Character character && character.Variables.Temp.Has("GuiltineSin.AssassinationTarget"))
 			{
-				var possibleTarget = caster.Map.GetCombatEntity(character.Variables.Temp.GetInt("Melia.AssassinationTarget"));
+				var possibleTarget = caster.Map.GetCombatEntity(character.Variables.Temp.GetInt("GuiltineSin.AssassinationTarget"));
 				if (possibleTarget != null)
 				{
 					target = possibleTarget;

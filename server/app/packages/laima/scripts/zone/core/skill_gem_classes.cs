@@ -1,4 +1,4 @@
-//--- Melia Script ----------------------------------------------------------
+//--- GuiltineSin Script ----------------------------------------------------------
 // Skill Gem Class Constants
 //--- Description -----------------------------------------------------------
 // Shared list of job classes that have skill gems available.

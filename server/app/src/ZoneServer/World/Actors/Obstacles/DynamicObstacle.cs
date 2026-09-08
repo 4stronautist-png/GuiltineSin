@@ -1,8 +1,8 @@
-﻿using Melia.Shared.World;
-using Melia.Zone.World.Actors;
+﻿using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.World.Actors;
 using Yggdrasil.Geometry;
 
-namespace Melia.Zone.World.Actors
+namespace GuiltineSin.Zone.World.Actors
 {
 	/// <summary>
 	/// Represents a dynamic obstacle in the game world.

@@ -1,17 +1,17 @@
 ﻿using System;
-using Melia.Shared.Game.Const;
-using Melia.Shared.L10N;
-using Melia.Zone.Network;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.Skills.Handlers.Base;
-using Melia.Zone.World.Actors;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.Skills.Handlers.Base;
+using GuiltineSin.Zone.World.Actors;
 using Yggdrasil.Util;
-using static Melia.Zone.Skills.SkillUseFunctions;
-using Melia.Shared.World;
-using Melia.Zone.Skills.SplashAreas;
+using static GuiltineSin.Zone.Skills.SkillUseFunctions;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Skills.SplashAreas;
 using System.Threading.Tasks;
 
-namespace Melia.Zone.Skills.Handlers.Common
+namespace GuiltineSin.Zone.Skills.Handlers.Common
 {
 	/// <summary>
 	/// Handles ranged skills that target a single entity.

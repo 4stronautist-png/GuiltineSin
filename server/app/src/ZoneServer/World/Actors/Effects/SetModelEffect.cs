@@ -4,10 +4,10 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
-using Melia.Zone.Network;
-using Melia.Zone.World.Actors.Pads;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.World.Actors.Pads;
 
-namespace Melia.Zone.World.Actors.Effects
+namespace GuiltineSin.Zone.World.Actors.Effects
 {
 	internal class SetModelEffect : Effect
 	{

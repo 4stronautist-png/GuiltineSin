@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Characters;
 
-namespace Melia.Zone.World
+namespace GuiltineSin.Zone.World
 {
 	/// <summary>
 	/// Stub: Guild system was removed during Laima merge.

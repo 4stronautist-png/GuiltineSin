@@ -1,8 +1,8 @@
 ﻿using System;
-using Melia.Barracks.Database;
-using Melia.Barracks.Network;
+using GuiltineSin.Barracks.Database;
+using GuiltineSin.Barracks.Network;
 
-namespace Melia.Barracks.Events
+namespace GuiltineSin.Barracks.Events
 {
 	/// <summary>
 	/// Event arguments related to a character and their connection.

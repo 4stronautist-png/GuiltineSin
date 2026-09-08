@@ -9,22 +9,22 @@ using EmbedIO;
 using EmbedIO.Files;
 using EmbedIO.Net;
 using EmbedIO.WebApi;
-using Melia.Shared;
-using Melia.Shared.Data.Database;
-using Melia.Shared.Network.Inter.Messages;
-using Melia.Web.Controllers;
-using Melia.Web.Controllers.Api;
-using Melia.Shared.Configuration;
-using Melia.Web.Database;
-using Melia.Web.Logging;
-using Melia.Web.Modules;
-using Melia.Web.Services;
+using GuiltineSin.Shared;
+using GuiltineSin.Shared.Data.Database;
+using GuiltineSin.Shared.Network.Inter.Messages;
+using GuiltineSin.Web.Controllers;
+using GuiltineSin.Web.Controllers.Api;
+using GuiltineSin.Shared.Configuration;
+using GuiltineSin.Web.Database;
+using GuiltineSin.Web.Logging;
+using GuiltineSin.Web.Modules;
+using GuiltineSin.Web.Services;
 using Yggdrasil.Logging;
 using Yggdrasil.Network.Communication;
 using Yggdrasil.Util;
 using Yggdrasil.Util.Commands;
 
-namespace Melia.Web
+namespace GuiltineSin.Web
 {
 	public class WebServer : Server
 	{
@@ -173,7 +173,7 @@ namespace Melia.Web
 
 			try
 			{
-				wc.DefaultRequestHeaders.UserAgent.ParseAdd("Melia");
+				wc.DefaultRequestHeaders.UserAgent.ParseAdd("GuiltineSin");
 
 				Task.Run(() =>
 				{

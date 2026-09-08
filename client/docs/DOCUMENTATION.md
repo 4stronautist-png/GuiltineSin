@@ -1,22 +1,22 @@
-# CloverTOS Client Documentation
+# GuiltineSin Client Documentation
 
 ## Conteúdo
 
 - `config/`: exemplos de configuração do cliente
-- `release/`: exemplo do launcher Clover
+- `release/`: exemplo do launcher GuiltineSin
 - `tools/`: instalador leve e script para abrir o cliente
 - `patches/login-media/`: patch opcional de mídia da tela de login
 
 ## Instalação
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\tools\Install-CloverTOS-Local.ps1
+powershell -ExecutionPolicy Bypass -File .\tools\Install-GuiltineSin-Local.ps1
 ```
 
 ## Execução
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\tools\Start-CloverTOS-Client.ps1
+powershell -ExecutionPolicy Bypass -File .\tools\Start-GuiltineSin-Client.ps1
 ```
 
 ## Configuração padrão

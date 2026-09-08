@@ -1,4 +1,4 @@
-// Melia
+// GuiltineSin
 // Database file
 // 
 // Values: id, className, name, [quest]
@@ -422,6 +422,7 @@
 { id: 8488, className: "SSN_CHAPLE577_MQ_07", name: "Cleaning the Church",  quest: { name: "CHAPLE577_MQ_07" } },
 { id: 8490, className: "SSN_CHAPLE577_MQ_09", name: "Defeat Gesti",  quest: { name: "CHAPLE577_MQ_09", infoName: [ "Defeat Gesti" ], infoMaxCount: [ 1 ] } },
 { id: 8491, className: "SSN_CHAPLE577_MQ_10", name: "The Hidden Sanctum's Revelation",  quest: { name: "CHAPLE577_MQ_10", infoName: [ "Use the Seal of Space", "Retrieve the revelation" ], infoMaxCount: [ 1, 1 ], monsterNameGroup: [ "secret_warp_npc" ], monsterView: [ 1 ] } },
+{ id: 84915, className: "SSN_CHAPLE577_MQ_10_AFTER", name: "The Hidden Sanctum's Revelation (2)",  quest: { name: "CHAPLE577_MQ_10_AFTER", infoName: [ "Tell the Paladin Master about the story so far" ], infoMaxCount: [ 1 ], mapPointView: [ 1 ], mapPointGroup: [ "f_gele_57_3 GELE573_MASTER 150" ], npcFunction: [ "GELE573_MASTER" ], monsterNameGroup: [ "npc_paladinmaster" ], monsterView: [ 1 ] } },
 { id: 8492, className: "SSN_FTOWER43_MQ_07", name: "Lunatic Wizard (4)",  quest: { name: "FTOWER43_MQ_07" } },
 { id: 8493, className: "SSN_FTOWER43_MQ_06", name: "Lunatic Wizard (4)",  quest: { name: "FTOWER43_MQ_06" } },
 { id: 8494, className: "SSN_GELE574_MQ_01", name: "Unwelcome Guest from the Forest",  quest: { name: "GELE574_MQ_01" } },
@@ -737,7 +738,7 @@
 { id: 18007, className: "SSN_HUEVILLAGE_58_4_MQ07", name: "Release Goddess Saule (4)",  quest: { name: "HUEVILLAGE_58_4_MQ07" } },
 { id: 18008, className: "SSN_HUEVILLAGE_58_4_MQ08", name: "Goddess Saule",  quest: { name: "HUEVILLAGE_58_4_MQ08" } },
 { id: 18010, className: "SSN_HUEVILLAGE_58_4_MQ11", name: "Road to the Mausoleum",  quest: { name: "HUEVILLAGE_58_4_MQ11" } },
-{ id: 18100, className: "SSN_HUEVILLAGE_58_1_MQ01", name: "Searching for Goddess Saule",  quest: { name: "HUEVILLAGE_58_1_MQ01" } },
+{ id: 18100, className: "SSN_HUEVILLAGE_58_1_MQ01", name: "Searching for Goddess Saule",  quest: { name: "HUEVILLAGE_58_1_MQ01", infoName: [ "Tanu's Purifying Stone", "Searching for Goddess Saule" ], infoMaxCount: [ 7, 1 ], monsterNameGroup: [ "Tanu" ], monsterView: [ 1 ], mapPointView: [ 1, 1 ], mapPointGroup: [ "f_huevillage_58_1 Tanu 750", "f_huevillage_58_1 HUEVILLAGE_58_1_SAULE_SEARCH 100" ] } },
 { id: 18110, className: "SSN_HUEVILLAGE_58_1_MQ02", name: "Purify the Holy Pond",  quest: { name: "HUEVILLAGE_58_1_MQ02" } },
 { id: 18120, className: "SSN_HUEVILLAGE_58_1_MQ03", name: "Search for the Missing Villager",  quest: { name: "HUEVILLAGE_58_1_MQ03" } },
 { id: 18130, className: "SSN_HUEVILLAGE_58_1_MQ04", name: "Checking the Portal",  quest: { name: "HUEVILLAGE_58_1_MQ04" } },
@@ -958,9 +959,9 @@
 { id: 20260, className: "SSN_THORN21_MQ06", name: "Purify Kvailas Forest (2)",  quest: { name: "THORN21_MQ06" } },
 { id: 20261, className: "SSN_THORN21_MQ07", name: "Capturing Bramble (3)",  quest: { name: "THORN21_MQ07" } },
 { id: 20262, className: "SSN_THORN21_MQ08", name: "To Goddess Saule",  quest: { name: "THORN21_MQ08", infoName: [ "Retrieve the revelation" ], infoMaxCount: [ 1 ] } },
-{ id: 20263, className: "SSN_HUEVILLAGE_58_2_MQ02", name: "Activate the Obelisk (1)",  quest: { name: "HUEVILLAGE_58_2_MQ02", monsterNameGroup: [ "gale_bucket_stuff2" ], monsterView: [ 1 ] } },
-{ id: 20264, className: "SSN_HUEVILLAGE_58_2_MQ03", name: "Activate the Obelisk (2)",  quest: { name: "HUEVILLAGE_58_2_MQ03" } },
-{ id: 20265, className: "SSN_HUEVILLAGE_58_2_MQ04", name: "Activate the Obelisk (3)",  quest: { name: "HUEVILLAGE_58_2_MQ04" } },
+{ id: 20263, className: "SSN_HUEVILLAGE_58_2_MQ02", name: "Activate the Obelisk (1)",  quest: { name: "HUEVILLAGE_58_2_MQ02", infoName: [ "White Oak Sap" ], infoMaxCount: [ 3 ], monsterNameGroup: [ "gale_bucket_stuff" ], monsterView: [ 1 ], mapPointGroup: [ "f_huevillage_58_2 HUEVILLAGE_58_2_MQ02_BUCKET01 100", "f_huevillage_58_2 HUEVILLAGE_58_2_MQ02_BUCKET02 100", "f_huevillage_58_2 HUEVILLAGE_58_2_MQ02_BUCKET03 100", "f_huevillage_58_2 HUEVILLAGE_58_2_OBELISK_BEFORE 100" ] } },
+{ id: 20264, className: "SSN_HUEVILLAGE_58_2_MQ03", name: "Activate the Obelisk (2)",  quest: { name: "HUEVILLAGE_58_2_MQ03", infoName: [ "Recover the dye at Ershike Altar" ], infoMaxCount: [ 1 ], mapPointGroup: [ "f_huevillage_58_2 HUEVILLAGE_58_2_MQ03_NPC 100" ] } },
+{ id: 20265, className: "SSN_HUEVILLAGE_58_2_MQ04", name: "Activate the Obelisk (3)",  quest: { name: "HUEVILLAGE_58_2_MQ04", infoName: [ "Activate the Obelisk" ], infoMaxCount: [ 1 ], monsterNameGroup: [ "npc_Obelisk_broken" ], monsterView: [ 1 ], mapPointGroup: [ "f_huevillage_58_2 HUEVILLAGE_58_2_OBELISK_BEFORE 100", "f_huevillage_58_2 HUEVILLAGE_58_2_MQ02_NPC 100" ] } },
 { id: 20269, className: "SSN_HUEVILLAGE_58_3_MQ01", name: "Andale Village Priest's Favor (1)",  quest: { name: "HUEVILLAGE_58_3_MQ01" } },
 { id: 20270, className: "SSN_HUEVILLAGE_58_3_MQ02", name: "Andale Village Priest's Favor (2)",  quest: { name: "HUEVILLAGE_58_3_MQ02" } },
 { id: 20271, className: "SSN_HUEVILLAGE_58_3_MQ04", name: "A Drowsy Scent",  quest: { name: "HUEVILLAGE_58_3_MQ04" } },

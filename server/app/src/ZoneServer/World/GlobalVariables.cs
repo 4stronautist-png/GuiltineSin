@@ -1,9 +1,9 @@
 ﻿using System;
-using Melia.Shared.Scripting;
-using Melia.Zone.Events.Arguments;
+using GuiltineSin.Shared.Scripting;
+using GuiltineSin.Zone.Events.Arguments;
 using Yggdrasil.Logging;
 
-namespace Melia.Zone.World
+namespace GuiltineSin.Zone.World
 {
 	/// <summary>
 	/// Manages the world's global variables.

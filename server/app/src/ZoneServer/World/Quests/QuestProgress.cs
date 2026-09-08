@@ -1,4 +1,4 @@
-﻿namespace Melia.Zone.World.Quests
+﻿namespace GuiltineSin.Zone.World.Quests
 {
 	/// <summary>
 	/// Holds a player's progress on a certain quest objective.

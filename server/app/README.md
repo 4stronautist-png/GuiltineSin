@@ -1,7 +1,7 @@
-Melia
+GuiltineSin
 =============================================================================
 
-Melia is an open-source MMORPG server, developed as a collaborative effort
+GuiltineSin is an open-source MMORPG server, developed as a collaborative effort
 of programmers from all around the world. We're aiming to create a server
 software that provides a stable and extensible platform for users to build
 their own projects on top of, while giving developers the opportunity to
@@ -12,16 +12,16 @@ with any services provided by game developers or publishers, and we don't
 endorse such actions. We're here to learn and create, not to steal or
 destroy.
 
-This branch (`laima`) integrates the Laima expansion into Melia
+This branch (`laima`) integrates the Laima expansion into GuiltineSin
 via a package system. Laima adds hundreds of implemented skills, buffs,
 instanced dungeons, a party system, player trading, and much more. All
 Laima content is toggled by a single config option, so you can run
-vanilla Melia or the full Laima experience.
+vanilla GuiltineSin or the full Laima experience.
 
 Client
 -----------------------------------------------------------------------------
 
-Melia does not have a client of its own at this time. Instead, it's designed
+GuiltineSin does not have a client of its own at this time. Instead, it's designed
 to be network compatible with the latest client of the international
 version of ToS, which is freely available on Steam.
 The Laima package additionally supports client version 390044 via
@@ -149,7 +149,7 @@ at runtime, enabling compatibility with different client builds.
 
 A 3-tier content loading architecture:
 
-1. **system/** — Base Melia data and scripts (always loaded)
+1. **system/** — Base GuiltineSin data and scripts (always loaded)
 2. **packages/** — Optional content packages (loaded when enabled)
 3. **user/** — Server operator customizations (highest priority)
 
@@ -158,14 +158,14 @@ Toggle the Laima package by editing `packages.conf`:
 enabled_packages: laima
 ```
 
-Remove the line (or leave it empty) to run vanilla Melia. The package
+Remove the line (or leave it empty) to run vanilla GuiltineSin. The package
 controls handler registration, database overlays, script loading, and
 all Laima-specific content.
 
 Architecture
 -----------------------------------------------------------------------------
 
-Melia uses a distributed multi-server architecture:
+GuiltineSin uses a distributed multi-server architecture:
 
 - **BarracksServer** — Authentication, character management, lobby.
   Also acts as the coordinator for inter-server communication.
@@ -187,7 +187,7 @@ macOS, you will need to install the SDK as well.
 Installation
 -----------------------------------------------------------------------------
 
-* Compile Melia
+* Compile GuiltineSin
 * Run `sql/main.sql` to setup the database
 * Copy `system/conf/database.conf` to `user/conf/`,
   adjust the necessary values and remove the rest.
@@ -195,20 +195,20 @@ Installation
 To enable the Laima expansion, set `enabled_packages: laima` in
 `packages.conf`.
 
-Afterwards, you should be able to start Melia via the provided scripts or
+Afterwards, you should be able to start GuiltineSin via the provided scripts or
 directly from the bin directories.
 
 Further Reading
 -----------------------------------------------------------------------------
 
-* Check the FAQ.md for frequently asked questions about Melia.
+* Check the FAQ.md for frequently asked questions about GuiltineSin.
 * Check the file CONTRIBUTING.md for detailed information on how you may
   contribute.
 
 Links
 -----------------------------------------------------------------------------
 
-* GitHub: https://github.com/NoCode-NoLife/melia
-* Wiki: https://github.com/NoCode-NoLife/melia/wiki
-* Forum: https://nocodenolife.org/forum/65-melia/
+* GitHub: https://github.com/NoCode-NoLife/guiltinesin
+* Wiki: https://github.com/NoCode-NoLife/guiltinesin/wiki
+* Forum: https://nocodenolife.org/forum/65-guiltinesin/
 * Chat: https://discord.gg/5sszEgw

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Melia.Zone.Skills
+namespace GuiltineSin.Zone.Skills
 {
 	/// <summary>
 	/// Cell position (X,Y)

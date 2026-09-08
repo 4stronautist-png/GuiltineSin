@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Melia.Social.World;
+using GuiltineSin.Social.World;
 
-namespace Melia.Social.Database
+namespace GuiltineSin.Social.Database
 {
 	/// <summary>
 	/// Represents a like that was sent by a user.

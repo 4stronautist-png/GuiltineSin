@@ -1,4 +1,4 @@
-//--- Melia Script ----------------------------------------------------------
+//--- GuiltineSin Script ----------------------------------------------------------
 // Royal Mausoleum 1F - Dungeon Content
 //--- Description -----------------------------------------------------------
 // Royal Mausoleum dungeon with Relic Memorandum collection points.
@@ -6,12 +6,12 @@
 //---------------------------------------------------------------------------
 
 using System;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.Characters.Components;
-using Melia.Zone.World.Quests;
-using static Melia.Zone.Scripting.Shortcuts;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Characters.Components;
+using GuiltineSin.Zone.World.Quests;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
 public class RoyalMausoleumScript : GeneralScript
 {

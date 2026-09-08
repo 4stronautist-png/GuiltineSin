@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Melia.Zone.Scripting
+namespace GuiltineSin.Zone.Scripting
 {
 	/// <summary>
 	/// Server-side definition of a property/point shop (e.g. Mercenary Badge Shop).

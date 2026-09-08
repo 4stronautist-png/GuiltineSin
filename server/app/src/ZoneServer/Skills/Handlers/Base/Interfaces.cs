@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using Melia.Shared.World;
-using Melia.Zone.Buffs;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Buffs;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
 
-namespace Melia.Zone.Skills.Handlers.Base
+namespace GuiltineSin.Zone.Skills.Handlers.Base
 {
 	public interface ISkillHandler
 	{

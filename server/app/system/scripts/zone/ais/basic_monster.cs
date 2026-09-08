@@ -1,8 +1,8 @@
 ﻿using System.Collections;
-using Melia.Zone;
-using Melia.Zone.Scripting;
-using Melia.Zone.Scripting.AI;
-using Melia.Zone.World.Actors;
+using GuiltineSin.Zone;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Scripting.AI;
+using GuiltineSin.Zone.World.Actors;
 
 [Ai("BasicMonster")]
 public class BasicMonsterAiScript : AiScript

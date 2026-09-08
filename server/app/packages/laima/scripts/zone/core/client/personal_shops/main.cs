@@ -1,4 +1,4 @@
-﻿//--- Melia Script ----------------------------------------------------------
+﻿//--- GuiltineSin Script ----------------------------------------------------------
 // Personal Shops
 //--- Description -----------------------------------------------------------
 // Personal Shops aren't officially supported anymore, and their scripts
@@ -6,8 +6,8 @@
 // to make the UI usable again.
 //---------------------------------------------------------------------------
 
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors.Characters;
 
 public class PersonalShopsClientScript : ClientScript
 {

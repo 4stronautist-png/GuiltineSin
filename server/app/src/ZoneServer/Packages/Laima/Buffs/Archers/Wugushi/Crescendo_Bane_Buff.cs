@@ -1,11 +1,11 @@
 using System;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.CombatEntities.Components;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
 
-namespace Melia.Zone.Buffs.Handlers.Archers.Wugushi
+namespace GuiltineSin.Zone.Buffs.Handlers.Archers.Wugushi
 {
 	/// <summary>
 	/// Handler for the Crescendo Bane self-buff.
@@ -30,7 +30,7 @@ namespace Melia.Zone.Buffs.Handlers.Archers.Wugushi
 	[BuffHandler(BuffId.Crescendo_Bane_Buff)]
 	public class Crescendo_Bane_BuffOverride : BuffHandler
 	{
-		private const string AccelerationLevelVar = "Melia.CrescendoBane.SkillLevel";
+		private const string AccelerationLevelVar = "GuiltineSin.CrescendoBane.SkillLevel";
 
 		static Crescendo_Bane_BuffOverride()
 		{

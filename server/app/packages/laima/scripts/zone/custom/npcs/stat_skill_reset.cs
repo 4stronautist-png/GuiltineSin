@@ -1,11 +1,11 @@
 using System;
 using System.Threading.Tasks;
-using Melia.Shared.Game.Const;
-using Melia.Zone;
-using Melia.Zone.Scripting;
-using Melia.Zone.Scripting.Dialogues;
-using Melia.Zone.World.Actors.Characters;
-using static Melia.Zone.Scripting.Shortcuts;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Scripting.Dialogues;
+using GuiltineSin.Zone.World.Actors.Characters;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
 public class CustomNpcStatSkillReset : GeneralScript
 {

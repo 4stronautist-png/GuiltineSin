@@ -1,7 +1,7 @@
 ﻿using System;
-using Melia.Shared.Game.Const;
+using GuiltineSin.Shared.Game.Const;
 
-namespace Melia.Zone.World.Items
+namespace GuiltineSin.Zone.World.Items
 {
 	/// <summary>
 	/// A dummy item used in empty equipment slots.

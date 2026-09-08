@@ -1,4 +1,4 @@
-﻿namespace Melia.Zone.Scripting.Hooking
+﻿namespace GuiltineSin.Zone.Scripting.Hooking
 {
 	/// <summary>
 	/// The result of a hook function, defining the intended way to

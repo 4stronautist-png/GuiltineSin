@@ -1,4 +1,4 @@
-//--- Melia Script ----------------------------------------------------------
+//--- GuiltineSin Script ----------------------------------------------------------
 // Custom Property Shops Enabler
 //--- Description -----------------------------------------------------------
 // Installs a client-side shim so the server can inject propertyshop (point
@@ -6,11 +6,11 @@
 // need for a matching <Shop> entry in propertyshop.xml.
 //---------------------------------------------------------------------------
 
-using Melia.Shared.Scripting;
-using Melia.Zone.Events.Arguments;
-using Melia.Zone.Scripting;
-using Melia.Zone.Scripting.Dialogues;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Shared.Scripting;
+using GuiltineSin.Zone.Events.Arguments;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Scripting.Dialogues;
+using GuiltineSin.Zone.World.Actors.Characters;
 
 public class CustomPropertyShopClientScript : ClientScript
 {
@@ -19,7 +19,7 @@ public class CustomPropertyShopClientScript : ClientScript
 		this.LoadAllScripts();
 	}
 
-	private const string LuaReadyFlag = "Melia.PropertyShop.LuaReady";
+	private const string LuaReadyFlag = "GuiltineSin.PropertyShop.LuaReady";
 
 	protected override void Ready(Character character)
 	{

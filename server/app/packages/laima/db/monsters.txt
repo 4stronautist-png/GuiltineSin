@@ -1,4 +1,4 @@
-// Melia
+// GuiltineSin
 // Database file
 // 
 // Values: monsterId, className, name, level, exp, jobExp, element, race, armor, size, faction, moveType, walkSpeed, runSpeed, hp, sp, pAttackMin, pAttackMax, mAttackMin, mAttackMax, pDefense, mDefense, hitRate, dodgeRate, blockRate, blockBreakRate, critHitRate, critDodgeRate, critAttack, [drops]

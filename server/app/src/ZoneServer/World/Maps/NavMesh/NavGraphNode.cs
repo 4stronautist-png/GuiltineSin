@@ -3,7 +3,7 @@ using System.Linq;
 using g4;
 using Yggdrasil.Geometry;
 
-namespace Melia.Zone.World.Maps.NavMesh
+namespace GuiltineSin.Zone.World.Maps.NavMesh
 {
 	/// <summary>
 	/// Represents a single node (a convex polygon) in a navigation graph.

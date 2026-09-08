@@ -1,4 +1,4 @@
-﻿namespace Melia.Zone.Network
+﻿namespace GuiltineSin.Zone.Network
 {
 	/// <summary>
 	/// Represents a Key/Value string parameter used by some packets.

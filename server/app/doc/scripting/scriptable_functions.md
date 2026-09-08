@@ -108,4 +108,4 @@ public float SCR_GetCritChance(ICombatEntity attacker, ICombatEntity target, Ski
 ## More
 
 To find more examples and figure out which functions may exist for
-potential overwrites, we recommend studying the scripts found in Melia. Particularly the files in `system/scripts/zone/core/`.
+potential overwrites, we recommend studying the scripts found in GuiltineSin. Particularly the files in `system/scripts/zone/core/`.

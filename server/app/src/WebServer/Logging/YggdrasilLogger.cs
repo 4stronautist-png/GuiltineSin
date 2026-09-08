@@ -1,6 +1,6 @@
 ﻿using Swan.Logging;
 
-namespace Melia.Web.Logging
+namespace GuiltineSin.Web.Logging
 {
 	/// <summary>
 	/// Log message redirector.

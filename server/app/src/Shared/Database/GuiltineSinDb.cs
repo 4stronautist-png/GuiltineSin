@@ -4,18 +4,18 @@ using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Text.RegularExpressions;
-using Melia.Shared.Game.Properties;
-using Melia.Shared.ObjectProperties;
-using Melia.Shared.Util;
+using GuiltineSin.Shared.Game.Properties;
+using GuiltineSin.Shared.ObjectProperties;
+using GuiltineSin.Shared.Util;
 using MySqlConnector;
 using Yggdrasil.Db.MySql.SimpleCommands;
 using Yggdrasil.Logging;
 using Yggdrasil.Security.Hashing;
 using Yggdrasil.Util;
 
-namespace Melia.Shared.Database
+namespace GuiltineSin.Shared.Database
 {
-	public class MeliaDb
+	public class GuiltineSinDb
 	{
 		private readonly static Regex IpAddressRegex = new(@"^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$");
 		private readonly static Regex IpMaskRegex = new(@"^(\d{1,3}|\*)\.(\d{1,3}|\*)\.(\d{1,3}|\*)\.(\d{1,3}|\*)$");
@@ -43,7 +43,7 @@ namespace Melia.Shared.Database
 		public MySqlConnection GetConnection()
 		{
 			if (_connectionString == null)
-				throw new Exception("MeliaDb has not been initialized.");
+				throw new Exception("GuiltineSinDb has not been initialized.");
 
 			var result = new MySqlConnection(_connectionString);
 			result.Open();
@@ -301,14 +301,14 @@ namespace Melia.Shared.Database
 								if (!PropertyTable.TryGetName("PCEtc", propertyId, out propertyName))
 									throw new Exception($"Property '{propertyName}' exists in neither PC nor PCEtc.");
 
-								Log.Debug($"MeliaDb.LoadProperties: Found PCEtc property '{propertyName}' on a character. Skipping.");
+								Log.Debug($"GuiltineSinDb.LoadProperties: Found PCEtc property '{propertyName}' on a character. Skipping.");
 								continue;
 							}
 						}
 
 						if (!PropertyTable.Exists(properties.Namespace, propertyName))
 						{
-							Log.Warning($"MeliaDb.LoadProperties: Property '{propertyName}' doesn't exist in namespace '{properties.Namespace}', skipping.");
+							Log.Warning($"GuiltineSinDb.LoadProperties: Property '{propertyName}' doesn't exist in namespace '{properties.Namespace}', skipping.");
 							continue;
 						}
 

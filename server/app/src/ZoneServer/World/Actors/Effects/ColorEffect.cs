@@ -1,8 +1,8 @@
 ﻿using System;
-using Melia.Zone.Network;
-using Melia.Zone.Util;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Util;
 
-namespace Melia.Zone.World.Actors.Effects
+namespace GuiltineSin.Zone.World.Actors.Effects
 {
 	public class ColorEffect : Effect
 	{

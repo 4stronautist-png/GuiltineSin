@@ -1,18 +1,18 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Shared.L10N;
-using Melia.Shared.World;
-using Melia.Zone.Network;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.Skills.Handlers.Base;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Effects;
-using static Melia.Zone.Skills.SkillUseFunctions;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.L10N;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.Skills.Handlers.Base;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Effects;
+using static GuiltineSin.Zone.Skills.SkillUseFunctions;
 
-namespace Melia.Zone.Skills.Handlers.Scouts.Linker
+namespace GuiltineSin.Zone.Skills.Handlers.Scouts.Linker
 {
 	/// <summary>
 	/// Handler for the Linker skill Electric Shock.
@@ -95,11 +95,11 @@ namespace Melia.Zone.Skills.Handlers.Scouts.Linker
 				var linkId = ZoneServer.Instance.World.CreateLinkHandle();
 				var effectName = $"ElectricShock_Link_{linkId}";
 
-				buff.Vars.Set("Melia.Link.Id", linkId);
-				buff.Vars.Set("Melia.Link.Caster", caster.Handle);
-				buff.Vars.Set("Melia.Link.EffectName", effectName);
+				buff.Vars.Set("GuiltineSin.Link.Id", linkId);
+				buff.Vars.Set("GuiltineSin.Link.Caster", caster.Handle);
+				buff.Vars.Set("GuiltineSin.Link.EffectName", effectName);
 
-				target.AddEffect("Melia.Link.Chain", new AttachEffect("I_chain004_mash_loop_multi", 2, EffectLocation.Bottom));
+				target.AddEffect("GuiltineSin.Link.Chain", new AttachEffect("I_chain004_mash_loop_multi", 2, EffectLocation.Bottom));
 
 				var linkedHandles = new List<int> { caster.Handle, target.Handle };
 				var linkerEffect = new LinkerVisualEffect(linkId, LinkTexture, true, linkedHandles, LinkSecond, LinkEffect, LinkEffectScale, LinkSound);

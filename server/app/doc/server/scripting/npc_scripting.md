@@ -16,7 +16,7 @@
 
 ## Introduction
 
-The Melia/Laima NPC scripting system allows you to create interactive NPCs with dialogs, shops, quests, and custom functionality. Scripts are written in C# and compiled at runtime, providing full access to the server API while maintaining type safety.
+The GuiltineSin/Laima NPC scripting system allows you to create interactive NPCs with dialogs, shops, quests, and custom functionality. Scripts are written in C# and compiled at runtime, providing full access to the server API while maintaining type safety.
 
 ### Key Features:
 - Asynchronous dialog system
@@ -32,8 +32,8 @@ The Melia/Laima NPC scripting system allows you to create interactive NPCs with 
 ### Minimal NPC Example
 
 ```csharp
-using Melia.Zone.Scripting;
-using static Melia.Zone.Scripting.Shortcuts;
+using GuiltineSin.Zone.Scripting;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
 public class SimpleNpcScript : GeneralScript
 {
@@ -54,10 +54,10 @@ All NPC scripts inherit from `GeneralScript` and override the `Load()` method:
 
 ```csharp
 using System;
-using Melia.Zone.Scripting;
-using Melia.Zone.Scripting.Dialogues;
-using Melia.Zone.World.Actors.Characters;
-using static Melia.Zone.Scripting.Shortcuts;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Scripting.Dialogues;
+using GuiltineSin.Zone.World.Actors.Characters;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
 public class MyNpcScript : GeneralScript
 {
@@ -69,9 +69,9 @@ public class MyNpcScript : GeneralScript
 ```
 
 ### Required Namespaces:
-- `Melia.Zone.Scripting` - Core scripting classes
-- `Melia.Zone.Scripting.Dialogues` - Dialog system
-- `static Melia.Zone.Scripting.Shortcuts` - Helper functions
+- `GuiltineSin.Zone.Scripting` - Core scripting classes
+- `GuiltineSin.Zone.Scripting.Dialogues` - Dialog system
+- `static GuiltineSin.Zone.Scripting.Shortcuts` - Helper functions
 
 ## Creating NPCs
 

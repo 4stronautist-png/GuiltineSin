@@ -1,12 +1,12 @@
 using System.Text.RegularExpressions;
-using Melia.Shared.ObjectProperties;
-using Melia.Social.Database;
-using Melia.Social.Network;
-using Melia.Social.World;
+using GuiltineSin.Shared.ObjectProperties;
+using GuiltineSin.Social.Database;
+using GuiltineSin.Social.Network;
+using GuiltineSin.Social.World;
 using Yggdrasil.Logging;
 using Yggdrasil.Util.Commands;
 
-namespace Melia.Social.Commands
+namespace GuiltineSin.Social.Commands
 {
 	/// <summary>
 	/// The chat command manager, holding the commands and executing them.

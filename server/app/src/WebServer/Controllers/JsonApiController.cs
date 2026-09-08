@@ -3,9 +3,9 @@ using System.Net;
 using System.Text.Json;
 using System.Threading.Tasks;
 using EmbedIO;
-using Melia.Web.Const;
+using GuiltineSin.Web.Const;
 
-namespace Melia.Web.Controllers
+namespace GuiltineSin.Web.Controllers
 {
 	/// <summary>
 	/// Base controller for JSON API endpoints.

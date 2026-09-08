@@ -1,14 +1,14 @@
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Scripting.ScriptableEvents;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.Skills;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Pads;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Scripting.ScriptableEvents;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Pads;
 using System;
 
-namespace Melia.Zone.Buffs.Handlers
+namespace GuiltineSin.Zone.Buffs.Handlers
 {
 	[Package("laima")]
 	[BuffHandler(BuffId.SafetyZone_Buff)]
@@ -41,14 +41,14 @@ namespace Melia.Zone.Buffs.Handlers
 				return;
 			}
 
-			var remainingHits = pad.Variables.GetInt("Melia.SafetyZone.HitCount");
+			var remainingHits = pad.Variables.GetInt("GuiltineSin.SafetyZone.HitCount");
 			if (remainingHits <= 0)
 			{
 				pad.Destroy();
 				return;
 			}
 
-			pad.Variables.SetInt("Melia.SafetyZone.HitCount", remainingHits - 1);
+			pad.Variables.SetInt("GuiltineSin.SafetyZone.HitCount", remainingHits - 1);
 
 			skillHitResult.Damage = 0;
 			skillHitResult.Effect = HitEffect.SAFETY;

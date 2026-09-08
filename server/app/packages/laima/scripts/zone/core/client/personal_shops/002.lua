@@ -1,5 +1,5 @@
 -- Create system button for mixing table.
-Melia.Ui.SysMenu.AddButton("BtnMixingTable", "sysmenu_alchemist", "Mixing Table", "ui.ToggleFrame('mixingtable')")
+GuiltineSin.Ui.SysMenu.AddButton("BtnMixingTable", "sysmenu_alchemist", "Mixing Table", "ui.ToggleFrame('mixingtable')")
 
 function M_TOGGLE_PERSONAL_SHOP()
 

@@ -1,8 +1,8 @@
 ﻿using System;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
 
-namespace Melia.Zone.Buffs.Handlers
+namespace GuiltineSin.Zone.Buffs.Handlers
 {
 	/// <summary>
 	/// Handle for squire_food1_buff (Salad), which increases Max HP by a percentage.
@@ -10,7 +10,7 @@ namespace Melia.Zone.Buffs.Handlers
 	[BuffHandler(BuffId.squire_food1_buff)]
 	public class squire_food1_buff : BuffHandler
 	{
-		private const string VarMhpBonus = "Melia.SquireFood.MHPBonus";
+		private const string VarMhpBonus = "GuiltineSin.SquireFood.MHPBonus";
 
 		public override void OnActivate(Buff buff, ActivationType activationType)
 		{
@@ -41,7 +41,7 @@ namespace Melia.Zone.Buffs.Handlers
 	[BuffHandler(BuffId.squire_food2_buff)]
 	public class squire_food2_buff : BuffHandler
 	{
-		private const string VarMspBonus = "Melia.SquireFood.MSPBonus";
+		private const string VarMspBonus = "GuiltineSin.SquireFood.MSPBonus";
 
 		public override void OnActivate(Buff buff, ActivationType activationType)
 		{

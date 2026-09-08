@@ -1,7 +1,7 @@
 ﻿using System.Collections;
-using Melia.Zone.Scripting;
-using Melia.Zone.Scripting.AI;
-using Melia.Zone.World.Actors;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Scripting.AI;
+using GuiltineSin.Zone.World.Actors;
 
 [Ai("PC_Summon")]
 public class PCSummonAiScript : AiScript

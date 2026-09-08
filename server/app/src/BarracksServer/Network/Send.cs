@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Net;
-using Melia.Barracks.Database;
-using Melia.Shared.IES;
-using Melia.Barracks.Network.Helpers;
-using Melia.Shared.Network;
-using Melia.Shared.Network.Helpers;
-using Melia.Shared.Game.Const;
-using Melia.Shared.World;
+using GuiltineSin.Barracks.Database;
+using GuiltineSin.Shared.IES;
+using GuiltineSin.Barracks.Network.Helpers;
+using GuiltineSin.Shared.Network;
+using GuiltineSin.Shared.Network.Helpers;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.World;
 using Yggdrasil.Extensions;
-using Melia.Shared.Data.Database;
+using GuiltineSin.Shared.Data.Database;
 
-namespace Melia.Barracks.Network
+namespace GuiltineSin.Barracks.Network
 {
 	public static partial class Send
 	{

@@ -1,16 +1,16 @@
 using System;
 using System.Linq;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Scripting.ScriptableEvents;
-using Melia.Zone.Skills.Handlers.Base;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Monsters;
-using Melia.Zone.World.Actors.Components;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Scripting.ScriptableEvents;
+using GuiltineSin.Zone.Skills.Handlers.Base;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Monsters;
+using GuiltineSin.Zone.World.Actors.Components;
 using Yggdrasil.Util;
 
-namespace Melia.Zone.Skills.Handlers.Hunter
+namespace GuiltineSin.Zone.Skills.Handlers.Hunter
 {
 	/// <summary>
 	/// Handler for the Hunter skill Growling.

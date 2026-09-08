@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Melia.Shared.Data.Database
+namespace GuiltineSin.Shared.Data.Database
 {
 	[Serializable]
 	public class CompanionShopData

@@ -1,10 +1,10 @@
 ﻿using System.Text;
-using Melia.Shared.Network;
-using Melia.Shared.Versioning;
-using Melia.Zone.Buffs;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Shared.Network;
+using GuiltineSin.Shared.Versioning;
+using GuiltineSin.Zone.Buffs;
+using GuiltineSin.Zone.World.Actors.Characters;
 
-namespace Melia.Zone.Network.Helpers
+namespace GuiltineSin.Zone.Network.Helpers
 {
 	public static class BuffHelper
 	{

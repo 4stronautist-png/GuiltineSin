@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using Melia.Shared.World;
+using GuiltineSin.Shared.World;
 
-namespace Melia.Zone.World.Maps.Pathfinding
+namespace GuiltineSin.Zone.World.Maps.Pathfinding
 {
 	/// <summary>
 	/// A pathfinder that does not perform pathfinding, and instead returns a direct, unchecked path

@@ -1,12 +1,12 @@
 using System;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Network;
-using Melia.Zone.Skills;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.World.Actors;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.World.Actors;
 
-namespace Melia.Zone.Buffs.Handlers
+namespace GuiltineSin.Zone.Buffs.Handlers
 {
 	/// <summary>
 	/// Handler for CARD_Shield buff, which absorbs damage up to a certain value.
@@ -18,7 +18,7 @@ namespace Melia.Zone.Buffs.Handlers
 	[BuffHandler(BuffId.CARD_Shield)]
 	public class CARD_Shield : BuffHandler, IBuffCombatDefenseAfterCalcHandler
 	{
-		private const string ShieldValueKey = "Melia.CARD_Shield.RemainingValue";
+		private const string ShieldValueKey = "GuiltineSin.CARD_Shield.RemainingValue";
 
 		public override void OnActivate(Buff buff, ActivationType activationType)
 		{

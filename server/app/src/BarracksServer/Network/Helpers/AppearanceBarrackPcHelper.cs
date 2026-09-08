@@ -1,8 +1,8 @@
-﻿using Melia.Shared.Network.Helpers;
-using Melia.Shared.Network;
-using Melia.Shared.World;
+﻿using GuiltineSin.Shared.Network.Helpers;
+using GuiltineSin.Shared.Network;
+using GuiltineSin.Shared.World;
 
-namespace Melia.Barracks.Network.Helpers
+namespace GuiltineSin.Barracks.Network.Helpers
 {
 	/// <summary>
 	/// Contains extensions to write appearance data of a characters

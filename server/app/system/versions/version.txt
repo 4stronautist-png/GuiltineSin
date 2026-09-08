@@ -1,7 +1,7 @@
 // Version configuration
 // Change VERSION to match your Tree of Savior client version.
 // Override in user/versions/version.txt to avoid modifying this file.
-// Melia Version: 402363
+// GuiltineSin Version: 402363
 // Laima Version: 390044
 
 #define VERSION 390044

@@ -1,6 +1,6 @@
-using Melia.Shared.Game.Const;
+using GuiltineSin.Shared.Game.Const;
 
-namespace Melia.Zone.World.Spawning
+namespace GuiltineSin.Zone.World.Spawning
 {
 	/// <summary>
 	/// Defines a buff to be applied to monsters when they spawn on a map.

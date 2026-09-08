@@ -1,7 +1,7 @@
 param(
 	[string]$Name = "papaya-quest-flow",
 	[string]$Note = "",
-	[string]$OutputRoot = "C:\CloverTOS-Captures\quest-traces"
+	[string]$OutputRoot = "C:\GuiltineSin-Captures\quest-traces"
 )
 
 $ErrorActionPreference = "Stop"

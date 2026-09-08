@@ -1,4 +1,4 @@
-Melia.Override("GET_REPAIR_PRICE", function(original, item, fillValue, taxRate)
+GuiltineSin.Override("GET_REPAIR_PRICE", function(original, item, fillValue, taxRate)
     -- Base price
     local basePrice = 100
 

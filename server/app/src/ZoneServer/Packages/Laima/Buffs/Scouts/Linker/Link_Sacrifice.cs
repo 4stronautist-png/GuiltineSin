@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Skills;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
 
-namespace Melia.Zone.Buffs.Handlers.Scouts.Linker
+namespace GuiltineSin.Zone.Buffs.Handlers.Scouts.Linker
 {
 	/// <summary>
 	/// Handler for the Link_Sacrifice buff (Lifeline).
@@ -27,16 +27,16 @@ namespace Melia.Zone.Buffs.Handlers.Scouts.Linker
 			buff.SetUpdateTime(UpdateIntervalMs);
 
 			if (buff.Target.Map != null)
-				buff.Vars.Set("Melia.Link.MapId", buff.Target.Map.Id);
+				buff.Vars.Set("GuiltineSin.Link.MapId", buff.Target.Map.Id);
 
 			// Initialize bonus tracking
 			foreach (var stat in SharedStats)
-				buff.Vars.Set($"Melia.Link.Bonus.{stat}", 0f);
+				buff.Vars.Set($"GuiltineSin.Link.Bonus.{stat}", 0f);
 		}
 
 		public override void WhileActive(Buff buff)
 		{
-			var isCaster = buff.Vars.GetBool("Melia.Link.IsCaster");
+			var isCaster = buff.Vars.GetBool("GuiltineSin.Link.IsCaster");
 
 			if (isCaster)
 			{
@@ -46,7 +46,7 @@ namespace Melia.Zone.Buffs.Handlers.Scouts.Linker
 					return;
 				}
 
-				var storedMapId = buff.Vars.GetInt("Melia.Link.MapId", 0);
+				var storedMapId = buff.Vars.GetInt("GuiltineSin.Link.MapId", 0);
 				if (buff.Target.Map == null || buff.Target.Map.Id != storedMapId)
 				{
 					this.RemoveAllChains(buff);
@@ -64,7 +64,7 @@ namespace Melia.Zone.Buffs.Handlers.Scouts.Linker
 					return;
 				}
 
-				var storedMapId = buff.Vars.GetInt("Melia.Link.MapId", 0);
+				var storedMapId = buff.Vars.GetInt("GuiltineSin.Link.MapId", 0);
 				if (buff.Target.Map == null || buff.Target.Map.Id != storedMapId)
 				{
 					this.RemoveMemberChain(buff);
@@ -111,7 +111,7 @@ namespace Melia.Zone.Buffs.Handlers.Scouts.Linker
 
 		private void ProcessStatSharing(Buff buff)
 		{
-			if (!buff.Vars.TryGet<List<int>>("Melia.Link.Members", out var memberHandles))
+			if (!buff.Vars.TryGet<List<int>>("GuiltineSin.Link.Members", out var memberHandles))
 				return;
 
 			var skillLevel = buff.NumArg1;
@@ -150,7 +150,7 @@ namespace Melia.Zone.Buffs.Handlers.Scouts.Linker
 				foreach (var stat in SharedStats)
 				{
 					var currentValue = member.Properties.GetFloat(stat);
-					var appliedBonus = memberBuff.Vars.GetFloat($"Melia.Link.Bonus.{stat}", 0);
+					var appliedBonus = memberBuff.Vars.GetFloat($"GuiltineSin.Link.Bonus.{stat}", 0);
 					memberBaseStats[member.Handle][stat] = currentValue - appliedBonus;
 				}
 			}
@@ -177,7 +177,7 @@ namespace Melia.Zone.Buffs.Handlers.Scouts.Linker
 				{
 					var baseValue = memberBaseStats[member.Handle][stat];
 					var newBonus = (float)Math.Ceiling((highestStats[stat] - baseValue) * shareRate);
-					var currentBonus = memberBuff.Vars.GetFloat($"Melia.Link.Bonus.{stat}", 0);
+					var currentBonus = memberBuff.Vars.GetFloat($"GuiltineSin.Link.Bonus.{stat}", 0);
 
 					if (Math.Abs(newBonus - currentBonus) > 0.01f)
 					{
@@ -189,7 +189,7 @@ namespace Melia.Zone.Buffs.Handlers.Scouts.Linker
 						if (newBonus > 0)
 							AddPropertyModifier(memberBuff, member, propName, newBonus);
 
-						memberBuff.Vars.Set($"Melia.Link.Bonus.{stat}", newBonus);
+						memberBuff.Vars.Set($"GuiltineSin.Link.Bonus.{stat}", newBonus);
 						membersToUpdate.Add(member);
 					}
 				}
@@ -208,8 +208,8 @@ namespace Melia.Zone.Buffs.Handlers.Scouts.Linker
 			// Remove stat bonuses first
 			this.RemoveStatBonuses(buff);
 
-			if (buff.Vars.TryGet<int>("Melia.Link.Id", out var linkId) &&
-				buff.Vars.TryGet<List<int>>("Melia.Link.Members", out var memberHandles) &&
+			if (buff.Vars.TryGet<int>("GuiltineSin.Link.Id", out var linkId) &&
+				buff.Vars.TryGet<List<int>>("GuiltineSin.Link.Members", out var memberHandles) &&
 				buff.Caster != null)
 			{
 				var memberIndex = memberHandles.IndexOf(buff.Target.Handle);
@@ -222,7 +222,7 @@ namespace Melia.Zone.Buffs.Handlers.Scouts.Linker
 
 		private void RemoveAllChains(Buff buff)
 		{
-			if (!buff.Vars.TryGet<List<int>>("Melia.Link.Members", out var memberHandles))
+			if (!buff.Vars.TryGet<List<int>>("GuiltineSin.Link.Members", out var memberHandles))
 			{
 				this.RemoveStatBonuses(buff);
 				buff.Target.StopBuff(BuffId.Link_Sacrifice);
@@ -241,7 +241,7 @@ namespace Melia.Zone.Buffs.Handlers.Scouts.Linker
 			foreach (var stat in SharedStats)
 			{
 				RemovePropertyModifier(buff, buff.Target, $"{stat}_BM");
-				buff.Vars.Set($"Melia.Link.Bonus.{stat}", 0f);
+				buff.Vars.Set($"GuiltineSin.Link.Bonus.{stat}", 0f);
 			}
 
 			if (buff.Target is Character character)
@@ -253,7 +253,7 @@ namespace Melia.Zone.Buffs.Handlers.Scouts.Linker
 			foreach (var stat in SharedStats)
 			{
 				RemovePropertyModifier(memberBuff, member, $"{stat}_BM");
-				memberBuff.Vars.Set($"Melia.Link.Bonus.{stat}", 0f);
+				memberBuff.Vars.Set($"GuiltineSin.Link.Bonus.{stat}", 0f);
 			}
 
 			if (member is Character character)
@@ -265,13 +265,13 @@ namespace Melia.Zone.Buffs.Handlers.Scouts.Linker
 			// Remove stat bonuses
 			this.RemoveStatBonuses(buff);
 
-			if (buff.Vars.GetBool("Melia.Link.IsCaster"))
+			if (buff.Vars.GetBool("GuiltineSin.Link.IsCaster"))
 			{
-				buff.Target.RemoveEffect("Melia.Link.Chain");
+				buff.Target.RemoveEffect("GuiltineSin.Link.Chain");
 
-				if (buff.Vars.TryGet<int>("Melia.Link.Id", out var linkId) && linkId != 0)
+				if (buff.Vars.TryGet<int>("GuiltineSin.Link.Id", out var linkId) && linkId != 0)
 				{
-					if (buff.Vars.TryGet<List<int>>("Melia.Link.Members", out var members))
+					if (buff.Vars.TryGet<List<int>>("GuiltineSin.Link.Members", out var members))
 					{
 						for (var i = 1; i < members.Count; i++)
 							buff.Caster?.RemoveEffect($"Link_{linkId}_{i}");

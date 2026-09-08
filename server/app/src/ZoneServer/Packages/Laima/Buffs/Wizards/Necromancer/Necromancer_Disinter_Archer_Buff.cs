@@ -1,8 +1,8 @@
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
 
-namespace Melia.Zone.Buffs.Handlers.Wizards.Necromancer
+namespace GuiltineSin.Zone.Buffs.Handlers.Wizards.Necromancer
 {
 	/// <summary>
 	/// Handle for the Sacrifice: Skeleton Archer, Critical Rate Increase.
@@ -11,7 +11,7 @@ namespace Melia.Zone.Buffs.Handlers.Wizards.Necromancer
 	[BuffHandler(BuffId.Disinter_Archer_Buff)]
 	public class Necromancer_Disinter_Archer_BuffOverride : BuffHandler
 	{
-		private const string VarName = "Melia.CriticalAttackModifier";
+		private const string VarName = "GuiltineSin.CriticalAttackModifier";
 		private const float Bonus = 1.00f;
 
 		public override void OnActivate(Buff buff, ActivationType activationType)

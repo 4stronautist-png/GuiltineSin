@@ -1,9 +1,9 @@
 ﻿using System;
-using Melia.Zone.Skills;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.World.Actors;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.World.Actors;
 
-namespace Melia.Zone.Buffs.Base
+namespace GuiltineSin.Zone.Buffs.Base
 {
 	/// <summary>
 	/// Buff Handler Interface

@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Network;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Network;
 using Yggdrasil.Logging;
 
-namespace Melia.Zone.World.Actors.Characters.Components
+namespace GuiltineSin.Zone.World.Actors.Characters.Components
 {
 	public class TutorialComponent : CharacterComponent
 	{

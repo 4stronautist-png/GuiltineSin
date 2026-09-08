@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Melia.Barracks.Database;
-using Melia.Barracks.Network.Helpers;
-using Melia.Shared.Network;
-using Melia.Shared.Game.Const;
-using Melia.Shared.World;
+using GuiltineSin.Barracks.Database;
+using GuiltineSin.Barracks.Network.Helpers;
+using GuiltineSin.Shared.Network;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.World;
 
-namespace Melia.Barracks.Network
+namespace GuiltineSin.Barracks.Network
 {
 	public static partial class Send
 	{

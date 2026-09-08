@@ -1,8 +1,8 @@
-﻿using Melia.Shared.Game.Const;
-using Melia.Zone.World.Actors;
-using Melia.Zone.World.Actors.Characters.Components;
+﻿using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters.Components;
 
-namespace Melia.Zone.Abilities.Handlers.Swordsmen.Rodelero
+namespace GuiltineSin.Zone.Abilities.Handlers.Swordsmen.Rodelero
 {
 	/// <summary>
 	/// Contains code related to the "Rodelero: Shield Attack" ability,

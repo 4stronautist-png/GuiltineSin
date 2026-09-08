@@ -1,6 +1,6 @@
 ﻿using Yggdrasil.Logging;
 
-namespace Melia.Zone.World
+namespace GuiltineSin.Zone.World
 {
 	// Stub: Houses system was removed during Laima merge.
 	public class HouseManager

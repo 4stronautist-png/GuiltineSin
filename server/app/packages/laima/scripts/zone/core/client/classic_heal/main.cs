@@ -1,13 +1,13 @@
-﻿//--- Melia Script ----------------------------------------------------------
+﻿//--- GuiltineSin Script ----------------------------------------------------------
 // Classic Heal
 //--- Description -----------------------------------------------------------
 // Changes Cleric's Heal skill to get cast instantly instead of showing
 // a target selection wheel.
 //---------------------------------------------------------------------------
 
-using Melia.Zone;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Actors.Characters;
+using GuiltineSin.Zone;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Actors.Characters;
 
 public class ClassicHealClientScript : ClientScript
 {

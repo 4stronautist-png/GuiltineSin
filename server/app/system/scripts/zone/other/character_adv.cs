@@ -1,18 +1,18 @@
-﻿//--- Melia Script ----------------------------------------------------------
+﻿//--- GuiltineSin Script ----------------------------------------------------------
 // Character Advancement
 //--- Description -----------------------------------------------------------
 // Grants default items, skills, and abilities to characters after job
 // advancements.
 //---------------------------------------------------------------------------
 
-using Melia.Shared.Scripting;
-using Melia.Shared.Game.Const;
-using Melia.Zone;
-using Melia.Zone.Scripting;
-using Melia.Zone.Skills;
-using Melia.Zone.World.Actors.Characters;
-using Melia.Zone.World.Items;
-using Melia.Zone.Events.Arguments;
+using GuiltineSin.Shared.Scripting;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Items;
+using GuiltineSin.Zone.Events.Arguments;
 
 public class CharacterAdvancementScript : GeneralScript
 {

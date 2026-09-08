@@ -1,15 +1,15 @@
 using System;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Packages;
-using Melia.Zone.Buffs;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Network;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.Skills.Handlers.Scouts.BlitzHunter;
-using Melia.Zone.World.Actors;
-using static Melia.Zone.Skills.SkillUseFunctions;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Zone.Buffs;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.Skills.Handlers.Scouts.BlitzHunter;
+using GuiltineSin.Zone.World.Actors;
+using static GuiltineSin.Zone.Skills.SkillUseFunctions;
 
-	namespace Melia.Zone.Buffs.Handlers.Scouts.BlitzHunter
+	namespace GuiltineSin.Zone.Buffs.Handlers.Scouts.BlitzHunter
 	{
 		[Package("laima")]
 		[BuffHandler(BuffId.Lightningrod_Buff)]

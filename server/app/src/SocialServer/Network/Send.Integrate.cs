@@ -1,7 +1,7 @@
-using Melia.Shared.Network;
-using Melia.Social.World;
+using GuiltineSin.Shared.Network;
+using GuiltineSin.Social.World;
 
-namespace Melia.Social.Network
+namespace GuiltineSin.Social.Network
 {
 	public static partial class Send
 	{

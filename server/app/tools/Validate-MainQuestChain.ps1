@@ -128,7 +128,7 @@ foreach ($match in [regex]::Matches((Get-Content -LiteralPath $itemPath -Raw), '
 
 $mainQuests = @($quests | Where-Object { $_.Mode -eq "MAIN" } | Sort-Object Id)
 
-function Test-CloverDisabledMainQuestName {
+function Test-GuiltineSinDisabledMainQuestName {
     param([string]$ClassName)
 
     if ([string]::IsNullOrWhiteSpace($ClassName)) {
@@ -151,7 +151,7 @@ $visitedBridgeNames = New-Object System.Collections.Generic.HashSet[string] ([Sy
 $bridgeQueue = New-Object System.Collections.Generic.Queue[string]
 
 foreach ($quest in $mainQuests) {
-    if (Test-CloverDisabledMainQuestName $quest.ClassName) {
+    if (Test-GuiltineSinDisabledMainQuestName $quest.ClassName) {
         continue
     }
 
@@ -176,7 +176,7 @@ while ($bridgeQueue.Count -gt 0) {
         continue
     }
 
-    if (Test-CloverDisabledMainQuestName $requiredQuest.ClassName) {
+    if (Test-GuiltineSinDisabledMainQuestName $requiredQuest.ClassName) {
         continue
     }
 
@@ -364,7 +364,7 @@ foreach ($quest in $mainQuests) {
 
 	if ($quest.StartMode -eq "SYSTEM" -and
         $quest.Required.Count -eq 0 -and
-        -not (Test-CloverDisabledMainQuestName $quest.ClassName) -and
+        -not (Test-GuiltineSinDisabledMainQuestName $quest.ClassName) -and
         [string]::IsNullOrWhiteSpace($quest.StartZone)) {
 		$warnings.Add("SYSTEM main quest $($quest.ClassName) [$($quest.Id)] has no prerequisite; it may need a quest_auto or trigger starter.")
 	}
@@ -414,7 +414,7 @@ $runtimeChecks = @{
 	"static objective monsters spawn generically" = $questComponent -match 'EnsureStaticQuestObjectiveMonsters' -and $questComponent -match 'DistributeStaticObjectiveMonsterSpawnBudget'
 	"static objective monsters are aggressive and AI-driven" = $questComponent -match 'ConfigureStaticQuestObjectiveMonster' -and $questComponent -match 'new\s+MovementComponent' -and $questComponent -match 'new\s+AiComponent' -and $questComponent -match 'SetTarget\(this\.Character\)' -and $questComponent -match 'InsertHate\(this\.Character, 5000\)' -and $questComponent -match 'TendencyType\.Aggressive'
 	"existing static objective monsters are re-armed for the player" = $questComponent -match 'GetStaticQuestObjectiveMonsters' -and $questComponent -match 'foreach \(var existingMonster in existingMonsters\)[\s\S]*ConfigureStaticQuestObjectiveMonster\(existingMonster\)'
-	"private static objective monsters are explicitly sent to their owner" = $questComponent -match 'SendStaticQuestObjectiveMonsterIfNeeded' -and $questComponent -match 'Clover\.StaticQuestObjective\.EnterSent' -and $questComponent -match 'request\.IsPrivateEncounter[\s\S]*Send\.ZC_ENTER_MONSTER'
+	"private static objective monsters are explicitly sent to their owner" = $questComponent -match 'SendStaticQuestObjectiveMonsterIfNeeded' -and $questComponent -match 'GuiltineSin.StaticQuestObjective\.EnterSent' -and $questComponent -match 'request\.IsPrivateEncounter[\s\S]*Send\.ZC_ENTER_MONSTER'
 	"generic character-spawned enemies target the player" = $shortcutsSource -match 'SetTarget\(character\)[\s\S]*InsertHate\(character, 5000\)' -and $shortcutsSource -match 'LureNearbyEnemies[\s\S]*SetTarget\(character\)'
 	"layered kill objective enemies target the player" = $layeredKillSource -match 'SetTarget\(character\)[\s\S]*InsertHate\(character, 5000\)[\s\S]*TendencyType\.Aggressive'
 	"slash-separated objective targets share spawn budget" = $questComponent -match 'DistributeStaticObjectiveMonsterSpawnBudget' -and $questComponent -match 'counts\[i % monsters\.Count\]\+\+'
@@ -428,9 +428,9 @@ $runtimeChecks = @{
 	"client quest table carries static class names for duplicate removal" = $questComponent -match 'questTable\.Insert\("ClassName"'
 	"client quest restore skips hidden side and daily quests" = $questComponent -match 'UpdateClient\(\)[\s\S]*QuestShouldBeVisibleInClientList'
 	"client quest add/update removes hidden quests instead of showing them temporarily" = $questComponent -match 'UpdateClient_AddQuest[\s\S]*HideQuestFromClientList' -and $questComponent -match 'UpdateClient_UpdateQuest[\s\S]*HideQuestFromClientList'
-	"disabled static quests cannot emit native Mission Objectives updates" = $questComponent -match 'StaticQuestShouldNotifyNativeQuestState[\s\S]*StaticQuestDisabledForCloverFlow\(questData\)[\s\S]*return false;'
+	"disabled static quests cannot emit native Mission Objectives updates" = $questComponent -match 'StaticQuestShouldNotifyNativeQuestState[\s\S]*StaticQuestDisabledForGuiltineSinFlow\(questData\)[\s\S]*return false;'
 	"Papaya bridge quests stay server-only and auto-complete on success" = $questComponent -match 'StaticQuestIsClientHiddenPapayaBridge' -and $questComponent -match 'CompleteSucceededClientHiddenPapayaBridgeQuests' -and $questComponent -match 'TryAutoCompleteStaticQuestOnSuccess[\s\S]*StaticQuestIsClientHiddenPapayaBridge'
-	"HUD recovery does not rebuild sysmenu with native RemoveChildByType during quest/map transitions" = $characterStatsSource -match 'SOUL_RESTORE_CORE_HUD' -and $characterStatsSource -notmatch 'Melia\.Ui\.SysMenu\.Refresh'
+	"HUD recovery does not rebuild sysmenu with native RemoveChildByType during quest/map transitions" = $characterStatsSource -match 'SOUL_RESTORE_CORE_HUD' -and $characterStatsSource -notmatch 'GuiltineSin\.Ui\.SysMenu\.Refresh'
 	"DX11 class/job progression does not send crashing ZC_JOB_EXP_UP deltas" = $sendSource -match 'public static void ZC_JOB_EXP_UP(?:(?!public static void ZC_ADDON_MSG)[\s\S])*Versions\.Protocol\s*>\s*500(?:(?!public static void ZC_ADDON_MSG)[\s\S])*return;' -and $sendSource -notmatch 'public static void ZC_JOB_EXP_UP(?:(?!public static void ZC_ADDON_MSG)[\s\S])*packet\.PutLong'
 	"native class advancement adds the requested same-tree job in zone" = $packetHandlerSource -match '\[PacketHandler\(Op\.CZ_REQ_CHANGEJOB\)\]' -and $packetHandlerSource -match 'TryResolveRequestedChangeJobId' -and $packetHandlerSource -match 'character\.Jobs\.AddSilent\(newJob\)' -and $packetHandlerSource -notmatch 'CZ_REQ_CHANGEJOB[\s\S]{0,3200}ZC_MOVE_BARRACK'
 	"unsafe Scout skill-state buffs and skills are cleared, filtered, and not persisted" = $packetHandlerSource -match 'ClearClassChangeUnsafeSkillStateBuffs' -and $characterJobSkillsSource -match 'IsClassChangeUnsafeSkillStateBuff' -and $characterJobSkillsSource -match 'IsClassChangeUnsafeSkillStateSkill' -and $characterJobSkillsSource -match 'DoubleAttack_Buff' -and $characterJobSkillsSource -match 'FreeStep_Buff' -and $characterJobSkillsSource -match 'Scout_DoubleAttack' -and $characterJobSkillsSource -match 'Scout_FreeStep' -and $zoneDbCharacterSource -match 'LoadBuffs[\s\S]*IsClassChangeUnsafeSkillStateBuff' -and $zoneDbCharacterSource -match 'LoadSkills[\s\S]*IsClassChangeUnsafeSkillStateSkill' -and $zoneDbInternalSource -match 'savableBuffs[\s\S]*!Character\.IsClassChangeUnsafeSkillStateBuff\(buff\.Id\)' -and $zoneDbInternalSource -match 'skillsToSave[\s\S]*!Character\.IsClassChangeUnsafeSkillStateSkill\(skill\.Id\)' -and $sendSource -match 'ZC_SKILL_LIST[\s\S]*IsClassChangeUnsafeSkillStateSkill' -and $buffComponentSource -match 'Remove\(BuffId buffId,\s*bool silently = false\)' -and $buffsSource -match 'DoubleAttack_Buff[^\r\n]*save:\s*false' -and $buffsSource -match 'FreeStep_Buff[^\r\n]*save:\s*false' -and $packageBuffsSource -match 'DoubleAttack_Buff[^\r\n]*save:\s*false' -and $packageBuffsSource -match 'FreeStep_Buff[^\r\n]*save:\s*false' -and $version390044BuffsSource -match 'DoubleAttack_Buff[^\r\n]*save:\s*false' -and $version390044BuffsSource -match 'FreeStep_Buff[^\r\n]*save:\s*false'
@@ -482,7 +482,7 @@ while ($queue.Count -gt 0) {
 }
 
 $reachableMainCount = @($mainQuests | Where-Object { $reachable.Contains($_.ClassName) }).Count
-$unreachable = @($mainQuests | Where-Object { -not $reachable.Contains($_.ClassName) -and -not (Test-CloverDisabledMainQuestName $_.ClassName) })
+$unreachable = @($mainQuests | Where-Object { -not $reachable.Contains($_.ClassName) -and -not (Test-GuiltineSinDisabledMainQuestName $_.ClassName) })
 foreach ($quest in $unreachable) {
     $warnings.Add("Main quest $($quest.ClassName) [$($quest.Id)] is not reachable from a no-prerequisite MAIN/prerequisite-bridge root using requiredQuestName links only.")
 }
@@ -516,8 +516,8 @@ Write-Host "MAIN quest_auto track entries checked: $($mainQuestAutoTracks.Count)
 Write-Host "MAIN NPC/location trigger candidates covered by runtime bridge: $($locationNpcTriggerCandidates.Count)"
 Write-Host "MAIN objective quest fallback-spawn coverage candidates: $($objectiveMainQuests.Count)"
 Write-Host "Non-MAIN prerequisite bridge quests kept enabled: $($mainPrerequisiteBridgeNames.Count)"
-Write-Host "Non-MAIN static quests suppressed from Clover main flow: $nonMainQuestCount"
-Write-Host "REPEAT/daily-like static quests suppressed from Clover main flow: $repeatQuestCount"
+Write-Host "Non-MAIN static quests suppressed from GuiltineSin main flow: $nonMainQuestCount"
+Write-Host "REPEAT/daily-like static quests suppressed from GuiltineSin main flow: $repeatQuestCount"
 Write-Host "Errors: $($errors.Count)"
 Write-Host "Warnings: $($warnings.Count)"
 

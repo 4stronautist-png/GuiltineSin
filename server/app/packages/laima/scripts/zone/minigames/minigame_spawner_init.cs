@@ -1,9 +1,9 @@
 using System;
-using Melia.Shared.Game.Const;
-using Melia.Zone;
-using Melia.Zone.Scripting;
-using Melia.Zone.World.Spawning;
-using static Melia.Zone.Scripting.Shortcuts;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.World.Spawning;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
 
 /// <summary>
 /// Initializes the minigame spawner system.

@@ -1,5 +1,5 @@
 
-Melia.Override("SKL_PARTY_TARGET_BY_KEY", function(original, actor, obj, dik, showHPGauge)
+GuiltineSin.Override("SKL_PARTY_TARGET_BY_KEY", function(original, actor, obj, dik, showHPGauge)
 
 	local skl = GetClassByType('Skill', obj.type)
 	local skill_name = TryGetProp(skl, 'ClassName', 'None')	

@@ -1,7 +1,7 @@
-﻿using Melia.Shared.L10N;
-using Melia.Shared.Game.Const;
+﻿using GuiltineSin.Shared.L10N;
+using GuiltineSin.Shared.Game.Const;
 
-namespace Melia.Zone.World.Quests.Rewards
+namespace GuiltineSin.Zone.World.Quests.Rewards
 {
 	/// <summary>
 	/// A reward that gives silver to the player.

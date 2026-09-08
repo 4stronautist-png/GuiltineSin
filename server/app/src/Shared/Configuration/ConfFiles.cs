@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.IO;
-using Melia.Shared.Configuration.Files;
+using GuiltineSin.Shared.Configuration.Files;
 
-namespace Melia.Shared.Configuration
+namespace GuiltineSin.Shared.Configuration
 {
 	/// <summary>
 	/// Wrapper around all conf files for easy access.

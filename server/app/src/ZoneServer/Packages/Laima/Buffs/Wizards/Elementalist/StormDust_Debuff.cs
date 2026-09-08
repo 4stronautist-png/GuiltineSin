@@ -1,13 +1,13 @@
 using System;
-using Melia.Shared.Packages;
-using Melia.Shared.Game.Const;
-using Melia.Zone.Buffs.Base;
-using Melia.Zone.Network;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.World.Actors;
-using static Melia.Zone.Skills.SkillUseFunctions;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Zone.Buffs.Base;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.World.Actors;
+using static GuiltineSin.Zone.Skills.SkillUseFunctions;
 
-namespace Melia.Zone.Buffs.Handlers.Wizards.Elementalist
+namespace GuiltineSin.Zone.Buffs.Handlers.Wizards.Elementalist
 {
 	/// <summary>
 	/// Handler override for the Blizzard Storm debuff.
@@ -61,12 +61,12 @@ namespace Melia.Zone.Buffs.Handlers.Wizards.Elementalist
 
 			if (buff.Caster is ICombatEntity caster
 				&& caster.TryGetActiveAbilityLevel(AbilityId.Elementalist29, out var abilityLevel)
-				&& !buff.Vars.GetBool("Melia.Extended"))
+				&& !buff.Vars.GetBool("GuiltineSin.Extended"))
 			{
 				var duration = TimeSpan.FromSeconds(2.5 * abilityLevel);
 				var newBuff = buff.Target.StartBuff(BuffId.StormDust_Debuff, buff.NumArg1, buff.NumArg2, duration, caster);
 				if (newBuff != null)
-					newBuff.Vars.SetBool("Melia.Extended", true);
+					newBuff.Vars.SetBool("GuiltineSin.Extended", true);
 			}
 		}
 	}

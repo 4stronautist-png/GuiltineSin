@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Melia.Shared.Game.Const;
+using GuiltineSin.Shared.Game.Const;
 using Yggdrasil.Configuration;
 using Yggdrasil.Logging;
 
-namespace Melia.Shared.Configuration.Files
+namespace GuiltineSin.Shared.Configuration.Files
 {
 	/// <summary>
 	/// Represents commands.conf.

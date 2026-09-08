@@ -1,29 +1,29 @@
-Melia.World = {}
-Melia.World.Icons = {}
-Melia.World.Icons.List = {}
+GuiltineSin.World = {}
+GuiltineSin.World.Icons = {}
+GuiltineSin.World.Icons.List = {}
 
-Melia.World.Icons.Load = function(icons)
-	Melia.World.Icons.Clear();
+GuiltineSin.World.Icons.Load = function(icons)
+	GuiltineSin.World.Icons.Clear();
 
 	for i = 1, #icons do
-		Melia.World.Icons.Add(icons[i])
+		GuiltineSin.World.Icons.Add(icons[i])
 	end
 end
 
-Melia.World.Icons.LoadMore = function(icons)
+GuiltineSin.World.Icons.LoadMore = function(icons)
 	for i = 1, #icons do
-		Melia.World.Icons.Add(icons[i])
+		GuiltineSin.World.Icons.Add(icons[i])
 	end
 end
 
-Melia.World.Icons.Add = function(icon)
-	table.insert(Melia.World.Icons.List, icon)
+GuiltineSin.World.Icons.Add = function(icon)
+	table.insert(GuiltineSin.World.Icons.List, icon)
 end
 
-Melia.World.Icons.GetAll = function()
-	return Melia.World.Icons.List
+GuiltineSin.World.Icons.GetAll = function()
+	return GuiltineSin.World.Icons.List
 end
 
-Melia.World.Icons.Clear = function()
-	Melia.World.Icons.List = {}
+GuiltineSin.World.Icons.Clear = function()
+	GuiltineSin.World.Icons.List = {}
 end

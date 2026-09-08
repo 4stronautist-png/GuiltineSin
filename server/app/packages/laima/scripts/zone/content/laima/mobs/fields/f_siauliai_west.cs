@@ -1,15 +1,15 @@
-//--- Melia Script -----------------------------------------------------------
+//--- GuiltineSin Script -----------------------------------------------------------
 // West Siauliai Woods Spawns
 //--- Description -----------------------------------------------------------
 // Sets up monster spawners for 'f_siauliai_west'.
 //---------------------------------------------------------------------------
 
 using System;
-using Melia.Zone.Scripting;
-using Melia.Shared.Game.Const;
+using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Shared.Game.Const;
 using Yggdrasil.Util;
-using static Melia.Zone.Scripting.Shortcuts;
-using Melia.Zone;
+using static GuiltineSin.Zone.Scripting.Shortcuts;
+using GuiltineSin.Zone;
 
 public class FSiauliaiWestMobScript : GeneralScript
 {
