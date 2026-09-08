@@ -1,6 +1,6 @@
 ---
 name: git-publish
-description: Push the GuiltineSin repository to its private GitHub remote when the user asks to send/publish/sync GuiltineSin changes, or gives a branch name after @gitpublish. Targets /home/z3ck/Melia-TOS-Server/CloverTOS pushing to https://github.com/4stronautist-png/GuiltineSin.git (private). If normal authentication fails, ask for a new GitHub token during execution and use it temporarily for the push.
+description: Push the GuiltineSin repository to its GitHub remote when the user asks to send/publish/sync GuiltineSin changes, or gives a branch name after @gitpublish. Targets /home/z3ck/Melia-TOS-Server/CloverTOS pushing to https://github.com/4stronautist-png/GuiltineSin.git (public). If normal authentication fails, ask for a new GitHub token during execution and use it temporarily for the push, then scrub it from the remote URL immediately after.
 ---
 
 # Git Publish
@@ -11,17 +11,21 @@ and safely.
 ## Repository
 
 - Working tree: `/home/z3ck/Melia-TOS-Server/CloverTOS`
-- Remote: `origin -> https://github.com/4stronautist-png/GuiltineSin.git` (**must stay private**)
-- Prior/legacy remote (do not push here going forward unless explicitly asked):
-  `https://github.com/4stronautist-png/CloverTOS.git`
+- Remote: `guiltinesin -> https://github.com/4stronautist-png/GuiltineSin.git` (public, by
+  explicit user decision on 2026-09-07)
+- Legacy remote (still used for reference/fetch, do not push here going forward unless
+  explicitly asked): `origin -> https://github.com/4stronautist-png/CloverTOS.git`
+- A throwaway duplicate was briefly created at `github.com/jeanjcd/GuiltineSin` while sorting out
+  which GitHub account to use — that is NOT a target, ignore it.
 
 ## Hard rule
 
-**Never make this repository public, and never add a workflow/installer that bundles or
-auto-downloads the Tree of Savior client for third parties.** This is a private, closed-group
-project — confirmed explicitly by the user. If asked to make it public or to build a
-public-facing client installer, stop and ask again before proceeding; that decision was
-deliberately scoped to "no" once already.
+The *code* repository being public is fine (confirmed explicitly by the user). What's still off
+limits: never add a workflow/installer/script that bundles or auto-downloads the actual Tree of
+Savior client for third parties, and never publish client binaries/assets. Server-emulator
+source code only. If asked to build a public-facing client installer or to publish client
+assets, stop and ask again before proceeding — that boundary was deliberately kept even after
+the repo itself went public.
 
 ## Workflow
 

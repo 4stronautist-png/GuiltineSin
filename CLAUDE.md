@@ -15,9 +15,15 @@ and fixes for dozens of prior quest-chain bugs. Do not re-derive from scratch wh
 - **In-game server name stays `Clover`** (`NAME="Clover"` in serverlist, `ServerName = "Clover"`)
   — intentional exception, do not rename this back to GuiltineSin.
 - Windows client install root: `C:\GuiltineSin` (was `C:\CloverTOS-Local`).
-- GitHub remote: private repo `github.com/4stronautist-png/GuiltineSin` (superseding
-  `github.com/4stronautist-png/CloverTOS`, kept private — never make public, never publish a
-  client-bundling installer for strangers; see `.claude/skills/git-publish`).
+- GitHub remote: `github.com/4stronautist-png/GuiltineSin` (public, by explicit user decision on
+  2026-09-07 — the *code* repo being public is fine; the boundary that still holds is never
+  publishing/automating distribution of the actual Tree of Savior client to third parties — see
+  `.claude/skills/git-publish`). All 30 branches from the old
+  `github.com/4stronautist-png/CloverTOS` remote (still tracked locally as `origin`) were
+  migrated over, including feature branches from prior contributors (Assassin-PRONTO,
+  Dragoon-OK, feature/bonemancer_implementation, etc). An earlier throwaway copy at
+  `github.com/jeanjcd/GuiltineSin` also exists (wrong account, created while sorting out which
+  GitHub identity to use) — safe to delete manually, not the canonical repo.
 
 ## Where things live
 
