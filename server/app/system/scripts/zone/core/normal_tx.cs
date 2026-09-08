@@ -4,6 +4,7 @@
 // Handles "Normal TX" requests from the client.
 //---------------------------------------------------------------------------
 
+using System;
 using System.Linq;
 using GuiltineSin.Shared.Data.Database;
 using GuiltineSin.Shared.Game.Const;

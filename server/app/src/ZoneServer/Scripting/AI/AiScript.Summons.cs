@@ -95,6 +95,9 @@ namespace GuiltineSin.Zone.Scripting.AI
 				return;
 
 			var mostHated = this.GetMostHatedWithCurse();
+			if (this.Entity is Summon summon && summon.Vars.GetBool("GuiltineSin.Necromancer.ManualOrderOnly", false) && mostHated == null)
+				return;
+
 			if (mostHated != null)
 			{
 				this._target = mostHated;
@@ -363,6 +366,17 @@ namespace GuiltineSin.Zone.Scripting.AI
 		{
 			if (this.Entity.IsLocked(LockType.Attack))
 				return;
+
+			if (this.Entity is Summon summon && summon.Vars.GetBool("GuiltineSin.Necromancer.ManualOrderOnly", false))
+			{
+				var orderedTarget = this.GetMostHatedWithCurse();
+				if (orderedTarget != null)
+				{
+					this._target = orderedTarget;
+					this.StartRoutine("StopAndAttack", this.StopAndAttack());
+				}
+				return;
+			}
 
 			// Changes target to attack who's attacking the master
 			// if attacker is nearby.

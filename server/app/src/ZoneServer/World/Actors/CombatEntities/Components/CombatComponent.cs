@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using GuiltineSin.Shared.Game.Const;
 using GuiltineSin.Zone.Buffs.Base;
@@ -20,12 +21,14 @@ namespace GuiltineSin.Zone.World.Actors.CombatEntities.Components
 	/// </summary>
 	public class CombatComponent : CombatEntityComponent, IUpdateable
 	{
-		private static readonly TimeSpan AttackStateDuration = TimeSpan.FromSeconds(10);
+		private static readonly TimeSpan AttackStateDuration = TimeSpan.FromSeconds(7);
+		private static readonly TimeSpan AttackStateAutoReleaseDelay = TimeSpan.FromSeconds(7);
 
 		private readonly object _hitLock = new();
 		private readonly Dictionary<int, float> _damageTaken = new();
 		private readonly Dictionary<int, int> _hitsTaken = new();
 		private readonly List<int> _targets = new();
+		private int _attackStateVersion;
 
 		private Skill _castingSkill;
 		private bool _isCasting;
@@ -63,17 +66,37 @@ namespace GuiltineSin.Zone.World.Actors.CombatEntities.Components
 		/// Sets the entity's attack state.
 		/// </summary>
 		/// <param name="state"></param>
-		public void SetAttackState(bool state)
+		public void SetAttackState(bool state, bool autoRelease = true)
 		{
 			var prevState = this.AttackState;
 
 			this.AttackState = state;
 			this.LastCombatTime = DateTime.UtcNow;
+			var version = Interlocked.Increment(ref _attackStateVersion);
 
 			Send.ZC_PC_ATKSTATE(this.Entity, state);
 
 			if (prevState != state)
 				CombatStateChanged?.Invoke(this.Entity, state);
+
+			if (state && autoRelease)
+				this.QueueAttackStateAutoRelease(version);
+		}
+
+		private void QueueAttackStateAutoRelease(int version)
+		{
+			_ = Task.Run(async () =>
+			{
+				await Task.Delay(AttackStateAutoReleaseDelay);
+
+				if (this.Entity.IsDead || !this.AttackState)
+					return;
+
+				if (Interlocked.CompareExchange(ref _attackStateVersion, version, version) != version)
+					return;
+
+				this.SetAttackState(false);
+			});
 		}
 
 		/// <summary>

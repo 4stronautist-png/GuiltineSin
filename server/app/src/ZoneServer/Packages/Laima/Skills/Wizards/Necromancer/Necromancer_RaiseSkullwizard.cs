@@ -11,6 +11,7 @@ using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
 using GuiltineSin.Zone.World.Actors.Monsters;
 using Yggdrasil.Util;
 
+using System.Linq;
 namespace GuiltineSin.Zone.Skills.Handlers.Wizards.Necromancer
 {
 	/// <summary>

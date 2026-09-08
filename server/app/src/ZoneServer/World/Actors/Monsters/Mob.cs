@@ -18,6 +18,7 @@ using GuiltineSin.Zone.Network;
 using GuiltineSin.Zone.Scripting;
 using GuiltineSin.Zone.Scripting.AI;
 using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.Skills.Handlers.Wizards.Necromancer;
 using GuiltineSin.Zone.World.Actors.Characters;
 using GuiltineSin.Zone.World.Actors.Characters.Components;
 using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
@@ -60,7 +61,16 @@ namespace GuiltineSin.Zone.World.Actors.Monsters
 		/// <summary>
 		/// Returns the monster's race.
 		/// </summary>
-		public RaceType Race => this.Data.Race;
+		public RaceType Race
+		{
+			get
+			{
+				if (this.Vars.TryGetInt("GuiltineSin.OverrideRace", out var raceValue) && Enum.IsDefined(typeof(RaceType), raceValue))
+					return (RaceType)raceValue;
+
+				return this.Data.Race;
+			}
+		}
 
 		/// <summary>
 		/// Returns the monster's element/attribute.
@@ -216,6 +226,7 @@ namespace GuiltineSin.Zone.World.Actors.Monsters
 
 			var monsterFamily = GetMonsterFamilyKey(monsterId);
 			var otherFamily = GetMonsterFamilyKey(otherMonsterId);
+
 			return !string.IsNullOrWhiteSpace(monsterFamily) &&
 				string.Equals(monsterFamily, otherFamily, StringComparison.OrdinalIgnoreCase);
 		}
@@ -677,6 +688,8 @@ namespace GuiltineSin.Zone.World.Actors.Monsters
 				Send.ZC_NORMAL.ClearEffects(this);
 
 			var beneficiary = this.GetKillBeneficiary(killer);
+			if (killer is Summon summon)
+				NecromancerSkillHelper.GrantCorpsePartFromSkeletonKill(summon, this);
 
 			if (beneficiary != null && beneficiary.IsOnline && beneficiary.Connection != null)
 			{

@@ -37,6 +37,10 @@ namespace GuiltineSin.Shared.Game.Const
 		public const int PiedPiperMouse = 300004;
 		public const int PiedPiperMouseWhite = 300005;
 		public const int SkeletonMage = 300011;
+		public const int IllusionMaleBasic = 300052;
+		public const int IllusionFemaleBasic = 300053;
+		public const int IllusionMaleMagical = 300054;
+		public const int IllusionFemaleMagical = 300055;
 		public const int Onion_Big = 400002;
 		public const int Boss_Goblin_Warrior = 400201;
 		public const int Boss_Goblin_Warrior_Blue = 400202;

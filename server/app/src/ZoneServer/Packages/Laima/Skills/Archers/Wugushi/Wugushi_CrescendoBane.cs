@@ -15,6 +15,7 @@ using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
 using static GuiltineSin.Zone.Skills.SkillUseFunctions;
 using static GuiltineSin.Zone.Skills.Helpers.SkillDamageHelper;
 
+using GuiltineSin.Zone.Buffs.Base;
 namespace GuiltineSin.Zone.Skills.Handlers.Archers.Wugushi
 {
 	/// <summary>

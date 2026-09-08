@@ -156,7 +156,7 @@ namespace GuiltineSin.Zone.Database
 							continue;
 						}
 
-						var skill = new Skill(character, skillId, level);
+						var skill = new Skill(character, skillId, level, isCommon: skillId == SkillId.RidePet_Summon);
 						character.Skills.AddSilent(skill);
 					}
 				}
@@ -174,6 +174,12 @@ namespace GuiltineSin.Zone.Database
 					while (reader.Read())
 					{
 						var abilityId = (AbilityId)reader.GetInt32("id");
+						if (!ZoneServer.Instance.Data.AbilityDb.Contains(abilityId))
+						{
+							Log.Warning("ZoneDb.LoadAbilities: Ability data '{0}' not found, removing it from abilities.", (int)abilityId);
+							continue;
+						}
+
 						var level = reader.GetInt32("level");
 						var active = reader.GetBoolean("active");
 						var ability = new Ability(abilityId, level);

@@ -45,6 +45,10 @@ namespace GuiltineSin.Zone.World.Actors.CombatEntities.Components
 			if (this.ExtraCooldown > TimeSpan.Zero)
 				duration += this.ExtraCooldown;
 
+			var cdrRate = this.Entity.GetTempVar("GuiltineSin.Skill.CooldownReduction");
+			if (cdrRate > 0)
+				duration *= MathF.Max(0, MathF.Min(1, 1 - cdrRate));
+
 			var cooldown = new Cooldown(cooldownId, duration);
 
 			lock (_syncLock)

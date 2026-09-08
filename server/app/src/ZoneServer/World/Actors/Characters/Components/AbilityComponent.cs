@@ -73,8 +73,9 @@ namespace GuiltineSin.Zone.World.Actors.Characters.Components
 			lock (_abilities)
 				_abilities[ability.Id] = ability;
 
-			// Activate property handler for passive abilities or active toggleable ones
-			if (ability.Data.Passive || ability.Active)
+			// Level 0 abilities are sent as learnable placeholders for the
+			// client attribute UI and must not activate passives.
+			if (ability.Level > 0 && (ability.Data.Passive || ability.Active))
 			{
 				ZoneServer.Instance.AbilityHandlers.ActivatePropertyHandler(ability, this.Character);
 				this.AbilityActivated?.Invoke(this.Character, ability);
@@ -109,7 +110,7 @@ namespace GuiltineSin.Zone.World.Actors.Characters.Components
 			}
 
 			// Deactivate property handler
-			if (ability.Data.Passive || ability.Active)
+			if (ability.Level > 0 && (ability.Data.Passive || ability.Active))
 			{
 				ZoneServer.Instance.AbilityHandlers.DeactivatePropertyHandler(ability, this.Character);
 				this.AbilityDeactivated?.Invoke(this.Character, ability);
@@ -295,7 +296,7 @@ namespace GuiltineSin.Zone.World.Actors.Characters.Components
 				if (_abilities.TryGetValue(abilityId, out var ability))
 				{
 					// Deactivate with old level, then reactivate with new level
-					if (ability.Data.Passive || ability.Active)
+					if (ability.Level > 0 && (ability.Data.Passive || ability.Active))
 					{
 						ZoneServer.Instance.AbilityHandlers.DeactivatePropertyHandler(ability, this.Character);
 						this.AbilityDeactivated?.Invoke(this.Character, ability);
@@ -303,7 +304,7 @@ namespace GuiltineSin.Zone.World.Actors.Characters.Components
 
 					ability.Level = level;
 
-					if (ability.Data.Passive || ability.Active)
+					if (ability.Level > 0 && (ability.Data.Passive || ability.Active))
 					{
 						ZoneServer.Instance.AbilityHandlers.ActivatePropertyHandler(ability, this.Character);
 						this.AbilityActivated?.Invoke(this.Character, ability);
@@ -316,8 +317,8 @@ namespace GuiltineSin.Zone.World.Actors.Characters.Components
 					var newAbility = new Ability(abilityId, level);
 					_abilities[abilityId] = newAbility;
 
-					// Activate property handler for new passive abilities
-					if (newAbility.Data.Passive || newAbility.Active)
+					// Activate property handler for new passive abilities.
+					if (newAbility.Level > 0 && (newAbility.Data.Passive || newAbility.Active))
 					{
 						ZoneServer.Instance.AbilityHandlers.ActivatePropertyHandler(newAbility, this.Character);
 						this.AbilityActivated?.Invoke(this.Character, newAbility);
@@ -342,6 +343,16 @@ namespace GuiltineSin.Zone.World.Actors.Characters.Components
 			if (ability.Data.Passive)
 				return false;
 
+			if (this.IsLinkedSkillOnCooldown(ability))
+			{
+				const string message = "Aguarde o cooldown da habilidade para alterar esta passiva.";
+				this.Character.AddonMessage("NOTICE_Dm_!", message, 3);
+				this.Character.ServerMessage(message);
+				Send.ZC_OBJECT_PROPERTY(this.Character.Connection, ability, PropertyName.ActiveState);
+				Send.ZC_ADDON_MSG(this.Character, AddonMessage.RESET_ABILITY_ACTIVE, ability.Active ? 1 : 0, className);
+				return false;
+			}
+
 			// Deactivate before toggling off, activate after toggling on
 			var wasActive = ability.Active;
 			if (wasActive)
@@ -362,9 +373,22 @@ namespace GuiltineSin.Zone.World.Actors.Characters.Components
 			}
 
 			Send.ZC_OBJECT_PROPERTY(this.Character.Connection, ability);
-			Send.ZC_ADDON_MSG(this.Character, AddonMessage.RESET_ABILITY_ACTIVE, 0, className);
+			Send.ZC_ADDON_MSG(this.Character, AddonMessage.RESET_ABILITY_ACTIVE, ability.Active ? 1 : 0, className);
+			ZoneServer.Instance.Database.SavePlayerData(this.Character, this.Character.Connection?.Account);
 
 			return true;
+		}
+
+		private bool IsLinkedSkillOnCooldown(Ability ability)
+		{
+			foreach (var category in ability.Data.Categories)
+			{
+				var skill = this.Character.Skills.Get(category);
+				if (skill != null && skill.IsOnCooldown)
+					return true;
+			}
+
+			return false;
 		}
 
 		private void DeactivateMutuallyExclusiveAbility(Ability ability)
@@ -373,6 +397,14 @@ namespace GuiltineSin.Zone.World.Actors.Characters.Components
 			{
 				AbilityId.Assassin16 => (AbilityId?)AbilityId.Assassin23,
 				AbilityId.Assassin23 => AbilityId.Assassin16,
+				AbilityId.Illusionist21 => AbilityId.Illusionist31,
+				AbilityId.Illusionist31 => AbilityId.Illusionist21,
+				AbilityId.Illusionist22 => AbilityId.Illusionist23,
+				AbilityId.Illusionist23 => AbilityId.Illusionist22,
+				AbilityId.Illusionist27 => AbilityId.Illusionist28,
+				AbilityId.Illusionist28 => AbilityId.Illusionist27,
+				AbilityId.Illusionist29 => AbilityId.Illusionist30,
+				AbilityId.Illusionist30 => AbilityId.Illusionist29,
 				_ => null,
 			};
 

@@ -7,6 +7,9 @@ using GuiltineSin.Shared.Data.Database;
 using GuiltineSin.Shared.Game.Const;
 using GuiltineSin.Shared.ObjectProperties;
 using GuiltineSin.Zone.Scripting;
+using GuiltineSin.Zone.Skills.Handlers.Archers.Wugushi;
+using GuiltineSin.Zone.Skills.Handlers.Swordsmen.Eskrimer;
+using GuiltineSin.Zone.World.Actors;
 using Newtonsoft.Json.Linq;
 using Yggdrasil.Logging;
 
@@ -132,6 +135,8 @@ namespace GuiltineSin.Zone.Skills
 			this.Create(new RFloatProperty(PropertyName.DelayTime, () => (int)this.Skill.Data.DelayTime.TotalMilliseconds));
 			this.Create(PropertyName.Skill_Delay, "SCR_GET_DELAY_TIME");
 			this.Create(new RFloatProperty(PropertyName.ReinforceAtk, () => 0f));
+			this.Create(new RStringProperty(PropertyName.ReqBuff, () => string.Empty));
+			this.Create(new RStringProperty(PropertyName.UseScript, () => string.Empty));
 
 			this.Create(new RFloatProperty(PropertyName.SklSpdRateValue, () => this.Skill.Data.SpeedRate));
 			this.Create(PropertyName.SklSpdRate, "SCR_GET_SklSpdRate");
@@ -145,10 +150,53 @@ namespace GuiltineSin.Zone.Skills
 			this.Create(new RFloatProperty(PropertyName.EnableSkillCancel, () => this.Skill.Data.CastInterruptible ? 1f : 0f));
 			this.Create(new RFloatProperty(PropertyName.CancelSkill, () => this.Skill.Data.CastInterruptible ? 1f : 0f));
 
-			this.Create(new RFloatProperty(PropertyName.CaptionTime, () => 0f)); // Needs to be calculated if used, uses lua script
-			this.Create(new RFloatProperty(PropertyName.CaptionRatio, () => 0f)); // Needs to be calculated if used, uses lua script
-			this.Create(new RFloatProperty(PropertyName.CaptionRatio2, () => 0f)); // Needs to be calculated if used, uses lua script
-			this.Create(new RFloatProperty(PropertyName.CaptionRatio3, () => 0f)); // Needs to be calculated if used, uses lua script
+			this.Create(new RFloatProperty(PropertyName.CaptionTime, () => this.GetCaptionTime()));
+			this.Create(new RFloatProperty(PropertyName.CaptionRatio, () => this.GetCaptionRatio()));
+			this.Create(new RFloatProperty(PropertyName.CaptionRatio2, () => this.GetCaptionRatio2()));
+			this.Create(new RFloatProperty(PropertyName.CaptionRatio3, () => this.GetCaptionRatio3()));
+		}
+
+		private float GetCaptionTime()
+		{
+			return this.Skill.Id switch
+			{
+				SkillId.Assassin_PiercingHeart or SkillId.Assassin_PiercingHeart_2 => 5f,
+				SkillId.Assassin_HallucinationSmoke or SkillId.Assassin_HallucinationSmoke_2 => 8f,
+				_ => 0f,
+			};
+		}
+
+		private float GetCaptionRatio()
+		{
+			return this.Skill.Id switch
+			{
+				SkillId.Assassin_Hasisas or SkillId.Common_Assassin_Hasisas => 175f + (20f * (this.Skill.Level - 1)),
+				SkillId.Assassin_HallucinationSmoke or SkillId.Assassin_HallucinationSmoke_2 => 20f,
+				SkillId.Wugushi_WideMiasma => WugushiSkillHelper.HemotoxicMiasmaHealingReductionPercent,
+				SkillId.Escrimeur_Invitation => EskrimerSkillHelper.PretPasataFinalDamageCap * 100f,
+				SkillId.Escrimeur_AvantGarde => EskrimerSkillHelper.GetAvantGardeFinalDamageBonus(this.Skill) * 100f,
+				_ => 0f,
+			};
+		}
+
+		private float GetCaptionRatio2()
+		{
+			return this.Skill.Id switch
+			{
+				SkillId.Wugushi_WideMiasma => WugushiSkillHelper.GetWideMiasmaMoveSpeedCaption(this.Skill.Owner),
+				SkillId.Escrimeur_GrandFente => 2.5f * Math.Max(1, this.Skill.Level),
+				_ => 0f,
+			};
+		}
+
+		private float GetCaptionRatio3()
+		{
+			return this.Skill.Id switch
+			{
+				SkillId.Assassin_Hasisas or SkillId.Common_Assassin_Hasisas => 10f + (2f * (this.Skill.Level - 1)),
+				SkillId.Wugushi_WideMiasma => WugushiSkillHelper.GetWideMiasmaStealthDurationCaption(this.Skill.Owner),
+				_ => 0f,
+			};
 		}
 
 		/// <summary>

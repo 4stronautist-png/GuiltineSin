@@ -7,8 +7,11 @@ using GuiltineSin.Shared.L10N;
 using GuiltineSin.Shared.World;
 using GuiltineSin.Zone.Network;
 using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.Skills.Handlers.Archers.PiedPiper;
 using GuiltineSin.Zone.Skills.Handlers.Base;
 using GuiltineSin.Zone.World.Actors;
+using GuiltineSin.Zone.World.Actors.Characters;
+using GuiltineSin.Zone.World.Actors.Monsters;
 using static GuiltineSin.Zone.Skills.Helpers.SkillDamageHelper;
 using static GuiltineSin.Zone.Skills.Helpers.SkillResultHelper;
 
@@ -46,7 +49,20 @@ namespace GuiltineSin.Zone.Skills.Handlers.Mon
 			var splashArea = skill.GetSplashArea(SplashType.Circle, splashParam);
 			var hits = new List<SkillHitInfo>();
 			await SkillAttack(caster, skill, splashArea, hitDelay, aniTime, hits);
-			SkillResultTargetBuff(caster, skill, BuffId.HamelnNagetier_Debuff, 1, 0f, 6000f, 1, 100, -1, hits);
+			ApplyRatMark(caster, skill, target);
+		}
+
+		public static void ApplyRatMark(ICombatEntity caster, Skill skill, ICombatEntity target)
+		{
+			if (target == null || target.IsDead)
+				return;
+
+			var ownerHandle = caster is IMonster monster ? monster.OwnerHandle : 0;
+			var owner = caster.Map?.TryGetCharacter(ownerHandle, out var character) == true
+				? character
+				: caster as Character;
+			var rare = caster is Mob mob && mob.Id == PiedPiperSkillHelper.RareMouseId || skill.Id == SkillId.Mon_piedpiper_mouse_White_Skill_1;
+			PiedPiperSkillHelper.ApplyBestFriendMark(owner, skill, target, rare);
 		}
 	}
 
@@ -82,7 +98,7 @@ namespace GuiltineSin.Zone.Skills.Handlers.Mon
 			var splashArea = skill.GetSplashArea(SplashType.Circle, splashParam);
 			var hits = new List<SkillHitInfo>();
 			await SkillAttack(caster, skill, splashArea, hitDelay, aniTime, hits);
-			SkillResultTargetBuff(caster, skill, BuffId.HamelnNagetier_Debuff, 1, 0f, 6000f, 1, 100, -1, hits);
+			Mon_piedpiper_mouse_Skill_1.ApplyRatMark(caster, skill, target);
 		}
 	}
 

@@ -10,6 +10,7 @@ using GuiltineSin.Zone.World.Actors;
 using GuiltineSin.Zone.World.Actors.CombatEntities.Components;
 using Yggdrasil.Util;
 
+using GuiltineSin.Zone.Network;
 namespace GuiltineSin.Zone.Buffs.Handlers
 {
 	/// <summary>

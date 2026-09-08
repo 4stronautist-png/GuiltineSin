@@ -499,6 +499,336 @@ namespace GuiltineSin.Zone
 				this.IesMods.Add("SkillTree", GetSkillTreeClassId(skillTreeData), "MaxLevel", skillTreeData.MaxLevel);
 			}
 
+			// The client still has the old Stegreifspiel attributes in its
+			// local IES, so detach them from Pied Piper instead of merely
+			// renaming them. The old custom Pied Piper slots are also cleared
+			// after compacting the visible rows below.
+			foreach (var classId in new[] { 303, 402, 403, 702, 801, 901, 902, 903, 904, 905, 1001 })
+			{
+				this.IesMods.Add("AbilityTree", classId, "Category", "None");
+				this.IesMods.Add("AbilityTree", classId, "ClassName", "RemovedSymphonyAttribute");
+				this.IesMods.Add("AbilityTree", classId, "Job", 0);
+				this.IesMods.Add("AbilityTree", classId, "JobID", 0);
+				this.IesMods.Add("AbilityTree", classId, "JobId", 0);
+				this.IesMods.Add("AbilityTree", classId, "MaxLevel", 0);
+				this.IesMods.Add("AbilityTree", classId, "UnlockScript", "None");
+				this.IesMods.Add("AbilityTree", classId, "PriceTimeScript", "None");
+			}
+
+			foreach (var abilityId in new[] { 318016, 318017, 318018, 318019, 318020, 318025 })
+			{
+				this.IesMods.Add("Ability", abilityId, "ClassName", "RemovedSymphonyAttribute");
+				this.IesMods.Add("Ability", abilityId, "Name", "");
+				this.IesMods.Add("Ability", abilityId, "SkillCategory", "None");
+				this.IesMods.Add("Ability", abilityId, "SkillName", "None");
+				this.IesMods.Add("Ability", abilityId, "MaxLevel", 0);
+			}
+
+			foreach (var abilityTree in new[]
+			{
+				(ClassId: 101, AbilityId: 318006, ClassName: "PiedPiper6", MaxLevel: 1, UnlockScript: "UNLOCK_ABIL_SKILL", PriceTimeScript: "ABIL_COMMON_PRICE_100LV"),
+				(ClassId: 201, AbilityId: 318011, ClassName: "PiedPiper11", MaxLevel: 100, UnlockScript: "UNLOCK_ABIL_SKILL", PriceTimeScript: "ABIL_REINFORCE_PRICE"),
+				(ClassId: 301, AbilityId: 318012, ClassName: "PiedPiper12", MaxLevel: 10, UnlockScript: "UNLOCK_ABIL_SKILL", PriceTimeScript: "ABIL_ABOVE_NORMAL_PRICE"),
+				(ClassId: 401, AbilityId: 318013, ClassName: "PiedPiper13", MaxLevel: 10, UnlockScript: "UNLOCK_ABIL_SKILL", PriceTimeScript: "ABIL_ABOVE_NORMAL_PRICE"),
+				(ClassId: 501, AbilityId: 318015, ClassName: "PiedPiper15", MaxLevel: 5, UnlockScript: "UNLOCK_BASE_LEVEL", PriceTimeScript: "ABIL_COMMON_PRICE_100LV"),
+				(ClassId: 601, AbilityId: 318021, ClassName: "PiedPiper21", MaxLevel: 30, UnlockScript: "UNLOCK_ABIL_OTHERABILITY", PriceTimeScript: "HIDDENABIL_PRICE_COND_REINFORCE"),
+				(ClassId: 701, AbilityId: 318022, ClassName: "PiedPiper22", MaxLevel: 1, UnlockScript: "UNLOCK_ABIL_JOB_LEVEL", PriceTimeScript: "HIDDENABIL_PRICE_COND_JOBLEVEL"),
+			})
+			{
+				this.IesMods.Add("AbilityTree", abilityTree.ClassId, "Category", "PiedPiper");
+				this.IesMods.Add("AbilityTree", abilityTree.ClassId, "ClassName", abilityTree.ClassName);
+				this.IesMods.Add("AbilityTree", abilityTree.ClassId, "AbilityID", abilityTree.AbilityId);
+				this.IesMods.Add("AbilityTree", abilityTree.ClassId, "AbilityId", abilityTree.AbilityId);
+				this.IesMods.Add("AbilityTree", abilityTree.ClassId, "Ability", abilityTree.AbilityId);
+				this.IesMods.Add("AbilityTree", abilityTree.ClassId, "Job", 3012);
+				this.IesMods.Add("AbilityTree", abilityTree.ClassId, "JobID", 3012);
+				this.IesMods.Add("AbilityTree", abilityTree.ClassId, "JobId", 3012);
+				this.IesMods.Add("AbilityTree", abilityTree.ClassId, "MaxLevel", abilityTree.MaxLevel);
+				this.IesMods.Add("AbilityTree", abilityTree.ClassId, "UnlockScript", abilityTree.UnlockScript);
+				this.IesMods.Add("AbilityTree", abilityTree.ClassId, "PriceTimeScript", abilityTree.PriceTimeScript);
+			}
+
+			this.IesMods.Add("Skill", 31704, "Name", "Best Friend");
+			this.IesMods.Add("Skill", 31704, "Caption", "{#005060}Applied upon learning{/}{nl}Positive Symphony of Fate results grant Nagetier? stacks. At 3 stacks, summons Nagetier to mark enemies with A RAT!?. Negative results remove all stacks.");
+			this.IesMods.Add("Skill", 31704, "Desc", "{#005060}Applied upon learning{/}");
+			this.IesMods.Add("Skill", 31704, "Description", "{#005060}Applied upon learning{/}");
+			this.IesMods.Add("Skill", 31704, "SkillType", "Passive");
+			this.IesMods.Add("Skill", 31704, "UseType", "Self");
+			this.IesMods.Add("Skill", 31704, "ClassType", "None");
+			this.IesMods.Add("Skill", 31704, "AttackType", "None");
+			this.IesMods.Add("Skill", 31704, "BasicSP", 0);
+			this.IesMods.Add("Skill", 31704, "SpendSP", 0);
+			this.IesMods.Add("Skill", 31704, "CoolDown", 0);
+			this.IesMods.Add("Skill", 31704, "BasicCoolDown", 0);
+			this.IesMods.Add("Skill", 31704, "SklFactor", 300);
+			this.IesMods.Add("Skill", 31704, "SklFactorByLevel", "355.5556");
+
+			var bestFriendTooltips = new (int Id, string ClassName, string Name, string Description)[]
+			{
+				(2174, "HamelnNagetier_Buff", "Nagetier?", "Symphony of Fate positive result stack. At 3 stacks, summons your loyal Nagetier to fight by your side."),
+				(2175, "HamelnNagetier_Debuff", "A RAT!?", "Marked by Nagetier. The summoning Pied Piper's next direct hit consumes the mark."),
+				(697416, "BestFriend_Duration_Buff", "Best Friend", "Nagetier is fighting by your side."),
+			};
+
+			foreach (var buffTooltip in bestFriendTooltips)
+			{
+				this.IesMods.Add("Buff", buffTooltip.Id, "ClassName", buffTooltip.ClassName);
+				this.IesMods.Add("Buff", buffTooltip.Id, "Name", buffTooltip.Name);
+				this.IesMods.Add("Buff", buffTooltip.Id, "Caption", buffTooltip.Description);
+				this.IesMods.Add("Buff", buffTooltip.Id, "Desc", buffTooltip.Description);
+				this.IesMods.Add("Buff", buffTooltip.Id, "Description", buffTooltip.Description);
+				this.IesMods.Add("Buff", buffTooltip.Id, "ToolTip", buffTooltip.Description);
+				this.IesMods.Add("Buff", buffTooltip.Id, "Tooltip", buffTooltip.Description);
+			}
+
+			this.IesMods.Add("Ability", 318012, "Name", "Best Friend: A RAT!? Burst");
+			this.IesMods.Add("Ability", 318012, "Caption", "When you directly hit an enemy affected by A RAT!? from your own Nagetier, consumes the mark and deals Best Friend damage. Damage cannot critically hit.");
+			this.IesMods.Add("Ability", 318013, "Name", "Best Friend: Rare Species");
+			this.IesMods.Add("Ability", 318013, "Caption", "When Best Friend summons Nagetier, has a 25% chance to summon a white Nagetier instead. White Nagetier lasts 50 seconds and makes A RAT!? burst for 1.5% more damage.");
+
+			this.IesMods.Add("Skill", 31708, "CoolDown", 35000);
+			this.IesMods.Add("Skill", 31708, "BasicCoolDown", 35000);
+
+			this.IesMods.Add("Skill", 30504, "CoolDown", 1000);
+			this.IesMods.Add("Skill", 30504, "BasicCoolDown", 1000);
+			this.IesMods.Add("Skill", 30504, "ShootTime", 0);
+			this.IesMods.Add("Skill", 30504, "DelayTime", 0);
+			this.IesMods.Add("Skill", 30504, "CancelTime", 0);
+			this.IesMods.Add("Skill", 30504, "HoldTime", "0");
+
+			this.IesMods.Add("Skill", 30509, "Caption", "{#339999}{ol}[Stealth]{/}{/} Duration and movement speed scale with Poison Mastery.{nl}Any damage you deal or any skill use removes Stealth.{nl}{#339999}{ol}[Hemotoxic Miasma]{/}{/} Buff Duration: 5 seconds{nl}Wugushi skills that hit bleeding enemies inflict 60% healing reduction for 8 seconds.");
+
+			var eskrimerSkillCaptions = new (int Id, string Caption)[]
+			{
+				(12353, "Pierce enemies in front. Grants [Toucher] buff to self upon use."),
+				(12354, "Stabs enemies repeatedly to deal damage. Partially ignores enemy Defense. Grants the [Toucher] buff to self upon use."),
+				(12355, "Dashes forward to attack. Grants the [Toucher] buff to self upon use."),
+				(12356, "Spins the tip of the sword to deflect incoming attacks, blocking 100% of damage while channeling. Upon completion, grants a [Pret] buff that increases the Final Damage of [Pasata Soto]. The Final Damage bonus cannot exceed 20%."),
+				(12357, "Adopt a stance for delivering lethal strikes. Increases Final Damage when an Eskrimer skill deals a Critical Hit."),
+				(12358, "Delivers a rapid series of thrusts. This attack has a higher Critical Rate. Grants the [Toucher] buff to self upon use."),
+				(12359, "Performs a surprise lunge to deliver a rapid series of thrusts. If the [Pret] buff is active, this skill deals increased Final Damage."),
+			};
+
+			foreach (var eskrimerSkillCaption in eskrimerSkillCaptions)
+				this.IesMods.Add("Skill", eskrimerSkillCaption.Id, "Caption", eskrimerSkillCaption.Caption);
+
+			var eskrimerAbilityTrees = new (int ClassId, int AbilityId, string ClassName, int MaxLevel, string PriceTimeScript, string UnlockScript, string UnlockArgStr, int UnlockArgNum)[]
+			{
+				(100, 125018, "Escrimeur100", 1, "ABIL_COMMON_PRICE_1LV", "UNLOCK_BASE_LEVEL", "", 1),
+				(101, 125019, "Escrimeur1", 100, "ABIL_REINFORCE_PRICE", "UNLOCK_ABIL_SKILL", "Escrimeur_AttaqueEnchainee", 1),
+				(102, 125020, "Escrimeur2", 100, "ABIL_REINFORCE_PRICE", "UNLOCK_ABIL_SKILL", "Escrimeur_SeptEclairs", 1),
+				(103, 125021, "Escrimeur3", 100, "ABIL_REINFORCE_PRICE", "UNLOCK_ABIL_SKILL", "Escrimeur_GrandFente", 1),
+				(104, 125022, "Escrimeur4", 100, "ABIL_REINFORCE_PRICE", "UNLOCK_ABIL_SKILL", "Escrimeur_AvantGarde", 1),
+				(105, 125023, "Escrimeur5", 100, "ABIL_REINFORCE_PRICE", "UNLOCK_ABIL_SKILL", "Escrimeur_Rafale", 1),
+				(106, 125024, "Escrimeur6", 100, "ABIL_REINFORCE_PRICE", "UNLOCK_ABIL_SKILL", "Escrimeur_PassataSotto", 1),
+				(1001, 125025, "Escrimeur101", 30, "HIDDENABIL_PRICE_COND_REINFORCE", "UNLOCK_ABIL_OTHERABILITY", "Escrimeur1", 65),
+				(1002, 125026, "Escrimeur102", 30, "HIDDENABIL_PRICE_COND_REINFORCE", "UNLOCK_ABIL_OTHERABILITY", "Escrimeur2", 65),
+				(1003, 125027, "Escrimeur103", 30, "HIDDENABIL_PRICE_COND_REINFORCE", "UNLOCK_ABIL_OTHERABILITY", "Escrimeur3", 65),
+				(1004, 125028, "Escrimeur104", 30, "HIDDENABIL_PRICE_COND_REINFORCE", "UNLOCK_ABIL_OTHERABILITY", "Escrimeur5", 65),
+				(1005, 125029, "Escrimeur105", 30, "HIDDENABIL_PRICE_COND_REINFORCE", "UNLOCK_ABIL_OTHERABILITY", "Escrimeur6", 65),
+				(201, 125030, "Escrimeur106", 1, "HIDDENABIL_PRICE_COND_JOBLEVEL", "UNLOCK_ABIL_SKILL", "Escrimeur_AttaqueEnchainee", 1),
+				(202, 125031, "Escrimeur107", 1, "HIDDENABIL_PRICE_COND_JOBLEVEL", "UNLOCK_ABIL_SKILL", "Escrimeur_PassataSotto", 1),
+			};
+
+			foreach (var abilityTree in eskrimerAbilityTrees)
+			{
+				this.IesMods.Add("AbilityTree", abilityTree.ClassId, "Category", "Escrimeur");
+				this.IesMods.Add("AbilityTree", abilityTree.ClassId, "ClassName", abilityTree.ClassName);
+				this.IesMods.Add("AbilityTree", abilityTree.ClassId, "AbilityID", abilityTree.AbilityId);
+				this.IesMods.Add("AbilityTree", abilityTree.ClassId, "AbilityId", abilityTree.AbilityId);
+				this.IesMods.Add("AbilityTree", abilityTree.ClassId, "Ability", abilityTree.AbilityId);
+				this.IesMods.Add("AbilityTree", abilityTree.ClassId, "Job", 1030);
+				this.IesMods.Add("AbilityTree", abilityTree.ClassId, "JobID", 1030);
+				this.IesMods.Add("AbilityTree", abilityTree.ClassId, "JobId", 1030);
+				this.IesMods.Add("AbilityTree", abilityTree.ClassId, "MaxLevel", abilityTree.MaxLevel);
+				this.IesMods.Add("AbilityTree", abilityTree.ClassId, "UnlockScript", abilityTree.UnlockScript);
+				this.IesMods.Add("AbilityTree", abilityTree.ClassId, "UnlockScriptName", abilityTree.UnlockScript);
+				this.IesMods.Add("AbilityTree", abilityTree.ClassId, "UnlockArgStr", abilityTree.UnlockArgStr);
+				this.IesMods.Add("AbilityTree", abilityTree.ClassId, "UnlockArgNum", abilityTree.UnlockArgNum);
+				this.IesMods.Add("AbilityTree", abilityTree.ClassId, "PriceTimeScript", abilityTree.PriceTimeScript);
+			}
+
+			this.IesMods.Add("Buff", 1065, "ApplyTime", 100000);
+			this.IesMods.Add("Buff", 1065, "UpdateTime", 1000);
+			this.IesMods.Add("Buff", 1065, "CT_OverBuff", 1);
+			this.IesMods.Add("Buff", 1126, "ClassName", "Hemotoxic_Miasma_Buff");
+			this.IesMods.Add("Buff", 1126, "Type", "Buff");
+			this.IesMods.Add("Buff", 1126, "Name", "Hemotoxic Miasma");
+			this.IesMods.Add("Buff", 1126, "Caption", "For 5 seconds, Wugushi skills reduce healing by 60% for 8 seconds when they hit bleeding enemies.");
+			this.IesMods.Add("Buff", 1126, "Desc", "For 5 seconds, Wugushi skills reduce healing by 60% for 8 seconds when they hit bleeding enemies.");
+			this.IesMods.Add("Buff", 1126, "Description", "For 5 seconds, Wugushi skills reduce healing by 60% for 8 seconds when they hit bleeding enemies.");
+			this.IesMods.Add("Buff", 1126, "ToolTip", "For 5 seconds, Wugushi skills reduce healing by 60% for 8 seconds when they hit bleeding enemies.");
+			this.IesMods.Add("Buff", 1126, "Tooltip", "For 5 seconds, Wugushi skills reduce healing by 60% for 8 seconds when they hit bleeding enemies.");
+			this.IesMods.Add("Buff", 1126, "Icon", "state_posion");
+			this.IesMods.Add("Buff", 1126, "ShowIcon", "YES");
+			this.IesMods.Add("Buff", 1126, "Group1", "Buff");
+			this.IesMods.Add("Buff", 1126, "Group2", "Normal");
+			this.IesMods.Add("Buff", 1126, "Group3", "None");
+			this.IesMods.Add("Buff", 1126, "ApplyTime", 5000);
+			this.IesMods.Add("Buff", 1126, "UpdateTime", 0);
+			this.IesMods.Add("Buff", 1126, "CT_SlotType", "slot_buff");
+			this.IesMods.Add("Buff", 1126, "OverBuff", 1);
+			this.IesMods.Add("Buff", 1126, "CT_OverBuff", 1);
+			this.IesMods.Add("Buff", 1126, "ApplyLimitCountBuff", "YES");
+			this.IesMods.Add("Buff", 1126, "CT_RemoveBySkill", "YES");
+			this.IesMods.Add("Buff", 1126, "DeadRemove", "YES");
+			this.IesMods.Add("Buff", 1126, "Save", "NO");
+
+			var eskrimerBuffTooltips = new (int Id, string ClassName, string Name, string Caption, string Icon, int ApplyTime, int OverBuff)[]
+			{
+				((int)BuffId.Touche_Buff, "Touche_Buff", "Toucher", "Minimum Critical Rate +1% and Accuracy +2% per stack. Stacks up to 15 times. At maximum stacks, Pasata Soto becomes available for 10 seconds.", "warri_Touche", 60000, 15),
+				((int)BuffId.Touche_max_Buff, "Touche_max_Buff", "Toucher", "Maximum Toucher state. Pasata Soto is available.", "warri_Touche_max", 10000, 1),
+				((int)BuffId.Invitation_Buff, "Invitation_Buff", "Invitation", "Blocks 100% of incoming damage while channeling.", "warri_Invitation", 2000, 1),
+				((int)BuffId.Pret_Buff, "Pret_Buff", "Pret", "Pasata Soto Final Damage is increased by up to 20%.", "warri_Pret", 10000, 1),
+				((int)BuffId.AdvantGarde_Buff, "AdvantGarde_Buff", "Avant Garde", "Critical Hits with Eskrimer skills increase Final Damage.", "warri_AvantGarde", 1800000, 1),
+				((int)BuffId.Ouvert_Buff, "Ouvert_Buff", "Ouvert", "Eskrimer skill damage +20%.", "warri_Ouvert", 2000, 1),
+			};
+
+			foreach (var buffTooltip in eskrimerBuffTooltips)
+			{
+				this.IesMods.Add("Buff", buffTooltip.Id, "ClassName", buffTooltip.ClassName);
+				this.IesMods.Add("Buff", buffTooltip.Id, "Name", buffTooltip.Name);
+				this.IesMods.Add("Buff", buffTooltip.Id, "Caption", buffTooltip.Caption);
+				this.IesMods.Add("Buff", buffTooltip.Id, "Desc", buffTooltip.Caption);
+				this.IesMods.Add("Buff", buffTooltip.Id, "Description", buffTooltip.Caption);
+				this.IesMods.Add("Buff", buffTooltip.Id, "ToolTip", buffTooltip.Caption);
+				this.IesMods.Add("Buff", buffTooltip.Id, "Tooltip", buffTooltip.Caption);
+				this.IesMods.Add("Buff", buffTooltip.Id, "Icon", buffTooltip.Icon);
+				this.IesMods.Add("Buff", buffTooltip.Id, "ShowIcon", "YES");
+				this.IesMods.Add("Buff", buffTooltip.Id, "Group1", "Buff");
+				this.IesMods.Add("Buff", buffTooltip.Id, "Group2", "Normal");
+				this.IesMods.Add("Buff", buffTooltip.Id, "Group3", "None");
+				this.IesMods.Add("Buff", buffTooltip.Id, "ApplyTime", buffTooltip.ApplyTime);
+				this.IesMods.Add("Buff", buffTooltip.Id, "UpdateTime", 0);
+				this.IesMods.Add("Buff", buffTooltip.Id, "CT_SlotType", "slot_buff");
+				this.IesMods.Add("Buff", buffTooltip.Id, "OverBuff", buffTooltip.OverBuff);
+				this.IesMods.Add("Buff", buffTooltip.Id, "CT_OverBuff", buffTooltip.OverBuff);
+				this.IesMods.Add("Buff", buffTooltip.Id, "ApplyLimitCountBuff", "YES");
+				this.IesMods.Add("Buff", buffTooltip.Id, "CT_RemoveBySkill", "YES");
+				this.IesMods.Add("Buff", buffTooltip.Id, "Removable", "YES");
+				this.IesMods.Add("Buff", buffTooltip.Id, "DeadRemove", "YES");
+				this.IesMods.Add("Buff", buffTooltip.Id, "Save", "NO");
+			}
+
+			this.IesMods.Add("Buff", 1127, "ClassName", "GoldenFrog_Slow_Debuff");
+			this.IesMods.Add("Buff", 1127, "Type", "Debuff");
+			this.IesMods.Add("Buff", 1127, "Name", "Golden Frog: Slow");
+			this.IesMods.Add("Buff", 1127, "Caption", "Movement Speed is reduced while near Tutu.");
+			this.IesMods.Add("Buff", 1127, "Desc", "Movement Speed is reduced while near Tutu.");
+			this.IesMods.Add("Buff", 1127, "Description", "Movement Speed is reduced while near Tutu.");
+			this.IesMods.Add("Buff", 1127, "ToolTip", "Movement Speed is reduced while near Tutu.");
+			this.IesMods.Add("Buff", 1127, "Tooltip", "Movement Speed is reduced while near Tutu.");
+			this.IesMods.Add("Buff", 1127, "Icon", "arch_jincangu");
+			this.IesMods.Add("Buff", 1127, "ShowIcon", "YES");
+			this.IesMods.Add("Buff", 1127, "Group1", "Debuff");
+			this.IesMods.Add("Buff", 1127, "Group2", "Poison");
+			this.IesMods.Add("Buff", 1127, "Group3", "None");
+			this.IesMods.Add("Buff", 1127, "ApplyTime", 1500);
+			this.IesMods.Add("Buff", 1127, "UpdateTime", 0);
+			this.IesMods.Add("Buff", 1127, "CT_SlotType", "slot_ability");
+			this.IesMods.Add("Buff", 1127, "OverBuff", 1);
+			this.IesMods.Add("Buff", 1127, "CT_OverBuff", 1);
+			this.IesMods.Add("Buff", 1127, "ApplyLimitCountBuff", "YES");
+			this.IesMods.Add("Buff", 1127, "CT_RemoveBySkill", "YES");
+			this.IesMods.Add("Buff", 1127, "DeadRemove", "YES");
+			this.IesMods.Add("Buff", 1127, "Save", "NO");
+
+			this.IesMods.Add("Buff", 1128, "ClassName", "Poison_Mastery_Buff");
+			this.IesMods.Add("Buff", 1128, "Name", "{#006633}Poison Mastery{/}");
+			this.IesMods.Add("Buff", 1128, "Caption", "{#006633}Poison INT scaling efficiency. Stack count shows the current percentage.{/}");
+			this.IesMods.Add("Buff", 1128, "Desc", "{#006633}Poison INT scaling efficiency. Stack count shows the current percentage.{/}");
+			this.IesMods.Add("Buff", 1128, "Description", "{#006633}Poison INT scaling efficiency. Stack count shows the current percentage.{/}");
+			this.IesMods.Add("Buff", 1128, "ToolTip", "{#006633}Poison INT scaling efficiency. Stack count shows the current percentage.{/}");
+			this.IesMods.Add("Buff", 1128, "Tooltip", "{#006633}Poison INT scaling efficiency. Stack count shows the current percentage.{/}");
+			this.IesMods.Add("Buff", 1128, "Icon", "state_posion");
+			this.IesMods.Add("Buff", 1128, "ShowIcon", "None");
+			this.IesMods.Add("Buff", 1128, "Group1", "Buff");
+			this.IesMods.Add("Buff", 1128, "Group2", "Normal");
+			this.IesMods.Add("Buff", 1128, "Group3", "None");
+			this.IesMods.Add("Buff", 1128, "ApplyTime", 1800000);
+			this.IesMods.Add("Buff", 1128, "UpdateTime", 0);
+			this.IesMods.Add("Buff", 1128, "CT_SlotType", "slot_ability");
+			this.IesMods.Add("Buff", 1128, "OverBuff", 100);
+			this.IesMods.Add("Buff", 1128, "CT_OverBuff", 100);
+			this.IesMods.Add("Buff", 1128, "ApplyLimitCountBuff", "YES");
+			this.IesMods.Add("Buff", 1128, "CT_RemoveBySkill", "NO");
+			this.IesMods.Add("Buff", 1128, "DeadRemove", "NO");
+			this.IesMods.Add("Buff", 1128, "Save", "NO");
+
+			this.IesMods.Add("Buff", 1067, "ClassName", "WideMiasma_Debuff");
+			this.IesMods.Add("Buff", 1067, "Type", "Debuff");
+			this.IesMods.Add("Buff", 1067, "Name", "Wide Miasma");
+			this.IesMods.Add("Buff", 1067, "Caption", "Healing received is reduced. Reduction scales with skill level and Poison Mastery.");
+			this.IesMods.Add("Buff", 1067, "Desc", "Healing received is reduced. Reduction scales with skill level and Poison Mastery.");
+			this.IesMods.Add("Buff", 1067, "Description", "Healing received is reduced. Reduction scales with skill level and Poison Mastery.");
+			this.IesMods.Add("Buff", 1067, "ToolTip", "Healing received is reduced. Reduction scales with skill level and Poison Mastery.");
+			this.IesMods.Add("Buff", 1067, "Tooltip", "Healing received is reduced. Reduction scales with skill level and Poison Mastery.");
+			this.IesMods.Add("Buff", 1067, "Icon", "arch_wugonggu");
+			this.IesMods.Add("Buff", 1067, "ShowIcon", "YES");
+			this.IesMods.Add("Buff", 1067, "Group1", "Debuff");
+			this.IesMods.Add("Buff", 1067, "Group2", "Normal");
+			this.IesMods.Add("Buff", 1067, "Group3", "None");
+			this.IesMods.Add("Buff", 1067, "ApplyTime", 20000);
+			this.IesMods.Add("Buff", 1067, "UpdateTime", 0);
+			this.IesMods.Add("Buff", 1067, "CT_SlotType", "slot_ability");
+			this.IesMods.Add("Buff", 1067, "OverBuff", 100);
+			this.IesMods.Add("Buff", 1067, "CT_OverBuff", 100);
+			this.IesMods.Add("Buff", 1067, "ApplyLimitCountBuff", "YES");
+			this.IesMods.Add("Buff", 1067, "CT_RemoveBySkill", "YES");
+			this.IesMods.Add("Buff", 1067, "DeadRemove", "YES");
+			this.IesMods.Add("Buff", 1067, "Save", "NO");
+
+			this.IesMods.Add("Buff", 120007, "ClassName", "DecreaseHeal_Debuff");
+			this.IesMods.Add("Buff", 120007, "Type", "Debuff");
+			this.IesMods.Add("Buff", 120007, "Name", "Healing Reduction");
+			this.IesMods.Add("Buff", 120007, "Caption", "Healing received is reduced.");
+			this.IesMods.Add("Buff", 120007, "Desc", "Healing received is reduced.");
+			this.IesMods.Add("Buff", 120007, "Description", "Healing received is reduced.");
+			this.IesMods.Add("Buff", 120007, "ToolTip", "Healing received is reduced.");
+			this.IesMods.Add("Buff", 120007, "Tooltip", "Healing received is reduced.");
+			this.IesMods.Add("Buff", 120007, "Icon", "arch_wugonggu");
+			this.IesMods.Add("Buff", 120007, "ShowIcon", "YES");
+			this.IesMods.Add("Buff", 120007, "Group1", "Debuff");
+			this.IesMods.Add("Buff", 120007, "Group2", "Normal");
+			this.IesMods.Add("Buff", 120007, "Group3", "None");
+			this.IesMods.Add("Buff", 120007, "ApplyTime", 20000);
+			this.IesMods.Add("Buff", 120007, "UpdateTime", 0);
+			this.IesMods.Add("Buff", 120007, "CT_SlotType", "slot_ability");
+			this.IesMods.Add("Buff", 120007, "OverBuff", 100);
+			this.IesMods.Add("Buff", 120007, "CT_OverBuff", 100);
+			this.IesMods.Add("Buff", 120007, "ApplyLimitCountBuff", "YES");
+			this.IesMods.Add("Buff", 120007, "CT_RemoveBySkill", "YES");
+			this.IesMods.Add("Buff", 120007, "DeadRemove", "YES");
+			this.IesMods.Add("Buff", 120007, "Save", "NO");
+
+			var symphonyBuffTooltips = new (int Id, string ClassName, string Name, string Description)[]
+			{
+				(697401, "Symphony_MarchOfTriumph_Buff", "March of Triumph", "Physical Attack and Magic Attack +25%, Movement Speed +8, and immunity from knockdowns, knockbacks, and stagger."),
+				(697402, "Symphony_BalladOfSanctuary_Buff", "Ballad of Sanctuary", "Restores 60% HP and 60% SP over 20 seconds. Physical Defense and Magic Defense +20%."),
+				(697403, "Symphony_DanceOfSwiftness_Buff", "Fire Dance", "Skill cooldowns are reduced by 20% while this buff is active. AoE Attack Ratio is increased."),
+				(697404, "Symphony_GoldenResonance_Buff", "Bleed for Me", "After 12 seconds, removes 1 to 2 removable debuffs."),
+				(697405, "Symphony_HerosCrescendo_Buff", "Poison Heart", "Minimum Critical Rate +10% and Critical Damage +15%."),
+				(630125, "Symphony_IronWaltz_Buff", "Iron Waltz", "Damage received -15%, Block +25%, and Evasion +25%."),
+				(630126, "Symphony_EchoOfReversal_Buff", "Echo of Reversal", "20% chance when hit to reflect 30% of received damage."),
+				(697408, "Symphony_FestivalOverture_Buff", "Festival Overture", "Accuracy +60%."),
+				(697409, "Symphony_FinaleOfResurrection_Buff", "Finale of Resurrection", "Revives once with 40% HP if defeated during the buff."),
+				(697410, "Symphony_BrokenTempo_Debuff", "Broken Tempo", "Instantly forces one random hotbar skill into 15 seconds of cooldown."),
+				(630130, "Symphony_CursedChorus_Debuff", "Cursed Chorus", "After 12 seconds, reduces HP or SP to 6.66%."),
+				(697412, "Symphony_DiscordantMelody_Debuff", "Discordant Melody", "Stunned for 2 seconds."),
+				(697413, "Symphony_DanceOfMadness_Debuff", "Dance of Madness", "Blinded for 4 seconds. Does not affect the Pied Piper who played the melody."),
+			};
+
+			foreach (var buffTooltip in symphonyBuffTooltips)
+			{
+				this.IesMods.Add("Buff", buffTooltip.Id, "ClassName", buffTooltip.ClassName);
+				this.IesMods.Add("Buff", buffTooltip.Id, "Name", buffTooltip.Name);
+				this.IesMods.Add("Buff", buffTooltip.Id, "Caption", buffTooltip.Description);
+				this.IesMods.Add("Buff", buffTooltip.Id, "Desc", buffTooltip.Description);
+				this.IesMods.Add("Buff", buffTooltip.Id, "Description", buffTooltip.Description);
+				this.IesMods.Add("Buff", buffTooltip.Id, "ToolTip", buffTooltip.Description);
+				this.IesMods.Add("Buff", buffTooltip.Id, "Tooltip", buffTooltip.Description);
+			}
+
 			this.IesMods.Add("SharedConst", 177, "Value", this.Conf.World.StorageFee); // WAREHOUSE_PRICE
 			this.IesMods.Add("SharedConst", 10004, "Value", this.Conf.World.StorageExtCost); // WAREHOUSE_EXTEND_PRICE
 			this.IesMods.Add("SharedConst", 10006, "Value", this.Conf.World.StorageExtCount); // WAREHOUSE_EXTEND_SLOT_COUNT

@@ -97,6 +97,15 @@ public class AbilityUnlockedFunctionsScript : GeneralScript
 	}
 
 	/// <summary>
+	/// Placeholder unlock for future Dragoon dragon pact progression.
+	/// </summary>
+	[ScriptableFunction]
+	public static bool UNLOCK_DRAGON_PACT(Character character, string argStr, int argNum, AbilityData data)
+	{
+		return false;
+	}
+
+	/// <summary>
 	/// Unlocks if given skill is at least at the minLevel and character
 	/// has the Priest job with circle 2 or above.
 	/// </summary>

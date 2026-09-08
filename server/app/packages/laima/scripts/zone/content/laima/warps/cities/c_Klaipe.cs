@@ -29,7 +29,6 @@ public class c_KlaipeWarpsScript : GeneralScript
 		// Klaipeda to Gytis Settlement Area
 		AddWarp(10015, "KLAPEDA_TO_SIAUL50_1", 154, From("c_Klaipe", 240.6537, 895.663), To("f_siauliai_50_1", 1565, -1468));
 
-		// Klaipeda to Beauty Shop
-		AddWarp(10063, "KLAPEDA_TO_BEAUTYSHOP", 180, From("c_Klaipe", -1055.639, 635.0443), To("c_barber_dress", -14, -58));
+		// Klaipeda to Beauty Shop is scheduled by KlaipedaBeautyShopAccessScript.
 	}
 }

@@ -16,6 +16,8 @@ using MySqlConnector;
 using Yggdrasil.Logging;
 using Yggdrasil.Util;
 
+using GuiltineSin.Zone.Skills;
+using GuiltineSin.Zone.Skills.Handlers.Swordsmen.Eskrimer;
 namespace GuiltineSin.Zone.Database
 {
 	public partial class ZoneDb

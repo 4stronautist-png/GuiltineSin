@@ -24,6 +24,7 @@ using Yggdrasil.Logging;
 using Yggdrasil.Util.Commands;
 using static GuiltineSin.Zone.Scripting.Shortcuts;
 
+using GuiltineSin.Zone.World;
 namespace GuiltineSin.Zone.Scripting.Shared
 {
 	public static partial class NPCFunctions

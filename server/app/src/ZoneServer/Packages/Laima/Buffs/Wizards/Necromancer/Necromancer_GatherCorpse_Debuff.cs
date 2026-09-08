@@ -5,6 +5,7 @@ using GuiltineSin.Zone.Network;
 using GuiltineSin.Zone.World.Actors.Characters;
 using GuiltineSin.Zone.World.Actors.Monsters;
 
+using GuiltineSin.Zone.Skills.Handlers.Wizards.Necromancer;
 namespace GuiltineSin.Zone.Buffs.Handlers.Wizards.Necromancer
 {
 	/// <summary>
