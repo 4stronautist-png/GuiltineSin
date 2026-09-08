@@ -42,8 +42,6 @@ public class GuildHangoutTrainingDummyScript : GeneralScript
 		};
 
 		dummy.Components.Add(new MovementComponent(dummy));
-		dummy.Properties.SetFloat(PropertyName.MHP, DummyMaxHp);
-		dummy.Properties.SetFloat(PropertyName.MHP_BM, DummyMaxHp);
 		dummy.Properties.Overrides.SetFloat(PropertyName.MHP, DummyMaxHp);
 		dummy.Properties.Overrides.SetFloat(PropertyName.MHP_BM, DummyMaxHp);
 		dummy.Properties.Overrides.SetFloat(PropertyName.MINPATK, 0);

@@ -46,7 +46,6 @@ using static GuiltineSin.Zone.Database.ZoneDb;
 
 using GuiltineSin.Zone.Skills.Handlers.Swordsmen.Eskrimer;
 using GuiltineSin.Zone.Skills.Handlers.Wizards.Necromancer;
-			using var packet = Packet.Rent(Op.ZC_UPDATED_PCAPPEARANCE);
 namespace GuiltineSin.Zone.Network
 {
 	public partial class PacketHandler : PacketHandler<IZoneConnection>
