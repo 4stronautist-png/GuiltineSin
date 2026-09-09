@@ -1,12 +1,12 @@
 using System;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Packages;
-using Melia.Shared.World;
-using Melia.Zone.Network;
-using Melia.Zone.Skills.Handlers.Base;
-using Melia.Zone.World.Actors;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Network;
+using GuiltineSin.Zone.Skills.Handlers.Base;
+using GuiltineSin.Zone.World.Actors;
 
-namespace Melia.Zone.Skills.Handlers.Wizards.Bonemancer
+namespace GuiltineSin.Zone.Skills.Handlers.Wizards.Bonemancer
 {
 	[Package("laima"), SkillHandler(SkillId.Bonemancer_BoneShield_Swordman)] public class Bonemancer_BoneShieldSwordman : Bonemancer_BoneShield { }
 	[Package("laima"), SkillHandler(SkillId.Bonemancer_BoneShield_Wizard)] public class Bonemancer_BoneShieldWizard : Bonemancer_BoneShield { }

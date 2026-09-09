@@ -2,15 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Melia.Shared.Game.Const;
-using Melia.Shared.Packages;
-using Melia.Shared.World;
-using Melia.Zone.Skills.Combat;
-using Melia.Zone.Skills.Handlers.Base;
-using Melia.Zone.Skills.SplashAreas;
-using Melia.Zone.World.Actors;
+using GuiltineSin.Shared.Game.Const;
+using GuiltineSin.Shared.Packages;
+using GuiltineSin.Shared.World;
+using GuiltineSin.Zone.Skills.Combat;
+using GuiltineSin.Zone.Skills.Handlers.Base;
+using GuiltineSin.Zone.Skills.SplashAreas;
+using GuiltineSin.Zone.World.Actors;
 
-namespace Melia.Zone.Skills.Handlers.Wizards.Bonemancer
+namespace GuiltineSin.Zone.Skills.Handlers.Wizards.Bonemancer
 {
 	[Package("laima"), SkillHandler(SkillId.Bonemancer_BoneFist_Swordman)] public class Bonemancer_BoneFistSwordman : Bonemancer_BoneFist { }
 	[Package("laima"), SkillHandler(SkillId.Bonemancer_BoneFist_Wizard)] public class Bonemancer_BoneFistWizard : Bonemancer_BoneFist { }
