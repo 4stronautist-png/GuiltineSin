@@ -33,7 +33,8 @@ the repo itself went public.
 2. Inspect: `git status --short --branch`, `git remote -v`, `git log -1 --oneline`.
 3. If the requested branch doesn't exist locally, create/switch only if clearly wanted; otherwise
    stop and say the branch is missing.
-4. Run `git push -u origin <branch>` first.
+4. Run `git push -u guiltinesin <branch>` first. Do NOT push to `origin` — that remote still
+   points at the old `4stronautist-png/CloverTOS` repo, kept only for fetching legacy branch refs.
 5. On success, report the branch and latest commit hash.
 6. On auth failure: ask for a new token, use it only for that one push, then immediately restore
    the remote URL back to the clean `https://github.com/4stronautist-png/GuiltineSin.git`.
@@ -46,8 +47,10 @@ the repo itself went public.
 - Keep the push scoped to `CloverTOS`; don't publish sibling repos (`Melia`, `Melia-TOS-Client`)
   unless explicitly asked.
 - If the repo is dirty in unexpected ways, summarize before pushing.
-- Repo must be **private**. If `gh repo view 4stronautist-png/GuiltineSin --json isPrivate` ever
-  reports `false`, flag it immediately rather than silently pushing more code to it.
+- The repo is intentionally **public** (explicit user decision, 2026-09-07). Do not treat
+  `gh repo view 4stronautist-png/GuiltineSin --json isPrivate` reporting `false` as a problem —
+  that is the expected, correct state. The boundary that matters is the client-distribution rule
+  above, not repo visibility.
 
 ## Expected final report
 

@@ -1,6 +1,6 @@
 ---
 name: client-reverse-analysis
-description: Use when comparing GuiltineSin/Melia server behavior against a compiled Tree of Savior client (Papaya/IMC), extracting client-side expectations from logs, binaries, packet names, UI frame names, crash traces, and load sequences.
+description: Use when comparing GuiltineSin server behavior against a compiled Tree of Savior client (Papaya/IMC), extracting client-side expectations from logs, binaries, packet names, UI frame names, crash traces, and load sequences.
 ---
 
 # Client Reverse Analysis

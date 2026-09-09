@@ -1,5 +1,11 @@
 # Handoff: Necromancer Rework
 
+Naming note: this handoff predates the 2026-09-07 CloverTOS->GuiltineSin rename. Where it says
+`CloverTOS`/`CloverTOS-Local`/`Melia.sln`/`\\wsl.localhost\Ubuntu\home\an\CloverTOS`, read those as
+the pre-rename names for what are now GuiltineSin/`C:\GuiltineSin`/`GuiltineSin.sln`/the current
+`/home/z3ck/Melia-TOS-Server/CloverTOS` workspace. Left verbatim for historical accuracy — it
+describes a real completed work session on a now-renamed setup.
+
 Data: 2026-05-21
 
 ## Contexto

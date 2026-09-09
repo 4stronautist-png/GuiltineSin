@@ -27,9 +27,9 @@ and fixes for dozens of prior quest-chain bugs. Do not re-derive from scratch wh
 
 ## Where things live
 
-- Live repo (WSL): `/home/z3ck/Melia-TOS-Server/CloverTOS` (branch `fix/quest-chain-episodes-1-18`,
-  large uncommitted working tree from the rename — do not `git reset`/`checkout --` without reading
-  `git status` first, real unstaged quest fixes are mixed in).
+- Live repo (WSL): `/home/z3ck/Melia-TOS-Server/CloverTOS` (branch `main` — all feature/fix branches
+  from the old CloverTOS repo have been merged in; check `git status` before any reset/checkout
+  regardless, this workspace goes dirty often during long debugging sessions).
 - Server app: `server/app` (.NET, `GuiltineSin.sln`, was `Melia.sln`).
 - Quest/NPC content: `server/app/packages/laima/...` and `server/app/src/ZoneServer/Scripting/Shared/NPCFunctions.cs`.
 - Windows client install: `C:\GuiltineSin\release` (`/mnt/c/GuiltineSin/release` from WSL).
@@ -47,12 +47,14 @@ and fixes for dozens of prior quest-chain bugs. Do not re-derive from scratch wh
 - `.claude/skills/client-reverse-analysis` — comparing server behavior against the compiled
   Papaya/IMC client (logs, packets, UI frames, crash traces).
 - `.claude/skills/local-start-login` — start-server.sh, client launch, serverlist/login failures.
-- `.claude/skills/git-publish` — pushing to the private GuiltineSin GitHub remote.
+- `.claude/skills/git-publish` — pushing to the public GuiltineSin GitHub remote.
 
 ## Hard rules
 
-1. Never make the GitHub repo public, never build/publish an installer that bundles or
-   auto-downloads the Tree of Savior client for third parties. Server-emulator code only.
+1. The GitHub repo is intentionally public (explicit user decision, 2026-09-07) — do not treat
+   that as a problem to fix. What stays off limits regardless: never build/publish an installer
+   that bundles or auto-downloads the Tree of Savior client for third parties, and never publish
+   client binaries/assets. Server-emulator source code only.
 2. Never revert or discard uncommitted changes without checking `git status` first — this
    workspace stays dirty by design across long debugging sessions.
 3. After any quest/NPC/dialog change: rebuild Release, run
