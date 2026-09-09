@@ -48,6 +48,8 @@ and fixes for dozens of prior quest-chain bugs. Do not re-derive from scratch wh
   Papaya/IMC client (logs, packets, UI frames, crash traces).
 - `.claude/skills/local-start-login` — start-server.sh, client launch, serverlist/login failures.
 - `.claude/skills/git-publish` — pushing to the public GuiltineSin GitHub remote.
+- `.claude/skills/resume-context` — reconstructing where a session left off (post-restart, "where
+  did we stop") from `.claude/HISTORY.md` and git state, without asking the user to re-explain.
 
 ## Hard rules
 
