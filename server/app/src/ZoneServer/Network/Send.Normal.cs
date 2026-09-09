@@ -509,6 +509,7 @@ namespace GuiltineSin.Zone.Network
 				actor.Map.Broadcast(packet);
 			}
 
+
 			/// <summary>
 			/// Sends character look update to a specific connection.
 			/// Used for pocket wigs, hair costumes, etc.
@@ -737,16 +738,19 @@ namespace GuiltineSin.Zone.Network
 			/// <param name="str1"></param>
 			/// <param name="str2"></param>
 			public static void PlayEffectNode(IActor actor, string packetString, float time, string str1, string str2)
+				=> PlayEffectNode(actor, packetString, time, str1, str2, Math.Max(0, (int)(time * 1000)));
+
+			public static void PlayEffectNode(IActor actor, string packetString, float scale, string str1, string str2, int durationMs)
 			{
 				using var packet = Packet.Rent(Op.ZC_NORMAL);
 				packet.PutSubOp(NormalOpType.Zone, NormalOp.Zone.PlayEffectNode);
 
 				packet.PutInt(actor.Handle);
 				packet.AddStringId(packetString);
-				packet.PutFloat(time);
+				packet.PutFloat(scale);
 				packet.PutLpString(str1);
 				packet.PutLpString(str2);
-				packet.PutInt(0);
+				packet.PutInt(durationMs);
 				packet.PutInt(4);
 
 				actor.Map.Broadcast(packet);
@@ -799,6 +803,7 @@ namespace GuiltineSin.Zone.Network
 
 				actor.Map.Broadcast(packet);
 			}
+
 
 			/// <summary>
 			/// Plays an animation effect.
@@ -1232,6 +1237,7 @@ namespace GuiltineSin.Zone.Network
 
 				entity.Map.Broadcast(packet);
 			}
+
 
 			/// <summary>
 			/// Set an Actor's Color (Yellow, Magenta, Cyan, Alpha)
@@ -2182,25 +2188,6 @@ namespace GuiltineSin.Zone.Network
 			}
 
 			/// <summary>
-			/// Moves a client-side skill effect or pad-like object by handle.
-			/// Useful for retail packets that reference a transient effect handle
-			/// without a full server-side Pad instance.
-			/// </summary>
-			public static void SkillEffectMovement(IActor actor, int effectHandle, Position dest, float movementSpeed, float f2 = 1f, bool b1 = true)
-			{
-				using var packet = Packet.Rent(Op.ZC_NORMAL);
-				packet.PutSubOp(NormalOpType.Zone, NormalOp.Zone.Skill_EffectMovement);
-
-				packet.PutInt(effectHandle);
-				packet.PutPosition(dest);
-				packet.PutByte(b1 ? (byte)1 : (byte)0);
-				packet.PutFloat(movementSpeed);
-				packet.PutFloat(f2);
-
-				actor.Map.Broadcast(packet);
-			}
-
-			/// <summary>
 			/// It seems to start an animation for a given effectId.
 			/// </summary>
 			/// <param name="actor"></param>
@@ -2437,7 +2424,7 @@ namespace GuiltineSin.Zone.Network
 				packet.PutInt(actor.Handle);
 				packet.PutInt((int)skillId);
 
-				actor.Map.Broadcast(packet);
+				actor.Map.Broadcast(packet, actor);
 			}
 
 			/// <summary>
@@ -3236,6 +3223,26 @@ namespace GuiltineSin.Zone.Network
 				packet.PutFloat(easeOut);
 
 				actor.Map.Broadcast(packet, actor);
+			}
+
+
+			/// <summary>
+			/// Moves a client-side skill effect or pad-like object by handle.
+			/// Useful for retail packets that reference a transient effect handle
+			/// without a full server-side Pad instance.
+			/// </summary>
+			public static void SkillEffectMovement(IActor actor, int effectHandle, Position dest, float movementSpeed, float f2 = 1f, bool b1 = true)
+			{
+				using var packet = Packet.Rent(Op.ZC_NORMAL);
+				packet.PutSubOp(NormalOpType.Zone, NormalOp.Zone.Skill_EffectMovement);
+
+				packet.PutInt(effectHandle);
+				packet.PutPosition(dest);
+				packet.PutByte(b1 ? (byte)1 : (byte)0);
+				packet.PutFloat(movementSpeed);
+				packet.PutFloat(f2);
+
+				actor.Map.Broadcast(packet);
 			}
 
 
@@ -4441,6 +4448,7 @@ namespace GuiltineSin.Zone.Network
 				entity.Map.Broadcast(packet);
 			}
 
+
 			/// <summary>
 			/// Used with Hunter's Coursing Skill
 			/// </summary>
@@ -4887,22 +4895,6 @@ namespace GuiltineSin.Zone.Network
 			}
 
 			/// <summary>
-			/// Sends the old retail 0x17C notice-style payload shape seen in
-			/// BlitzHunter traces.
-			/// </summary>
-			public static void Unknown_17C_BlitzNotice(IActor actor, byte[] payload)
-			{
-				if (payload == null || payload.Length != 13)
-					throw new ArgumentException("payload must be exactly 13 bytes long.", nameof(payload));
-
-				using var packet = Packet.Rent(Op.ZC_NORMAL);
-				packet.PutSubOp(NormalOpType.Zone, 0x17C);
-				packet.PutBin(payload);
-
-				actor.Map.Broadcast(packet);
-			}
-
-			/// <summary>
 			///
 			/// </summary>
 			/// <param name="clientMessageId"></param>
@@ -5149,6 +5141,23 @@ namespace GuiltineSin.Zone.Network
 			}
 
 			/// <summary>
+			/// Sends the old retail 0x17C notice-style payload shape seen in
+			/// BlitzHunter traces.
+			/// </summary>
+			public static void Unknown_17C_BlitzNotice(IActor actor, byte[] payload)
+			{
+				if (payload == null || payload.Length != 13)
+					throw new ArgumentException("payload must be exactly 13 bytes long.", nameof(payload));
+
+				using var packet = Packet.Rent(Op.ZC_NORMAL);
+				packet.PutSubOp(NormalOpType.Zone, 0x17C);
+				packet.PutBin(payload);
+
+				actor.Map.Broadcast(packet);
+			}
+
+
+			/// <summary>
 			/// Unknown purpose yet. (Dummy)
 			/// </summary>
 			/// <param name="character"></param>
@@ -5161,6 +5170,7 @@ namespace GuiltineSin.Zone.Network
 
 				conn.Send(packet);
 			}
+
 
 			/// <summary>
 			/// Unknown purpose yet. (Dummy)
